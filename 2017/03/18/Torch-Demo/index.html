@@ -29,7 +29,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,Mala" />
+  <meta name="keywords" content="Deep Learning,Torch," />
 
 
 
@@ -38,19 +38,22 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="We have 5 steps to do in training a torch neural network.
+(1) Load and normalize data; (2) Define Neural Network; (3) Define Loss function; (4) Train network on training data; (5) Test network on test">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2017/03/17/hello-world/index.html">
+<meta property="og:title" content="Torch Demo">
+<meta property="og:url" content="http://yoursite.com/2017/03/18/Torch-Demo/index.html">
 <meta property="og:site_name" content="mrlonelyjtr's blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2017-03-16T16:34:18.000Z">
+<meta property="og:description" content="We have 5 steps to do in training a torch neural network.
+(1) Load and normalize data; (2) Define Neural Network; (3) Define Loss function; (4) Train network on training data; (5) Test network on test">
+<meta property="og:image" content="http://p1.bqimg.com/4851/2292e852a2790f62.png">
+<meta property="og:image" content="http://p1.bqimg.com/4851/d63d92b0f0d14405.png">
+<meta property="og:updated_time" content="2017-03-17T16:41:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="Torch Demo">
+<meta name="twitter:description" content="We have 5 steps to do in training a torch neural network.
+(1) Load and normalize data; (2) Define Neural Network; (3) Define Loss function; (4) Train network on training data; (5) Test network on test">
+<meta name="twitter:image" content="http://p1.bqimg.com/4851/2292e852a2790f62.png">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -60,7 +63,7 @@ Quick">
   };
 </script>
 
-  <title> Hello World | mrlonelyjtr's blog </title>
+  <title> Torch Demo | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -310,7 +313,7 @@ Quick">
           
           
             
-              Hello World
+              Torch Demo
             
           
         </h1>
@@ -319,11 +322,26 @@ Quick">
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2017-03-16T16:34:18Z" content="2017-03-16">
-            2017-03-16
+          <time itemprop="dateCreated" datetime="2017-03-17T22:08:16Z" content="2017-03-17">
+            2017-03-17
           </time>
         </span>
 
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; In
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Deep-Learning/" itemprop="url" rel="index">
+                  <span itemprop="name">Deep Learning</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
         
 
         
@@ -338,31 +356,45 @@ Quick">
       
 
       
-        <span itemprop="articleBody"><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <span itemprop="articleBody"><p>We have <strong><em>5 steps</em></strong> to do in training a torch neural network.</p>
+<blockquote><p><em>(1) Load and normalize data; </em><br><em>(2) Define Neural Network; </em><br><em>(3) Define Loss function; </em><br><em>(4) Train network on training data; </em><br><em>(5) Test network on test data. </em></p>
+<footer><strong>Tutorial</strong><cite><a href="https://github.com/soumith/cvpr2015/blob/master/Deep%20Learning%20with%20Torch.ipynb" target="_blank" rel="external">cvpr2015/Deep Learning with Torch.ipynb</a></cite></footer></blockquote>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span> <span class="string">'paths'</span></div><div class="line"><span class="built_in">require</span> <span class="string">'nn'</span></div><div class="line"><span class="built_in">require</span> <span class="string">'torch'</span></div><div class="line"><span class="built_in">require</span> <span class="string">'cunn'</span></div><div class="line"><span class="built_in">require</span> <span class="string">'cutorch'</span></div></pre></td></tr></table></figure>
+<h3 id="Load-and-normalize-data"><a href="#Load-and-normalize-data" class="headerlink" title="Load and normalize data"></a>Load and normalize data</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="keyword">not</span> paths.filep(<span class="string">"cifar10torchsmall.zip"</span>)) <span class="keyword">then</span></div><div class="line">    os.execute(<span class="string">'wget -c https://s3.amazonaws.com/torch7/data/cifar10torchsmall.zip'</span>)</div><div class="line">    os.execute(<span class="string">'unzip cifar10torchsmall.zip'</span>)</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">trainset = torch.<span class="built_in">load</span>(<span class="string">'cifar10-train.t7'</span>)</div><div class="line">testset = torch.<span class="built_in">load</span>(<span class="string">'cifar10-test.t7'</span>)</div><div class="line">classes = &#123;<span class="string">'airplane'</span>, <span class="string">'automobile'</span>, <span class="string">'bird'</span>, <span class="string">'cat'</span>,</div><div class="line">           <span class="string">'deer'</span>, <span class="string">'dog'</span>, <span class="string">'frog'</span>, <span class="string">'horse'</span>, <span class="string">'ship'</span>, <span class="string">'truck'</span>&#125;</div><div class="line"></div><div class="line"><span class="built_in">setmetatable</span>(trainset,</div><div class="line">    &#123;<span class="built_in">__index</span> = <span class="function"><span class="keyword">function</span><span class="params">(t, i)</span></span></div><div class="line">                   <span class="keyword">return</span> &#123;t.data[i], t.label[i]&#125;</div><div class="line">               <span class="keyword">end</span>&#125;</div><div class="line">);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">trainset:size</span><span class="params">()</span></span></div><div class="line">    <span class="keyword">return</span> self.data:size(<span class="number">1</span>)</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">trainset.data = trainset.data:double()</div><div class="line">testset.data = testset.data:double()</div><div class="line"></div><div class="line">mean = &#123;&#125;</div><div class="line">stdv  = &#123;&#125;</div><div class="line"><span class="keyword">for</span> i=<span class="number">1</span>,<span class="number">3</span> <span class="keyword">do</span></div><div class="line">    mean[i] = trainset.data[&#123; &#123;&#125;, &#123;i&#125;, &#123;&#125;, &#123;&#125;  &#125;]:mean()</div><div class="line">    <span class="comment">--print('Channel ' .. i .. ', Mean: ' .. mean[i])</span></div><div class="line">    trainset.data[&#123; &#123;&#125;, &#123;i&#125;, &#123;&#125;, &#123;&#125;  &#125;]:add(-mean[i])   </div><div class="line">    stdv[i] = trainset.data[&#123; &#123;&#125;, &#123;i&#125;, &#123;&#125;, &#123;&#125;  &#125;]:std()</div><div class="line">    <span class="comment">--print('Channel ' .. i .. ', Standard Deviation: ' .. stdv[i])</span></div><div class="line">    trainset.data[&#123; &#123;&#125;, &#123;i&#125;, &#123;&#125;, &#123;&#125;  &#125;]:div(stdv[i])</div><div class="line"><span class="keyword">end</span></div><div class="line"><span class="keyword">for</span> i=<span class="number">1</span>,<span class="number">3</span> <span class="keyword">do</span></div><div class="line">     testset.data[&#123; &#123;&#125;, &#123;i&#125;, &#123;&#125;, &#123;&#125; &#125;]:add(-mean[i])</div><div class="line">     testset.data[&#123; &#123;&#125;, &#123;i&#125;, &#123;&#125;, &#123;&#125; &#125;]:div(stdv[i])</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<h3 id="Define-neural-network"><a href="#Define-neural-network" class="headerlink" title="Define neural network"></a>Define neural network</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">net = nn.Sequential()</div><div class="line">net:add(nn.SpatialConvolution(<span class="number">3</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">5</span>)) <span class="comment">-- 3 input image channels, 6 output channels, 5x5 convolution kernel</span></div><div class="line">net:add(nn.ReLU())                         <span class="comment">-- non-linearity</span></div><div class="line">net:add(nn.SpatialMaxPooling(<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>))     <span class="comment">-- A max-pooling operation that looks at 2x2 windows and finds the max.</span></div><div class="line">net:add(nn.SpatialConvolution(<span class="number">6</span>, <span class="number">16</span>, <span class="number">5</span>, <span class="number">5</span>))</div><div class="line">net:add(nn.ReLU())                         <span class="comment">-- non-linearity</span></div><div class="line">net:add(nn.SpatialMaxPooling(<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>))</div><div class="line">net:add(nn.View(<span class="number">16</span>*<span class="number">5</span>*<span class="number">5</span>))                   <span class="comment">-- reshapes from a 3D tensor of 16x5x5 into 1D tensor of 16*5*5</span></div><div class="line">net:add(nn.Linear(<span class="number">16</span>*<span class="number">5</span>*<span class="number">5</span>, <span class="number">120</span>))            <span class="comment">-- fully connected layer (matrix multiplication between input and weights)</span></div><div class="line">net:add(nn.ReLU())                         <span class="comment">-- non-linearity</span></div><div class="line">net:add(nn.Linear(<span class="number">120</span>, <span class="number">84</span>))</div><div class="line">net:add(nn.ReLU())                         <span class="comment">-- non-linearity</span></div><div class="line">net:add(nn.Linear(<span class="number">84</span>, <span class="number">10</span>))                 <span class="comment">-- 10 is the number of outputs of the network (in this case, 10 digits)</span></div><div class="line">net:add(nn.LogSoftMax())                   <span class="comment">-- converts the output to a log-probability. Useful for classification problems</span></div></pre></td></tr></table></figure>
+<h3 id="Define-the-Loss-function"><a href="#Define-the-Loss-function" class="headerlink" title="Define the Loss function"></a>Define the Loss function</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">criterion = nn.ClassNLLCriterion()</div></pre></td></tr></table></figure>
+<h3 id="Train-the-neural-network"><a href="#Train-the-neural-network" class="headerlink" title="Train the neural network"></a>Train the neural network</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">trainer = nn.StochasticGradient(net, criterion)</div><div class="line">trainer.learningRate = <span class="number">0.001</span></div><div class="line">trainer.maxIteration = <span class="number">5</span></div><div class="line">trainer:train(trainset)</div></pre></td></tr></table></figure>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- train on GPU</span></div><div class="line">net = net:cuda()</div><div class="line">criterion = criterion:cuda()</div><div class="line">trainset.data = trainset.data:cuda()</div><div class="line">trainset.label = trainset.label:cuda()</div><div class="line">testset.data = testset.data:cuda()</div><div class="line">testset.label = testset.label:cuda()</div></pre></td></tr></table></figure>
+<h3 id="Test-the-network-print-accuracy"><a href="#Test-the-network-print-accuracy" class="headerlink" title="Test the network, print accuracy"></a>Test the network, print accuracy</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">correct = <span class="number">0</span></div><div class="line">class_performance = &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>&#125;</div><div class="line"><span class="keyword">for</span> i=<span class="number">1</span>,<span class="number">10000</span> <span class="keyword">do</span></div><div class="line">    <span class="keyword">local</span> groundtruth = testset.label[i]</div><div class="line">    <span class="keyword">local</span> prediction = net:forward(testset.data[i])</div><div class="line">    <span class="keyword">local</span> confidences, indices = torch.sort(prediction, <span class="literal">true</span>)  <span class="comment">-- true means sort in descending order</span></div><div class="line">    <span class="keyword">if</span> groundtruth == indices[<span class="number">1</span>] <span class="keyword">then</span></div><div class="line">        correct = correct + <span class="number">1</span></div><div class="line">        class_performance[groundtruth] = class_performance[groundtruth] + <span class="number">1</span></div><div class="line">    <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="built_in">print</span>(correct, <span class="number">100</span>*correct/<span class="number">10000</span> .. <span class="string">" % "</span>)</div><div class="line"><span class="keyword">for</span> i=<span class="number">1</span>,#classes <span class="keyword">do</span></div><div class="line">    <span class="built_in">print</span>(classes[i], <span class="number">100</span>*class_performance[i]/<span class="number">1000</span> .. <span class="string">' %'</span>)</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<h2 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h2><p>It’ll take around 30 minutes to get the result on CPU. However, it’ll cost less than 10 minutes on GPU.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">th filename.lua</div></pre></td></tr></table></figure>
+<h3 id="On-CPU"><a href="#On-CPU" class="headerlink" title="On CPU"></a>On CPU</h3><p><img src="http://p1.bqimg.com/4851/2292e852a2790f62.png" alt="cpu"></p>
+<h3 id="On-GPU"><a href="#On-GPU" class="headerlink" title="On GPU"></a>On GPU</h3><p><img src="http://p1.bqimg.com/4851/d63d92b0f0d14405.png" alt="gpu"></p>
 </span>
       
     </div>
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Deep-Learning/" rel="tag">#Deep Learning</a>
+          
+            <a href="/tags/Torch/" rel="tag">#Torch</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/18/Torch-Demo/" rel="prev">Torch Demo</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/17/hello-world/" rel="next">Hello World</a>
             
           </div>
         </div>
@@ -612,7 +644,7 @@ Quick">
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">1.</span> <span class="nav-text">Code</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Load-and-normalize-data"><span class="nav-number">1.1.</span> <span class="nav-text">Load and normalize data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Define-neural-network"><span class="nav-number">1.2.</span> <span class="nav-text">Define neural network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Define-the-Loss-function"><span class="nav-number">1.3.</span> <span class="nav-text">Define the Loss function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Train-the-neural-network"><span class="nav-number">1.4.</span> <span class="nav-text">Train the neural network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Test-the-network-print-accuracy"><span class="nav-number">1.5.</span> <span class="nav-text">Test the network, print accuracy</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Result"><span class="nav-number">2.</span> <span class="nav-text">Result</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#On-CPU"><span class="nav-number">2.1.</span> <span class="nav-text">On CPU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#On-GPU"><span class="nav-number">2.2.</span> <span class="nav-text">On GPU</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
