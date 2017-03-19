@@ -29,7 +29,7 @@
 
 
 
-  <meta name="keywords" content="Deep Learning,Torch," />
+  <meta name="keywords" content="Deep Learning," />
 
 
 
@@ -38,22 +38,31 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="We have 5 steps to do in training a torch neural network.
-(1) Load and normalize data; (2) Define Neural Network; (3) Define Loss function; (4) Train network on training data; (5) Test network on test">
+<meta name="description" content="A brief introduction about deep learning, which will cover models, libraries and so on.
+Deep Learning Models
+Restricted Boltzmann Machine (RBM)
+Deep Belief Network (DBN)
+Convolutional Neural Net
+Recur">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Torch Demo">
-<meta property="og:url" content="http://yoursite.com/2017/03/18/Torch-Demo/index.html">
+<meta property="og:title" content="DL Intro">
+<meta property="og:url" content="http://yoursite.com/2017/03/20/DL-Intro/index.html">
 <meta property="og:site_name" content="mrlonelyjtr's blog">
-<meta property="og:description" content="We have 5 steps to do in training a torch neural network.
-(1) Load and normalize data; (2) Define Neural Network; (3) Define Loss function; (4) Train network on training data; (5) Test network on test">
-<meta property="og:image" content="http://p1.bqimg.com/4851/2292e852a2790f62.png">
-<meta property="og:image" content="http://p1.bqimg.com/4851/d63d92b0f0d14405.png">
-<meta property="og:updated_time" content="2017-03-17T16:41:00.000Z">
+<meta property="og:description" content="A brief introduction about deep learning, which will cover models, libraries and so on.
+Deep Learning Models
+Restricted Boltzmann Machine (RBM)
+Deep Belief Network (DBN)
+Convolutional Neural Net
+Recur">
+<meta property="og:updated_time" content="2017-03-19T15:54:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Torch Demo">
-<meta name="twitter:description" content="We have 5 steps to do in training a torch neural network.
-(1) Load and normalize data; (2) Define Neural Network; (3) Define Loss function; (4) Train network on training data; (5) Test network on test">
-<meta name="twitter:image" content="http://p1.bqimg.com/4851/2292e852a2790f62.png">
+<meta name="twitter:title" content="DL Intro">
+<meta name="twitter:description" content="A brief introduction about deep learning, which will cover models, libraries and so on.
+Deep Learning Models
+Restricted Boltzmann Machine (RBM)
+Deep Belief Network (DBN)
+Convolutional Neural Net
+Recur">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -63,7 +72,7 @@
   };
 </script>
 
-  <title> Torch Demo | mrlonelyjtr's blog </title>
+  <title> DL Intro | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -313,7 +322,7 @@
           
           
             
-              Torch Demo
+              DL Intro
             
           
         </h1>
@@ -322,8 +331,8 @@
       <div class="post-meta">
         <span class="post-time">
           Posted on
-          <time itemprop="dateCreated" datetime="2017-03-18T06:08:16+08:00" content="2017-03-17">
-            2017-03-17
+          <time itemprop="dateCreated" datetime="2017-03-19T20:32:42Z" content="2017-03-19">
+            2017-03-19
           </time>
         </span>
 
@@ -356,22 +365,76 @@
       
 
       
-        <span itemprop="articleBody"><p>We have <strong><em>5 steps</em></strong> to do in training a torch neural network.</p>
-<blockquote><p><em>(1) Load and normalize data; </em><br><em>(2) Define Neural Network; </em><br><em>(3) Define Loss function; </em><br><em>(4) Train network on training data; </em><br><em>(5) Test network on test data. </em></p>
-<footer><strong>Tutorial</strong><cite><a href="https://github.com/soumith/cvpr2015/blob/master/Deep%20Learning%20with%20Torch.ipynb" target="_blank" rel="external">cvpr2015/Deep Learning with Torch.ipynb</a></cite></footer></blockquote>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span> <span class="string">'paths'</span></div><div class="line"><span class="built_in">require</span> <span class="string">'nn'</span></div><div class="line"><span class="built_in">require</span> <span class="string">'torch'</span></div><div class="line"><span class="built_in">require</span> <span class="string">'cunn'</span></div><div class="line"><span class="built_in">require</span> <span class="string">'cutorch'</span></div></pre></td></tr></table></figure>
-<h3 id="Load-and-normalize-data"><a href="#Load-and-normalize-data" class="headerlink" title="Load and normalize data"></a>Load and normalize data</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="keyword">not</span> paths.filep(<span class="string">"cifar10torchsmall.zip"</span>)) <span class="keyword">then</span></div><div class="line">    os.execute(<span class="string">'wget -c https://s3.amazonaws.com/torch7/data/cifar10torchsmall.zip'</span>)</div><div class="line">    os.execute(<span class="string">'unzip cifar10torchsmall.zip'</span>)</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">trainset = torch.<span class="built_in">load</span>(<span class="string">'cifar10-train.t7'</span>)</div><div class="line">testset = torch.<span class="built_in">load</span>(<span class="string">'cifar10-test.t7'</span>)</div><div class="line">classes = &#123;<span class="string">'airplane'</span>, <span class="string">'automobile'</span>, <span class="string">'bird'</span>, <span class="string">'cat'</span>,</div><div class="line">           <span class="string">'deer'</span>, <span class="string">'dog'</span>, <span class="string">'frog'</span>, <span class="string">'horse'</span>, <span class="string">'ship'</span>, <span class="string">'truck'</span>&#125;</div><div class="line"></div><div class="line"><span class="built_in">setmetatable</span>(trainset,</div><div class="line">    &#123;<span class="built_in">__index</span> = <span class="function"><span class="keyword">function</span><span class="params">(t, i)</span></span></div><div class="line">                   <span class="keyword">return</span> &#123;t.data[i], t.label[i]&#125;</div><div class="line">               <span class="keyword">end</span>&#125;</div><div class="line">);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">trainset:size</span><span class="params">()</span></span></div><div class="line">    <span class="keyword">return</span> self.data:size(<span class="number">1</span>)</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">trainset.data = trainset.data:double()</div><div class="line">testset.data = testset.data:double()</div><div class="line"></div><div class="line">mean = &#123;&#125;</div><div class="line">stdv  = &#123;&#125;</div><div class="line"><span class="keyword">for</span> i=<span class="number">1</span>,<span class="number">3</span> <span class="keyword">do</span></div><div class="line">    mean[i] = trainset.data[&#123; &#123;&#125;, &#123;i&#125;, &#123;&#125;, &#123;&#125;  &#125;]:mean()</div><div class="line">    <span class="comment">--print('Channel ' .. i .. ', Mean: ' .. mean[i])</span></div><div class="line">    trainset.data[&#123; &#123;&#125;, &#123;i&#125;, &#123;&#125;, &#123;&#125;  &#125;]:add(-mean[i])   </div><div class="line">    stdv[i] = trainset.data[&#123; &#123;&#125;, &#123;i&#125;, &#123;&#125;, &#123;&#125;  &#125;]:std()</div><div class="line">    <span class="comment">--print('Channel ' .. i .. ', Standard Deviation: ' .. stdv[i])</span></div><div class="line">    trainset.data[&#123; &#123;&#125;, &#123;i&#125;, &#123;&#125;, &#123;&#125;  &#125;]:div(stdv[i])</div><div class="line"><span class="keyword">end</span></div><div class="line"><span class="keyword">for</span> i=<span class="number">1</span>,<span class="number">3</span> <span class="keyword">do</span></div><div class="line">     testset.data[&#123; &#123;&#125;, &#123;i&#125;, &#123;&#125;, &#123;&#125; &#125;]:add(-mean[i])</div><div class="line">     testset.data[&#123; &#123;&#125;, &#123;i&#125;, &#123;&#125;, &#123;&#125; &#125;]:div(stdv[i])</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<h3 id="Define-neural-network"><a href="#Define-neural-network" class="headerlink" title="Define neural network"></a>Define neural network</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">net = nn.Sequential()</div><div class="line">net:add(nn.SpatialConvolution(<span class="number">3</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">5</span>)) <span class="comment">-- 3 input image channels, 6 output channels, 5x5 convolution kernel</span></div><div class="line">net:add(nn.ReLU())                         <span class="comment">-- non-linearity</span></div><div class="line">net:add(nn.SpatialMaxPooling(<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>))     <span class="comment">-- A max-pooling operation that looks at 2x2 windows and finds the max.</span></div><div class="line">net:add(nn.SpatialConvolution(<span class="number">6</span>, <span class="number">16</span>, <span class="number">5</span>, <span class="number">5</span>))</div><div class="line">net:add(nn.ReLU())                         <span class="comment">-- non-linearity</span></div><div class="line">net:add(nn.SpatialMaxPooling(<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>))</div><div class="line">net:add(nn.View(<span class="number">16</span>*<span class="number">5</span>*<span class="number">5</span>))                   <span class="comment">-- reshapes from a 3D tensor of 16x5x5 into 1D tensor of 16*5*5</span></div><div class="line">net:add(nn.Linear(<span class="number">16</span>*<span class="number">5</span>*<span class="number">5</span>, <span class="number">120</span>))            <span class="comment">-- fully connected layer (matrix multiplication between input and weights)</span></div><div class="line">net:add(nn.ReLU())                         <span class="comment">-- non-linearity</span></div><div class="line">net:add(nn.Linear(<span class="number">120</span>, <span class="number">84</span>))</div><div class="line">net:add(nn.ReLU())                         <span class="comment">-- non-linearity</span></div><div class="line">net:add(nn.Linear(<span class="number">84</span>, <span class="number">10</span>))                 <span class="comment">-- 10 is the number of outputs of the network (in this case, 10 digits)</span></div><div class="line">net:add(nn.LogSoftMax())                   <span class="comment">-- converts the output to a log-probability. Useful for classification problems</span></div></pre></td></tr></table></figure>
-<h3 id="Define-the-Loss-function"><a href="#Define-the-Loss-function" class="headerlink" title="Define the Loss function"></a>Define the Loss function</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">criterion = nn.ClassNLLCriterion()</div></pre></td></tr></table></figure>
-<h3 id="Train-the-neural-network"><a href="#Train-the-neural-network" class="headerlink" title="Train the neural network"></a>Train the neural network</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">trainer = nn.StochasticGradient(net, criterion)</div><div class="line">trainer.learningRate = <span class="number">0.001</span></div><div class="line">trainer.maxIteration = <span class="number">5</span></div><div class="line">trainer:train(trainset)</div></pre></td></tr></table></figure>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- train on GPU</span></div><div class="line">net = net:cuda()</div><div class="line">criterion = criterion:cuda()</div><div class="line">trainset.data = trainset.data:cuda()</div><div class="line">trainset.label = trainset.label:cuda()</div><div class="line">testset.data = testset.data:cuda()</div><div class="line">testset.label = testset.label:cuda()</div></pre></td></tr></table></figure>
-<h3 id="Test-the-network-print-accuracy"><a href="#Test-the-network-print-accuracy" class="headerlink" title="Test the network, print accuracy"></a>Test the network, print accuracy</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">correct = <span class="number">0</span></div><div class="line">class_performance = &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>&#125;</div><div class="line"><span class="keyword">for</span> i=<span class="number">1</span>,<span class="number">10000</span> <span class="keyword">do</span></div><div class="line">    <span class="keyword">local</span> groundtruth = testset.label[i]</div><div class="line">    <span class="keyword">local</span> prediction = net:forward(testset.data[i])</div><div class="line">    <span class="keyword">local</span> confidences, indices = torch.sort(prediction, <span class="literal">true</span>)  <span class="comment">-- true means sort in descending order</span></div><div class="line">    <span class="keyword">if</span> groundtruth == indices[<span class="number">1</span>] <span class="keyword">then</span></div><div class="line">        correct = correct + <span class="number">1</span></div><div class="line">        class_performance[groundtruth] = class_performance[groundtruth] + <span class="number">1</span></div><div class="line">    <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="built_in">print</span>(correct, <span class="number">100</span>*correct/<span class="number">10000</span> .. <span class="string">" % "</span>)</div><div class="line"><span class="keyword">for</span> i=<span class="number">1</span>,#classes <span class="keyword">do</span></div><div class="line">    <span class="built_in">print</span>(classes[i], <span class="number">100</span>*class_performance[i]/<span class="number">1000</span> .. <span class="string">' %'</span>)</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<h2 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h2><p>It’ll take around 30 minutes to get the result on CPU. However, it’ll cost less than 10 minutes on GPU.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">th filename.lua</div></pre></td></tr></table></figure>
-<h3 id="On-CPU"><a href="#On-CPU" class="headerlink" title="On CPU"></a>On CPU</h3><p><img src="http://p1.bqimg.com/4851/2292e852a2790f62.png" alt="cpu"></p>
-<h3 id="On-GPU"><a href="#On-GPU" class="headerlink" title="On GPU"></a>On GPU</h3><p><img src="http://p1.bqimg.com/4851/d63d92b0f0d14405.png" alt="gpu"></p>
-</span>
+        <span itemprop="articleBody"><p>A brief introduction about deep learning, which will cover models, libraries and so on.</p>
+<h2 id="Deep-Learning-Models"><a href="#Deep-Learning-Models" class="headerlink" title="Deep Learning Models"></a>Deep Learning Models</h2><ol>
+<li>Restricted Boltzmann Machine (RBM)</li>
+<li>Deep Belief Network (DBN)</li>
+<li>Convolutional Neural Net</li>
+<li>Recurrent Nets<ul>
+<li>Gating units (LSTM, GRU)</li>
+<li>Gradient clipping</li>
+<li>Steeper gates</li>
+<li>Better optimizers</li>
+</ul>
+</li>
+<li>Autoencoders</li>
+<li>Recursive Neural Tensor Nets</li>
+</ol>
+<h2 id="Use-Cases"><a href="#Use-Cases" class="headerlink" title="Use Cases"></a>Use Cases</h2><ol>
+<li>Machine Vision<ul>
+<li>Image Classification</li>
+<li>Object Recognition: <a href="https://www.clarifai.com" target="_blank" rel="external">clarifai</a></li>
+<li>Video Recognition</li>
+</ul>
+</li>
+<li>Speech Recognition</li>
+<li>Text Processing<ul>
+<li>Fact Extraction</li>
+<li>Machine Translation</li>
+<li>Sentiment Analysis: metamind</li>
+<li>Character level text processing</li>
+</ul>
+</li>
+<li>Medical<ul>
+<li>Cancer detection</li>
+<li>Drug discovery</li>
+<li>Radiology</li>
+</ul>
+</li>
+<li>Finance</li>
+<li>Digital advertising</li>
+<li>Fraud detection</li>
+<li>Customer intel</li>
+</ol>
+<h2 id="Choice-of-Deep-Net"><a href="#Choice-of-Deep-Net" class="headerlink" title="Choice of Deep Net"></a>Choice of Deep Net</h2><h3 id="Unlabelled"><a href="#Unlabelled" class="headerlink" title="Unlabelled"></a>Unlabelled</h3><p><em>Feature Extraction, Unsupervised Learning, Pattern Recognition</em></p>
+<ol>
+<li>RBM</li>
+<li>Autoencoders</li>
+</ol>
+<h3 id="Labelled"><a href="#Labelled" class="headerlink" title="Labelled"></a>Labelled</h3><ol>
+<li>Text Processing: RNTN, Recurrent Net</li>
+<li>Image Recognition: DBN, Convolutional Net</li>
+<li>Object Recognition: RNTN, Convolutional Net</li>
+<li>Speech Recognition: Recurrent Net</li>
+</ol>
+<h3 id="General"><a href="#General" class="headerlink" title="General"></a>General</h3><ol>
+<li>Classification: MLP/RELU, Deep Belief Net</li>
+<li>Time Series Analysis: Recurrent Net</li>
+</ol>
+<h2 id="Deep-Net-Platform"><a href="#Deep-Net-Platform" class="headerlink" title="Deep Net Platform"></a>Deep Net Platform</h2><p>Deep Net Capability, Data Munging, UI/Model Management, Infrastructure</p>
+<h3 id="Pros-amp-Cons"><a href="#Pros-amp-Cons" class="headerlink" title="Pros &amp; Cons"></a>Pros &amp; Cons</h3><ul>
+<li>Pros: Hyper-parameter configuration through UI, no need to learn to code</li>
+<li>Cons: Constrained by platform functionality</li>
+</ul>
+<h3 id="Platforms"><a href="#Platforms" class="headerlink" title="Platforms"></a>Platforms</h3><ol>
+<li><a href="http://www.h2o.ai" target="_blank" rel="external">H2O.ai</a></li>
+<li><a href="https://turi.com" target="_blank" rel="external">Dato GraphLab Create</a></li>
+</ol>
+<h2 id="Deep-Learning-Libraries"><a href="#Deep-Learning-Libraries" class="headerlink" title="Deep Learning Libraries"></a>Deep Learning Libraries</h2><h3 id="Pros-amp-Cons-1"><a href="#Pros-amp-Cons-1" class="headerlink" title="Pros &amp; Cons"></a>Pros &amp; Cons</h3><ul>
+<li>Pros: Increased flexibility and options</li>
+<li>Cons: Need to know code</li>
+</ul>
+<h3 id="Libraries"><a href="#Libraries" class="headerlink" title="Libraries"></a>Libraries</h3></span>
       
     </div>
 
@@ -381,8 +444,6 @@
           
             <a href="/tags/Deep-Learning/" rel="tag">#Deep Learning</a>
           
-            <a href="/tags/Torch/" rel="tag">#Torch</a>
-          
         </div>
       
 
@@ -390,13 +451,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/20/DL-Intro/" rel="prev">DL Intro</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/17/hello-world/" rel="next">Hello World</a>
+              <a href="/2017/03/18/Torch-Demo/" rel="next">Torch Demo</a>
             
           </div>
         </div>
@@ -646,7 +705,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">1.</span> <span class="nav-text">Code</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Load-and-normalize-data"><span class="nav-number">1.1.</span> <span class="nav-text">Load and normalize data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Define-neural-network"><span class="nav-number">1.2.</span> <span class="nav-text">Define neural network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Define-the-Loss-function"><span class="nav-number">1.3.</span> <span class="nav-text">Define the Loss function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Train-the-neural-network"><span class="nav-number">1.4.</span> <span class="nav-text">Train the neural network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Test-the-network-print-accuracy"><span class="nav-number">1.5.</span> <span class="nav-text">Test the network, print accuracy</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Result"><span class="nav-number">2.</span> <span class="nav-text">Result</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#On-CPU"><span class="nav-number">2.1.</span> <span class="nav-text">On CPU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#On-GPU"><span class="nav-number">2.2.</span> <span class="nav-text">On GPU</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-Learning-Models"><span class="nav-number">1.</span> <span class="nav-text">Deep Learning Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Use-Cases"><span class="nav-number">2.</span> <span class="nav-text">Use Cases</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Choice-of-Deep-Net"><span class="nav-number">3.</span> <span class="nav-text">Choice of Deep Net</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Unlabelled"><span class="nav-number">3.1.</span> <span class="nav-text">Unlabelled</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Labelled"><span class="nav-number">3.2.</span> <span class="nav-text">Labelled</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#General"><span class="nav-number">3.3.</span> <span class="nav-text">General</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-Net-Platform"><span class="nav-number">4.</span> <span class="nav-text">Deep Net Platform</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pros-amp-Cons"><span class="nav-number">4.1.</span> <span class="nav-text">Pros & Cons</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Platforms"><span class="nav-number">4.2.</span> <span class="nav-text">Platforms</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-Learning-Libraries"><span class="nav-number">5.</span> <span class="nav-text">Deep Learning Libraries</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pros-amp-Cons-1"><span class="nav-number">5.1.</span> <span class="nav-text">Pros & Cons</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Libraries"><span class="nav-number">5.2.</span> <span class="nav-text">Libraries</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
