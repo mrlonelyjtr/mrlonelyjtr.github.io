@@ -54,7 +54,7 @@ Restricted Boltzmann Machine (RBM)
 Deep Belief Network (DBN)
 Convolutional Neural Net
 Recur">
-<meta property="og:updated_time" content="2017-03-19T15:54:04.000Z">
+<meta property="og:updated_time" content="2017-03-19T16:44:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DL Intro">
 <meta name="twitter:description" content="A brief introduction about deep learning, which will cover models, libraries and so on.
@@ -406,7 +406,7 @@ Recur">
 <li>Fraud detection</li>
 <li>Customer intel</li>
 </ol>
-<h2 id="Choice-of-Deep-Net"><a href="#Choice-of-Deep-Net" class="headerlink" title="Choice of Deep Net"></a>Choice of Deep Net</h2><h3 id="Unlabelled"><a href="#Unlabelled" class="headerlink" title="Unlabelled"></a>Unlabelled</h3><p><em>Feature Extraction, Unsupervised Learning, Pattern Recognition</em></p>
+<h2 id="How-to-choose-a-deep-net"><a href="#How-to-choose-a-deep-net" class="headerlink" title="How to choose a deep net ?"></a>How to choose a deep net ?</h2><h3 id="Unlabelled"><a href="#Unlabelled" class="headerlink" title="Unlabelled"></a>Unlabelled</h3><p><em>Feature Extraction, Unsupervised Learning, Pattern Recognition</em></p>
 <ol>
 <li>RBM</li>
 <li>Autoencoders</li>
@@ -434,7 +434,49 @@ Recur">
 <li>Pros: Increased flexibility and options</li>
 <li>Cons: Need to know code</li>
 </ul>
-<h3 id="Libraries"><a href="#Libraries" class="headerlink" title="Libraries"></a>Libraries</h3></span>
+<h3 id="Libraries"><a href="#Libraries" class="headerlink" title="Libraries"></a>Libraries</h3><ol>
+<li>Theano<ul>
+<li>Python Library</li>
+<li>Libraries: Blocks, Lasagne/Keras, Passage</li>
+</ul>
+</li>
+<li>Deeplearning4j<ul>
+<li>Features: Canova</li>
+<li>Iterative Map-Reduce</li>
+</ul>
+</li>
+<li>Torch<ul>
+<li>LuaJIT Library</li>
+<li>Hyper-parameter Config</li>
+<li>Extensions: CuTorch, NN, Cephes, DP, NNGraph</li>
+</ul>
+</li>
+<li>Caffe<ul>
+<li>C++ Library, Matlab/Python Interface</li>
+<li>Features: Hyper-parameter Config, Model Zoo</li>
+<li>Performance: Vectorization through blobs</li>
+</ul>
+</li>
+<li>TensorFlow<ul>
+<li>Computational Graph</li>
+<li>Variables, Sub-expressions, Differentiation</li>
+<li>Data Parallelism, Model Parallelism</li>
+<li>OpenCL</li>
+<li>TensorBoard</li>
+</ul>
+</li>
+</ol>
+<h2 id="How-good-is-your-fit"><a href="#How-good-is-your-fit" class="headerlink" title="How good is your fit ?"></a>How good is your fit ?</h2><ol>
+<li>Underfitting</li>
+<li>Overfitting<ul>
+<li>3 Way Data Split</li>
+<li>Regularization</li>
+<li>Max Norm Constraints</li>
+<li>Dropout </li>
+</ul>
+</li>
+</ol>
+</span>
       
     </div>
 
@@ -705,7 +747,7 @@ Recur">
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-Learning-Models"><span class="nav-number">1.</span> <span class="nav-text">Deep Learning Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Use-Cases"><span class="nav-number">2.</span> <span class="nav-text">Use Cases</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Choice-of-Deep-Net"><span class="nav-number">3.</span> <span class="nav-text">Choice of Deep Net</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Unlabelled"><span class="nav-number">3.1.</span> <span class="nav-text">Unlabelled</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Labelled"><span class="nav-number">3.2.</span> <span class="nav-text">Labelled</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#General"><span class="nav-number">3.3.</span> <span class="nav-text">General</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-Net-Platform"><span class="nav-number">4.</span> <span class="nav-text">Deep Net Platform</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pros-amp-Cons"><span class="nav-number">4.1.</span> <span class="nav-text">Pros & Cons</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Platforms"><span class="nav-number">4.2.</span> <span class="nav-text">Platforms</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-Learning-Libraries"><span class="nav-number">5.</span> <span class="nav-text">Deep Learning Libraries</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pros-amp-Cons-1"><span class="nav-number">5.1.</span> <span class="nav-text">Pros & Cons</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Libraries"><span class="nav-number">5.2.</span> <span class="nav-text">Libraries</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-Learning-Models"><span class="nav-number">1.</span> <span class="nav-text">Deep Learning Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Use-Cases"><span class="nav-number">2.</span> <span class="nav-text">Use Cases</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-choose-a-deep-net"><span class="nav-number">3.</span> <span class="nav-text">How to choose a deep net ?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Unlabelled"><span class="nav-number">3.1.</span> <span class="nav-text">Unlabelled</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Labelled"><span class="nav-number">3.2.</span> <span class="nav-text">Labelled</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#General"><span class="nav-number">3.3.</span> <span class="nav-text">General</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-Net-Platform"><span class="nav-number">4.</span> <span class="nav-text">Deep Net Platform</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pros-amp-Cons"><span class="nav-number">4.1.</span> <span class="nav-text">Pros & Cons</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Platforms"><span class="nav-number">4.2.</span> <span class="nav-text">Platforms</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-Learning-Libraries"><span class="nav-number">5.</span> <span class="nav-text">Deep Learning Libraries</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pros-amp-Cons-1"><span class="nav-number">5.1.</span> <span class="nav-text">Pros & Cons</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Libraries"><span class="nav-number">5.2.</span> <span class="nav-text">Libraries</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-good-is-your-fit"><span class="nav-number">6.</span> <span class="nav-text">How good is your fit ?</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
