@@ -103,7 +103,7 @@ Restricted Boltzmann Machine (RBM)
 Deep Belief Network (DBN)
 Convolutional Neural Net
 Recur">
-<meta property="og:updated_time" content="2017-03-19T16:44:42.000Z">
+<meta property="og:updated_time" content="2017-03-20T16:15:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DL Intro">
 <meta name="twitter:description" content="A brief introduction about deep learning, which will cover models, libraries and so on.
@@ -457,7 +457,7 @@ Recur">
 <li>Fraud detection</li>
 <li>Customer intel</li>
 </ol>
-<h2 id="How-to-choose-a-deep-net"><a href="#How-to-choose-a-deep-net" class="headerlink" title="How to choose a deep net ?"></a>How to choose a deep net ?</h2><h3 id="Unlabelled"><a href="#Unlabelled" class="headerlink" title="Unlabelled"></a>Unlabelled</h3><p><em>Feature Extraction, Unsupervised Learning, Pattern Recognition</em></p>
+<h2 id="How-to-choose-a-deep-net"><a href="#How-to-choose-a-deep-net" class="headerlink" title="How to choose a deep net ?"></a>How to choose a deep net ?</h2><h3 id="Unlabelled"><a href="#Unlabelled" class="headerlink" title="Unlabelled"></a>Unlabelled</h3><p>Feature Extraction<br>Unsupervised Learning<br>Pattern Recognition</p>
 <ol>
 <li>RBM</li>
 <li>Autoencoders</li>
@@ -472,7 +472,7 @@ Recur">
 <li>Classification: MLP/RELU, Deep Belief Net</li>
 <li>Time Series Analysis: Recurrent Net</li>
 </ol>
-<h2 id="Deep-Net-Platform"><a href="#Deep-Net-Platform" class="headerlink" title="Deep Net Platform"></a>Deep Net Platform</h2><p>Deep Net Capability, Data Munging, UI/Model Management, Infrastructure</p>
+<h2 id="Deep-Net-Platform"><a href="#Deep-Net-Platform" class="headerlink" title="Deep Net Platform"></a>Deep Net Platform</h2><p>Deep Net Capability<br>Data Munging<br>UI/Model Management<br>Infrastructure</p>
 <h3 id="Pros-amp-Cons"><a href="#Pros-amp-Cons" class="headerlink" title="Pros &amp; Cons"></a>Pros &amp; Cons</h3><ul>
 <li>Pros: Hyper-parameter configuration through UI, no need to learn to code</li>
 <li>Cons: Constrained by platform functionality</li>
@@ -517,6 +517,26 @@ Recur">
 </ul>
 </li>
 </ol>
+<h2 id="Configure-a-Deep-Net"><a href="#Configure-a-Deep-Net" class="headerlink" title="Configure a Deep Net"></a>Configure a Deep Net</h2><ol>
+<li>Layers<ul>
+<li>Input Layer</li>
+<li>Convolution / Pooling</li>
+<li>Matrix operations</li>
+<li>Output Layer</li>
+</ul>
+</li>
+<li>Neurons<ul>
+<li>Growing</li>
+<li>Pruning</li>
+</ul>
+</li>
+<li>Activations: Sigmoid, Tanh, ReLU</li>
+<li>Regularization</li>
+<li>Gating</li>
+<li>Learning Rate: Adagrad, RMSprop, Adadelta</li>
+<li>Initialization</li>
+<li>Training Time: raise the number of training epochs</li>
+</ol>
 <h2 id="How-good-is-your-fit"><a href="#How-good-is-your-fit" class="headerlink" title="How good is your fit ?"></a>How good is your fit ?</h2><ol>
 <li>Underfitting</li>
 <li>Overfitting<ul>
@@ -526,6 +546,81 @@ Recur">
 <li>Dropout </li>
 </ul>
 </li>
+</ol>
+<h2 id="Metrics"><a href="#Metrics" class="headerlink" title="Metrics"></a>Metrics</h2><p>F1 score</p>
+<h3 id="Confusion-Matrix"><a href="#Confusion-Matrix" class="headerlink" title="Confusion Matrix"></a>Confusion Matrix</h3><table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">Predicted True</th>
+<th style="text-align:center">Predicted False</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Actual True</td>
+<td style="text-align:center">TP</td>
+<td style="text-align:center">FN</td>
+</tr>
+<tr>
+<td style="text-align:center">Actual False</td>
+<td style="text-align:center">FP</td>
+<td style="text-align:center">TN</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Recall"><a href="#Recall" class="headerlink" title="Recall"></a>Recall</h3><p>TP / (TP + FN)</p>
+<h3 id="Precision"><a href="#Precision" class="headerlink" title="Precision"></a>Precision</h3><p>TP / (TP + FP)</p>
+<h2 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h2><h3 id="Hardware-level"><a href="#Hardware-level" class="headerlink" title="Hardware level"></a>Hardware level</h3><p>Parallel processing</p>
+<ul>
+<li>Shared memory: GPU, FPGA, ASIC</li>
+<li>Distributed computing: data parallelism, model parallelism, pipeline parallelism</li>
+</ul>
+<h3 id="Software-level"><a href="#Software-level" class="headerlink" title="Software level"></a>Software level</h3><p>Parallel programming</p>
+<ul>
+<li>Model</li>
+<li>Algorithm</li>
+<li>Implementation</li>
+</ul>
+<h2 id="NLP"><a href="#NLP" class="headerlink" title="NLP"></a>NLP</h2><p>Lemmatization<br>Named Entity Recognition<br>Part of Speech Tagging<br>Syntactic Parsing<br>Fact Extraction<br>Sentiment Analysis<br>Machine Translation</p>
+<h3 id="Models-to-solve-the-problem-of-One-Hot-Vector"><a href="#Models-to-solve-the-problem-of-One-Hot-Vector" class="headerlink" title="Models to solve the problem of One-Hot Vector"></a>Models to solve the problem of One-Hot Vector</h3><ol>
+<li>Continuous Bag of Words</li>
+<li>Skip grams</li>
+</ol>
+<h3 id="Tools-for-converting-words-to-vectors"><a href="#Tools-for-converting-words-to-vectors" class="headerlink" title="Tools for converting words to vectors"></a>Tools for converting words to vectors</h3><ol>
+<li>word2vec</li>
+<li>GloVe</li>
+</ol>
+<h2 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h2><ol>
+<li>Fashion Matching with Indico<ul>
+<li>Transfer Learning</li>
+<li>Custom Collection API</li>
+</ul>
+</li>
+<li>Neural Storyteller with Somatic<ul>
+<li>skip-thought model</li>
+<li>MSCOCO Dataset, Book Corpus</li>
+</ul>
+</li>
+<li>Inceptionism with Somatic<ul>
+<li>Generation</li>
+<li>Convolutional Nets</li>
+</ul>
+</li>
+</ol>
+<h2 id="Reinforcement-Learning"><a href="#Reinforcement-Learning" class="headerlink" title="Reinforcement Learning"></a>Reinforcement Learning</h2><p>Explore a tradeoff between exploration and exploitation and choose a path to maximum the expected reward</p>
+<ul>
+<li>High score</li>
+<li>Follow rules: + points</li>
+<li>Break rules: - points</li>
+</ul>
+<ol>
+<li>Deep Atari<ul>
+<li>Regression</li>
+<li>No pooling</li>
+</ul>
+</li>
+<li>Deep Q Net (DQN)</li>
 </ol>
 
       
@@ -706,7 +801,7 @@ Recur">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-Learning-Models"><span class="nav-number">1.</span> <span class="nav-text">Deep Learning Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Use-Cases"><span class="nav-number">2.</span> <span class="nav-text">Use Cases</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-choose-a-deep-net"><span class="nav-number">3.</span> <span class="nav-text">How to choose a deep net ?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Unlabelled"><span class="nav-number">3.1.</span> <span class="nav-text">Unlabelled</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Labelled"><span class="nav-number">3.2.</span> <span class="nav-text">Labelled</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#General"><span class="nav-number">3.3.</span> <span class="nav-text">General</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-Net-Platform"><span class="nav-number">4.</span> <span class="nav-text">Deep Net Platform</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pros-amp-Cons"><span class="nav-number">4.1.</span> <span class="nav-text">Pros & Cons</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Platforms"><span class="nav-number">4.2.</span> <span class="nav-text">Platforms</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-Learning-Libraries"><span class="nav-number">5.</span> <span class="nav-text">Deep Learning Libraries</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pros-amp-Cons-1"><span class="nav-number">5.1.</span> <span class="nav-text">Pros & Cons</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Libraries"><span class="nav-number">5.2.</span> <span class="nav-text">Libraries</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-good-is-your-fit"><span class="nav-number">6.</span> <span class="nav-text">How good is your fit ?</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-Learning-Models"><span class="nav-number">1.</span> <span class="nav-text">Deep Learning Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Use-Cases"><span class="nav-number">2.</span> <span class="nav-text">Use Cases</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-choose-a-deep-net"><span class="nav-number">3.</span> <span class="nav-text">How to choose a deep net ?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Unlabelled"><span class="nav-number">3.1.</span> <span class="nav-text">Unlabelled</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Labelled"><span class="nav-number">3.2.</span> <span class="nav-text">Labelled</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#General"><span class="nav-number">3.3.</span> <span class="nav-text">General</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-Net-Platform"><span class="nav-number">4.</span> <span class="nav-text">Deep Net Platform</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pros-amp-Cons"><span class="nav-number">4.1.</span> <span class="nav-text">Pros & Cons</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Platforms"><span class="nav-number">4.2.</span> <span class="nav-text">Platforms</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-Learning-Libraries"><span class="nav-number">5.</span> <span class="nav-text">Deep Learning Libraries</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pros-amp-Cons-1"><span class="nav-number">5.1.</span> <span class="nav-text">Pros & Cons</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Libraries"><span class="nav-number">5.2.</span> <span class="nav-text">Libraries</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Configure-a-Deep-Net"><span class="nav-number">6.</span> <span class="nav-text">Configure a Deep Net</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-good-is-your-fit"><span class="nav-number">7.</span> <span class="nav-text">How good is your fit ?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Metrics"><span class="nav-number">8.</span> <span class="nav-text">Metrics</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Confusion-Matrix"><span class="nav-number">8.1.</span> <span class="nav-text">Confusion Matrix</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recall"><span class="nav-number">8.2.</span> <span class="nav-text">Recall</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Precision"><span class="nav-number">8.3.</span> <span class="nav-text">Precision</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Performance"><span class="nav-number">9.</span> <span class="nav-text">Performance</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hardware-level"><span class="nav-number">9.1.</span> <span class="nav-text">Hardware level</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Software-level"><span class="nav-number">9.2.</span> <span class="nav-text">Software level</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NLP"><span class="nav-number">10.</span> <span class="nav-text">NLP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Models-to-solve-the-problem-of-One-Hot-Vector"><span class="nav-number">10.1.</span> <span class="nav-text">Models to solve the problem of One-Hot Vector</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tools-for-converting-words-to-vectors"><span class="nav-number">10.2.</span> <span class="nav-text">Tools for converting words to vectors</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Applications"><span class="nav-number">11.</span> <span class="nav-text">Applications</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reinforcement-Learning"><span class="nav-number">12.</span> <span class="nav-text">Reinforcement Learning</span></a></li></ol></div>
             
 
           </div>
