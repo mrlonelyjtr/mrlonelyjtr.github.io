@@ -119,7 +119,9 @@
 <meta property="og:image" content="http://i4.buimg.com/1949/8a0d924a7b467969.png">
 <meta property="og:image" content="http://i2.muimg.com/1949/6bc3fc9f01231433.png">
 <meta property="og:image" content="http://i4.buimg.com/1949/1b05ce43e01383e7.png">
-<meta property="og:updated_time" content="2017-05-03T15:44:54.000Z">
+<meta property="og:image" content="http://i2.muimg.com/1949/362be3c027985b40.png">
+<meta property="og:image" content="http://i1.piimg.com/1949/4bc5dd0a181d708d.png">
+<meta property="og:updated_time" content="2017-05-03T16:45:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【算法】图">
 <meta name="twitter:description" content="无向图深度优先搜索要搜索一幅图，只需用一个递归方法来遍历所有顶点。在访问其中一个顶点时：
@@ -276,47 +278,9 @@
       
 
       
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            Search
-          </a>
-        </li>
-      
     </ul>
   
 
-  
-    <div class="site-search">
-      
-  
-  <div class="algolia-popup popup search-popup">
-    <div class="algolia-search">
-      <div class="algolia-search-input-icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="algolia-search-input" id="algolia-search-input"></div>
-    </div>
-
-    <div class="algolia-results">
-      <div id="algolia-stats"></div>
-      <div id="algolia-hits"></div>
-      <div id="algolia-pagination" class="algolia-pagination"></div>
-    </div>
-
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-  </div>
-
-
-
-
-    </div>
   
 </nav>
 
@@ -522,7 +486,14 @@
 <h5 id="示意-9"><a href="#示意-9" class="headerlink" title="示意"></a>示意</h5><p><img src="http://i4.buimg.com/1949/1b05ce43e01383e7.png" alt="Markdown"></p>
 <h5 id="实现-12"><a href="#实现-12" class="headerlink" title="实现"></a>实现</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrimMST</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">boolean</span>[] marked;</div><div class="line">	<span class="keyword">private</span> Edge[] edgeTo;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">double</span>[] distTo;</div><div class="line">	<span class="keyword">private</span> IndexMinPQ&lt;Double&gt; pq;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">PrimMST</span><span class="params">(EdgeWeightedGraph g)</span></span>&#123;</div><div class="line">		marked = <span class="keyword">new</span> <span class="keyword">boolean</span>[g.V()];</div><div class="line">		edgeTo = <span class="keyword">new</span> Edge[g.V()];</div><div class="line">		distTo = <span class="keyword">new</span> <span class="keyword">double</span>[g.V()];</div><div class="line">		pq = <span class="keyword">new</span> IndexMinPQ&lt;Double&gt;(g.V());</div><div class="line">		</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> v = <span class="number">0</span>; v &lt; g.V(); v++)</div><div class="line">			distTo[v] = Double.POSITIVE_INFINITY;</div><div class="line">		</div><div class="line">		prim(g);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">prim</span><span class="params">(EdgeWeightedGraph g)</span></span>&#123;</div><div class="line">		pq.insert(<span class="number">0</span>, <span class="number">0.0</span>);</div><div class="line">		</div><div class="line">		<span class="keyword">while</span> (!pq.isEmpty())</div><div class="line">			visit(g, pq.delMin());</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">visit</span><span class="params">(EdgeWeightedGraph g, <span class="keyword">int</span> v)</span></span>&#123;</div><div class="line">		marked[v] = <span class="keyword">true</span>;</div><div class="line">		</div><div class="line">		<span class="keyword">for</span> (Edge e : g.adj(v))&#123;</div><div class="line">			<span class="keyword">int</span> w = e.other(v);</div><div class="line">			</div><div class="line">			<span class="keyword">if</span> (marked[w] == <span class="keyword">true</span>)</div><div class="line">				<span class="keyword">continue</span>;</div><div class="line">			</div><div class="line">			<span class="keyword">if</span> (e.weight() &lt; distTo[w])&#123;</div><div class="line">				distTo[w] = e.weight();</div><div class="line">				edgeTo[w] = e;</div><div class="line">				</div><div class="line">				<span class="keyword">if</span> (pq.contains(w))</div><div class="line">					pq.change(w, distTo[w]);</div><div class="line">				<span class="keyword">else</span></div><div class="line">					pq.insert(w, distTo[w]);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> Iterable&lt;Edge&gt; <span class="title">edges</span><span class="params">()</span></span>&#123;</div><div class="line">		Queue&lt;Edge&gt; mst = <span class="keyword">new</span> Queue&lt;Edge&gt;();</div><div class="line">		</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> v = <span class="number">1</span>; v &lt; edgeTo.length; v++)</div><div class="line">			mst.enqueue(edgeTo[v]);</div><div class="line">		</div><div class="line">		<span class="keyword">return</span> mst;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">weight</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">double</span> weight = <span class="number">0.0</span>;</div><div class="line">		</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> v = <span class="number">1</span>; v &lt; distTo.length; v++)</div><div class="line">			weight += distTo[v];</div><div class="line">		</div><div class="line">		<span class="keyword">return</span> weight;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h5 id="特点-8"><a href="#特点-8" class="headerlink" title="特点"></a>特点</h5><p>Prim算法的即时实现计算一幅含有V个顶点和E条边的连通加权无向图的最小生成树所需的空间和V成正比，所需的时间和ElogV成正比（最坏情况）。</p>
-<h3 id="Kruskal算法"><a href="#Kruskal算法" class="headerlink" title="Kruskal算法"></a>Kruskal算法</h3>
+<h3 id="Kruskal算法"><a href="#Kruskal算法" class="headerlink" title="Kruskal算法"></a>Kruskal算法</h3><p>按照边的权重顺序（从小到大）处理它们，将边加入最小生成树中，加入的边不会与已经加入的边构成环，直到树中含有V-1条边为止。这些黑色的边逐渐由一片森林合并为一棵树，也就是图的最小生成树。</p>
+<h4 id="定义-3"><a href="#定义-3" class="headerlink" title="定义"></a>定义</h4><p>Kruskal算法能够计算任意加权无向图的最小生成树。</p>
+<h4 id="示意-10"><a href="#示意-10" class="headerlink" title="示意"></a>示意</h4><p><img src="http://i2.muimg.com/1949/362be3c027985b40.png" alt="Markdown"></p>
+<h4 id="实现-13"><a href="#实现-13" class="headerlink" title="实现"></a>实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">KruskalMST</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> Queue&lt;Edge&gt; mst;</div><div class="line">	<span class="keyword">private</span> MinPQ&lt;Edge&gt; pq;</div><div class="line">	<span class="keyword">private</span> UF uf;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">double</span> weight;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">KruskalMST</span><span class="params">(EdgeWeightedGraph g)</span></span>&#123;</div><div class="line">		weight = <span class="number">0</span>;</div><div class="line">		mst = <span class="keyword">new</span> Queue&lt;Edge&gt;();</div><div class="line">		pq = <span class="keyword">new</span> MinPQ&lt;Edge&gt;(g.E());</div><div class="line">		uf = <span class="keyword">new</span> UF(g.V());</div><div class="line">		</div><div class="line">		<span class="keyword">for</span> (Edge e : g.edges())</div><div class="line">			pq.insert(e);</div><div class="line">		</div><div class="line">		kruskal(g);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">kruskal</span><span class="params">(EdgeWeightedGraph g)</span></span>&#123;</div><div class="line">		<span class="keyword">while</span> (!pq.isEmpty() &amp;&amp; mst.size() &lt; g.V())&#123;</div><div class="line">			Edge e = pq.delMin();</div><div class="line">			</div><div class="line">			<span class="keyword">int</span> v = e.either();</div><div class="line">			<span class="keyword">int</span> w = e.other(v);</div><div class="line">			</div><div class="line">			<span class="keyword">if</span> (uf.connected(v, w))</div><div class="line">				<span class="keyword">continue</span>;</div><div class="line">			</div><div class="line">			uf.union(v, w);</div><div class="line">			mst.enqueue(e);</div><div class="line">			weight += e.weight();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> Iterable&lt;Edge&gt; <span class="title">edges</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> mst;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">weight</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> weight;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="特点-9"><a href="#特点-9" class="headerlink" title="特点"></a>特点</h4><p>Kruskal算法计算一幅含有V个顶点和E条边的连通加权无向图的最小生成树所需的空间和E成正比，所需的时间和ElogE成正比（最坏情况）。</p>
+<h4 id="比较-2"><a href="#比较-2" class="headerlink" title="比较"></a>比较</h4><p>Prim算法是一条边一条边地来构造最小生成树，每一步都为一棵树添加一条边。 Kruskal算法构造最小生成树的时候也是一条边一条边地构造，但不同的是它寻找的边会连接一片森林中的两棵树。从一片由V棵单顶点的树构成的森林开始并不断将两棵树合并（用可以找到的最短边）直到只剩下一棵树，它就是最小生成树。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="http://i1.piimg.com/1949/4bc5dd0a181d708d.png" alt="Markdown"></p>
+<h2 id="最短路径"><a href="#最短路径" class="headerlink" title="最短路径"></a>最短路径</h2>
       
     </div>
 
@@ -575,6 +546,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/04/【算法】字符串/" rel="prev" title="【算法】字符串">
+                【算法】字符串 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -646,7 +621,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -657,7 +632,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -668,7 +643,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -703,7 +678,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#无向图"><span class="nav-number">1.</span> <span class="nav-text">无向图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#深度优先搜索"><span class="nav-number">1.1.</span> <span class="nav-text">深度优先搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示意"><span class="nav-number">1.1.1.</span> <span class="nav-text">示意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现"><span class="nav-number">1.1.2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特点"><span class="nav-number">1.1.3.</span> <span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#广度优先搜索"><span class="nav-number">1.2.</span> <span class="nav-text">广度优先搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示意-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">示意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特点-1"><span class="nav-number">1.2.3.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#比较"><span class="nav-number">1.2.4.</span> <span class="nav-text">比较</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连通分量"><span class="nav-number">1.3.</span> <span class="nav-text">连通分量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示意-2"><span class="nav-number">1.3.1.</span> <span class="nav-text">示意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-2"><span class="nav-number">1.3.2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特点-2"><span class="nav-number">1.3.3.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#比较-1"><span class="nav-number">1.3.4.</span> <span class="nav-text">比较</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检测环"><span class="nav-number">1.4.</span> <span class="nav-text">检测环</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-3"><span class="nav-number">1.4.1.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双色问题"><span class="nav-number">1.5.</span> <span class="nav-text">双色问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-4"><span class="nav-number">1.5.1.</span> <span class="nav-text">实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有向图"><span class="nav-number">2.</span> <span class="nav-text">有向图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#深度优先搜索-1"><span class="nav-number">2.1.</span> <span class="nav-text">深度优先搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-5"><span class="nav-number">2.1.1.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特点-3"><span class="nav-number">2.1.2.</span> <span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#广度优先搜索-1"><span class="nav-number">2.2.</span> <span class="nav-text">广度优先搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-6"><span class="nav-number">2.2.1.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特点-4"><span class="nav-number">2.2.2.</span> <span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有向环检测"><span class="nav-number">2.3.</span> <span class="nav-text">有向环检测</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义"><span class="nav-number">2.3.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示意-3"><span class="nav-number">2.3.2.</span> <span class="nav-text">示意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-7"><span class="nav-number">2.3.3.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拓扑排序"><span class="nav-number">2.4.</span> <span class="nav-text">拓扑排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-1"><span class="nav-number">2.4.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基于深度优先搜索的顶点排序"><span class="nav-number">2.4.2.</span> <span class="nav-text">基于深度优先搜索的顶点排序</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#示意-4"><span class="nav-number">2.4.2.1.</span> <span class="nav-text">示意</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实现-8"><span class="nav-number">2.4.2.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示意-5"><span class="nav-number">2.4.3.</span> <span class="nav-text">示意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-9"><span class="nav-number">2.4.4.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特点-5"><span class="nav-number">2.4.5.</span> <span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#强连通性"><span class="nav-number">2.5.</span> <span class="nav-text">强连通性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示意-6"><span class="nav-number">2.5.1.</span> <span class="nav-text">示意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-10"><span class="nav-number">2.5.2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特点-6"><span class="nav-number">2.5.3.</span> <span class="nav-text">特点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最小生成树"><span class="nav-number">3.</span> <span class="nav-text">最小生成树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Prim算法"><span class="nav-number">3.1.</span> <span class="nav-text">Prim算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示意-7"><span class="nav-number">3.1.1.</span> <span class="nav-text">示意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-2"><span class="nav-number">3.1.2.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#延时实现"><span class="nav-number">3.1.3.</span> <span class="nav-text">延时实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#示意-8"><span class="nav-number">3.1.3.1.</span> <span class="nav-text">示意</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实现-11"><span class="nav-number">3.1.3.2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#特点-7"><span class="nav-number">3.1.3.3.</span> <span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#即时实现"><span class="nav-number">3.1.4.</span> <span class="nav-text">即时实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#示意-9"><span class="nav-number">3.1.4.1.</span> <span class="nav-text">示意</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实现-12"><span class="nav-number">3.1.4.2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#特点-8"><span class="nav-number">3.1.4.3.</span> <span class="nav-text">特点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Kruskal算法"><span class="nav-number">3.2.</span> <span class="nav-text">Kruskal算法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#无向图"><span class="nav-number">1.</span> <span class="nav-text">无向图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#深度优先搜索"><span class="nav-number">1.1.</span> <span class="nav-text">深度优先搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示意"><span class="nav-number">1.1.1.</span> <span class="nav-text">示意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现"><span class="nav-number">1.1.2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特点"><span class="nav-number">1.1.3.</span> <span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#广度优先搜索"><span class="nav-number">1.2.</span> <span class="nav-text">广度优先搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示意-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">示意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特点-1"><span class="nav-number">1.2.3.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#比较"><span class="nav-number">1.2.4.</span> <span class="nav-text">比较</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连通分量"><span class="nav-number">1.3.</span> <span class="nav-text">连通分量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示意-2"><span class="nav-number">1.3.1.</span> <span class="nav-text">示意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-2"><span class="nav-number">1.3.2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特点-2"><span class="nav-number">1.3.3.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#比较-1"><span class="nav-number">1.3.4.</span> <span class="nav-text">比较</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检测环"><span class="nav-number">1.4.</span> <span class="nav-text">检测环</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-3"><span class="nav-number">1.4.1.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双色问题"><span class="nav-number">1.5.</span> <span class="nav-text">双色问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-4"><span class="nav-number">1.5.1.</span> <span class="nav-text">实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有向图"><span class="nav-number">2.</span> <span class="nav-text">有向图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#深度优先搜索-1"><span class="nav-number">2.1.</span> <span class="nav-text">深度优先搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-5"><span class="nav-number">2.1.1.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特点-3"><span class="nav-number">2.1.2.</span> <span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#广度优先搜索-1"><span class="nav-number">2.2.</span> <span class="nav-text">广度优先搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-6"><span class="nav-number">2.2.1.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特点-4"><span class="nav-number">2.2.2.</span> <span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有向环检测"><span class="nav-number">2.3.</span> <span class="nav-text">有向环检测</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义"><span class="nav-number">2.3.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示意-3"><span class="nav-number">2.3.2.</span> <span class="nav-text">示意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-7"><span class="nav-number">2.3.3.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拓扑排序"><span class="nav-number">2.4.</span> <span class="nav-text">拓扑排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-1"><span class="nav-number">2.4.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基于深度优先搜索的顶点排序"><span class="nav-number">2.4.2.</span> <span class="nav-text">基于深度优先搜索的顶点排序</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#示意-4"><span class="nav-number">2.4.2.1.</span> <span class="nav-text">示意</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实现-8"><span class="nav-number">2.4.2.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示意-5"><span class="nav-number">2.4.3.</span> <span class="nav-text">示意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-9"><span class="nav-number">2.4.4.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特点-5"><span class="nav-number">2.4.5.</span> <span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#强连通性"><span class="nav-number">2.5.</span> <span class="nav-text">强连通性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示意-6"><span class="nav-number">2.5.1.</span> <span class="nav-text">示意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-10"><span class="nav-number">2.5.2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特点-6"><span class="nav-number">2.5.3.</span> <span class="nav-text">特点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最小生成树"><span class="nav-number">3.</span> <span class="nav-text">最小生成树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Prim算法"><span class="nav-number">3.1.</span> <span class="nav-text">Prim算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#示意-7"><span class="nav-number">3.1.1.</span> <span class="nav-text">示意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-2"><span class="nav-number">3.1.2.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#延时实现"><span class="nav-number">3.1.3.</span> <span class="nav-text">延时实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#示意-8"><span class="nav-number">3.1.3.1.</span> <span class="nav-text">示意</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实现-11"><span class="nav-number">3.1.3.2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#特点-7"><span class="nav-number">3.1.3.3.</span> <span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#即时实现"><span class="nav-number">3.1.4.</span> <span class="nav-text">即时实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#示意-9"><span class="nav-number">3.1.4.1.</span> <span class="nav-text">示意</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实现-12"><span class="nav-number">3.1.4.2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#特点-8"><span class="nav-number">3.1.4.3.</span> <span class="nav-text">特点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Kruskal算法"><span class="nav-number">3.2.</span> <span class="nav-text">Kruskal算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义-3"><span class="nav-number">3.2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示意-10"><span class="nav-number">3.2.2.</span> <span class="nav-text">示意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-13"><span class="nav-number">3.2.3.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特点-9"><span class="nav-number">3.2.4.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#比较-2"><span class="nav-number">3.2.5.</span> <span class="nav-text">比较</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">3.3.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最短路径"><span class="nav-number">4.</span> <span class="nav-text">最短路径</span></a></li></ol></div>
             
 
           </div>
@@ -862,146 +837,7 @@
 
   
 
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length == 0) {
-      search_path = "search.xml";
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
 
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.popup').toggle();
-    }
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-      $.ajax({
-        url: path,
-        dataType: "xml",
-        async: true,
-        success: function( xmlResponse ) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = $( "entry", xmlResponse ).map(function() {
-            return {
-              title: $( "title", this ).text(),
-              content: $("content",this).text(),
-              url: $( "url" , this).text()
-            };
-          }).get();
-          var $input = document.getElementById(search_id);
-          var $resultContent = document.getElementById(content_id);
-          $input.addEventListener('input', function(){
-            var matchcounts = 0;
-            var str='<ul class=\"search-result-list\">';
-            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-            $resultContent.innerHTML = "";
-            if (this.value.trim().length > 1) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var content_index = [];
-                var data_title = data.title.trim().toLowerCase();
-                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                var data_url = decodeURIComponent(data.url);
-                var index_title = -1;
-                var index_content = -1;
-                var first_occur = -1;
-                // only match artiles with not empty titles and contents
-                if(data_title != '') {
-                  keywords.forEach(function(keyword, i) {
-                    index_title = data_title.indexOf(keyword);
-                    index_content = data_content.indexOf(keyword);
-                    if( index_title >= 0 || index_content >= 0 ){
-                      isMatch = true;
-                      if (i == 0) {
-                        first_occur = index_content;
-                      }
-                    }
-
-                  });
-                }
-                // show search results
-                if (isMatch) {
-                  matchcounts += 1;
-                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
-                  var content = data.content.trim().replace(/<[^>]+>/g,"");
-                  if (first_occur >= 0) {
-                    // cut out 100 characters
-                    var start = first_occur - 20;
-                    var end = first_occur + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if(start == 0){
-                      end = 50;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    var match_content = content.substring(start, end);
-                    // highlight all keywords
-                    keywords.forEach(function(keyword){
-                      var regS = new RegExp(keyword, "gi");
-                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
-                    });
-
-                    str += "<p class=\"search-result\">" + match_content +"...</p>"
-                  }
-                  str += "</li>";
-                }
-              })};
-            str += "</ul>";
-            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
-            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
-            $resultContent.innerHTML = str;
-          });
-          proceedsearch();
-        }
-      });}
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched == false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(function(e){
-      $('.popup').hide();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    });
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-  </script>
-
-
-
-
-  
-  
-  
-  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
-
-  
-  
-  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-  
-
-  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
 
 
 
