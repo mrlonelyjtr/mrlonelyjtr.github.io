@@ -87,16 +87,25 @@
 
 
 
-<meta name="description" content="You task is to find minimal natural number N, so that N! contains exactly Q zeroes on the trail in decimal notation. As you know N! = 12…*N. For example, 5! = 120, 120 contains one zero on the trail.">
+<meta name="description" content="题目把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。
+示意
+实现1234567891011121314151617181920212223242526272829303132public int minNumberInRotateArra">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LightOJ] Problem 1138 - Trailing Zeroes (III)">
-<meta property="og:url" content="http://yoursite.com/2017/04/01/LightOJ-Problem-1138-Trailing-Zeroes-III/index.html">
+<meta property="og:title" content="【剑指Offer】旋转数组的最小数字">
+<meta property="og:url" content="http://yoursite.com/2017/05/12/【剑指Offer】旋转数组的最小数字/index.html">
 <meta property="og:site_name" content="mrlonelyjtr's blog">
-<meta property="og:description" content="You task is to find minimal natural number N, so that N! contains exactly Q zeroes on the trail in decimal notation. As you know N! = 12…*N. For example, 5! = 120, 120 contains one zero on the trail.">
-<meta property="og:updated_time" content="2017-04-07T12:28:43.000Z">
+<meta property="og:description" content="题目把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。
+示意
+实现1234567891011121314151617181920212223242526272829303132public int minNumberInRotateArra">
+<meta property="og:image" content="http://i2.muimg.com/1949/af016e29c27396d7.png">
+<meta property="og:image" content="http://i2.muimg.com/1949/529c2b0e2fb635be.png">
+<meta property="og:updated_time" content="2017-05-11T14:50:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LightOJ] Problem 1138 - Trailing Zeroes (III)">
-<meta name="twitter:description" content="You task is to find minimal natural number N, so that N! contains exactly Q zeroes on the trail in decimal notation. As you know N! = 12…*N. For example, 5! = 120, 120 contains one zero on the trail.">
+<meta name="twitter:title" content="【剑指Offer】旋转数组的最小数字">
+<meta name="twitter:description" content="题目把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。
+示意
+实现1234567891011121314151617181920212223242526272829303132public int minNumberInRotateArra">
+<meta name="twitter:image" content="http://i2.muimg.com/1949/af016e29c27396d7.png">
 
 
 
@@ -124,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/01/LightOJ-Problem-1138-Trailing-Zeroes-III/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/12/【剑指Offer】旋转数组的最小数字/"/>
 
 
 
 
 
-  <title> [LightOJ] Problem 1138 - Trailing Zeroes (III) | mrlonelyjtr's blog </title>
+  <title> 【剑指Offer】旋转数组的最小数字 | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -269,7 +278,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/01/LightOJ-Problem-1138-Trailing-Zeroes-III/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/12/【剑指Offer】旋转数组的最小数字/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -290,7 +299,7 @@
             
             
               
-                [LightOJ] Problem 1138 - Trailing Zeroes (III)
+                【剑指Offer】旋转数组的最小数字
               
             
           </h1>
@@ -305,8 +314,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-01T02:00:52+08:00">
-                2017-03-31
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-11T21:23:14Z">
+                2017-05-11
               </time>
             
 
@@ -363,16 +372,9 @@
       
 
       
-        <p>You task is to find minimal natural number N, so that N! contains exactly Q zeroes on the trail in decimal notation. As you know N! = 1<em>2</em>…*N. For example, 5! = 120, 120 contains one zero on the trail.</p>
-<p>Time Limit: 2 second(s)<br>Memory Limit: 32 MB</p>
-<p>小明学习数学的时候遇到了两个新奇的函数f(x)和g(x)。f(x)的值为x的阶乘后导0的个数。g(x)的值为满足f(y)=x的最小值y，如果不存在y使f(y)=x, 那么g(x)的值为-1。现在小明已经知道如何计算f(x)了，他想让你帮他写段程序来计算g(x)。</p>
-<p>Hint<br>0!=1，1!=1，2!=1<em>2=2， 3!=1</em>2<em>3=6，4!=1</em>2<em>3</em>4=24，5!=1<em>2</em>3<em>4</em>5=120，5是最小数字使f(x)为1<br>为了清楚的表述，可引入另外一个函数h(x, p)为x的阶乘中因子p的个数。那么f(x) = h(x, 10)我们把10分解质因子10=2*5。那么有f(x) = min(h(x, 2), h(x, 5))。显然h(x, 2) &gt;= h(x, 5)，所以f(x)=h(x, 5)。我们可以推断出f(x)是一个非递减函数</p>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>Input starts with an integer T (≤ 10000), denoting the number of test cases.</p>
-<p>Each case contains an integer Q (1 ≤ Q ≤ 10^8) in a line.</p>
-<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>For each case, print the case number and N. If no solution is found then print ‘impossible’.</p>
-<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><p>3<br>1<br>2<br>5</p>
-<h2 id="Output-for-Sample-Input"><a href="#Output-for-Sample-Input" class="headerlink" title="Output for Sample Input"></a>Output for Sample Input</h2><p>Case 1: 5<br>Case 2: 10<br>Case 3: impossible</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.Scanner;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		Scanner sc = <span class="keyword">new</span> Scanner(System.in);</div><div class="line">		</div><div class="line">		<span class="keyword">int</span> t = sc.nextInt();</div><div class="line">		</div><div class="line">		<span class="keyword">if</span> (t &lt; <span class="number">1</span> || t &gt; <span class="number">10000</span>)</div><div class="line">			<span class="keyword">return</span>;</div><div class="line">		</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= t; i++) &#123;</div><div class="line">			<span class="keyword">int</span> x = sc.nextInt();</div><div class="line">			</div><div class="line">			<span class="keyword">if</span> (x &lt; <span class="number">1</span> || x &gt; Math.pow(<span class="number">10</span>, <span class="number">8</span>))</div><div class="line">				<span class="keyword">return</span>;</div><div class="line">			</div><div class="line">			<span class="keyword">long</span> result = binarySearch(<span class="number">1</span>, Long.MAX_VALUE, x);</div><div class="line">			</div><div class="line">			<span class="keyword">if</span> (result != -<span class="number">1</span>)</div><div class="line">				System.out.println(<span class="string">"Case "</span> + i + <span class="string">": "</span> + result);</div><div class="line">			<span class="keyword">else</span></div><div class="line">				System.out.println(<span class="string">"Case "</span> + i + <span class="string">": impossible"</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">trailingZeroes</span><span class="params">(<span class="keyword">long</span> n)</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> n == <span class="number">0</span> ? <span class="number">0</span> : n / <span class="number">5</span> + trailingZeroes(n / <span class="number">5</span>);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">long</span> left, <span class="keyword">long</span> right, <span class="keyword">long</span> key)</span> </span>&#123;</div><div class="line">		<span class="keyword">while</span> (left &lt;= right)&#123;</div><div class="line">			<span class="keyword">long</span> mid = (left + right) / <span class="number">2</span>;</div><div class="line">			</div><div class="line">			<span class="keyword">if</span> (trailingZeroes(mid) == key &amp;&amp; trailingZeroes(mid - <span class="number">1</span>) &lt; key) </div><div class="line">				<span class="keyword">return</span> mid;</div><div class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (trailingZeroes(mid) &lt; key) </div><div class="line">				left = mid + <span class="number">1</span>;</div><div class="line">			<span class="keyword">else</span> </div><div class="line">				right = mid - <span class="number">1</span>;</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		<span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。</p>
+<h2 id="示意"><a href="#示意" class="headerlink" title="示意"></a>示意</h2><p><img src="http://i2.muimg.com/1949/af016e29c27396d7.png" alt="Markdown"><br><img src="http://i2.muimg.com/1949/529c2b0e2fb635be.png" alt="Markdown"></p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minNumberInRotateArray</span><span class="params">(<span class="keyword">int</span>[] array)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> left = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> right = array.length - <span class="number">1</span>;</div><div class="line">    <span class="keyword">int</span> mid = left;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (array[left] &gt;= array[right])&#123;</div><div class="line">        <span class="keyword">if</span> (right - left == <span class="number">1</span>) &#123;</div><div class="line">            mid = right;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        mid = (left + right) / <span class="number">2</span>;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (array[mid] == array[left] &amp;&amp; array[mid] == array[right])</div><div class="line">            <span class="keyword">return</span> minInOrder(array, left, right);</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (array[mid] &gt;= array[left])</div><div class="line">            left = mid;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (array[mid] &lt;= array[right])</div><div class="line">            right = mid;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> array[mid];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">minInOrder</span><span class="params">(<span class="keyword">int</span>[] array, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> min = array[left];</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = left + <span class="number">1</span>; i &lt;= right; i++)</div><div class="line">        min = Math.min(min, array[i]);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> min;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -416,8 +418,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/27/Algorithm-from-NowCoder-4/" rel="next" title="Algorithm from NowCoder (4)">
-                <i class="fa fa-chevron-left"></i> Algorithm from NowCoder (4)
+              <a href="/2017/05/11/【剑指Offer】用两个栈实现队列/" rel="next" title="【剑指Offer】用两个栈实现队列">
+                <i class="fa fa-chevron-left"></i> 【剑指Offer】用两个栈实现队列
               </a>
             
           </div>
@@ -426,8 +428,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/01/hihoCoder-Problem-1288-Font-Size/" rel="prev" title="[hihoCoder] Problem 1288 - Font Size">
-                [hihoCoder] Problem 1288 - Font Size <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/12/【剑指Offer】斐波那契数列/" rel="prev" title="【剑指Offer】斐波那契数列">
+                【剑指Offer】斐波那契数列 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -557,7 +559,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Input"><span class="nav-number">1.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Output"><span class="nav-number">2.</span> <span class="nav-text">Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample-Input"><span class="nav-number">3.</span> <span class="nav-text">Sample Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Output-for-Sample-Input"><span class="nav-number">4.</span> <span class="nav-text">Output for Sample Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">5.</span> <span class="nav-text">Code</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示意"><span class="nav-number">2.</span> <span class="nav-text">示意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">3.</span> <span class="nav-text">实现</span></a></li></ol></div>
             
 
           </div>
