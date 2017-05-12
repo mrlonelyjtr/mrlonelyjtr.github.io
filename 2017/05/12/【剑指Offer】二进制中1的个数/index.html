@@ -87,22 +87,19 @@
 
 
 
-<meta name="description" content="题目输入一个链表的头结点，从尾到头反过来打印出每个结点的值。
-实现12345678public class ListNode &amp;#123;    int val;    ListNode next = null;    ListNode(int val) &amp;#123;        this.val = val;    &amp;#125;&amp;#125;
-12345678910ArrayList&amp;lt;In">
+<meta name="description" content="题目请实现一个函数，输入一个整数，输出该数二进制表示中1的个数。例如把9表示成二进制是1001，有2位是1。因此如果输入9，该函数输出2。
+可能引起死循环的解法123456789101112public int NumberOf1(int n) &amp;#123;    int count = 0;    while (n != 0)&amp;#123;        if ((n &amp;amp; 1) == 1)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【剑指Offer】从尾到头打印链表">
-<meta property="og:url" content="http://yoursite.com/2017/05/11/【剑指Offer】从尾到头打印链表/index.html">
+<meta property="og:title" content="【剑指Offer】二进制中1的个数">
+<meta property="og:url" content="http://yoursite.com/2017/05/12/【剑指Offer】二进制中1的个数/index.html">
 <meta property="og:site_name" content="mrlonelyjtr's blog">
-<meta property="og:description" content="题目输入一个链表的头结点，从尾到头反过来打印出每个结点的值。
-实现12345678public class ListNode &amp;#123;    int val;    ListNode next = null;    ListNode(int val) &amp;#123;        this.val = val;    &amp;#125;&amp;#125;
-12345678910ArrayList&amp;lt;In">
-<meta property="og:updated_time" content="2017-05-10T14:46:54.000Z">
+<meta property="og:description" content="题目请实现一个函数，输入一个整数，输出该数二进制表示中1的个数。例如把9表示成二进制是1001，有2位是1。因此如果输入9，该函数输出2。
+可能引起死循环的解法123456789101112public int NumberOf1(int n) &amp;#123;    int count = 0;    while (n != 0)&amp;#123;        if ((n &amp;amp; 1) == 1)">
+<meta property="og:updated_time" content="2017-05-12T05:53:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【剑指Offer】从尾到头打印链表">
-<meta name="twitter:description" content="题目输入一个链表的头结点，从尾到头反过来打印出每个结点的值。
-实现12345678public class ListNode &amp;#123;    int val;    ListNode next = null;    ListNode(int val) &amp;#123;        this.val = val;    &amp;#125;&amp;#125;
-12345678910ArrayList&amp;lt;In">
+<meta name="twitter:title" content="【剑指Offer】二进制中1的个数">
+<meta name="twitter:description" content="题目请实现一个函数，输入一个整数，输出该数二进制表示中1的个数。例如把9表示成二进制是1001，有2位是1。因此如果输入9，该函数输出2。
+可能引起死循环的解法123456789101112public int NumberOf1(int n) &amp;#123;    int count = 0;    while (n != 0)&amp;#123;        if ((n &amp;amp; 1) == 1)">
 
 
 
@@ -130,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/11/【剑指Offer】从尾到头打印链表/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/12/【剑指Offer】二进制中1的个数/"/>
 
 
 
 
 
-  <title> 【剑指Offer】从尾到头打印链表 | mrlonelyjtr's blog </title>
+  <title> 【剑指Offer】二进制中1的个数 | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -275,7 +272,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/11/【剑指Offer】从尾到头打印链表/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/12/【剑指Offer】二进制中1的个数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -296,7 +293,7 @@
             
             
               
-                【剑指Offer】从尾到头打印链表
+                【剑指Offer】二进制中1的个数
               
             
           </h1>
@@ -311,8 +308,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-11T06:00:53+08:00">
-                2017-05-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-12T01:00:46Z">
+                2017-05-12
               </time>
             
 
@@ -369,9 +366,17 @@
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>输入一个链表的头结点，从尾到头反过来打印出每个结点的值。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> val;</div><div class="line">    ListNode next = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    ListNode(<span class="keyword">int</span> val) &#123;</div><div class="line">        <span class="keyword">this</span>.val = val;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">ArrayList&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> ArrayList&lt;Integer&gt; <span class="title">printListFromTailToHead</span><span class="params">(ListNode listNode)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (listNode != <span class="keyword">null</span>)&#123;</div><div class="line">        printListFromTailToHead(listNode.next);</div><div class="line">        list.add(listNode.val);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> list;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>请实现一个函数，输入一个整数，输出该数二进制表示中1的个数。例如把9表示成二进制是1001，有2位是1。因此如果输入9，该函数输出2。</p>
+<h2 id="可能引起死循环的解法"><a href="#可能引起死循环的解法" class="headerlink" title="可能引起死循环的解法"></a>可能引起死循环的解法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">NumberOf1</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (n != <span class="number">0</span>)&#123;</div><div class="line">        <span class="keyword">if</span> ((n &amp; <span class="number">1</span>) == <span class="number">1</span>)</div><div class="line">            count++;</div><div class="line"></div><div class="line">        n = n &gt;&gt; <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> count;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="常规解法"><a href="#常规解法" class="headerlink" title="常规解法"></a>常规解法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">NumberOf1</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> flag = <span class="number">1</span>;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (flag != <span class="number">0</span>)&#123;</div><div class="line">        <span class="keyword">if</span> ((n &amp; flag) == flag)</div><div class="line">            count++;</div><div class="line"></div><div class="line">        flag = flag &lt;&lt; <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> count;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="能给面试官带来惊喜的解法"><a href="#能给面试官带来惊喜的解法" class="headerlink" title="能给面试官带来惊喜的解法"></a>能给面试官带来惊喜的解法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">NumberOf1</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (n != <span class="number">0</span>)&#123;</div><div class="line">        count++;</div><div class="line">        n = n &amp; (n - <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> count;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="相关题目"><a href="#相关题目" class="headerlink" title="相关题目"></a>相关题目</h2><ol>
+<li><p>用一条语句判断一个整数是不是2的整数次方。一个整数如果是2的整数次方，那么它的二进制表示中有且只有一位是1，而其他所有位都是0.根据前面的分析，把这个整数减去1之后再和它自己做与运算，这个整数中唯一的1就会变成0.</p>
+</li>
+<li><p>输入两个整数m和n，计算需要改变m的二进制表示中的多少位才能得到n。比如10的二进制表示为1010，13的二进制表示为1101，需要改变1010中的3位才能得到1101.我们可以分为两步解决这个问题：第一步求这两个数的异或，第二步统计异或结果中1的位数。</p>
+</li>
+</ol>
+
       
     </div>
 
@@ -415,8 +420,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/10/【剑指Offer】替换空格/" rel="next" title="【剑指Offer】替换空格">
-                <i class="fa fa-chevron-left"></i> 【剑指Offer】替换空格
+              <a href="/2017/05/12/【剑指Offer】斐波那契数列/" rel="next" title="【剑指Offer】斐波那契数列">
+                <i class="fa fa-chevron-left"></i> 【剑指Offer】斐波那契数列
               </a>
             
           </div>
@@ -425,8 +430,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/11/【剑指Offer】重建二叉树/" rel="prev" title="【剑指Offer】重建二叉树">
-                【剑指Offer】重建二叉树 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/12/【剑指Offer】数值的整数次方/" rel="prev" title="【剑指Offer】数值的整数次方">
+                【剑指Offer】数值的整数次方 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -556,7 +561,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可能引起死循环的解法"><span class="nav-number">2.</span> <span class="nav-text">可能引起死循环的解法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常规解法"><span class="nav-number">3.</span> <span class="nav-text">常规解法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#能给面试官带来惊喜的解法"><span class="nav-number">4.</span> <span class="nav-text">能给面试官带来惊喜的解法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关题目"><span class="nav-number">5.</span> <span class="nav-text">相关题目</span></a></li></ol></div>
             
 
           </div>
