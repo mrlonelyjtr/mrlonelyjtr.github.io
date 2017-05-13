@@ -87,25 +87,24 @@
 
 
 
-<meta name="description" content="题目##
-1
-##
-1">
+<meta name="description" content="题目输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有奇数位于数组的前半部分，所有偶数位于数组的后半部分。
+只完成基本功能的解法，仅适用于初级程序员示意
+实现123456789101112131415161718public void reOrderArray(int[] array) &amp;#123;    int begin = 0;    int end = array.lengt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【剑指Offer】调整数组顺序使奇数位于偶数前面">
 <meta property="og:url" content="http://yoursite.com/2017/05/13/【剑指Offer】调整数组顺序使奇数位于偶数前面/index.html">
 <meta property="og:site_name" content="mrlonelyjtr's blog">
-<meta property="og:description" content="题目##
-1
-##
-1">
-<meta property="og:updated_time" content="2017-05-13T05:11:11.000Z">
+<meta property="og:description" content="题目输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有奇数位于数组的前半部分，所有偶数位于数组的后半部分。
+只完成基本功能的解法，仅适用于初级程序员示意
+实现123456789101112131415161718public void reOrderArray(int[] array) &amp;#123;    int begin = 0;    int end = array.lengt">
+<meta property="og:image" content="http://i1.piimg.com/1949/f68ee2ee73c65c95.png">
+<meta property="og:updated_time" content="2017-05-13T13:57:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【剑指Offer】调整数组顺序使奇数位于偶数前面">
-<meta name="twitter:description" content="题目##
-1
-##
-1">
+<meta name="twitter:description" content="题目输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有奇数位于数组的前半部分，所有偶数位于数组的后半部分。
+只完成基本功能的解法，仅适用于初级程序员示意
+实现123456789101112131415161718public void reOrderArray(int[] array) &amp;#123;    int begin = 0;    int end = array.lengt">
+<meta name="twitter:image" content="http://i1.piimg.com/1949/f68ee2ee73c65c95.png">
 
 
 
@@ -314,7 +313,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-13T13:10:05Z">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-13T21:10:05+08:00">
                 2017-05-13
               </time>
             
@@ -372,10 +371,12 @@
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>##</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"></div></pre></td></tr></table></figure>
-<p>##</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"></div></pre></td></tr></table></figure>
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有奇数位于数组的前半部分，所有偶数位于数组的后半部分。</p>
+<h2 id="只完成基本功能的解法，仅适用于初级程序员"><a href="#只完成基本功能的解法，仅适用于初级程序员" class="headerlink" title="只完成基本功能的解法，仅适用于初级程序员"></a>只完成基本功能的解法，仅适用于初级程序员</h2><h3 id="示意"><a href="#示意" class="headerlink" title="示意"></a>示意</h3><p><img src="http://i1.piimg.com/1949/f68ee2ee73c65c95.png" alt="Markdown"></p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reOrderArray</span><span class="params">(<span class="keyword">int</span>[] array)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> begin = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> end = array.length - <span class="number">1</span>;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (begin &lt; end)&#123;</div><div class="line">        <span class="keyword">while</span> (begin &lt; end &amp;&amp; (array[begin] &amp; <span class="number">1</span>) == <span class="number">1</span>)</div><div class="line">            begin++;</div><div class="line"></div><div class="line">        <span class="keyword">while</span> (begin &lt; end &amp;&amp; (array[end] &amp; <span class="number">1</span>) != <span class="number">1</span>)</div><div class="line">            end--;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (begin &lt; end)&#123;</div><div class="line">            <span class="keyword">int</span> tmp = array[end];</div><div class="line">            array[end] = array[begin];</div><div class="line">            array[begin] = tmp;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="考虑可扩展性的解法，能秒杀Offer"><a href="#考虑可扩展性的解法，能秒杀Offer" class="headerlink" title="考虑可扩展性的解法，能秒杀Offer"></a>考虑可扩展性的解法，能秒杀Offer</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reOrderArray</span><span class="params">(<span class="keyword">int</span>[] array)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> begin = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> end = array.length - <span class="number">1</span>;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (begin &lt; end)&#123;</div><div class="line">        <span class="keyword">while</span> (begin &lt; end &amp;&amp; isOdd(array[begin]))</div><div class="line">            begin++;</div><div class="line"></div><div class="line">        <span class="keyword">while</span> (begin &lt; end &amp;&amp; !isOdd(array[end]))</div><div class="line">            end--;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (begin &lt; end)&#123;</div><div class="line">            <span class="keyword">int</span> tmp = array[end];</div><div class="line">            array[end] = array[begin];</div><div class="line">            array[begin] = tmp;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isOdd</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> (n &amp; <span class="number">1</span>) == <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="本题扩展"><a href="#本题扩展" class="headerlink" title="本题扩展"></a>本题扩展</h2><p>输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前半部分，所有的偶数位于位于数组的后半部分，并保证奇数和奇数，偶数和偶数之间的相对位置不变。</p>
+<h3 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reOrderArray</span><span class="params">(<span class="keyword">int</span>[] array)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span>[] aux = <span class="keyword">new</span> <span class="keyword">int</span>[array.length];</div><div class="line">    <span class="keyword">int</span> countOdd = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</div><div class="line">        aux[i] = array[i];</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (isOdd(array[i]))</div><div class="line">            countOdd++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> oddPos = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> evenPos = countOdd;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; aux.length; i++)&#123;</div><div class="line">        <span class="keyword">if</span> (isOdd(aux[i]))</div><div class="line">            array[oddPos++] = aux[i];</div><div class="line">        <span class="keyword">else</span></div><div class="line">            array[evenPos++] = aux[i];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isOdd</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> (n &amp; <span class="number">1</span>) == <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -428,6 +429,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/14/【剑指Offer】链表中倒数第k个结点/" rel="prev" title="【剑指Offer】链表中倒数第k个结点">
+                【剑指Offer】链表中倒数第k个结点 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -499,7 +504,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -556,7 +561,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#只完成基本功能的解法，仅适用于初级程序员"><span class="nav-number">2.</span> <span class="nav-text">只完成基本功能的解法，仅适用于初级程序员</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#示意"><span class="nav-number">2.1.</span> <span class="nav-text">示意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现"><span class="nav-number">2.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#考虑可扩展性的解法，能秒杀Offer"><span class="nav-number">3.</span> <span class="nav-text">考虑可扩展性的解法，能秒杀Offer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本题扩展"><span class="nav-number">4.</span> <span class="nav-text">本题扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现-1"><span class="nav-number">4.1.</span> <span class="nav-text">实现</span></a></li></ol></li></ol></div>
             
 
           </div>
