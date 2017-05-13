@@ -87,19 +87,24 @@
 
 
 
-<meta name="description" content="题目示意实现1
-相关题目">
+<meta name="description" content="题目输入一个链表，输出该链表中倒数第k个结点。例如一个链表有6个结点，从头结点开始它们的值依次是1、2、3、4、5、6。这个链表的倒数第3个结点是值为4的结点。
+示意
+实现12345678public class ListNode &amp;#123;    int val;    ListNode next = null;    ListNode(int val) &amp;#123;        this.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【剑指Offer】链表中倒数第k个结点">
 <meta property="og:url" content="http://yoursite.com/2017/05/14/【剑指Offer】链表中倒数第k个结点/index.html">
 <meta property="og:site_name" content="mrlonelyjtr's blog">
-<meta property="og:description" content="题目示意实现1
-相关题目">
-<meta property="og:updated_time" content="2017-05-13T14:01:42.000Z">
+<meta property="og:description" content="题目输入一个链表，输出该链表中倒数第k个结点。例如一个链表有6个结点，从头结点开始它们的值依次是1、2、3、4、5、6。这个链表的倒数第3个结点是值为4的结点。
+示意
+实现12345678public class ListNode &amp;#123;    int val;    ListNode next = null;    ListNode(int val) &amp;#123;        this.">
+<meta property="og:image" content="http://i2.muimg.com/1949/e9fce735c85477c2.png">
+<meta property="og:updated_time" content="2017-05-13T15:24:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【剑指Offer】链表中倒数第k个结点">
-<meta name="twitter:description" content="题目示意实现1
-相关题目">
+<meta name="twitter:description" content="题目输入一个链表，输出该链表中倒数第k个结点。例如一个链表有6个结点，从头结点开始它们的值依次是1、2、3、4、5、6。这个链表的倒数第3个结点是值为4的结点。
+示意
+实现12345678public class ListNode &amp;#123;    int val;    ListNode next = null;    ListNode(int val) &amp;#123;        this.">
+<meta name="twitter:image" content="http://i2.muimg.com/1949/e9fce735c85477c2.png">
 
 
 
@@ -308,7 +313,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-13T21:59:54Z">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-14T05:59:54+08:00">
                 2017-05-13
               </time>
             
@@ -366,8 +371,17 @@
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h2 id="示意"><a href="#示意" class="headerlink" title="示意"></a>示意</h2><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"></div></pre></td></tr></table></figure>
-<h2 id="相关题目"><a href="#相关题目" class="headerlink" title="相关题目"></a>相关题目</h2>
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>输入一个链表，输出该链表中倒数第k个结点。例如一个链表有6个结点，从头结点开始它们的值依次是1、2、3、4、5、6。这个链表的倒数第3个结点是值为4的结点。</p>
+<h2 id="示意"><a href="#示意" class="headerlink" title="示意"></a>示意</h2><p><img src="http://i2.muimg.com/1949/e9fce735c85477c2.png" alt="Markdown"></p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> val;</div><div class="line">    ListNode next = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    ListNode(<span class="keyword">int</span> val) &#123;</div><div class="line">        <span class="keyword">this</span>.val = val;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">FindKthToTail</span><span class="params">(ListNode head, <span class="keyword">int</span> k)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (k == <span class="number">0</span> || head == <span class="keyword">null</span>)</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    ListNode ahead = head;</div><div class="line">    ListNode behind = head;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; k; i++) &#123;</div><div class="line">        <span class="keyword">if</span> (ahead.next == <span class="keyword">null</span>)</div><div class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        ahead = ahead.next;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (ahead.next != <span class="keyword">null</span>)&#123;</div><div class="line">        ahead = ahead.next;</div><div class="line">        behind = behind.next;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> behind;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="相关题目"><a href="#相关题目" class="headerlink" title="相关题目"></a>相关题目</h2><ol>
+<li><p>求链表的中间结点。如果链表中结点总数为奇数，返回中间结点；如果结点总数是偶数，返回中间两个结点的任意一个。我们也可以定义两个指针，同时从链表的头结点出发，一个指针一次走一步，另一个指针一次走两步。当走得快的指针走到链表的末尾时，走得慢的指针正好在链表的中间。</p>
+</li>
+<li><p>判断一个单向链表是否形成了环形结构。定义两个指针，同时从链表的头结点出发，一个指针一次走一步，另一个指针一次走两步。如果走得快的指针追上了走得慢的指针，那么链表就是环形链表；如果走得快的指针走到了链表的末尾都没有追上第一个指针，那么链表就不是环形链表。</p>
+</li>
+</ol>
+
       
     </div>
 
@@ -420,6 +434,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/14/【剑指Offer】反转链表/" rel="prev" title="【剑指Offer】反转链表">
+                【剑指Offer】反转链表 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -491,7 +509,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
