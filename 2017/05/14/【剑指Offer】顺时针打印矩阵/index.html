@@ -87,27 +87,25 @@
 
 
 
-<meta name="description" content="题目给定单向链表的头指针和一个结点指针，定义一个函数在O(1)时间删除该结点。
+<meta name="description" content="题目输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字。
 示意
-实现12345678public class ListNode &amp;#123;    int val;    ListNode next = null;    ListNode(int val) &amp;#123;        this.val = val;    &amp;#125;&amp;#125;
-12345678910111">
+实现1234567891011121314151617181920212223242526272829303132333435363738public ArrayList&amp;lt;Integer&amp;gt; printMatrix(int[][] matrix) &amp;#123;    int rows = matrix.length">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【剑指Offer】在O(1)时间删除链表结点">
-<meta property="og:url" content="http://yoursite.com/2017/05/13/【剑指Offer】在O-1-时间删除链表结点/index.html">
+<meta property="og:title" content="【剑指Offer】顺时针打印矩阵">
+<meta property="og:url" content="http://yoursite.com/2017/05/14/【剑指Offer】顺时针打印矩阵/index.html">
 <meta property="og:site_name" content="mrlonelyjtr's blog">
-<meta property="og:description" content="题目给定单向链表的头指针和一个结点指针，定义一个函数在O(1)时间删除该结点。
+<meta property="og:description" content="题目输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字。
 示意
-实现12345678public class ListNode &amp;#123;    int val;    ListNode next = null;    ListNode(int val) &amp;#123;        this.val = val;    &amp;#125;&amp;#125;
-12345678910111">
-<meta property="og:image" content="http://i4.buimg.com/1949/74e4964da4c3a3d2.png">
-<meta property="og:updated_time" content="2017-05-13T05:09:13.000Z">
+实现1234567891011121314151617181920212223242526272829303132333435363738public ArrayList&amp;lt;Integer&amp;gt; printMatrix(int[][] matrix) &amp;#123;    int rows = matrix.length">
+<meta property="og:image" content="http://i2.muimg.com/1949/7a8236563aff09bb.png">
+<meta property="og:image" content="http://i2.muimg.com/1949/afb59691cabc8642.png">
+<meta property="og:updated_time" content="2017-05-14T16:57:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【剑指Offer】在O(1)时间删除链表结点">
-<meta name="twitter:description" content="题目给定单向链表的头指针和一个结点指针，定义一个函数在O(1)时间删除该结点。
+<meta name="twitter:title" content="【剑指Offer】顺时针打印矩阵">
+<meta name="twitter:description" content="题目输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字。
 示意
-实现12345678public class ListNode &amp;#123;    int val;    ListNode next = null;    ListNode(int val) &amp;#123;        this.val = val;    &amp;#125;&amp;#125;
-12345678910111">
-<meta name="twitter:image" content="http://i4.buimg.com/1949/74e4964da4c3a3d2.png">
+实现1234567891011121314151617181920212223242526272829303132333435363738public ArrayList&amp;lt;Integer&amp;gt; printMatrix(int[][] matrix) &amp;#123;    int rows = matrix.length">
+<meta name="twitter:image" content="http://i2.muimg.com/1949/7a8236563aff09bb.png">
 
 
 
@@ -135,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/13/【剑指Offer】在O-1-时间删除链表结点/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/14/【剑指Offer】顺时针打印矩阵/"/>
 
 
 
 
 
-  <title> 【剑指Offer】在O(1)时间删除链表结点 | mrlonelyjtr's blog </title>
+  <title> 【剑指Offer】顺时针打印矩阵 | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -280,7 +278,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/13/【剑指Offer】在O-1-时间删除链表结点/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/14/【剑指Offer】顺时针打印矩阵/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -301,7 +299,7 @@
             
             
               
-                【剑指Offer】在O(1)时间删除链表结点
+                【剑指Offer】顺时针打印矩阵
               
             
           </h1>
@@ -316,8 +314,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-13T09:05:58+08:00">
-                2017-05-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-14T18:43:41+08:00">
+                2017-05-14
               </time>
             
 
@@ -374,10 +372,9 @@
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定单向链表的头指针和一个结点指针，定义一个函数在O(1)时间删除该结点。</p>
-<h2 id="示意"><a href="#示意" class="headerlink" title="示意"></a>示意</h2><p><img src="http://i4.buimg.com/1949/74e4964da4c3a3d2.png" alt="Markdown"></p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> val;</div><div class="line">    ListNode next = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    ListNode(<span class="keyword">int</span> val) &#123;</div><div class="line">        <span class="keyword">this</span>.val = val;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteNode</span><span class="params">(ListNode head, ListNode node)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span> (node.next != <span class="keyword">null</span>)&#123;</div><div class="line">        node.val = node.next.val;</div><div class="line">        node.next = node.next.next;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (head == node)</div><div class="line">        head = <span class="keyword">null</span>;</div><div class="line">    <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">while</span> (head.next != node)</div><div class="line">            head = head.next;</div><div class="line"></div><div class="line">        head.next = <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字。</p>
+<h2 id="示意"><a href="#示意" class="headerlink" title="示意"></a>示意</h2><p><img src="http://i2.muimg.com/1949/7a8236563aff09bb.png" alt="Markdown"><br><img src="http://i2.muimg.com/1949/afb59691cabc8642.png" alt="Markdown"></p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> ArrayList&lt;Integer&gt; <span class="title">printMatrix</span><span class="params">(<span class="keyword">int</span>[][] matrix)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> rows = matrix.length;</div><div class="line">    <span class="keyword">int</span> columns = matrix[<span class="number">0</span>].length;</div><div class="line">    <span class="keyword">int</span> start = <span class="number">0</span>;</div><div class="line">    ArrayList&lt;Integer&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (<span class="number">2</span> * start &lt; rows &amp;&amp; <span class="number">2</span> * start &lt; columns)&#123;</div><div class="line">        printMatrixInCircle(result, matrix, start);</div><div class="line">        start++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">printMatrixInCircle</span><span class="params">(ArrayList&lt;Integer&gt; result, <span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> start)</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> rows = matrix.length;</div><div class="line">    <span class="keyword">int</span> columns = matrix[<span class="number">0</span>].length;</div><div class="line">    <span class="keyword">int</span> endX = columns - start - <span class="number">1</span>;</div><div class="line">    <span class="keyword">int</span> endY = rows - start - <span class="number">1</span>;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = start; i &lt;= endX; i++)</div><div class="line">        result.add(matrix[start][i]);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (start &lt; endY)&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = start + <span class="number">1</span>; i &lt;= endY; i++)</div><div class="line">            result.add(matrix[i][endX]);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (start &lt; endX &amp;&amp; start &lt; endY)&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = endX - <span class="number">1</span>; i &gt;= start; i--)</div><div class="line">            result.add(matrix[endY][i]);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (start &lt; endY - <span class="number">1</span> &amp;&amp; start &lt; endX)&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = endY - <span class="number">1</span>; i &gt; start; i--)</div><div class="line">            result.add(matrix[i][start]);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -421,8 +418,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/13/【剑指Offer】打印1到最大的n位数/" rel="next" title="【剑指Offer】打印1到最大的n位数">
-                <i class="fa fa-chevron-left"></i> 【剑指Offer】打印1到最大的n位数
+              <a href="/2017/05/14/【剑指Offer】二叉树的镜像/" rel="next" title="【剑指Offer】二叉树的镜像">
+                <i class="fa fa-chevron-left"></i> 【剑指Offer】二叉树的镜像
               </a>
             
           </div>
@@ -431,8 +428,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/13/【剑指Offer】调整数组顺序使奇数位于偶数前面/" rel="prev" title="【剑指Offer】调整数组顺序使奇数位于偶数前面">
-                【剑指Offer】调整数组顺序使奇数位于偶数前面 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/15/【剑指Offer】包含min函数的栈/" rel="prev" title="【剑指Offer】包含min函数的栈">
+                【剑指Offer】包含min函数的栈 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
