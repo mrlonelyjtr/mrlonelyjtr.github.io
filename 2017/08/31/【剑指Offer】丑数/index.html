@@ -87,25 +87,19 @@
 
 
 
-<meta name="description" content="题目输入一棵二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。
-示意
-实现123456789public class TreeNode &amp;#123;    int val = 0;    TreeNode left = null;    TreeNode right = null;    public TreeNode(int">
+<meta name="description" content="题目把只包含因子2、3和5的数称作丑数（Ugly Number）。求按从小到大的顺序的第1500个丑数。例如6、8都是丑数，但14不是，因为它包含因子7.习惯上把1当做第一个丑数。
+逐个判断每个整数是不是丑数的解法，直观但不够高效123456789101112131415161718192021222324252627public int GetUglyNumber_Solution(int in">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【剑指Offer】二叉树中和为某一值的路径">
-<meta property="og:url" content="http://yoursite.com/2017/05/16/【剑指Offer】二叉树中和为某一值的路径/index.html">
+<meta property="og:title" content="【剑指Offer】丑数">
+<meta property="og:url" content="http://yoursite.com/2017/08/31/【剑指Offer】丑数/index.html">
 <meta property="og:site_name" content="mrlonelyjtr's blog">
-<meta property="og:description" content="题目输入一棵二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。
-示意
-实现123456789public class TreeNode &amp;#123;    int val = 0;    TreeNode left = null;    TreeNode right = null;    public TreeNode(int">
-<meta property="og:image" content="http://i1.piimg.com/1949/9be84b998472f304.png">
-<meta property="og:image" content="http://i1.piimg.com/1949/bc3b7911a8366e6b.png">
-<meta property="og:updated_time" content="2017-05-15T16:54:43.000Z">
+<meta property="og:description" content="题目把只包含因子2、3和5的数称作丑数（Ugly Number）。求按从小到大的顺序的第1500个丑数。例如6、8都是丑数，但14不是，因为它包含因子7.习惯上把1当做第一个丑数。
+逐个判断每个整数是不是丑数的解法，直观但不够高效123456789101112131415161718192021222324252627public int GetUglyNumber_Solution(int in">
+<meta property="og:updated_time" content="2017-08-31T06:57:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【剑指Offer】二叉树中和为某一值的路径">
-<meta name="twitter:description" content="题目输入一棵二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。
-示意
-实现123456789public class TreeNode &amp;#123;    int val = 0;    TreeNode left = null;    TreeNode right = null;    public TreeNode(int">
-<meta name="twitter:image" content="http://i1.piimg.com/1949/9be84b998472f304.png">
+<meta name="twitter:title" content="【剑指Offer】丑数">
+<meta name="twitter:description" content="题目把只包含因子2、3和5的数称作丑数（Ugly Number）。求按从小到大的顺序的第1500个丑数。例如6、8都是丑数，但14不是，因为它包含因子7.习惯上把1当做第一个丑数。
+逐个判断每个整数是不是丑数的解法，直观但不够高效123456789101112131415161718192021222324252627public int GetUglyNumber_Solution(int in">
 
 
 
@@ -133,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/16/【剑指Offer】二叉树中和为某一值的路径/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/08/31/【剑指Offer】丑数/"/>
 
 
 
 
 
-  <title> 【剑指Offer】二叉树中和为某一值的路径 | mrlonelyjtr's blog </title>
+  <title> 【剑指Offer】丑数 | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -268,7 +262,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/16/【剑指Offer】二叉树中和为某一值的路径/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/31/【剑指Offer】丑数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -289,7 +283,7 @@
             
             
               
-                【剑指Offer】二叉树中和为某一值的路径
+                【剑指Offer】丑数
               
             
           </h1>
@@ -304,8 +298,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-16T07:03:28+08:00">
-                2017-05-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-31T00:28:07Z">
+                2017-08-31
               </time>
             
 
@@ -362,10 +356,9 @@
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>输入一棵二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。</p>
-<h2 id="示意"><a href="#示意" class="headerlink" title="示意"></a>示意</h2><p><img src="http://i1.piimg.com/1949/9be84b998472f304.png" alt="Markdown"><br><img src="http://i1.piimg.com/1949/bc3b7911a8366e6b.png" alt="Markdown"></p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> val = <span class="number">0</span>;</div><div class="line">    TreeNode left = <span class="keyword">null</span>;</div><div class="line">    TreeNode right = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TreeNode</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.val = val;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> ArrayList&lt;ArrayList&lt;Integer&gt;&gt; FindPath(TreeNode root, <span class="keyword">int</span> target) &#123;</div><div class="line">    ArrayList&lt;ArrayList&lt;Integer&gt;&gt; paths = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">    ArrayList&lt;Integer&gt; path = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line"></div><div class="line">    FindPath(root, target, <span class="number">0</span>, path, paths);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> paths;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">FindPath</span><span class="params">(TreeNode root, <span class="keyword">int</span> target, <span class="keyword">int</span> sum, ArrayList&lt;Integer&gt; path, ArrayList&lt;ArrayList&lt;Integer&gt;&gt; paths)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>)</div><div class="line">        <span class="keyword">return</span>;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> currentSum = sum + root.val;</div><div class="line">    path.add(root.val);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (currentSum == target &amp;&amp; root.left == <span class="keyword">null</span> &amp;&amp; root.right == <span class="keyword">null</span>)</div><div class="line">        paths.add(<span class="keyword">new</span> ArrayList(path));</div><div class="line"></div><div class="line">    FindPath(root.left, target, currentSum, path, paths);</div><div class="line">    FindPath(root.right, target, currentSum, path, paths);</div><div class="line"></div><div class="line">    path.remove(path.size() - <span class="number">1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>把只包含因子2、3和5的数称作丑数（Ugly Number）。求按从小到大的顺序的第1500个丑数。例如6、8都是丑数，但14不是，因为它包含因子7.习惯上把1当做第一个丑数。</p>
+<h2 id="逐个判断每个整数是不是丑数的解法，直观但不够高效"><a href="#逐个判断每个整数是不是丑数的解法，直观但不够高效" class="headerlink" title="逐个判断每个整数是不是丑数的解法，直观但不够高效"></a>逐个判断每个整数是不是丑数的解法，直观但不够高效</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">GetUglyNumber_Solution</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (index &lt; <span class="number">1</span>)</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> number = <span class="number">1</span>;</div><div class="line">    <span class="keyword">int</span> currentIdx = <span class="number">1</span>;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (currentIdx &lt; index) &#123;</div><div class="line">        <span class="keyword">if</span> (isUglyNumber(number))</div><div class="line">            currentIdx++;</div><div class="line"></div><div class="line">        number++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> number;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isUglyNumber</span><span class="params">(<span class="keyword">int</span> number)</span> </span>&#123;</div><div class="line">    <span class="keyword">while</span> (number % <span class="number">2</span> == <span class="number">0</span>)</div><div class="line">        number /= <span class="number">2</span>;</div><div class="line">    <span class="keyword">while</span> (number % <span class="number">3</span> == <span class="number">0</span>)</div><div class="line">        number /= <span class="number">3</span>;</div><div class="line">    <span class="keyword">while</span> (number % <span class="number">5</span> == <span class="number">0</span>)</div><div class="line">        number /= <span class="number">5</span>;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> number == <span class="number">1</span> ? <span class="keyword">true</span> :<span class="keyword">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="创建数组保存已经找到的丑数，用空间换时间的解法"><a href="#创建数组保存已经找到的丑数，用空间换时间的解法" class="headerlink" title="创建数组保存已经找到的丑数，用空间换时间的解法"></a>创建数组保存已经找到的丑数，用空间换时间的解法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">GetUglyNumber_Solution</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (index &lt; <span class="number">1</span>)</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">int</span>[] array = <span class="keyword">new</span> <span class="keyword">int</span>[index];</div><div class="line">    <span class="keyword">int</span> t2 = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> t3 = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> t5 = <span class="number">0</span>;</div><div class="line">    array[<span class="number">0</span>] = <span class="number">1</span>;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; index; i++) &#123;</div><div class="line">        array[i] = Math.min(array[t2] * <span class="number">2</span>, Math.min(array[t3] * <span class="number">3</span>, array[t5] * <span class="number">5</span>));</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(array[i] == array[t2] * <span class="number">2</span>)</div><div class="line">            t2++;</div><div class="line">        <span class="keyword">if</span> (array[i] == array[t3] * <span class="number">3</span>)</div><div class="line">            t3++;</div><div class="line">        <span class="keyword">if</span> (array[i] == array[t5] * <span class="number">5</span>)</div><div class="line">            t5++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> array[index - <span class="number">1</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -409,8 +402,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/16/【剑指Offer】二叉搜索树的后序遍历序列/" rel="next" title="【剑指Offer】二叉搜索树的后序遍历序列">
-                <i class="fa fa-chevron-left"></i> 【剑指Offer】二叉搜索树的后序遍历序列
+              <a href="/2017/08/31/【剑指Offer】把数组排成最小的数/" rel="next" title="【剑指Offer】把数组排成最小的数">
+                <i class="fa fa-chevron-left"></i> 【剑指Offer】把数组排成最小的数
               </a>
             
           </div>
@@ -419,8 +412,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/16/【剑指Offer】复杂链表的复制/" rel="prev" title="【剑指Offer】复杂链表的复制">
-                【剑指Offer】复杂链表的复制 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/08/31/【剑指Offer】第一个只出现一次的字符/" rel="prev" title="【剑指Offer】第一个只出现一次的字符">
+                【剑指Offer】第一个只出现一次的字符 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -550,7 +543,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示意"><span class="nav-number">2.</span> <span class="nav-text">示意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">3.</span> <span class="nav-text">实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逐个判断每个整数是不是丑数的解法，直观但不够高效"><span class="nav-number">2.</span> <span class="nav-text">逐个判断每个整数是不是丑数的解法，直观但不够高效</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建数组保存已经找到的丑数，用空间换时间的解法"><span class="nav-number">3.</span> <span class="nav-text">创建数组保存已经找到的丑数，用空间换时间的解法</span></a></li></ol></div>
             
 
           </div>
