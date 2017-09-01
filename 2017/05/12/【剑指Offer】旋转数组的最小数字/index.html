@@ -88,24 +88,18 @@
 
 
 <meta name="description" content="题目把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。
-示意
-实现1234567891011121314151617181920212223242526272829303132public int minNumberInRotateArra">
+实现1234567891011121314151617181920212223242526272829303132public int minNumberInRotateArray(i">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【剑指Offer】旋转数组的最小数字">
 <meta property="og:url" content="http://yoursite.com/2017/05/12/【剑指Offer】旋转数组的最小数字/index.html">
 <meta property="og:site_name" content="mrlonelyjtr's blog">
 <meta property="og:description" content="题目把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。
-示意
-实现1234567891011121314151617181920212223242526272829303132public int minNumberInRotateArra">
-<meta property="og:image" content="http://i2.muimg.com/1949/af016e29c27396d7.png">
-<meta property="og:image" content="http://i2.muimg.com/1949/529c2b0e2fb635be.png">
-<meta property="og:updated_time" content="2017-05-11T14:50:22.000Z">
+实现1234567891011121314151617181920212223242526272829303132public int minNumberInRotateArray(i">
+<meta property="og:updated_time" content="2017-09-01T15:59:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【剑指Offer】旋转数组的最小数字">
 <meta name="twitter:description" content="题目把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。
-示意
-实现1234567891011121314151617181920212223242526272829303132public int minNumberInRotateArra">
-<meta name="twitter:image" content="http://i2.muimg.com/1949/af016e29c27396d7.png">
+实现1234567891011121314151617181920212223242526272829303132public int minNumberInRotateArray(i">
 
 
 
@@ -334,6 +328,17 @@
 
                 
                 
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/剑指Offer/" itemprop="url" rel="index">
+                    <span itemprop="name">剑指Offer</span>
+                  </a>
+                </span>
+
+                
+                
               
             </span>
           
@@ -363,7 +368,6 @@
 
       
         <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。</p>
-<h2 id="示意"><a href="#示意" class="headerlink" title="示意"></a>示意</h2><p><img src="http://i2.muimg.com/1949/af016e29c27396d7.png" alt="Markdown"><br><img src="http://i2.muimg.com/1949/529c2b0e2fb635be.png" alt="Markdown"></p>
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minNumberInRotateArray</span><span class="params">(<span class="keyword">int</span>[] array)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> left = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> right = array.length - <span class="number">1</span>;</div><div class="line">    <span class="keyword">int</span> mid = left;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (array[left] &gt;= array[right])&#123;</div><div class="line">        <span class="keyword">if</span> (right - left == <span class="number">1</span>) &#123;</div><div class="line">            mid = right;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        mid = (left + right) / <span class="number">2</span>;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (array[mid] == array[left] &amp;&amp; array[mid] == array[right])</div><div class="line">            <span class="keyword">return</span> minInOrder(array, left, right);</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (array[mid] &gt;= array[left])</div><div class="line">            left = mid;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (array[mid] &lt;= array[right])</div><div class="line">            right = mid;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> array[mid];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">minInOrder</span><span class="params">(<span class="keyword">int</span>[] array, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> min = array[left];</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = left + <span class="number">1</span>; i &lt;= right; i++)</div><div class="line">        min = Math.min(min, array[i]);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> min;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
@@ -492,7 +496,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -503,7 +507,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -549,7 +553,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示意"><span class="nav-number">2.</span> <span class="nav-text">示意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">3.</span> <span class="nav-text">实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a></li></ol></div>
             
 
           </div>

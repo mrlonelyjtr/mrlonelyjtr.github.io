@@ -88,25 +88,18 @@
 
 
 <meta name="description" content="题目输入一个字符串，打印出该字符串中字符的所有排列。例如输入字符串abc，则打印出由字符a、b、c所能排列出来的所有字符串abc、acb、bac、bca、cab和cba。
-示意
-实现1234567891011121314151617181920212223242526272829303132public ArrayList&amp;lt;String&amp;gt; Permutation(String str)">
+实现1234567891011121314151617181920212223242526272829303132public ArrayList&amp;lt;String&amp;gt; Permutation(String str) &amp;#">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【剑指Offer】字符串的排列">
 <meta property="og:url" content="http://yoursite.com/2017/08/28/【剑指Offer】字符串的排列/index.html">
 <meta property="og:site_name" content="mrlonelyjtr's blog">
 <meta property="og:description" content="题目输入一个字符串，打印出该字符串中字符的所有排列。例如输入字符串abc，则打印出由字符a、b、c所能排列出来的所有字符串abc、acb、bac、bca、cab和cba。
-示意
-实现1234567891011121314151617181920212223242526272829303132public ArrayList&amp;lt;String&amp;gt; Permutation(String str)">
-<meta property="og:image" content="http://i1.bvimg.com/609012/fdf5ed5ce4b3c37a.png">
-<meta property="og:image" content="http://i4.bvimg.com/609012/a76532edfe02cb56.png">
-<meta property="og:image" content="http://i4.bvimg.com/609012/7675ac4d2598a26d.png">
-<meta property="og:updated_time" content="2017-08-28T06:43:03.000Z">
+实现1234567891011121314151617181920212223242526272829303132public ArrayList&amp;lt;String&amp;gt; Permutation(String str) &amp;#">
+<meta property="og:updated_time" content="2017-09-01T16:37:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【剑指Offer】字符串的排列">
 <meta name="twitter:description" content="题目输入一个字符串，打印出该字符串中字符的所有排列。例如输入字符串abc，则打印出由字符a、b、c所能排列出来的所有字符串abc、acb、bac、bca、cab和cba。
-示意
-实现1234567891011121314151617181920212223242526272829303132public ArrayList&amp;lt;String&amp;gt; Permutation(String str)">
-<meta name="twitter:image" content="http://i1.bvimg.com/609012/fdf5ed5ce4b3c37a.png">
+实现1234567891011121314151617181920212223242526272829303132public ArrayList&amp;lt;String&amp;gt; Permutation(String str) &amp;#">
 
 
 
@@ -335,6 +328,17 @@
 
                 
                 
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/剑指Offer/" itemprop="url" rel="index">
+                    <span itemprop="name">剑指Offer</span>
+                  </a>
+                </span>
+
+                
+                
               
             </span>
           
@@ -364,12 +368,11 @@
 
       
         <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>输入一个字符串，打印出该字符串中字符的所有排列。例如输入字符串abc，则打印出由字符a、b、c所能排列出来的所有字符串abc、acb、bac、bca、cab和cba。</p>
-<h2 id="示意"><a href="#示意" class="headerlink" title="示意"></a>示意</h2><p><img src="http://i1.bvimg.com/609012/fdf5ed5ce4b3c37a.png" alt="Markdown"></p>
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> ArrayList&lt;String&gt; <span class="title">Permutation</span><span class="params">(String str)</span> </span>&#123;</div><div class="line">    ArrayList&lt;String&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">    HashSet&lt;String&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (str != <span class="keyword">null</span> &amp;&amp; str.length() != <span class="number">0</span>) &#123;</div><div class="line">        Permutation(str.toCharArray(), <span class="number">0</span>, set);</div><div class="line">        result.addAll(set);</div><div class="line">        Collections.sort(result);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Permutation</span><span class="params">(<span class="keyword">char</span>[] str, <span class="keyword">int</span> pos, HashSet&lt;String&gt; result)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (pos == str.length - <span class="number">1</span>) &#123;</div><div class="line">        result.add(String.valueOf(str));</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = pos; i &lt; str.length; i++)&#123;</div><div class="line">        swap(str, i, pos);</div><div class="line">        Permutation(str, pos + <span class="number">1</span>, result);</div><div class="line">        swap(str, pos, i);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">char</span>[] str, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</div><div class="line">    <span class="keyword">char</span> temp = str[i];</div><div class="line">    str[i] = str[j];</div><div class="line">    str[j] = temp;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="相关题目"><a href="#相关题目" class="headerlink" title="相关题目"></a>相关题目</h2><ol>
-<li><p>输入一个含有8个数字的数组，判断有没有可能把这8个数字分别放到正方体的8个顶点上，使得正方体上三组相对的面上的4个顶点的和都相等。<br><img src="http://i4.bvimg.com/609012/a76532edfe02cb56.png" alt="Markdown"></p>
+<li><p>输入一个含有8个数字的数组，判断有没有可能把这8个数字分别放到正方体的8个顶点上，使得正方体上三组相对的面上的4个顶点的和都相等。</p>
 </li>
-<li><p>在8x8的国际象棋上摆放8个皇后，使其不能相互攻击，即任意两个皇后不得处在同一行、同一列或者同一对角线上。请问总共有多少种符合条件的摆法？<br><img src="http://i4.bvimg.com/609012/7675ac4d2598a26d.png" alt="Markdown"></p>
+<li><p>在8x8的国际象棋上摆放8个皇后，使其不能相互攻击，即任意两个皇后不得处在同一行、同一列或者同一对角线上。请问总共有多少种符合条件的摆法？</p>
 </li>
 </ol>
 
@@ -500,7 +503,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -511,7 +514,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -557,7 +560,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示意"><span class="nav-number">2.</span> <span class="nav-text">示意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">3.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关题目"><span class="nav-number">4.</span> <span class="nav-text">相关题目</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关题目"><span class="nav-number">3.</span> <span class="nav-text">相关题目</span></a></li></ol></div>
             
 
           </div>

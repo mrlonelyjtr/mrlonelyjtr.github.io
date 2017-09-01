@@ -88,26 +88,18 @@
 
 
 <meta name="description" content="题目请实现函数ComplexListNode Clone(ComplexListNode pHead)，复制一个复杂链表。在复杂链表中，每个结点除了有一个m_pNext指针指向下一个结点外，还有一个m_pSibling指向链表中的任意结点或者NULL。
-示意
-实现123456789public class RandomListNode &amp;#123;    int label;    RandomL">
+实现123456789public class RandomListNode &amp;#123;    int label;    RandomList">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【剑指Offer】复杂链表的复制">
 <meta property="og:url" content="http://yoursite.com/2017/05/16/【剑指Offer】复杂链表的复制/index.html">
 <meta property="og:site_name" content="mrlonelyjtr's blog">
 <meta property="og:description" content="题目请实现函数ComplexListNode Clone(ComplexListNode pHead)，复制一个复杂链表。在复杂链表中，每个结点除了有一个m_pNext指针指向下一个结点外，还有一个m_pSibling指向链表中的任意结点或者NULL。
-示意
-实现123456789public class RandomListNode &amp;#123;    int label;    RandomL">
-<meta property="og:image" content="http://i2.fuimg.com/1949/819e16e4ee758a89.png">
-<meta property="og:image" content="http://i2.bvimg.com/609012/d638853a825fac04.png">
-<meta property="og:image" content="http://i1.bvimg.com/609012/2e8a88598bc79a07.png">
-<meta property="og:image" content="http://i1.bvimg.com/609012/8ae15470c9840c7b.png">
-<meta property="og:updated_time" content="2017-08-26T17:13:33.000Z">
+实现123456789public class RandomListNode &amp;#123;    int label;    RandomList">
+<meta property="og:updated_time" content="2017-09-01T16:20:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【剑指Offer】复杂链表的复制">
 <meta name="twitter:description" content="题目请实现函数ComplexListNode Clone(ComplexListNode pHead)，复制一个复杂链表。在复杂链表中，每个结点除了有一个m_pNext指针指向下一个结点外，还有一个m_pSibling指向链表中的任意结点或者NULL。
-示意
-实现123456789public class RandomListNode &amp;#123;    int label;    RandomL">
-<meta name="twitter:image" content="http://i2.fuimg.com/1949/819e16e4ee758a89.png">
+实现123456789public class RandomListNode &amp;#123;    int label;    RandomList">
 
 
 
@@ -336,6 +328,17 @@
 
                 
                 
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/剑指Offer/" itemprop="url" rel="index">
+                    <span itemprop="name">剑指Offer</span>
+                  </a>
+                </span>
+
+                
+                
               
             </span>
           
@@ -365,7 +368,6 @@
 
       
         <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>请实现函数ComplexListNode Clone(ComplexListNode pHead)，复制一个复杂链表。在复杂链表中，每个结点除了有一个m_pNext指针指向下一个结点外，还有一个m_pSibling指向链表中的任意结点或者NULL。</p>
-<h2 id="示意"><a href="#示意" class="headerlink" title="示意"></a>示意</h2><p><img src="http://i2.fuimg.com/1949/819e16e4ee758a89.png" alt="Markdown"><br><img src="http://i2.bvimg.com/609012/d638853a825fac04.png" alt="Markdown"><br><img src="http://i1.bvimg.com/609012/2e8a88598bc79a07.png" alt="Markdown"><br><img src="http://i1.bvimg.com/609012/8ae15470c9840c7b.png" alt="Markdown"></p>
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RandomListNode</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> label;</div><div class="line">    RandomListNode next = <span class="keyword">null</span>;</div><div class="line">    RandomListNode random = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    RandomListNode(<span class="keyword">int</span> label) &#123;</div><div class="line">        <span class="keyword">this</span>.label = label;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> RandomListNode <span class="title">Clone</span><span class="params">(RandomListNode pHead)</span> </span>&#123;</div><div class="line">    CloneNodes(pHead);</div><div class="line">    ConnectSiblingNodes(pHead);</div><div class="line">    <span class="keyword">return</span> ReconnectNodes(pHead);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">CloneNodes</span><span class="params">(RandomListNode pHead)</span> </span>&#123;</div><div class="line">    RandomListNode node = pHead;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (node != <span class="keyword">null</span>) &#123;</div><div class="line">        RandomListNode clone = <span class="keyword">new</span> RandomListNode(node.label);</div><div class="line">        clone.next = node.next;</div><div class="line">        node.next = clone;</div><div class="line">        node = clone.next;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ConnectSiblingNodes</span><span class="params">(RandomListNode pHead)</span> </span>&#123;</div><div class="line">    RandomListNode node = pHead;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (node != <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (node.random != <span class="keyword">null</span>)</div><div class="line">            node.next.random = node.random.next;</div><div class="line"></div><div class="line">        node = node.next.next;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> RandomListNode <span class="title">ReconnectNodes</span><span class="params">(RandomListNode pHead)</span> </span>&#123;</div><div class="line">    RandomListNode node = pHead;</div><div class="line">    RandomListNode cloneNode = <span class="keyword">null</span>, cloneHead = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (node != <span class="keyword">null</span>) &#123;</div><div class="line">        cloneHead = cloneNode = node.next;</div><div class="line">        node.next = cloneNode.next;</div><div class="line">        node = node.next;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (node != <span class="keyword">null</span>) &#123;</div><div class="line">        cloneNode.next = node.next;</div><div class="line">        cloneNode = cloneNode.next;</div><div class="line">        node.next = cloneNode.next;</div><div class="line">        node = node.next;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> cloneHead;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
@@ -495,7 +497,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -506,7 +508,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -552,7 +554,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示意"><span class="nav-number">2.</span> <span class="nav-text">示意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">3.</span> <span class="nav-text">实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a></li></ol></div>
             
 
           </div>
