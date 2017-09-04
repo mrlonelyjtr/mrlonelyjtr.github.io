@@ -87,19 +87,19 @@
 
 
 
-<meta name="description" content="题目把n个骰子扔在地上，所有骰子朝上一面的点数之和为s。输入n，打印出s的所有可能的值出现的概率。
-基于递归求骰子点数，时间效率不够高12345678910111213141516171819202122232425262728public void PrintProbability(int number) &amp;#123;    if (number &amp;lt; 1)        return;">
+<meta name="description" content="题目从扑克牌中随机抽5张牌，判断是不是一个顺子，即这5张牌是不是连续的。2～10为数字本身，A为1，J为11，Q为12，K为13，而大、小王可以看成任意数字。
+实现12345678910111213141516171819202122public boolean isContinuous(int[] numbers) &amp;#123;    if (numbers == null || numbers">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【剑指Offer】n个骰子的点数">
-<meta property="og:url" content="http://yoursite.com/2017/09/04/【剑指Offer】n个骰子的点数/index.html">
+<meta property="og:title" content="【剑指Offer】扑克牌的顺子">
+<meta property="og:url" content="http://yoursite.com/2017/09/05/【剑指Offer】扑克牌的顺子/index.html">
 <meta property="og:site_name" content="mrlonelyjtr's blog">
-<meta property="og:description" content="题目把n个骰子扔在地上，所有骰子朝上一面的点数之和为s。输入n，打印出s的所有可能的值出现的概率。
-基于递归求骰子点数，时间效率不够高12345678910111213141516171819202122232425262728public void PrintProbability(int number) &amp;#123;    if (number &amp;lt; 1)        return;">
-<meta property="og:updated_time" content="2017-09-04T11:46:07.000Z">
+<meta property="og:description" content="题目从扑克牌中随机抽5张牌，判断是不是一个顺子，即这5张牌是不是连续的。2～10为数字本身，A为1，J为11，Q为12，K为13，而大、小王可以看成任意数字。
+实现12345678910111213141516171819202122public boolean isContinuous(int[] numbers) &amp;#123;    if (numbers == null || numbers">
+<meta property="og:updated_time" content="2017-09-04T14:47:28.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【剑指Offer】n个骰子的点数">
-<meta name="twitter:description" content="题目把n个骰子扔在地上，所有骰子朝上一面的点数之和为s。输入n，打印出s的所有可能的值出现的概率。
-基于递归求骰子点数，时间效率不够高12345678910111213141516171819202122232425262728public void PrintProbability(int number) &amp;#123;    if (number &amp;lt; 1)        return;">
+<meta name="twitter:title" content="【剑指Offer】扑克牌的顺子">
+<meta name="twitter:description" content="题目从扑克牌中随机抽5张牌，判断是不是一个顺子，即这5张牌是不是连续的。2～10为数字本身，A为1，J为11，Q为12，K为13，而大、小王可以看成任意数字。
+实现12345678910111213141516171819202122public boolean isContinuous(int[] numbers) &amp;#123;    if (numbers == null || numbers">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/04/【剑指Offer】n个骰子的点数/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/05/【剑指Offer】扑克牌的顺子/"/>
 
 
 
 
 
-  <title> 【剑指Offer】n个骰子的点数 | mrlonelyjtr's blog </title>
+  <title> 【剑指Offer】扑克牌的顺子 | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -262,7 +262,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/04/【剑指Offer】n个骰子的点数/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/05/【剑指Offer】扑克牌的顺子/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -283,7 +283,7 @@
             
             
               
-                【剑指Offer】n个骰子的点数
+                【剑指Offer】扑克牌的顺子
               
             
           </h1>
@@ -298,8 +298,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-04T07:33:45+08:00">
-                2017-09-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-04T19:48:22Z">
+                2017-09-04
               </time>
             
 
@@ -367,9 +367,8 @@
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>把n个骰子扔在地上，所有骰子朝上一面的点数之和为s。输入n，打印出s的所有可能的值出现的概率。</p>
-<h2 id="基于递归求骰子点数，时间效率不够高"><a href="#基于递归求骰子点数，时间效率不够高" class="headerlink" title="基于递归求骰子点数，时间效率不够高"></a>基于递归求骰子点数，时间效率不够高</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">PrintProbability</span><span class="params">(<span class="keyword">int</span> number)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (number &lt; <span class="number">1</span>)</div><div class="line">        <span class="keyword">return</span>;</div><div class="line"></div><div class="line">    <span class="keyword">int</span>[] prob = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">6</span>*number-number+<span class="number">1</span>];</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">6</span>; i++)</div><div class="line">        probability(prob, number, number, i);</div><div class="line"></div><div class="line">    print(prob, number);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">probability</span><span class="params">(<span class="keyword">int</span>[] prob, <span class="keyword">int</span> number, <span class="keyword">int</span> current, <span class="keyword">int</span> sum)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (current == <span class="number">1</span>) &#123;</div><div class="line">        prob[sum-number]++;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">6</span>; i++)</div><div class="line">        probability(prob, number, current - <span class="number">1</span>, sum + i);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">int</span>[] prob, <span class="keyword">int</span> number)</span> </span>&#123;</div><div class="line">    <span class="keyword">double</span> total = Math.pow(<span class="number">6</span>, number);</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; prob.length; i++)</div><div class="line">        System.out.println(i+number + <span class="string">": "</span> + prob[i] / total);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="基于循环求骰子点数，时间性能好"><a href="#基于循环求骰子点数，时间性能好" class="headerlink" title="基于循环求骰子点数，时间性能好"></a>基于循环求骰子点数，时间性能好</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">PrintProbability</span><span class="params">(<span class="keyword">int</span> number)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (number &lt; <span class="number">1</span>)</div><div class="line">        <span class="keyword">return</span>;</div><div class="line"></div><div class="line">    <span class="keyword">int</span>[][] prob = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>][<span class="number">6</span>*number+<span class="number">1</span>];</div><div class="line">    <span class="keyword">int</span> flag = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">6</span>; i++)</div><div class="line">        prob[flag][i] = <span class="number">1</span>;</div><div class="line"></div><div class="line">    <span class="comment">//f(i,n) = f(i-1,n-1) + f(i-1,n-2) + f(i-1,n-3) + f(i-1,n-4) + f(i-1,n-5) + f(i-1,n-6)</span></div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= number; i++) &#123;</div><div class="line">        flag = <span class="number">1</span> - flag;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &lt;= <span class="number">6</span> * i; j++) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= <span class="number">6</span> &amp;&amp; k &lt;= j; k++)</div><div class="line">                prob[flag][j] += prob[<span class="number">1</span>-flag][j-k];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    print(prob[flag], number);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">int</span>[] prob, <span class="keyword">int</span> number)</span> </span>&#123;</div><div class="line">    <span class="keyword">double</span> total = Math.pow(<span class="number">6</span>, number);</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = number; i &lt;= <span class="number">6</span> * number; i++)</div><div class="line">        System.out.println(i + <span class="string">": "</span> + prob[i] / total);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>从扑克牌中随机抽5张牌，判断是不是一个顺子，即这5张牌是不是连续的。2～10为数字本身，A为1，J为11，Q为12，K为13，而大、小王可以看成任意数字。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isContinuous</span><span class="params">(<span class="keyword">int</span>[] numbers)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (numbers == <span class="keyword">null</span> || numbers.length &lt; <span class="number">1</span>)</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line"></div><div class="line">    Arrays.sort(numbers);</div><div class="line">    <span class="keyword">int</span> numOfZero = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> numOfGap = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numbers.length; i++) &#123;</div><div class="line">        <span class="keyword">if</span> (numbers[i] == <span class="number">0</span>)</div><div class="line">            numOfZero++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = numbers.length - <span class="number">1</span>; i &gt; <span class="number">0</span> &amp;&amp; numbers[i] != <span class="number">0</span>; i--) &#123;</div><div class="line">        <span class="keyword">if</span> (numbers[i] == numbers[i-<span class="number">1</span>])</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (numbers[i-<span class="number">1</span>] != <span class="number">0</span>)</div><div class="line">            numOfGap += numbers[i] - numbers[i-<span class="number">1</span>] - <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> numOfZero &gt;= numOfGap ? <span class="keyword">true</span> : <span class="keyword">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -413,8 +412,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/03/【剑指Offer】翻转单词顺序VS左旋转字符串/" rel="next" title="【剑指Offer】翻转单词顺序VS左旋转字符串">
-                <i class="fa fa-chevron-left"></i> 【剑指Offer】翻转单词顺序VS左旋转字符串
+              <a href="/2017/09/04/【剑指Offer】n个骰子的点数/" rel="next" title="【剑指Offer】n个骰子的点数">
+                <i class="fa fa-chevron-left"></i> 【剑指Offer】n个骰子的点数
               </a>
             
           </div>
@@ -422,10 +421,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/05/【剑指Offer】扑克牌的顺子/" rel="prev" title="【剑指Offer】扑克牌的顺子">
-                【剑指Offer】扑克牌的顺子 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -554,7 +549,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于递归求骰子点数，时间效率不够高"><span class="nav-number">2.</span> <span class="nav-text">基于递归求骰子点数，时间效率不够高</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于循环求骰子点数，时间性能好"><span class="nav-number">3.</span> <span class="nav-text">基于循环求骰子点数，时间性能好</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a></li></ol></div>
             
 
           </div>
