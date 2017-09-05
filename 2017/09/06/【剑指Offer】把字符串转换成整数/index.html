@@ -87,19 +87,19 @@
 
 
 
-<meta name="description" content="题目请完成一个函数，输入一个二叉树，该函数输出它的镜像。
-实现123456789public class TreeNode &amp;#123;    int val = 0;    TreeNode left = null;    TreeNode right = null;    public TreeNode(int val) &amp;#123;        this.val = val;    &amp;#1">
+<meta name="description" content="题目写一个函数StrToInt，实现把字符串转换成整数的功能。不能使用atoi或者其他类似的库函数。
+实现12345678910111213141516171819202122232425262728293031323334353637private boolean isInvalid = false;public int StrToInt(String str) &amp;#123;    if (st">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【剑指Offer】二叉树的镜像">
-<meta property="og:url" content="http://yoursite.com/2017/05/14/【剑指Offer】二叉树的镜像/index.html">
+<meta property="og:title" content="【剑指Offer】把字符串转换成整数">
+<meta property="og:url" content="http://yoursite.com/2017/09/06/【剑指Offer】把字符串转换成整数/index.html">
 <meta property="og:site_name" content="mrlonelyjtr's blog">
-<meta property="og:description" content="题目请完成一个函数，输入一个二叉树，该函数输出它的镜像。
-实现123456789public class TreeNode &amp;#123;    int val = 0;    TreeNode left = null;    TreeNode right = null;    public TreeNode(int val) &amp;#123;        this.val = val;    &amp;#1">
-<meta property="og:updated_time" content="2017-09-01T16:22:45.000Z">
+<meta property="og:description" content="题目写一个函数StrToInt，实现把字符串转换成整数的功能。不能使用atoi或者其他类似的库函数。
+实现12345678910111213141516171819202122232425262728293031323334353637private boolean isInvalid = false;public int StrToInt(String str) &amp;#123;    if (st">
+<meta property="og:updated_time" content="2017-09-05T17:05:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【剑指Offer】二叉树的镜像">
-<meta name="twitter:description" content="题目请完成一个函数，输入一个二叉树，该函数输出它的镜像。
-实现123456789public class TreeNode &amp;#123;    int val = 0;    TreeNode left = null;    TreeNode right = null;    public TreeNode(int val) &amp;#123;        this.val = val;    &amp;#1">
+<meta name="twitter:title" content="【剑指Offer】把字符串转换成整数">
+<meta name="twitter:description" content="题目写一个函数StrToInt，实现把字符串转换成整数的功能。不能使用atoi或者其他类似的库函数。
+实现12345678910111213141516171819202122232425262728293031323334353637private boolean isInvalid = false;public int StrToInt(String str) &amp;#123;    if (st">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/14/【剑指Offer】二叉树的镜像/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/06/【剑指Offer】把字符串转换成整数/"/>
 
 
 
 
 
-  <title> 【剑指Offer】二叉树的镜像 | mrlonelyjtr's blog </title>
+  <title> 【剑指Offer】把字符串转换成整数 | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -262,7 +262,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/14/【剑指Offer】二叉树的镜像/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/06/【剑指Offer】把字符串转换成整数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -283,7 +283,7 @@
             
             
               
-                【剑指Offer】二叉树的镜像
+                【剑指Offer】把字符串转换成整数
               
             
           </h1>
@@ -298,8 +298,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-14T18:10:56+08:00">
-                2017-05-14
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-05T22:50:22Z">
+                2017-09-05
               </time>
             
 
@@ -367,9 +367,8 @@
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>请完成一个函数，输入一个二叉树，该函数输出它的镜像。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> val = <span class="number">0</span>;</div><div class="line">    TreeNode left = <span class="keyword">null</span>;</div><div class="line">    TreeNode right = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TreeNode</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.val = val;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Mirror</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>)</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (root.left == <span class="keyword">null</span> &amp;&amp; root.right == <span class="keyword">null</span>)</div><div class="line">        <span class="keyword">return</span>;</div><div class="line"></div><div class="line">    TreeNode tmp = root.left;</div><div class="line">    root.left = root.right;</div><div class="line">    root.right = tmp;</div><div class="line"></div><div class="line">    Mirror(root.left);</div><div class="line">    Mirror(root.right);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>写一个函数StrToInt，实现把字符串转换成整数的功能。不能使用atoi或者其他类似的库函数。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">boolean</span> isInvalid = <span class="keyword">false</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">StrToInt</span><span class="params">(String str)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (str == <span class="keyword">null</span> || str.length() &lt; <span class="number">1</span>) &#123;</div><div class="line">        isInvalid = <span class="keyword">true</span>;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">char</span>[] array = str.toCharArray();</div><div class="line">    <span class="keyword">long</span> result = <span class="number">0</span>;</div><div class="line">    <span class="keyword">boolean</span> minus = <span class="keyword">false</span>;</div><div class="line">    <span class="keyword">int</span> index = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (array[index] == <span class="string">'+'</span>)</div><div class="line">        index++;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (array[index] == <span class="string">'-'</span>) &#123;</div><div class="line">        minus = <span class="keyword">true</span>;</div><div class="line">        index++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (; index &lt; array.length; index++) &#123;</div><div class="line">        <span class="keyword">if</span> (array[index] &lt; <span class="string">'0'</span> || array[index] &gt; <span class="string">'9'</span>) &#123;</div><div class="line">            isInvalid = <span class="keyword">true</span>;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> flag = minus ? -<span class="number">1</span> : <span class="number">1</span>;</div><div class="line">        result = result * <span class="number">10</span> + flag * (array[index] - <span class="string">'0'</span>);</div><div class="line"></div><div class="line">        <span class="keyword">if</span> ((!minus &amp;&amp; result &gt; Integer.MAX_VALUE) || (minus &amp;&amp; result &lt; Integer.MIN_VALUE)) &#123;</div><div class="line">            isInvalid = <span class="keyword">true</span>;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> (<span class="keyword">int</span>)result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -413,8 +412,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/14/【剑指Offer】树的子结构/" rel="next" title="【剑指Offer】树的子结构">
-                <i class="fa fa-chevron-left"></i> 【剑指Offer】树的子结构
+              <a href="/2017/09/06/【剑指Offer】不用加减乘除做加法/" rel="next" title="【剑指Offer】不用加减乘除做加法">
+                <i class="fa fa-chevron-left"></i> 【剑指Offer】不用加减乘除做加法
               </a>
             
           </div>
@@ -422,10 +421,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/14/【剑指Offer】顺时针打印矩阵/" rel="prev" title="【剑指Offer】顺时针打印矩阵">
-                【剑指Offer】顺时针打印矩阵 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
