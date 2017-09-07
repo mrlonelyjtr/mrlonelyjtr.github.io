@@ -87,19 +87,22 @@
 
 
 
-<meta name="description" content="题目写一个函数，求两个整数之和，要求在函数体内不得使用+、-、x、／四则运算符号。
-实现123456789public int Add(int num1, int num2) &amp;#123;    while (num2 != 0) &amp;#123;        int sum = num1 ^ num2;        num2 = (num1 &amp;amp; num2) &amp;lt;&amp;lt; 1;">
+<meta name="description" content="题目一个链表中包含环，如何找出环的入口结点？
+实现12345678public class ListNode &amp;#123;    int val;    ListNode next = null;    ListNode(int val) &amp;#123;        this.val = val;    &amp;#125;&amp;#125;
+1234567891011121314151617181920212">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【剑指Offer】不用加减乘除做加法">
-<meta property="og:url" content="http://yoursite.com/2017/09/06/【剑指Offer】不用加减乘除做加法/index.html">
+<meta property="og:title" content="【剑指Offer】链表中环的入口结点">
+<meta property="og:url" content="http://yoursite.com/2017/09/08/【剑指Offer】链表中环的入口结点/index.html">
 <meta property="og:site_name" content="mrlonelyjtr's blog">
-<meta property="og:description" content="题目写一个函数，求两个整数之和，要求在函数体内不得使用+、-、x、／四则运算符号。
-实现123456789public int Add(int num1, int num2) &amp;#123;    while (num2 != 0) &amp;#123;        int sum = num1 ^ num2;        num2 = (num1 &amp;amp; num2) &amp;lt;&amp;lt; 1;">
-<meta property="og:updated_time" content="2017-09-05T14:40:15.000Z">
+<meta property="og:description" content="题目一个链表中包含环，如何找出环的入口结点？
+实现12345678public class ListNode &amp;#123;    int val;    ListNode next = null;    ListNode(int val) &amp;#123;        this.val = val;    &amp;#125;&amp;#125;
+1234567891011121314151617181920212">
+<meta property="og:updated_time" content="2017-09-07T14:06:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【剑指Offer】不用加减乘除做加法">
-<meta name="twitter:description" content="题目写一个函数，求两个整数之和，要求在函数体内不得使用+、-、x、／四则运算符号。
-实现123456789public int Add(int num1, int num2) &amp;#123;    while (num2 != 0) &amp;#123;        int sum = num1 ^ num2;        num2 = (num1 &amp;amp; num2) &amp;lt;&amp;lt; 1;">
+<meta name="twitter:title" content="【剑指Offer】链表中环的入口结点">
+<meta name="twitter:description" content="题目一个链表中包含环，如何找出环的入口结点？
+实现12345678public class ListNode &amp;#123;    int val;    ListNode next = null;    ListNode(int val) &amp;#123;        this.val = val;    &amp;#125;&amp;#125;
+1234567891011121314151617181920212">
 
 
 
@@ -127,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/06/【剑指Offer】不用加减乘除做加法/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/08/【剑指Offer】链表中环的入口结点/"/>
 
 
 
 
 
-  <title> 【剑指Offer】不用加减乘除做加法 | mrlonelyjtr's blog </title>
+  <title> 【剑指Offer】链表中环的入口结点 | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -262,7 +265,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/06/【剑指Offer】不用加减乘除做加法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/08/【剑指Offer】链表中环的入口结点/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -283,7 +286,7 @@
             
             
               
-                【剑指Offer】不用加减乘除做加法
+                【剑指Offer】链表中环的入口结点
               
             
           </h1>
@@ -298,8 +301,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-06T06:32:16+08:00">
-                2017-09-05
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-07T17:11:08Z">
+                2017-09-07
               </time>
             
 
@@ -367,32 +370,9 @@
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>写一个函数，求两个整数之和，要求在函数体内不得使用+、-、x、／四则运算符号。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">Add</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span> </span>&#123;</div><div class="line">    <span class="keyword">while</span> (num2 != <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">int</span> sum = num1 ^ num2;</div><div class="line">        num2 = (num1 &amp; num2) &lt;&lt; <span class="number">1</span>;</div><div class="line">        num1 = sum;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> num1;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="相关问题"><a href="#相关问题" class="headerlink" title="相关问题"></a>相关问题</h2><p>不使用新的变量，交换两个变量的值。比如有两个变量a、b，希望交换它们的值。有两种不同的办法：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">基于加减法</th>
-<th style="text-align:left">基于异或运算</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">a = a + b</td>
-<td style="text-align:left">a = a ^ b</td>
-</tr>
-<tr>
-<td style="text-align:left">b = a - b</td>
-<td style="text-align:left">b = a ^ b</td>
-</tr>
-<tr>
-<td style="text-align:left">a = a - b</td>
-<td style="text-align:left">a = a ^ b</td>
-</tr>
-</tbody>
-</table>
-
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>一个链表中包含环，如何找出环的入口结点？</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> val;</div><div class="line">    ListNode next = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    ListNode(<span class="keyword">int</span> val) &#123;</div><div class="line">        <span class="keyword">this</span>.val = val;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">EntryNodeOfLoop</span><span class="params">(ListNode pHead)</span> </span>&#123;</div><div class="line">    ListNode node = meetingNode(pHead);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (node == <span class="keyword">null</span>)</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> count = countNodes(node);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> findEntry(pHead, count);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> ListNode <span class="title">meetingNode</span><span class="params">(ListNode head)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (head == <span class="keyword">null</span>)</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    ListNode slow = head;</div><div class="line">    ListNode fast = head.next;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (fast != <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (fast == slow)</div><div class="line">            <span class="keyword">return</span> slow;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (fast.next == <span class="keyword">null</span>)</div><div class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        slow = slow.next;</div><div class="line">        fast = fast.next.next;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">countNodes</span><span class="params">(ListNode node)</span> </span>&#123;</div><div class="line">    ListNode current = node.next;</div><div class="line">    <span class="keyword">int</span> count = <span class="number">1</span>;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (current != node) &#123;</div><div class="line">        count++;</div><div class="line">        current = current.next;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> count;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> ListNode <span class="title">findEntry</span><span class="params">(ListNode head, <span class="keyword">int</span> count)</span> </span>&#123;</div><div class="line">    ListNode slow = head;</div><div class="line">    ListNode fast = head;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count; i++)</div><div class="line">        fast = fast.next;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (fast != slow) &#123;</div><div class="line">        fast = fast.next;</div><div class="line">        slow = slow.next;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> slow;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -436,8 +416,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/06/【剑指Offer】求1-2-n/" rel="next" title="【剑指Offer】求1+2+...+n">
-                <i class="fa fa-chevron-left"></i> 【剑指Offer】求1+2+...+n
+              <a href="/2017/09/07/【剑指Offer】字符流中第一个不重复的字符/" rel="next" title="【剑指Offer】字符流中第一个不重复的字符">
+                <i class="fa fa-chevron-left"></i> 【剑指Offer】字符流中第一个不重复的字符
               </a>
             
           </div>
@@ -445,10 +425,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/06/【剑指Offer】把字符串转换成整数/" rel="prev" title="【剑指Offer】把字符串转换成整数">
-                【剑指Offer】把字符串转换成整数 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -577,7 +553,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关问题"><span class="nav-number">3.</span> <span class="nav-text">相关问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a></li></ol></div>
             
 
           </div>
