@@ -87,19 +87,19 @@
 
 
 
-<meta name="description" content="题目在字符串中找出第一个只出现一次的字符。如输入“abaccdeff”，则输出’b’。
-实现123456789101112131415161718192021222324public int FirstNotRepeatingChar(String str) &amp;#123;    if (str == null || str.length() == 0)        return -1;    M">
+<meta name="description" content="题目给定一棵二叉搜索树，请找出其中的第k大的结点。
+实现123456789public class TreeNode &amp;#123;    int val = 0;    TreeNode left = null;    TreeNode right = null;        public TreeNode(int val) &amp;#123;        this.val = val;    &amp;#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【剑指Offer】第一个只出现一次的字符">
-<meta property="og:url" content="http://yoursite.com/2017/08/31/【剑指Offer】第一个只出现一次的字符/index.html">
+<meta property="og:title" content="【剑指Offer】二叉搜索树的第k个结点">
+<meta property="og:url" content="http://yoursite.com/2017/09/08/【剑指Offer】二叉搜索树的第k个结点/index.html">
 <meta property="og:site_name" content="mrlonelyjtr's blog">
-<meta property="og:description" content="题目在字符串中找出第一个只出现一次的字符。如输入“abaccdeff”，则输出’b’。
-实现123456789101112131415161718192021222324public int FirstNotRepeatingChar(String str) &amp;#123;    if (str == null || str.length() == 0)        return -1;    M">
-<meta property="og:updated_time" content="2017-09-01T15:52:19.000Z">
+<meta property="og:description" content="题目给定一棵二叉搜索树，请找出其中的第k大的结点。
+实现123456789public class TreeNode &amp;#123;    int val = 0;    TreeNode left = null;    TreeNode right = null;        public TreeNode(int val) &amp;#123;        this.val = val;    &amp;#">
+<meta property="og:updated_time" content="2017-09-08T07:30:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【剑指Offer】第一个只出现一次的字符">
-<meta name="twitter:description" content="题目在字符串中找出第一个只出现一次的字符。如输入“abaccdeff”，则输出’b’。
-实现123456789101112131415161718192021222324public int FirstNotRepeatingChar(String str) &amp;#123;    if (str == null || str.length() == 0)        return -1;    M">
+<meta name="twitter:title" content="【剑指Offer】二叉搜索树的第k个结点">
+<meta name="twitter:description" content="题目给定一棵二叉搜索树，请找出其中的第k大的结点。
+实现123456789public class TreeNode &amp;#123;    int val = 0;    TreeNode left = null;    TreeNode right = null;        public TreeNode(int val) &amp;#123;        this.val = val;    &amp;#">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/08/31/【剑指Offer】第一个只出现一次的字符/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/08/【剑指Offer】二叉搜索树的第k个结点/"/>
 
 
 
 
 
-  <title> 【剑指Offer】第一个只出现一次的字符 | mrlonelyjtr's blog </title>
+  <title> 【剑指Offer】二叉搜索树的第k个结点 | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -262,7 +262,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/31/【剑指Offer】第一个只出现一次的字符/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/08/【剑指Offer】二叉搜索树的第k个结点/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -283,7 +283,7 @@
             
             
               
-                【剑指Offer】第一个只出现一次的字符
+                【剑指Offer】二叉搜索树的第k个结点
               
             
           </h1>
@@ -298,8 +298,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-31T22:58:18+08:00">
-                2017-08-31
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-08T22:37:31+08:00">
+                2017-09-08
               </time>
             
 
@@ -367,17 +367,9 @@
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>在字符串中找出第一个只出现一次的字符。如输入“abaccdeff”，则输出’b’。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">FirstNotRepeatingChar</span><span class="params">(String str)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (str == <span class="keyword">null</span> || str.length() == <span class="number">0</span>)</div><div class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line"></div><div class="line">    Map&lt;Character, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.length(); i++) &#123;</div><div class="line">        Character ch = str.charAt(i);</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (map.containsKey(ch))</div><div class="line">            map.put(ch, map.get(ch) + <span class="number">1</span>);</div><div class="line">        <span class="keyword">else</span></div><div class="line">            map.put(ch, <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.length(); i++) &#123;</div><div class="line">        Character ch = str.charAt(i);</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (map.get(ch) == <span class="number">1</span>)</div><div class="line">            <span class="keyword">return</span> i;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="相关题目"><a href="#相关题目" class="headerlink" title="相关题目"></a>相关题目</h2><ol>
-<li><p>定义一个函数，输入两个字符串，从第一个字符串中删除在第二个字符串中出现过的所有字符。例如从第一个字符串“We are students. ”中删除在第二个字符串“aeiou”中出现过的字符得到的结果是“W r Stdnts. ”。为了解决这个问题，可以创建一个用数组实现的简单哈希表来存储第二个字符串。这样从头到尾扫描第一个字符串的每一个字符时，用O(1)时间就能判断出该字符是不是在第二个字符中。如果第一个字符串的长度是n，那么总的时间复杂度是O(n)。</p>
-</li>
-<li><p>定义一个函数，删除字符串中所有重复出现的字符。例如输入“google”，删除重复的字符之后的结果是“gole”。可以创建一个用布尔型数组实现的简单的哈希表。数组中的元素的意义是其下标看做ASCII码后对应的字母在字符串中是否已经出现。先把数组中所有的元素都设为false。以“google”为例，当扫描到第一个g时，g的ASCII码是103，那么把数组中下标为103的元素设为true。当扫描到第二个g时，发现数组中下标为103的元素的值是true，就知道g在前面已经出现了。也就是说，用O(1)时间就能判断出每个字符是否在前面已经出现过。如果字符串的长度是n，那么总的时间复杂度是O(n)。</p>
-</li>
-<li><p>在英语中，如果两个单词中出现的字母相同，并且每个字母出现的次数也相同，那么这两个单词互为变位词（Anagram）。例如silent与listen、evil与live等互为变位词。请完成一个函数，判断输入的两个字符串是不是互为变位词。可以创建一个用数组实现的简单哈希表，用来统计字符串中每个字符出现的次数。当扫描到第一个字符串中的每个字符时，为哈希表对应的项的值增加1.接下来扫描第二个字符串，扫描到每个字符时，为哈希表对应的项的值减去1.如果扫描完第二个字符串后，哈希表中所有的值都是0，那么这两个字符串就互为变位词。</p>
-</li>
-</ol>
-
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一棵二叉搜索树，请找出其中的第k大的结点。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> val = <span class="number">0</span>;</div><div class="line">    TreeNode left = <span class="keyword">null</span>;</div><div class="line">    TreeNode right = <span class="keyword">null</span>;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TreeNode</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.val = val;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">int</span> count = <span class="number">0</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> TreeNode <span class="title">KthNode</span><span class="params">(TreeNode pRoot, <span class="keyword">int</span> k)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (pRoot == <span class="keyword">null</span> || k &lt; <span class="number">1</span>)</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> KthNodeHelper(pRoot, k);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> TreeNode <span class="title">KthNodeHelper</span><span class="params">(TreeNode root, <span class="keyword">int</span> k)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>)</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    TreeNode node = KthNodeHelper(root.left, k);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (node != <span class="keyword">null</span>)</div><div class="line">        <span class="keyword">return</span> node;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (++count == k)</div><div class="line">        <span class="keyword">return</span> root;</div><div class="line"></div><div class="line">    node = KthNodeHelper(root.right, k);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (node != <span class="keyword">null</span>)</div><div class="line">        <span class="keyword">return</span> node;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -421,8 +413,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/31/【剑指Offer】丑数/" rel="next" title="【剑指Offer】丑数">
-                <i class="fa fa-chevron-left"></i> 【剑指Offer】丑数
+              <a href="/2017/09/08/【剑指Offer】序列化二叉树/" rel="next" title="【剑指Offer】序列化二叉树">
+                <i class="fa fa-chevron-left"></i> 【剑指Offer】序列化二叉树
               </a>
             
           </div>
@@ -430,10 +422,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/01/【剑指Offer】数组中的逆序对/" rel="prev" title="【剑指Offer】数组中的逆序对">
-                【剑指Offer】数组中的逆序对 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -562,7 +550,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关题目"><span class="nav-number">3.</span> <span class="nav-text">相关题目</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a></li></ol></div>
             
 
           </div>
