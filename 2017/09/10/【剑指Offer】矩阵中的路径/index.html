@@ -87,19 +87,16 @@
 
 
 
-<meta name="description" content="题目求1+2+…+n，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）。
-实现12345public int Sum_Solution(int n) &amp;#123;    int sum = n;    boolean end = n &amp;gt; 0 &amp;amp;&amp;amp; (sum += Sum_Solution(n - 1)) &amp;gt">
+<meta name="description" content="题目请设计一个函数，用来判断在一个矩阵中是否存在一条包含某字符串所有字符的路径。路径可以从矩阵中任意一格开始，每一步可以在矩阵中向左、右、上、下移动一格。如果一条路径经过了矩阵的某一格，那么该路径不能再次进入该格子。例如在下面的3x4的矩阵中包含一条字符串“bcced”的路径。但矩阵中不包含字符串“abcb”的路径，因为字符串的第一个字符b占据了矩阵中的第一行第二个格子之后，路径不能再次进入这个格">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【剑指Offer】求1+2+...+n">
-<meta property="og:url" content="http://yoursite.com/2017/09/06/【剑指Offer】求1-2-n/index.html">
+<meta property="og:title" content="【剑指Offer】矩阵中的路径">
+<meta property="og:url" content="http://yoursite.com/2017/09/10/【剑指Offer】矩阵中的路径/index.html">
 <meta property="og:site_name" content="mrlonelyjtr's blog">
-<meta property="og:description" content="题目求1+2+…+n，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）。
-实现12345public int Sum_Solution(int n) &amp;#123;    int sum = n;    boolean end = n &amp;gt; 0 &amp;amp;&amp;amp; (sum += Sum_Solution(n - 1)) &amp;gt">
-<meta property="og:updated_time" content="2017-09-05T14:31:36.000Z">
+<meta property="og:description" content="题目请设计一个函数，用来判断在一个矩阵中是否存在一条包含某字符串所有字符的路径。路径可以从矩阵中任意一格开始，每一步可以在矩阵中向左、右、上、下移动一格。如果一条路径经过了矩阵的某一格，那么该路径不能再次进入该格子。例如在下面的3x4的矩阵中包含一条字符串“bcced”的路径。但矩阵中不包含字符串“abcb”的路径，因为字符串的第一个字符b占据了矩阵中的第一行第二个格子之后，路径不能再次进入这个格">
+<meta property="og:updated_time" content="2017-09-09T17:30:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【剑指Offer】求1+2+...+n">
-<meta name="twitter:description" content="题目求1+2+…+n，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）。
-实现12345public int Sum_Solution(int n) &amp;#123;    int sum = n;    boolean end = n &amp;gt; 0 &amp;amp;&amp;amp; (sum += Sum_Solution(n - 1)) &amp;gt">
+<meta name="twitter:title" content="【剑指Offer】矩阵中的路径">
+<meta name="twitter:description" content="题目请设计一个函数，用来判断在一个矩阵中是否存在一条包含某字符串所有字符的路径。路径可以从矩阵中任意一格开始，每一步可以在矩阵中向左、右、上、下移动一格。如果一条路径经过了矩阵的某一格，那么该路径不能再次进入该格子。例如在下面的3x4的矩阵中包含一条字符串“bcced”的路径。但矩阵中不包含字符串“abcb”的路径，因为字符串的第一个字符b占据了矩阵中的第一行第二个格子之后，路径不能再次进入这个格">
 
 
 
@@ -127,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/06/【剑指Offer】求1-2-n/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/10/【剑指Offer】矩阵中的路径/"/>
 
 
 
 
 
-  <title> 【剑指Offer】求1+2+...+n | mrlonelyjtr's blog </title>
+  <title> 【剑指Offer】矩阵中的路径 | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -262,7 +259,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/06/【剑指Offer】求1-2-n/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/10/【剑指Offer】矩阵中的路径/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -283,7 +280,7 @@
             
             
               
-                【剑指Offer】求1+2+...+n
+                【剑指Offer】矩阵中的路径
               
             
           </h1>
@@ -298,8 +295,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-06T06:28:05+08:00">
-                2017-09-05
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-10T05:31:36+08:00">
+                2017-09-09
               </time>
             
 
@@ -367,8 +364,9 @@
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>求1+2+…+n，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">Sum_Solution</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> sum = n;</div><div class="line">    <span class="keyword">boolean</span> end = n &gt; <span class="number">0</span> &amp;&amp; (sum += Sum_Solution(n - <span class="number">1</span>)) &gt; <span class="number">0</span>;</div><div class="line">    <span class="keyword">return</span> sum;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>请设计一个函数，用来判断在一个矩阵中是否存在一条包含某字符串所有字符的路径。路径可以从矩阵中任意一格开始，每一步可以在矩阵中向左、右、上、下移动一格。如果一条路径经过了矩阵的某一格，那么该路径不能再次进入该格子。例如在下面的3x4的矩阵中包含一条字符串“bcced”的路径。但矩阵中不包含字符串“abcb”的路径，因为字符串的第一个字符b占据了矩阵中的第一行第二个格子之后，路径不能再次进入这个格子。</p>
+<p>a b c e<br>s f c s<br>a d e e</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasPath</span><span class="params">(<span class="keyword">char</span>[] matrix, <span class="keyword">int</span> rows, <span class="keyword">int</span> cols, <span class="keyword">char</span>[] str)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (matrix == <span class="keyword">null</span> || rows &lt; <span class="number">1</span> || cols &lt; <span class="number">1</span> || str == <span class="keyword">null</span>)</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line"></div><div class="line">    <span class="keyword">boolean</span>[] visited = <span class="keyword">new</span> <span class="keyword">boolean</span>[matrix.length];</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; rows; i++) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; cols; j++)</div><div class="line">            <span class="keyword">if</span> (hasPathHelper(matrix, rows, cols, i, j, str, <span class="number">0</span>, visited))</div><div class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">hasPathHelper</span><span class="params">(<span class="keyword">char</span>[] matrix, <span class="keyword">int</span> rows, <span class="keyword">int</span> cols, <span class="keyword">int</span> row, <span class="keyword">int</span> col, <span class="keyword">char</span>[] str, <span class="keyword">int</span> strIdx, <span class="keyword">boolean</span>[] visited)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (row &lt; <span class="number">0</span> || col &lt; <span class="number">0</span> || row &gt;= rows || col &gt;= cols)</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> matrixIdx = row * cols + col;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (visited[matrixIdx] || str[strIdx] != matrix[matrixIdx])</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (strIdx == str.length - <span class="number">1</span>)</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line"></div><div class="line">    visited[matrixIdx] = <span class="keyword">true</span>;</div><div class="line"></div><div class="line">    <span class="keyword">boolean</span> result = hasPathHelper(matrix, rows, cols, row - <span class="number">1</span>, col, str, strIdx + <span class="number">1</span>, visited)</div><div class="line">                        || hasPathHelper(matrix, rows, cols, row + <span class="number">1</span>, col, str, strIdx + <span class="number">1</span>, visited)</div><div class="line">                        || hasPathHelper(matrix, rows, cols, row, col - <span class="number">1</span>, str, strIdx + <span class="number">1</span>, visited)</div><div class="line">                        || hasPathHelper(matrix, rows, cols, row, col + <span class="number">1</span>, str, strIdx + <span class="number">1</span>, visited);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (!result)</div><div class="line">        visited[matrixIdx] = <span class="keyword">false</span>;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -412,8 +410,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/05/【剑指Offer】圆圈中最后剩下的数字/" rel="next" title="【剑指Offer】圆圈中最后剩下的数字">
-                <i class="fa fa-chevron-left"></i> 【剑指Offer】圆圈中最后剩下的数字
+              <a href="/2017/09/09/【剑指Offer】滑动窗口的最大值/" rel="next" title="【剑指Offer】滑动窗口的最大值">
+                <i class="fa fa-chevron-left"></i> 【剑指Offer】滑动窗口的最大值
               </a>
             
           </div>
@@ -421,10 +419,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/06/【剑指Offer】不用加减乘除做加法/" rel="prev" title="【剑指Offer】不用加减乘除做加法">
-                【剑指Offer】不用加减乘除做加法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
