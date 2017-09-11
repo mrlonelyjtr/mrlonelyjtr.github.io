@@ -95,7 +95,7 @@ You may assume that each input would have exactly one solution, and you may not 
 <meta property="og:site_name" content="mrlonelyjtr's blog">
 <meta property="og:description" content="Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 You may assume that each input would have exactly one solution, and you may not use the same e">
-<meta property="og:updated_time" content="2017-09-10T16:27:17.000Z">
+<meta property="og:updated_time" content="2017-09-10T16:48:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LeetCode] Problem 1 - Two Sum">
 <meta name="twitter:description" content="Given an array of integers, return indices of the two numbers such that they add up to a specific target.
@@ -371,7 +371,7 @@ You may assume that each input would have exactly one solution, and you may not 
 <p>You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
 <h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>Given nums = [2, 7, 11, 15], target = 9,</p>
 <p>Because nums[0] + nums[1] = 2 + 7 = 9,<br>return [0, 1].</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</div><div class="line">    Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</div><div class="line">        <span class="keyword">int</span> num = nums[i];</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (map.containsKey(target - num))</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;i, map.get(target - num)&#125;;</div><div class="line"></div><div class="line">        map.put(num, i);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// O(n) runtime, O(n) space</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</div><div class="line">    Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</div><div class="line">        <span class="keyword">int</span> num = nums[i];</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (map.containsKey(target - num))</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;i, map.get(target - num)&#125;;</div><div class="line"></div><div class="line">        map.put(num, i);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -424,6 +424,10 @@ You may assume that each input would have exactly one solution, and you may not 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/11/LeetCode-Problem-167-Two-Sum-II-Input-array-is-sorted/" rel="prev" title="[LeetCode] Problem 167 - Two Sum II - Input array is sorted">
+                [LeetCode] Problem 167 - Two Sum II - Input array is sorted <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -495,7 +499,7 @@ You may assume that each input would have exactly one solution, and you may not 
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">82</span>
+                <span class="site-state-item-count">83</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
