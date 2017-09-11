@@ -87,19 +87,19 @@
 
 
 
-<meta name="description" content="题目从上往下打印出二叉树的每个结点，同一层的结点按照从左到右的顺序打印。
-实现123456789public class TreeNode &amp;#123;    int val = 0;    TreeNode left = null;    TreeNode right = null;    public TreeNode(int val) &amp;#123;        this.val = val">
+<meta name="description" content="Implement atoi to convert a string to an integer.
+HintCarefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【剑指Offer】从上往下打印二叉树">
-<meta property="og:url" content="http://yoursite.com/2017/05/16/【剑指Offer】从上往下打印二叉树/index.html">
+<meta property="og:title" content="[LeetCode] Problem 8 - String to Integer (atoi)">
+<meta property="og:url" content="http://yoursite.com/2017/09/12/LeetCode-Problem-8-String-to-Integer-atoi/index.html">
 <meta property="og:site_name" content="mrlonelyjtr's blog">
-<meta property="og:description" content="题目从上往下打印出二叉树的每个结点，同一层的结点按照从左到右的顺序打印。
-实现123456789public class TreeNode &amp;#123;    int val = 0;    TreeNode left = null;    TreeNode right = null;    public TreeNode(int val) &amp;#123;        this.val = val">
-<meta property="og:updated_time" content="2017-09-01T16:21:57.000Z">
+<meta property="og:description" content="Implement atoi to convert a string to an integer.
+HintCarefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.">
+<meta property="og:updated_time" content="2017-09-11T16:17:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【剑指Offer】从上往下打印二叉树">
-<meta name="twitter:description" content="题目从上往下打印出二叉树的每个结点，同一层的结点按照从左到右的顺序打印。
-实现123456789public class TreeNode &amp;#123;    int val = 0;    TreeNode left = null;    TreeNode right = null;    public TreeNode(int val) &amp;#123;        this.val = val">
+<meta name="twitter:title" content="[LeetCode] Problem 8 - String to Integer (atoi)">
+<meta name="twitter:description" content="Implement atoi to convert a string to an integer.
+HintCarefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/16/【剑指Offer】从上往下打印二叉树/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/12/LeetCode-Problem-8-String-to-Integer-atoi/"/>
 
 
 
 
 
-  <title> 【剑指Offer】从上往下打印二叉树 | mrlonelyjtr's blog </title>
+  <title> [LeetCode] Problem 8 - String to Integer (atoi) | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -262,7 +262,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/16/【剑指Offer】从上往下打印二叉树/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/12/LeetCode-Problem-8-String-to-Integer-atoi/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -283,7 +283,7 @@
             
             
               
-                【剑指Offer】从上往下打印二叉树
+                [LeetCode] Problem 8 - String to Integer (atoi)
               
             
           </h1>
@@ -298,8 +298,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-16T05:49:07+08:00">
-                2017-05-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-12T07:32:40+08:00">
+                2017-09-11
               </time>
             
 
@@ -332,8 +332,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/剑指Offer/" itemprop="url" rel="index">
-                    <span itemprop="name">剑指Offer</span>
+                  <a href="/categories/Algorithm/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
                   </a>
                 </span>
 
@@ -367,11 +367,14 @@
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>从上往下打印出二叉树的每个结点，同一层的结点按照从左到右的顺序打印。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> val = <span class="number">0</span>;</div><div class="line">    TreeNode left = <span class="keyword">null</span>;</div><div class="line">    TreeNode right = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TreeNode</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.val = val;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> ArrayList&lt;Integer&gt; <span class="title">PrintFromTopToBottom</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">    ArrayList&lt;Integer&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>)</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line"></div><div class="line">    Queue&lt;TreeNode&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</div><div class="line">    queue.offer(root);</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (!queue.isEmpty())&#123;</div><div class="line">        TreeNode node = queue.poll();</div><div class="line">        result.add(node.val);</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (node.left != <span class="keyword">null</span>)</div><div class="line">            queue.offer(node.left);</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (node.right != <span class="keyword">null</span>)</div><div class="line">            queue.offer(node.right);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="相关题目"><a href="#相关题目" class="headerlink" title="相关题目"></a>相关题目</h2><p>如何广度优先遍历一个有向图》这同样也可以基于队列实现。树是图的一种特殊退化形式，从上到下按层遍历二叉树，从本质上来说就是广度优先遍历二叉树。</p>
-
+        <p>Implement atoi to convert a string to an integer.</p>
+<h2 id="Hint"><a href="#Hint" class="headerlink" title="Hint"></a>Hint</h2><p>Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.</p>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><p>It is intended for this problem to be specified vaguely (ie, no given input specs). You are responsible to gather all the input requirements up front.</p>
+<h2 id="Requirements-for-atoi"><a href="#Requirements-for-atoi" class="headerlink" title="Requirements for atoi"></a>Requirements for atoi</h2><p>The function first discards as many whitespace characters as necessary until the first non-whitespace character is found. Then, starting from this character, takes an optional initial plus or minus sign followed by as many numerical digits as possible, and interprets them as a numerical value.</p>
+<p>The string can contain additional characters after those that form the integral number, which are ignored and have no effect on the behavior of this function.</p>
+<p>If the first sequence of non-whitespace characters in str is not a valid integral number, or if no such sequence exists because either str is empty or it contains only whitespace characters, no conversion is performed.</p>
+<p>If no valid conversion could be performed, a zero value is returned. If the correct value is out of the range of representable values, INT_MAX (2147483647) or INT_MIN (-2147483648) is returned.</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">myAtoi</span><span class="params">(String str)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> flag = <span class="number">1</span>;</div><div class="line">    <span class="keyword">int</span> num = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (i &lt; str.length() &amp;&amp; Character.isWhitespace(str.charAt(i)))</div><div class="line">        i++;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (i &lt; str.length() &amp;&amp; str.charAt(i) == <span class="string">'-'</span>) &#123;</div><div class="line">        flag = -<span class="number">1</span>;</div><div class="line">        i++;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (i &lt; str.length() &amp;&amp; str.charAt(i) == <span class="string">'+'</span>)</div><div class="line">        i++;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (i &lt; str.length() &amp;&amp; Character.isDigit(str.charAt(i))) &#123;</div><div class="line">        <span class="keyword">int</span> digit = Character.getNumericValue(str.charAt(i));</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (num &gt; Integer.MAX_VALUE / <span class="number">10</span> || (num == <span class="number">214748364</span> &amp;&amp; digit &gt; <span class="number">7</span>))</div><div class="line">            <span class="keyword">return</span> flag == <span class="number">1</span> ? Integer.MAX_VALUE : Integer.MIN_VALUE;</div><div class="line"></div><div class="line">        num = <span class="number">10</span> * num + digit;</div><div class="line">        i++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> flag * num;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -415,8 +418,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/15/【剑指Offer】栈的压入、弹出序列/" rel="next" title="【剑指Offer】栈的压入、弹出序列">
-                <i class="fa fa-chevron-left"></i> 【剑指Offer】栈的压入、弹出序列
+              <a href="/2017/09/12/LeetCode-Problem-151-Reverse-Words-in-a-String/" rel="next" title="[LeetCode] Problem 151 - Reverse Words in a String">
+                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 151 - Reverse Words in a String
               </a>
             
           </div>
@@ -424,10 +427,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/16/【剑指Offer】二叉搜索树的后序遍历序列/" rel="prev" title="【剑指Offer】二叉搜索树的后序遍历序列">
-                【剑指Offer】二叉搜索树的后序遍历序列 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -556,7 +555,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关题目"><span class="nav-number">3.</span> <span class="nav-text">相关题目</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hint"><span class="nav-number">1.</span> <span class="nav-text">Hint</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Notes"><span class="nav-number">2.</span> <span class="nav-text">Notes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Requirements-for-atoi"><span class="nav-number">3.</span> <span class="nav-text">Requirements for atoi</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">4.</span> <span class="nav-text">Code</span></a></li></ol></div>
             
 
           </div>
