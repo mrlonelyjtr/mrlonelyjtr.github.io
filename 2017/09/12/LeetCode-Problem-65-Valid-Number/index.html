@@ -87,19 +87,22 @@
 
 
 
-<meta name="description" content="题目输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。如果是则返回true，否则返回false。假设输入的数组的任意两个数字都互不相同。
-实现12345678910111213141516171819202122232425public boolean VerifySquenceOfBST(int[] sequence) &amp;#123;    if (sequence.length =">
+<meta name="description" content="Validate if a given string is numeric.
+Example“0” =&amp;gt; true“ 0.1 “ =&amp;gt; true“abc” =&amp;gt; false“1 a” =&amp;gt; false“2e10” =&amp;gt; true
+NoteIt is intended for the problem statement to be ambiguous. You shou">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【剑指Offer】二叉搜索树的后序遍历序列">
-<meta property="og:url" content="http://yoursite.com/2017/05/16/【剑指Offer】二叉搜索树的后序遍历序列/index.html">
+<meta property="og:title" content="[LeetCode] Problem 65 - Valid Number">
+<meta property="og:url" content="http://yoursite.com/2017/09/12/LeetCode-Problem-65-Valid-Number/index.html">
 <meta property="og:site_name" content="mrlonelyjtr's blog">
-<meta property="og:description" content="题目输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。如果是则返回true，否则返回false。假设输入的数组的任意两个数字都互不相同。
-实现12345678910111213141516171819202122232425public boolean VerifySquenceOfBST(int[] sequence) &amp;#123;    if (sequence.length =">
-<meta property="og:updated_time" content="2017-09-01T16:23:36.000Z">
+<meta property="og:description" content="Validate if a given string is numeric.
+Example“0” =&amp;gt; true“ 0.1 “ =&amp;gt; true“abc” =&amp;gt; false“1 a” =&amp;gt; false“2e10” =&amp;gt; true
+NoteIt is intended for the problem statement to be ambiguous. You shou">
+<meta property="og:updated_time" content="2017-09-11T17:05:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【剑指Offer】二叉搜索树的后序遍历序列">
-<meta name="twitter:description" content="题目输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。如果是则返回true，否则返回false。假设输入的数组的任意两个数字都互不相同。
-实现12345678910111213141516171819202122232425public boolean VerifySquenceOfBST(int[] sequence) &amp;#123;    if (sequence.length =">
+<meta name="twitter:title" content="[LeetCode] Problem 65 - Valid Number">
+<meta name="twitter:description" content="Validate if a given string is numeric.
+Example“0” =&amp;gt; true“ 0.1 “ =&amp;gt; true“abc” =&amp;gt; false“1 a” =&amp;gt; false“2e10” =&amp;gt; true
+NoteIt is intended for the problem statement to be ambiguous. You shou">
 
 
 
@@ -127,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/16/【剑指Offer】二叉搜索树的后序遍历序列/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/12/LeetCode-Problem-65-Valid-Number/"/>
 
 
 
 
 
-  <title> 【剑指Offer】二叉搜索树的后序遍历序列 | mrlonelyjtr's blog </title>
+  <title> [LeetCode] Problem 65 - Valid Number | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -262,7 +265,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/16/【剑指Offer】二叉搜索树的后序遍历序列/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/12/LeetCode-Problem-65-Valid-Number/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -283,7 +286,7 @@
             
             
               
-                【剑指Offer】二叉搜索树的后序遍历序列
+                [LeetCode] Problem 65 - Valid Number
               
             
           </h1>
@@ -298,8 +301,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-16T06:13:35+08:00">
-                2017-05-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-12T00:20:01Z">
+                2017-09-12
               </time>
             
 
@@ -332,8 +335,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/剑指Offer/" itemprop="url" rel="index">
-                    <span itemprop="name">剑指Offer</span>
+                  <a href="/categories/Algorithm/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
                   </a>
                 </span>
 
@@ -367,10 +370,10 @@
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。如果是则返回true，否则返回false。假设输入的数组的任意两个数字都互不相同。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">VerifySquenceOfBST</span><span class="params">(<span class="keyword">int</span>[] sequence)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (sequence.length == <span class="number">0</span>)</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> VerifySquenceOfBST(sequence, <span class="number">0</span>, sequence.length - <span class="number">1</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">VerifySquenceOfBST</span><span class="params">(<span class="keyword">int</span>[] sequence, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span> (start &gt;= end)</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> idx = start;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (; idx &lt; end; idx++)&#123;</div><div class="line">        <span class="keyword">if</span> (sequence[idx] &gt; sequence[end])</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = idx + <span class="number">1</span>; i &lt; end; i++)&#123;</div><div class="line">        <span class="keyword">if</span> (sequence[i] &lt; sequence[end])</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> VerifySquenceOfBST(sequence, start, idx - <span class="number">1</span>) &amp;&amp; VerifySquenceOfBST(sequence, idx, end - <span class="number">1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="相关题目"><a href="#相关题目" class="headerlink" title="相关题目"></a>相关题目</h2><p>输入一个整数数组，判断该数组是不是某二叉搜索树的前序遍历的结果。这和前面问题的后序遍历很类似，只是在前序遍历得到的序列中，第一个数字是根结点的值。</p>
-
+        <p>Validate if a given string is numeric.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>“0” =&gt; true<br>“ 0.1 “ =&gt; true<br>“abc” =&gt; false<br>“1 a” =&gt; false<br>“2e10” =&gt; true</p>
+<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>It is intended for the problem statement to be ambiguous. You should gather all requirements up front before implementing one.</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isNumber</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">    <span class="keyword">boolean</span> isNum = <span class="keyword">false</span>;</div><div class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (i &lt; s.length() &amp;&amp; Character.isWhitespace(s.charAt(i)))</div><div class="line">        i++;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (i &lt; s.length() &amp;&amp; (s.charAt(i) == <span class="string">'+'</span> || s.charAt(i) == <span class="string">'-'</span>))</div><div class="line">        i++;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (i &lt; s.length() &amp;&amp; Character.isDigit(s.charAt(i))) &#123;</div><div class="line">        isNum = <span class="keyword">true</span>;</div><div class="line">        i++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (i &lt; s.length() &amp;&amp; s.charAt(i) == <span class="string">'.'</span>) &#123;</div><div class="line">        i++;</div><div class="line"></div><div class="line">        <span class="keyword">while</span> (i &lt; s.length() &amp;&amp; Character.isDigit(s.charAt(i))) &#123;</div><div class="line">            isNum = <span class="keyword">true</span>;</div><div class="line">            i++;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (isNum &amp;&amp; i &lt; s.length() &amp;&amp; s.charAt(i) == <span class="string">'e'</span>) &#123;</div><div class="line">        isNum = <span class="keyword">false</span>;</div><div class="line">        i++;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (i &lt; s.length() &amp;&amp; (s.charAt(i) == <span class="string">'+'</span> || s.charAt(i) == <span class="string">'-'</span>))</div><div class="line">            i++;</div><div class="line"></div><div class="line">        <span class="keyword">while</span> (i &lt; s.length() &amp;&amp; Character.isDigit(s.charAt(i))) &#123;</div><div class="line">            isNum = <span class="keyword">true</span>;</div><div class="line">            i++;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (i &lt; s.length() &amp;&amp; Character.isWhitespace(s.charAt(i)))</div><div class="line">        i++;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> isNum &amp;&amp; i == s.length();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -414,8 +417,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/16/【剑指Offer】从上往下打印二叉树/" rel="next" title="【剑指Offer】从上往下打印二叉树">
-                <i class="fa fa-chevron-left"></i> 【剑指Offer】从上往下打印二叉树
+              <a href="/2017/09/12/LeetCode-Problem-8-String-to-Integer-atoi/" rel="next" title="[LeetCode] Problem 8 - String to Integer (atoi)">
+                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 8 - String to Integer (atoi)
               </a>
             
           </div>
@@ -423,10 +426,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/16/【剑指Offer】二叉树中和为某一值的路径/" rel="prev" title="【剑指Offer】二叉树中和为某一值的路径">
-                【剑指Offer】二叉树中和为某一值的路径 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -555,7 +554,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关题目"><span class="nav-number">3.</span> <span class="nav-text">相关题目</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">2.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li></ol></div>
             
 
           </div>
