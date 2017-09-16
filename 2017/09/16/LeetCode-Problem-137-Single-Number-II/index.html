@@ -95,7 +95,7 @@ NoteYour algorithm should have a linear runtime complexity. Could you im">
 <meta property="og:site_name" content="mrlonelyjtr's blog">
 <meta property="og:description" content="Given an array of integers, every element appears three times except for one, which appears exactly once. Find that single one.
 NoteYour algorithm should have a linear runtime complexity. Could you im">
-<meta property="og:updated_time" content="2017-09-15T17:35:12.000Z">
+<meta property="og:updated_time" content="2017-09-16T16:10:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LeetCode] Problem 137 - Single Number II">
 <meta name="twitter:description" content="Given an array of integers, every element appears three times except for one, which appears exactly once. Find that single one.
@@ -298,7 +298,7 @@ NoteYour algorithm should have a linear runtime complexity. Could you im">
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-15T23:24:03Z">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-16T07:24:03+08:00">
                 2017-09-15
               </time>
             
@@ -369,8 +369,13 @@ NoteYour algorithm should have a linear runtime complexity. Could you im">
       
         <p>Given an array of integers, every element appears three times except for one, which appears exactly once. Find that single one.</p>
 <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
-<h2 id="Improvement"><a href="#Improvement" class="headerlink" title="Improvement"></a>Improvement</h2>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> num = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">32</span>; i++) &#123;</div><div class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; nums.length; j++) &#123;</div><div class="line">            <span class="keyword">if</span> (((nums[j] &gt;&gt; i) &amp; <span class="number">1</span>) == <span class="number">1</span>)</div><div class="line">                sum++;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        num |= (sum % <span class="number">3</span>) &lt;&lt; i;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> num;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Improvement"><a href="#Improvement" class="headerlink" title="Improvement"></a>Improvement</h2><ol>
+<li>A new number appears - It gets XOR’d to the variable “ones”.</li>
+<li>A number gets repeated(appears twice) - It is removed from “ones” and XOR’d to the variable “twos”.</li>
+<li>A number appears for the third time - It gets removed from both “ones” and “twos”.</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> once = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> twice = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> common;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</div><div class="line">        twice |= once &amp; nums[i];</div><div class="line">        once ^= nums[i];</div><div class="line">        common = ~(once &amp; twice);</div><div class="line">        once &amp;= common;</div><div class="line">        twice &amp;= common;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> once;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
