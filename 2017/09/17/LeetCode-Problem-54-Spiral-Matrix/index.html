@@ -87,19 +87,25 @@
 
 
 
-<meta name="description" content="题目定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的min函数。在该栈中，调用min、push及pop的时间复杂度都是O(1)。
-实现123456789101112131415161718192021222324Stack&amp;lt;Integer&amp;gt; data = new Stack&amp;lt;&amp;gt;();Stack&amp;lt;Integer&amp;gt; min = new Stack&amp;lt;">
+<meta name="description" content="Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
+ExampleGiven the following matrix:
+[ 1, 2, 3 ][ 4, 5, 6 ][ 7, 8, 9 ]
+You should return [1,2,3,6">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【剑指Offer】包含min函数的栈">
-<meta property="og:url" content="http://yoursite.com/2017/05/15/【剑指Offer】包含min函数的栈/index.html">
+<meta property="og:title" content="[LeetCode] Problem 54 - Spiral Matrix">
+<meta property="og:url" content="http://yoursite.com/2017/09/17/LeetCode-Problem-54-Spiral-Matrix/index.html">
 <meta property="og:site_name" content="mrlonelyjtr's blog">
-<meta property="og:description" content="题目定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的min函数。在该栈中，调用min、push及pop的时间复杂度都是O(1)。
-实现123456789101112131415161718192021222324Stack&amp;lt;Integer&amp;gt; data = new Stack&amp;lt;&amp;gt;();Stack&amp;lt;Integer&amp;gt; min = new Stack&amp;lt;">
-<meta property="og:updated_time" content="2017-09-01T16:21:12.000Z">
+<meta property="og:description" content="Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
+ExampleGiven the following matrix:
+[ 1, 2, 3 ][ 4, 5, 6 ][ 7, 8, 9 ]
+You should return [1,2,3,6">
+<meta property="og:updated_time" content="2017-09-17T16:28:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【剑指Offer】包含min函数的栈">
-<meta name="twitter:description" content="题目定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的min函数。在该栈中，调用min、push及pop的时间复杂度都是O(1)。
-实现123456789101112131415161718192021222324Stack&amp;lt;Integer&amp;gt; data = new Stack&amp;lt;&amp;gt;();Stack&amp;lt;Integer&amp;gt; min = new Stack&amp;lt;">
+<meta name="twitter:title" content="[LeetCode] Problem 54 - Spiral Matrix">
+<meta name="twitter:description" content="Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
+ExampleGiven the following matrix:
+[ 1, 2, 3 ][ 4, 5, 6 ][ 7, 8, 9 ]
+You should return [1,2,3,6">
 
 
 
@@ -127,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/15/【剑指Offer】包含min函数的栈/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/17/LeetCode-Problem-54-Spiral-Matrix/"/>
 
 
 
 
 
-  <title> 【剑指Offer】包含min函数的栈 | mrlonelyjtr's blog </title>
+  <title> [LeetCode] Problem 54 - Spiral Matrix | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -262,7 +268,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/15/【剑指Offer】包含min函数的栈/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/17/LeetCode-Problem-54-Spiral-Matrix/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -283,7 +289,7 @@
             
             
               
-                【剑指Offer】包含min函数的栈
+                [LeetCode] Problem 54 - Spiral Matrix
               
             
           </h1>
@@ -298,8 +304,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-15T08:59:14+08:00">
-                2017-05-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-17T08:17:01+08:00">
+                2017-09-17
               </time>
             
 
@@ -332,8 +338,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/剑指Offer/" itemprop="url" rel="index">
-                    <span itemprop="name">剑指Offer</span>
+                  <a href="/categories/Algorithm/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
                   </a>
                 </span>
 
@@ -367,8 +373,11 @@
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的min函数。在该栈中，调用min、push及pop的时间复杂度都是O(1)。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">Stack&lt;Integer&gt; data = <span class="keyword">new</span> Stack&lt;&gt;();</div><div class="line">Stack&lt;Integer&gt; min = <span class="keyword">new</span> Stack&lt;&gt;();</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> node)</span> </span>&#123;</div><div class="line">    data.push(node);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (min.size() == <span class="number">0</span> || node &lt; min.peek())</div><div class="line">        min.push(node);</div><div class="line">    <span class="keyword">else</span></div><div class="line">        min.push(min.peek());</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</div><div class="line">    data.pop();</div><div class="line">    min.pop();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> data.peek();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">min</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> min.peek();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>Given the following matrix:</p>
+<p>[ 1, 2, 3 ]<br>[ 4, 5, 6 ]<br>[ 7, 8, 9 ]</p>
+<p>You should return [1,2,3,6,9,8,7,4,5].</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">spiralOrder</span><span class="params">(<span class="keyword">int</span>[][] matrix)</span> </span>&#123;</div><div class="line">    List&lt;Integer&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (matrix == <span class="keyword">null</span> || matrix.length == <span class="number">0</span>)</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> m = matrix.length;</div><div class="line">    <span class="keyword">int</span> n = matrix[<span class="number">0</span>].length;</div><div class="line">    <span class="keyword">int</span> start = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (<span class="number">2</span> * start &lt; m &amp;&amp; <span class="number">2</span> * start &lt; n) &#123;</div><div class="line">        spiralOrderHelper(result, matrix, m, n, start);</div><div class="line">        start++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">spiralOrderHelper</span><span class="params">(List&lt;Integer&gt; result, <span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> m, <span class="keyword">int</span> n, <span class="keyword">int</span> start)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> endX = n - <span class="number">1</span> - start;</div><div class="line">    <span class="keyword">int</span> endY = m - <span class="number">1</span> - start;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = start; i &lt;= endX; i++)</div><div class="line">        result.add(matrix[start][i]);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (endY &gt; start) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = start + <span class="number">1</span>; i &lt;= endY; i++)</div><div class="line">            result.add(matrix[i][endX]);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (endY &gt; start &amp;&amp; endX &gt; start) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = endX - <span class="number">1</span>; i &gt;= start; i--)</div><div class="line">            result.add(matrix[endY][i]);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (endY &gt; start + <span class="number">1</span> &amp;&amp; endX &gt; start) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = endY - <span class="number">1</span>; i &gt; start; i--)</div><div class="line">            result.add(matrix[i][start]);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -412,8 +421,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/14/【剑指Offer】顺时针打印矩阵/" rel="next" title="【剑指Offer】顺时针打印矩阵">
-                <i class="fa fa-chevron-left"></i> 【剑指Offer】顺时针打印矩阵
+              <a href="/2017/09/16/LeetCode-Problem-137-Single-Number-II/" rel="next" title="[LeetCode] Problem 137 - Single Number II">
+                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 137 - Single Number II
               </a>
             
           </div>
@@ -421,10 +430,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/15/【剑指Offer】栈的压入、弹出序列/" rel="prev" title="【剑指Offer】栈的压入、弹出序列">
-                【剑指Offer】栈的压入、弹出序列 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -553,7 +558,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">2.</span> <span class="nav-text">Code</span></a></li></ol></div>
             
 
           </div>
