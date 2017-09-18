@@ -87,19 +87,28 @@
 
 
 
-<meta name="description" content="题目给定一个数组A[0, 1, … , n-1]，请构建一个数组B[0, 1, … , n-1]，其中B中的元素B[i]=A[0]xA[1]x…xA[i-1]xA[i+1]x…xA[n-1]。不能使用除法。
-实现12345678910111213141516171819public int[] multiply(int[] A) &amp;#123;    int[] B = new int[A.leng">
+<meta name="description" content="Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
+
+push(x) – Push element x onto stack.
+pop() – Removes the element on top of the stack.
+top() – Get the">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【剑指Offer】构建乘积数组">
-<meta property="og:url" content="http://yoursite.com/2017/09/07/【剑指Offer】构建乘积数组/index.html">
+<meta property="og:title" content="[LeetCode] Problem 155 - Min Stack">
+<meta property="og:url" content="http://yoursite.com/2017/09/18/LeetCode-Problem-155-Min-Stack/index.html">
 <meta property="og:site_name" content="mrlonelyjtr's blog">
-<meta property="og:description" content="题目给定一个数组A[0, 1, … , n-1]，请构建一个数组B[0, 1, … , n-1]，其中B中的元素B[i]=A[0]xA[1]x…xA[i-1]xA[i+1]x…xA[n-1]。不能使用除法。
-实现12345678910111213141516171819public int[] multiply(int[] A) &amp;#123;    int[] B = new int[A.leng">
-<meta property="og:updated_time" content="2017-09-06T13:49:59.000Z">
+<meta property="og:description" content="Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
+
+push(x) – Push element x onto stack.
+pop() – Removes the element on top of the stack.
+top() – Get the">
+<meta property="og:updated_time" content="2017-09-18T07:27:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【剑指Offer】构建乘积数组">
-<meta name="twitter:description" content="题目给定一个数组A[0, 1, … , n-1]，请构建一个数组B[0, 1, … , n-1]，其中B中的元素B[i]=A[0]xA[1]x…xA[i-1]xA[i+1]x…xA[n-1]。不能使用除法。
-实现12345678910111213141516171819public int[] multiply(int[] A) &amp;#123;    int[] B = new int[A.leng">
+<meta name="twitter:title" content="[LeetCode] Problem 155 - Min Stack">
+<meta name="twitter:description" content="Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
+
+push(x) – Push element x onto stack.
+pop() – Removes the element on top of the stack.
+top() – Get the">
 
 
 
@@ -127,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/07/【剑指Offer】构建乘积数组/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/18/LeetCode-Problem-155-Min-Stack/"/>
 
 
 
 
 
-  <title> 【剑指Offer】构建乘积数组 | mrlonelyjtr's blog </title>
+  <title> [LeetCode] Problem 155 - Min Stack | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -262,7 +271,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/07/【剑指Offer】构建乘积数组/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/18/LeetCode-Problem-155-Min-Stack/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -283,7 +292,7 @@
             
             
               
-                【剑指Offer】构建乘积数组
+                [LeetCode] Problem 155 - Min Stack
               
             
           </h1>
@@ -298,8 +307,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-07T05:46:07+08:00">
-                2017-09-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-18T14:55:15Z">
+                2017-09-18
               </time>
             
 
@@ -332,8 +341,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/剑指Offer/" itemprop="url" rel="index">
-                    <span itemprop="name">剑指Offer</span>
+                  <a href="/categories/Algorithm/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
                   </a>
                 </span>
 
@@ -367,8 +376,15 @@
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个数组A[0, 1, … , n-1]，请构建一个数组B[0, 1, … , n-1]，其中B中的元素B[i]=A[0]xA[1]x…xA[i-1]xA[i+1]x…xA[n-1]。不能使用除法。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] multiply(<span class="keyword">int</span>[] A) &#123;</div><div class="line">    <span class="keyword">int</span>[] B = <span class="keyword">new</span> <span class="keyword">int</span>[A.length];</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (A == <span class="keyword">null</span> || A.length &lt; <span class="number">1</span>)</div><div class="line">        <span class="keyword">return</span> B;</div><div class="line"></div><div class="line">    B[<span class="number">0</span>] = <span class="number">1</span>;</div><div class="line">    <span class="keyword">int</span> temp = <span class="number">1</span>;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= A.length - <span class="number">1</span>; i++)</div><div class="line">        B[i] = A[i-<span class="number">1</span>] * B[i-<span class="number">1</span>];</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = A.length - <span class="number">2</span>; i &gt;= <span class="number">0</span>; i--) &#123;</div><div class="line">        temp *= A[i+<span class="number">1</span>];</div><div class="line">        B[i] *= temp;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> B;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.</p>
+<ul>
+<li>push(x) – Push element x onto stack.</li>
+<li>pop() – Removes the element on top of the stack.</li>
+<li>top() – Get the top element.</li>
+<li>getMin() – Retrieve the minimum element in the stack.</li>
+</ul>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>MinStack minStack = new MinStack();<br>minStack.push(-2);<br>minStack.push(0);<br>minStack.push(-3);<br>minStack.getMin();   –&gt; Returns -3.<br>minStack.pop();<br>minStack.top();      –&gt; Returns 0.<br>minStack.getMin();   –&gt; Returns -2.</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MinStack</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> Stack&lt;Integer&gt; stack;</div><div class="line">    <span class="keyword">private</span> Stack&lt;Integer&gt; min;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MinStack</span><span class="params">()</span> </span>&#123;</div><div class="line">        stack = <span class="keyword">new</span> Stack&lt;&gt;();</div><div class="line">        min = <span class="keyword">new</span> Stack&lt;&gt;();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">        stack.push(x);</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (min.isEmpty() || x &lt;= min.peek())</div><div class="line">            min.push(x);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> x = stack.pop();</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (x == min.peek())</div><div class="line">            min.pop();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> stack.peek();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getMin</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> min.peek();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -412,8 +428,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/07/【剑指Offer】数组中重复的数字/" rel="next" title="【剑指Offer】数组中重复的数字">
-                <i class="fa fa-chevron-left"></i> 【剑指Offer】数组中重复的数字
+              <a href="/2017/09/18/LeetCode-Problem-133-Clone-Graph/" rel="next" title="[LeetCode] Problem 133 - Clone Graph">
+                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 133 - Clone Graph
               </a>
             
           </div>
@@ -421,10 +437,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/07/【剑指Offer】正则表达式匹配/" rel="prev" title="【剑指Offer】正则表达式匹配">
-                【剑指Offer】正则表达式匹配 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -553,7 +565,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">2.</span> <span class="nav-text">Code</span></a></li></ol></div>
             
 
           </div>
