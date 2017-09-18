@@ -101,7 +101,7 @@ top() – Get the">
 push(x) – Push element x onto stack.
 pop() – Removes the element on top of the stack.
 top() – Get the">
-<meta property="og:updated_time" content="2017-09-18T07:27:06.000Z">
+<meta property="og:updated_time" content="2017-09-18T07:28:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LeetCode] Problem 155 - Min Stack">
 <meta name="twitter:description" content="Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
@@ -307,7 +307,7 @@ top() – Get the">
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-18T14:55:15Z">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-18T22:55:15+08:00">
                 2017-09-18
               </time>
             
@@ -384,7 +384,7 @@ top() – Get the">
 <li>getMin() – Retrieve the minimum element in the stack.</li>
 </ul>
 <h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>MinStack minStack = new MinStack();<br>minStack.push(-2);<br>minStack.push(0);<br>minStack.push(-3);<br>minStack.getMin();   –&gt; Returns -3.<br>minStack.pop();<br>minStack.top();      –&gt; Returns 0.<br>minStack.getMin();   –&gt; Returns -2.</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MinStack</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> Stack&lt;Integer&gt; stack;</div><div class="line">    <span class="keyword">private</span> Stack&lt;Integer&gt; min;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MinStack</span><span class="params">()</span> </span>&#123;</div><div class="line">        stack = <span class="keyword">new</span> Stack&lt;&gt;();</div><div class="line">        min = <span class="keyword">new</span> Stack&lt;&gt;();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">        stack.push(x);</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (min.isEmpty() || x &lt;= min.peek())</div><div class="line">            min.push(x);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> x = stack.pop();</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (x == min.peek())</div><div class="line">            min.pop();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> stack.peek();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getMin</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> min.peek();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// O(n) runtime, O(n) space – Minor space optimization</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MinStack</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> Stack&lt;Integer&gt; stack;</div><div class="line">    <span class="keyword">private</span> Stack&lt;Integer&gt; min;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MinStack</span><span class="params">()</span> </span>&#123;</div><div class="line">        stack = <span class="keyword">new</span> Stack&lt;&gt;();</div><div class="line">        min = <span class="keyword">new</span> Stack&lt;&gt;();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">        stack.push(x);</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (min.isEmpty() || x &lt;= min.peek())</div><div class="line">            min.push(x);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> x = stack.pop();</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (x == min.peek())</div><div class="line">            min.pop();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> stack.peek();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getMin</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> min.peek();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -437,6 +437,10 @@ top() – Get the">
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/18/LeetCode-Problem-20-Valid-Parentheses/" rel="prev" title="[LeetCode] Problem 20 - Valid Parentheses">
+                [LeetCode] Problem 20 - Valid Parentheses <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -508,7 +512,7 @@ top() – Get the">
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">112</span>
+                <span class="site-state-item-count">113</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
