@@ -87,22 +87,25 @@
 
 
 
-<meta name="description" content="Clone an undirected graph. Each node in the graph contains a label and a list of its neighbors.
-Undirected graph serializationNodes are labeled uniquely.
-We use # as a separator for each node, and , a">
+<meta name="description" content="Follow up for “Unique Paths”:
+Now consider if some obstacles are added to the grids. How many unique paths would there be?
+An obstacle and empty space is marked as 1 and 0 respectively in the grid.
+Ex">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LeetCode] Problem 133 - Clone Graph">
-<meta property="og:url" content="http://yoursite.com/2017/09/18/LeetCode-Problem-133-Clone-Graph/index.html">
+<meta property="og:title" content="[LeetCode] Problem 63 - Unique Paths II">
+<meta property="og:url" content="http://yoursite.com/2017/09/25/LeetCode-Problem-63-Unique-Paths-II/index.html">
 <meta property="og:site_name" content="mrlonelyjtr's blog">
-<meta property="og:description" content="Clone an undirected graph. Each node in the graph contains a label and a list of its neighbors.
-Undirected graph serializationNodes are labeled uniquely.
-We use # as a separator for each node, and , a">
-<meta property="og:updated_time" content="2017-09-18T06:53:41.000Z">
+<meta property="og:description" content="Follow up for “Unique Paths”:
+Now consider if some obstacles are added to the grids. How many unique paths would there be?
+An obstacle and empty space is marked as 1 and 0 respectively in the grid.
+Ex">
+<meta property="og:updated_time" content="2017-09-24T16:38:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LeetCode] Problem 133 - Clone Graph">
-<meta name="twitter:description" content="Clone an undirected graph. Each node in the graph contains a label and a list of its neighbors.
-Undirected graph serializationNodes are labeled uniquely.
-We use # as a separator for each node, and , a">
+<meta name="twitter:title" content="[LeetCode] Problem 63 - Unique Paths II">
+<meta name="twitter:description" content="Follow up for “Unique Paths”:
+Now consider if some obstacles are added to the grids. How many unique paths would there be?
+An obstacle and empty space is marked as 1 and 0 respectively in the grid.
+Ex">
 
 
 
@@ -130,13 +133,13 @@ We use # as a separator for each node, and , a">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/18/LeetCode-Problem-133-Clone-Graph/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/25/LeetCode-Problem-63-Unique-Paths-II/"/>
 
 
 
 
 
-  <title> [LeetCode] Problem 133 - Clone Graph | mrlonelyjtr's blog </title>
+  <title> [LeetCode] Problem 63 - Unique Paths II | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -265,7 +268,7 @@ We use # as a separator for each node, and , a">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/18/LeetCode-Problem-133-Clone-Graph/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/25/LeetCode-Problem-63-Unique-Paths-II/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -286,7 +289,7 @@ We use # as a separator for each node, and , a">
             
             
               
-                [LeetCode] Problem 133 - Clone Graph
+                [LeetCode] Problem 63 - Unique Paths II
               
             
           </h1>
@@ -301,8 +304,8 @@ We use # as a separator for each node, and , a">
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-18T09:41:24+08:00">
-                2017-09-18
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-24T23:48:15Z">
+                2017-09-24
               </time>
             
 
@@ -370,19 +373,14 @@ We use # as a separator for each node, and , a">
       
 
       
-        <p>Clone an undirected graph. Each node in the graph contains a label and a list of its neighbors.</p>
-<h2 id="Undirected-graph-serialization"><a href="#Undirected-graph-serialization" class="headerlink" title="Undirected graph serialization"></a>Undirected graph serialization</h2><p>Nodes are labeled uniquely.</p>
-<p>We use # as a separator for each node, and , as a separator for node label and each neighbor of the node.<br>As an example, consider the serialized graph {0,1,2#1,2#2,2}.</p>
-<p>The graph has a total of three nodes, and therefore contains three parts as separated by #.</p>
-<ol>
-<li>First node is labeled as 0. Connect node 0 to both nodes 1 and 2.</li>
-<li>Second node is labeled as 1. Connect node 1 to node 2.</li>
-<li>Third node is labeled as 2. Connect node 2 to node 2 (itself), thus forming a self-cycle.</li>
-</ol>
-<h2 id="O-n-runtime-O-n-space-–-Depth-first-traversal"><a href="#O-n-runtime-O-n-space-–-Depth-first-traversal" class="headerlink" title="O(n) runtime, O(n) space – Depth-first traversal"></a>O(n) runtime, O(n) space – Depth-first traversal</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UndirectedGraphNode</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> label;</div><div class="line">    List&lt;UndirectedGraphNode&gt; neighbors;</div><div class="line">    UndirectedGraphNode(<span class="keyword">int</span> x) &#123; label = x; neighbors = <span class="keyword">new</span> ArrayList&lt;UndirectedGraphNode&gt;(); &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> UndirectedGraphNode <span class="title">cloneGraph</span><span class="params">(UndirectedGraphNode node)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (node == <span class="keyword">null</span>)</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    Map&lt;UndirectedGraphNode, UndirectedGraphNode&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line">    <span class="keyword">return</span> dfs(map, node);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> UndirectedGraphNode <span class="title">dfs</span><span class="params">(Map&lt;UndirectedGraphNode, UndirectedGraphNode&gt; map, UndirectedGraphNode node)</span> </span>&#123;</div><div class="line">    UndirectedGraphNode copy = <span class="keyword">new</span> UndirectedGraphNode(node.label);</div><div class="line">    map.put(node, copy);</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (UndirectedGraphNode neighbor : node.neighbors) &#123;</div><div class="line">        <span class="keyword">if</span> (!map.containsKey(neighbor))</div><div class="line">            copy.neighbors.add(dfs(map, neighbor));</div><div class="line">        <span class="keyword">else</span></div><div class="line">            copy.neighbors.add(map.get(neighbor));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> copy;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="O-n-runtime-O-n-space-–-Breadth-first-traversal"><a href="#O-n-runtime-O-n-space-–-Breadth-first-traversal" class="headerlink" title="O(n) runtime, O(n) space – Breadth-first traversal"></a>O(n) runtime, O(n) space – Breadth-first traversal</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UndirectedGraphNode</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> label;</div><div class="line">    List&lt;UndirectedGraphNode&gt; neighbors;</div><div class="line">    UndirectedGraphNode(<span class="keyword">int</span> x) &#123; label = x; neighbors = <span class="keyword">new</span> ArrayList&lt;UndirectedGraphNode&gt;(); &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> UndirectedGraphNode <span class="title">cloneGraph</span><span class="params">(UndirectedGraphNode node)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (node == <span class="keyword">null</span>)</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    Map&lt;UndirectedGraphNode, UndirectedGraphNode&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line">    <span class="keyword">return</span> bfs(map, node);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> UndirectedGraphNode <span class="title">bfs</span><span class="params">(Map&lt;UndirectedGraphNode, UndirectedGraphNode&gt; map, UndirectedGraphNode node)</span> </span>&#123;</div><div class="line">    Queue&lt;UndirectedGraphNode&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</div><div class="line">    UndirectedGraphNode copy = <span class="keyword">new</span> UndirectedGraphNode(node.label);</div><div class="line">    map.put(node, copy);</div><div class="line">    queue.offer(node);</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (!queue.isEmpty()) &#123;</div><div class="line">        UndirectedGraphNode current = queue.poll();</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (UndirectedGraphNode neighbor : current.neighbors) &#123;</div><div class="line">            <span class="keyword">if</span> (!map.containsKey(neighbor)) &#123;</div><div class="line">                queue.offer(neighbor);</div><div class="line">                map.put(neighbor, <span class="keyword">new</span> UndirectedGraphNode(neighbor.label));</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            map.get(current).neighbors.add(map.get(neighbor));</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> copy;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>Follow up for “Unique Paths”:</p>
+<p>Now consider if some obstacles are added to the grids. How many unique paths would there be?</p>
+<p>An obstacle and empty space is marked as 1 and 0 respectively in the grid.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>There is one obstacle in the middle of a 3x3 grid as illustrated below.</p>
+<p>[0,0,0],<br>[0,1,0],<br>[0,0,0]</p>
+<p>The total number of unique paths is 2.</p>
+<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>m and n will be at most 100.</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// O(mn) runtime, O(mn) space – Dynamic programming</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniquePathsWithObstacles</span><span class="params">(<span class="keyword">int</span>[][] obstacleGrid)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> m = obstacleGrid.length;</div><div class="line">    <span class="keyword">int</span> n = obstacleGrid[<span class="number">0</span>].length;</div><div class="line">    <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[m][n];</div><div class="line"></div><div class="line">    dp[<span class="number">0</span>][<span class="number">0</span>] = obstacleGrid[<span class="number">0</span>][<span class="number">0</span>] ^ <span class="number">1</span>;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)</div><div class="line">        dp[<span class="number">0</span>][i] = obstacleGrid[<span class="number">0</span>][i] == <span class="number">1</span> ? <span class="number">0</span> : dp[<span class="number">0</span>][i-<span class="number">1</span>];</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; m; i++)</div><div class="line">        dp[i][<span class="number">0</span>] = obstacleGrid[i][<span class="number">0</span>] == <span class="number">1</span> ? <span class="number">0</span> : dp[i-<span class="number">1</span>][<span class="number">0</span>];</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; m; i++) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; n; j++)</div><div class="line">            dp[i][j] = obstacleGrid[i][j] == <span class="number">1</span> ? <span class="number">0</span> : dp[i-<span class="number">1</span>][j] + dp[i][j-<span class="number">1</span>];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> dp[m-<span class="number">1</span>][n-<span class="number">1</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -426,8 +424,8 @@ We use # as a separator for each node, and , a">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/18/LeetCode-Problem-13-Roman-to-Integer/" rel="next" title="[LeetCode] Problem 13 - Roman to Integer">
-                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 13 - Roman to Integer
+              <a href="/2017/09/25/LeetCode-Problem-62-Unique-Paths/" rel="next" title="[LeetCode] Problem 62 - Unique Paths">
+                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 62 - Unique Paths
               </a>
             
           </div>
@@ -435,10 +433,6 @@ We use # as a separator for each node, and , a">
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/18/LeetCode-Problem-155-Min-Stack/" rel="prev" title="[LeetCode] Problem 155 - Min Stack">
-                [LeetCode] Problem 155 - Min Stack <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -567,7 +561,7 @@ We use # as a separator for each node, and , a">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Undirected-graph-serialization"><span class="nav-number">1.</span> <span class="nav-text">Undirected graph serialization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#O-n-runtime-O-n-space-–-Depth-first-traversal"><span class="nav-number">2.</span> <span class="nav-text">O(n) runtime, O(n) space – Depth-first traversal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#O-n-runtime-O-n-space-–-Breadth-first-traversal"><span class="nav-number">3.</span> <span class="nav-text">O(n) runtime, O(n) space – Breadth-first traversal</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">2.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li></ol></div>
             
 
           </div>
