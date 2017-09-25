@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="OJ,Algorithm," />
 
 
 
@@ -87,13 +87,19 @@
 
 
 
+<meta name="description" content="Find the contiguous subarray within an array (containing at least one number) which has the largest product.
+Examplegiven the array [2,3,-2,4],the contiguous subarray [2,3] has the largest product = 6">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[LeetCode] Problem 152 - Maximum Product Subarray">
 <meta property="og:url" content="http://yoursite.com/2017/09/26/LeetCode-Problem-152-Maximum-Product-Subarray/index.html">
 <meta property="og:site_name" content="mrlonelyjtr's blog">
-<meta property="og:updated_time" content="2017-09-25T15:29:49.000Z">
+<meta property="og:description" content="Find the contiguous subarray within an array (containing at least one number) which has the largest product.
+Examplegiven the array [2,3,-2,4],the contiguous subarray [2,3] has the largest product = 6">
+<meta property="og:updated_time" content="2017-09-25T16:34:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LeetCode] Problem 152 - Maximum Product Subarray">
+<meta name="twitter:description" content="Find the contiguous subarray within an array (containing at least one number) which has the largest product.
+Examplegiven the array [2,3,-2,4],the contiguous subarray [2,3] has the largest product = 6">
 
 
 
@@ -303,6 +309,39 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -328,7 +367,9 @@
       
 
       
-        
+        <p>Find the contiguous subarray within an array (containing at least one number) which has the largest product.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>given the array [2,3,-2,4],<br>the contiguous subarray [2,3] has the largest product = 6.</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProduct</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[nums.length][<span class="number">2</span>];</div><div class="line">    <span class="keyword">int</span> max = nums[<span class="number">0</span>];</div><div class="line">    dp[<span class="number">0</span>][<span class="number">0</span>] = dp[<span class="number">0</span>][<span class="number">1</span>] = nums[<span class="number">0</span>];</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.length; i++) &#123;</div><div class="line">        <span class="keyword">int</span> localMin = dp[i-<span class="number">1</span>][<span class="number">1</span>] * nums[i];</div><div class="line">        <span class="keyword">int</span> localMax = dp[i-<span class="number">1</span>][<span class="number">0</span>] * nums[i];</div><div class="line">        </div><div class="line">        dp[i][<span class="number">0</span>] = Math.max(nums[i], Math.max(localMax, localMin));</div><div class="line">        dp[i][<span class="number">1</span>] = Math.min(nums[i], Math.min(localMax, localMin));</div><div class="line">        max = Math.max(max, dp[i][<span class="number">0</span>]);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> max;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -354,6 +395,14 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/OJ/" rel="tag"># OJ</a>
+          
+            <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+          
+        </div>
       
 
       
@@ -419,8 +468,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -482,6 +540,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">2.</span> <span class="nav-text">Code</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
