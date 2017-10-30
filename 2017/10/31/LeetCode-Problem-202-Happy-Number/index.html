@@ -87,19 +87,19 @@
 
 
 
-<meta name="description" content="题目在一个长度为n的数组里的所有数字都在0到n-1的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。例如，如果输入长度为7的数组{2, 3, 1, 0, 2, 5, 3}，那么对应的输出是重复的数字2或者3.
-实现12345678910111213141516171819202122public boolean duplicat">
+<meta name="description" content="Write an algorithm to determine if a number is “happy”.
+A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares of">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【剑指Offer】数组中重复的数字">
-<meta property="og:url" content="http://yoursite.com/2017/09/07/【剑指Offer】数组中重复的数字/index.html">
+<meta property="og:title" content="[LeetCode] Problem 202 - Happy Number">
+<meta property="og:url" content="http://yoursite.com/2017/10/31/LeetCode-Problem-202-Happy-Number/index.html">
 <meta property="og:site_name" content="mrlonelyjtr's blog">
-<meta property="og:description" content="题目在一个长度为n的数组里的所有数字都在0到n-1的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。例如，如果输入长度为7的数组{2, 3, 1, 0, 2, 5, 3}，那么对应的输出是重复的数字2或者3.
-实现12345678910111213141516171819202122public boolean duplicat">
-<meta property="og:updated_time" content="2017-09-06T13:45:30.000Z">
+<meta property="og:description" content="Write an algorithm to determine if a number is “happy”.
+A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares of">
+<meta property="og:updated_time" content="2017-10-30T15:22:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【剑指Offer】数组中重复的数字">
-<meta name="twitter:description" content="题目在一个长度为n的数组里的所有数字都在0到n-1的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。例如，如果输入长度为7的数组{2, 3, 1, 0, 2, 5, 3}，那么对应的输出是重复的数字2或者3.
-实现12345678910111213141516171819202122public boolean duplicat">
+<meta name="twitter:title" content="[LeetCode] Problem 202 - Happy Number">
+<meta name="twitter:description" content="Write an algorithm to determine if a number is “happy”.
+A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares of">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/07/【剑指Offer】数组中重复的数字/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/31/LeetCode-Problem-202-Happy-Number/"/>
 
 
 
 
 
-  <title> 【剑指Offer】数组中重复的数字 | mrlonelyjtr's blog </title>
+  <title> [LeetCode] Problem 202 - Happy Number | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -262,7 +262,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/07/【剑指Offer】数组中重复的数字/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/31/LeetCode-Problem-202-Happy-Number/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -283,7 +283,7 @@
             
             
               
-                【剑指Offer】数组中重复的数字
+                [LeetCode] Problem 202 - Happy Number
               
             
           </h1>
@@ -298,8 +298,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-07T05:41:12+08:00">
-                2017-09-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-31T07:20:03+08:00">
+                2017-10-30
               </time>
             
 
@@ -332,8 +332,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/剑指Offer/" itemprop="url" rel="index">
-                    <span itemprop="name">剑指Offer</span>
+                  <a href="/categories/Algorithm/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
                   </a>
                 </span>
 
@@ -367,8 +367,11 @@
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>在一个长度为n的数组里的所有数字都在0到n-1的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。例如，如果输入长度为7的数组{2, 3, 1, 0, 2, 5, 3}，那么对应的输出是重复的数字2或者3.</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">duplicate</span><span class="params">(<span class="keyword">int</span> numbers[], <span class="keyword">int</span> length, <span class="keyword">int</span>[] duplication)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (numbers == <span class="keyword">null</span> || length &lt; <span class="number">1</span>)</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</div><div class="line">        <span class="keyword">while</span> (numbers[i] != i) &#123;</div><div class="line">            <span class="keyword">if</span> (numbers[i] == numbers[numbers[i]]) &#123;</div><div class="line">                duplication[<span class="number">0</span>] = numbers[i];</div><div class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            swap(numbers, i, numbers[i]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> numbers[], <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</div><div class="line">    numbers[i] = numbers[i] ^ numbers[j];</div><div class="line">    numbers[j] = numbers[i] ^ numbers[j];</div><div class="line">    numbers[i] = numbers[i] ^ numbers[j];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>Write an algorithm to determine if a number is “happy”.</p>
+<p>A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers for which this process ends in 1 are happy numbers.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>19 is a happy number</p>
+<p>1^2 + 9^2 = 82<br>8^2 + 2^2 = 68<br>6^2 + 8^2 = 100<br>1^2 + 0^2 + 0^2 = 1</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isHappy</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    HashSet&lt;Integer&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (n != <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (set.contains(n))</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line"></div><div class="line">        set.add(n);</div><div class="line">        n = sum(n);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (n != <span class="number">0</span>) &#123;</div><div class="line">        sum += Math.pow(n % <span class="number">10</span>, <span class="number">2</span>);</div><div class="line">        n /= <span class="number">10</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> sum;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -412,8 +415,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/06/【剑指Offer】树中两个结点的最低公共祖先/" rel="next" title="【剑指Offer】树中两个结点的最低公共祖先">
-                <i class="fa fa-chevron-left"></i> 【剑指Offer】树中两个结点的最低公共祖先
+              <a href="/2017/10/12/LeetCode-Problem-82-Remove-Duplicates-from-Sorted-List-II/" rel="next" title="[LeetCode] Problem 82 - Remove Duplicates from Sorted List II">
+                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 82 - Remove Duplicates from Sorted List II
               </a>
             
           </div>
@@ -421,10 +424,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/07/【剑指Offer】构建乘积数组/" rel="prev" title="【剑指Offer】构建乘积数组">
-                【剑指Offer】构建乘积数组 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -553,7 +552,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">2.</span> <span class="nav-text">Code</span></a></li></ol></div>
             
 
           </div>
