@@ -87,22 +87,19 @@
 
 
 
-<meta name="description" content="Write a program to find the n-th ugly number.
-Ugly numbers are positive numbers whose prime factors only include 2, 3, 5. 
-Example1, 2, 3, 4, 5, 6, 8, 9, 10, 12 is the sequence of the first 10 ugly nu">
+<meta name="description" content="Given an array and a value, remove all instances of that value in-place and return the new length.
+Do not allocate extra space for another array, you must do this by modifying the input array in-place">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LeetCode] Problem 264 - Ugly Number II">
-<meta property="og:url" content="http://yoursite.com/2017/10/31/LeetCode-Problem-264-Ugly-Number-II/index.html">
+<meta property="og:title" content="[LeetCode] Problem 27 - Remove Element">
+<meta property="og:url" content="http://yoursite.com/2018/01/16/LeetCode-Problem-27-Remove-Element/index.html">
 <meta property="og:site_name" content="mrlonelyjtr's blog">
-<meta property="og:description" content="Write a program to find the n-th ugly number.
-Ugly numbers are positive numbers whose prime factors only include 2, 3, 5. 
-Example1, 2, 3, 4, 5, 6, 8, 9, 10, 12 is the sequence of the first 10 ugly nu">
-<meta property="og:updated_time" content="2017-10-30T15:58:11.000Z">
+<meta property="og:description" content="Given an array and a value, remove all instances of that value in-place and return the new length.
+Do not allocate extra space for another array, you must do this by modifying the input array in-place">
+<meta property="og:updated_time" content="2018-01-15T13:04:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LeetCode] Problem 264 - Ugly Number II">
-<meta name="twitter:description" content="Write a program to find the n-th ugly number.
-Ugly numbers are positive numbers whose prime factors only include 2, 3, 5. 
-Example1, 2, 3, 4, 5, 6, 8, 9, 10, 12 is the sequence of the first 10 ugly nu">
+<meta name="twitter:title" content="[LeetCode] Problem 27 - Remove Element">
+<meta name="twitter:description" content="Given an array and a value, remove all instances of that value in-place and return the new length.
+Do not allocate extra space for another array, you must do this by modifying the input array in-place">
 
 
 
@@ -130,13 +127,13 @@ Example1, 2, 3, 4, 5, 6, 8, 9, 10, 12 is the sequence of the first 10 ugly nu">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/10/31/LeetCode-Problem-264-Ugly-Number-II/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/16/LeetCode-Problem-27-Remove-Element/"/>
 
 
 
 
 
-  <title> [LeetCode] Problem 264 - Ugly Number II | mrlonelyjtr's blog </title>
+  <title> [LeetCode] Problem 27 - Remove Element | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -265,7 +262,7 @@ Example1, 2, 3, 4, 5, 6, 8, 9, 10, 12 is the sequence of the first 10 ugly nu">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/31/LeetCode-Problem-264-Ugly-Number-II/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/16/LeetCode-Problem-27-Remove-Element/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -286,7 +283,7 @@ Example1, 2, 3, 4, 5, 6, 8, 9, 10, 12 is the sequence of the first 10 ugly nu">
             
             
               
-                [LeetCode] Problem 264 - Ugly Number II
+                [LeetCode] Problem 27 - Remove Element
               
             
           </h1>
@@ -301,8 +298,8 @@ Example1, 2, 3, 4, 5, 6, 8, 9, 10, 12 is the sequence of the first 10 ugly nu">
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-31T07:33:15+08:00">
-                2017-10-30
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-15T17:34:15Z">
+                2018-01-15
               </time>
             
 
@@ -370,11 +367,13 @@ Example1, 2, 3, 4, 5, 6, 8, 9, 10, 12 is the sequence of the first 10 ugly nu">
       
 
       
-        <p>Write a program to find the n-th ugly number.</p>
-<p>Ugly numbers are positive numbers whose prime factors only include 2, 3, 5. </p>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>1, 2, 3, 4, 5, 6, 8, 9, 10, 12 is the sequence of the first 10 ugly numbers.</p>
-<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>1 is typically treated as an ugly number, and n does not exceed 1690.</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">nthUglyNumber</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span>[] ugly = <span class="keyword">new</span> <span class="keyword">int</span>[n];</div><div class="line">    <span class="keyword">int</span> t2 = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> t3 = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> t5 = <span class="number">0</span>;</div><div class="line"></div><div class="line">    ugly[<span class="number">0</span>] = <span class="number">1</span>;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</div><div class="line">        ugly[i] = Math.min(<span class="number">2</span> * ugly[t2], Math.min(<span class="number">3</span> * ugly[t3], <span class="number">5</span> * ugly[t5]));</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (ugly[i] == <span class="number">2</span> * ugly[t2])</div><div class="line">            t2++;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (ugly[i] == <span class="number">3</span> * ugly[t3])</div><div class="line">            t3++;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (ugly[i] == <span class="number">5</span> * ugly[t5])</div><div class="line">            t5++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> ugly[n-<span class="number">1</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>Given an array and a value, remove all instances of that value in-place and return the new length.</p>
+<p>Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.</p>
+<p>The order of elements can be changed. It doesn’t matter what you leave beyond the new length.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>Given nums = [3,2,2,3], val = 3,</p>
+<p>Your function should return length = 2, with the first two elements of nums being 2.</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeElement</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> val)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length &lt; <span class="number">1</span>)</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> length = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</div><div class="line">        <span class="keyword">if</span> (nums[i] != val)</div><div class="line">            nums[length++] = nums[i];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> length;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="When-elements-to-remove-are-rare"><a href="#When-elements-to-remove-are-rare" class="headerlink" title="When elements to remove are rare"></a>When elements to remove are rare</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeElement</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> val)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length &lt; <span class="number">1</span>)</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> start = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> end = nums.length - <span class="number">1</span>;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (start &lt;= end) &#123;</div><div class="line">        <span class="keyword">if</span> (nums[start] == val)</div><div class="line">            nums[start] = nums[end--];</div><div class="line">        <span class="keyword">else</span></div><div class="line">            start++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> end + <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -418,8 +417,8 @@ Example1, 2, 3, 4, 5, 6, 8, 9, 10, 12 is the sequence of the first 10 ugly nu">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/31/LeetCode-Problem-263-Ugly-Number/" rel="next" title="[LeetCode] Problem 263 - Ugly Number">
-                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 263 - Ugly Number
+              <a href="/2018/01/16/LeetCode-Problem-26-Remove-Duplicates-from-Sorted-Array/" rel="next" title="[LeetCode] Problem 26 - Remove Duplicates from Sorted Array">
+                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 26 - Remove Duplicates from Sorted Array
               </a>
             
           </div>
@@ -427,10 +426,6 @@ Example1, 2, 3, 4, 5, 6, 8, 9, 10, 12 is the sequence of the first 10 ugly nu">
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/29/Urllib-Demo/" rel="prev" title="Urllib Demo">
-                Urllib Demo <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -559,7 +554,7 @@ Example1, 2, 3, 4, 5, 6, 8, 9, 10, 12 is the sequence of the first 10 ugly nu">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">2.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">2.</span> <span class="nav-text">Code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#When-elements-to-remove-are-rare"><span class="nav-number">3.</span> <span class="nav-text">When elements to remove are rare</span></a></li></ol></div>
             
 
           </div>
