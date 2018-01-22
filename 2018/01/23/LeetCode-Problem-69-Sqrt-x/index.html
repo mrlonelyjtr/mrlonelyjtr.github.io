@@ -87,25 +87,28 @@
 
 
 
-<meta name="description" content="Follow up for “Unique Paths”:
-Now consider if some obstacles are added to the grids. How many unique paths would there be?
-An obstacle and empty space is marked as 1 and 0 respectively in the grid.
-Ex">
+<meta name="description" content="Implement int sqrt(int x).
+Compute and return the square root of x.
+x is guaranteed to be a non-negative integer.
+ExampleNo.1Input: 4Output: 2
+No.2Input: 8Output: 2Explanation: The square root of 8 is">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LeetCode] Problem 63 - Unique Paths II">
-<meta property="og:url" content="http://yoursite.com/2017/09/25/LeetCode-Problem-63-Unique-Paths-II/index.html">
+<meta property="og:title" content="[LeetCode] Problem 69 - Sqrt(x)">
+<meta property="og:url" content="http://yoursite.com/2018/01/23/LeetCode-Problem-69-Sqrt-x/index.html">
 <meta property="og:site_name" content="mrlonelyjtr's blog">
-<meta property="og:description" content="Follow up for “Unique Paths”:
-Now consider if some obstacles are added to the grids. How many unique paths would there be?
-An obstacle and empty space is marked as 1 and 0 respectively in the grid.
-Ex">
-<meta property="og:updated_time" content="2017-09-24T16:38:26.000Z">
+<meta property="og:description" content="Implement int sqrt(int x).
+Compute and return the square root of x.
+x is guaranteed to be a non-negative integer.
+ExampleNo.1Input: 4Output: 2
+No.2Input: 8Output: 2Explanation: The square root of 8 is">
+<meta property="og:updated_time" content="2018-01-22T13:38:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LeetCode] Problem 63 - Unique Paths II">
-<meta name="twitter:description" content="Follow up for “Unique Paths”:
-Now consider if some obstacles are added to the grids. How many unique paths would there be?
-An obstacle and empty space is marked as 1 and 0 respectively in the grid.
-Ex">
+<meta name="twitter:title" content="[LeetCode] Problem 69 - Sqrt(x)">
+<meta name="twitter:description" content="Implement int sqrt(int x).
+Compute and return the square root of x.
+x is guaranteed to be a non-negative integer.
+ExampleNo.1Input: 4Output: 2
+No.2Input: 8Output: 2Explanation: The square root of 8 is">
 
 
 
@@ -133,13 +136,13 @@ Ex">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/25/LeetCode-Problem-63-Unique-Paths-II/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/23/LeetCode-Problem-69-Sqrt-x/"/>
 
 
 
 
 
-  <title> [LeetCode] Problem 63 - Unique Paths II | mrlonelyjtr's blog </title>
+  <title> [LeetCode] Problem 69 - Sqrt(x) | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -268,7 +271,7 @@ Ex">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/25/LeetCode-Problem-63-Unique-Paths-II/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/23/LeetCode-Problem-69-Sqrt-x/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -289,7 +292,7 @@ Ex">
             
             
               
-                [LeetCode] Problem 63 - Unique Paths II
+                [LeetCode] Problem 69 - Sqrt(x)
               
             
           </h1>
@@ -304,8 +307,8 @@ Ex">
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-25T07:48:15+08:00">
-                2017-09-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-22T21:35:39Z">
+                2018-01-22
               </time>
             
 
@@ -373,14 +376,12 @@ Ex">
       
 
       
-        <p>Follow up for “Unique Paths”:</p>
-<p>Now consider if some obstacles are added to the grids. How many unique paths would there be?</p>
-<p>An obstacle and empty space is marked as 1 and 0 respectively in the grid.</p>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>There is one obstacle in the middle of a 3x3 grid as illustrated below.</p>
-<p>[0,0,0],<br>[0,1,0],<br>[0,0,0]</p>
-<p>The total number of unique paths is 2.</p>
-<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>m and n will be at most 100.</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// O(mn) runtime, O(mn) space – Dynamic programming</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniquePathsWithObstacles</span><span class="params">(<span class="keyword">int</span>[][] obstacleGrid)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> m = obstacleGrid.length;</div><div class="line">    <span class="keyword">int</span> n = obstacleGrid[<span class="number">0</span>].length;</div><div class="line">    <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[m][n];</div><div class="line"></div><div class="line">    dp[<span class="number">0</span>][<span class="number">0</span>] = obstacleGrid[<span class="number">0</span>][<span class="number">0</span>] ^ <span class="number">1</span>;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)</div><div class="line">        dp[<span class="number">0</span>][i] = obstacleGrid[<span class="number">0</span>][i] == <span class="number">1</span> ? <span class="number">0</span> : dp[<span class="number">0</span>][i-<span class="number">1</span>];</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; m; i++)</div><div class="line">        dp[i][<span class="number">0</span>] = obstacleGrid[i][<span class="number">0</span>] == <span class="number">1</span> ? <span class="number">0</span> : dp[i-<span class="number">1</span>][<span class="number">0</span>];</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; m; i++) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; n; j++)</div><div class="line">            dp[i][j] = obstacleGrid[i][j] == <span class="number">1</span> ? <span class="number">0</span> : dp[i-<span class="number">1</span>][j] + dp[i][j-<span class="number">1</span>];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> dp[m-<span class="number">1</span>][n-<span class="number">1</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>Implement int sqrt(int x).</p>
+<p>Compute and return the square root of x.</p>
+<p>x is guaranteed to be a non-negative integer.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Input: 4<br>Output: 2</p>
+<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Input: 8<br>Output: 2<br>Explanation: The square root of 8 is 2.82842…, and since we want to return an integer, the decimal part will be truncated.</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">mySqrt</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (x == <span class="number">0</span>)</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> start = <span class="number">1</span>;</div><div class="line">    <span class="keyword">int</span> end = x;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">        <span class="keyword">int</span> mid = start + (end - start) / <span class="number">2</span>;</div><div class="line">        </div><div class="line">        <span class="keyword">if</span> (mid &gt; x / mid)</div><div class="line">            end = mid - <span class="number">1</span>;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">if</span> ((mid + <span class="number">1</span>) &gt; x / (mid + <span class="number">1</span>))</div><div class="line">                <span class="keyword">return</span> mid;</div><div class="line">            </div><div class="line">            start = mid + <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -424,8 +425,8 @@ Ex">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/25/LeetCode-Problem-62-Unique-Paths/" rel="next" title="[LeetCode] Problem 62 - Unique Paths">
-                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 62 - Unique Paths
+              <a href="/2018/01/23/LeetCode-Problem-88-Merge-Sorted-Array/" rel="next" title="[LeetCode] Problem 88 - Merge Sorted Array">
+                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 88 - Merge Sorted Array
               </a>
             
           </div>
@@ -433,10 +434,6 @@ Ex">
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/25/LeetCode-Problem-53-Maximum-Subarray/" rel="prev" title="[LeetCode] Problem 53 - Maximum Subarray">
-                [LeetCode] Problem 53 - Maximum Subarray <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -565,7 +562,7 @@ Ex">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">2.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1"><span class="nav-number">1.1.</span> <span class="nav-text">No.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2"><span class="nav-number">1.2.</span> <span class="nav-text">No.2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">2.</span> <span class="nav-text">Code</span></a></li></ol></div>
             
 
           </div>
