@@ -1,0 +1,761 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Java,Design Pattern," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="用于填补具有不同接口（API）的两个类之间的缝隙。
+Adapter模式有以下两种：
+
+类适配器模式（使用继承的适配器）
+对象适配器模式（使用委托的适配器）
+
+示例将输入的字符串显示为（Hello）或是*Hello*。
+类适配器模式（使用继承）类图
+Banner类123456789101112131415public class Banner &amp;#123;    private String str">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【图解设计模式】Adapter模式">
+<meta property="og:url" content="http://yoursite.com/2018/05/29/【图解设计模式】Adapter模式/index.html">
+<meta property="og:site_name" content="mrlonelyjtr's blog">
+<meta property="og:description" content="用于填补具有不同接口（API）的两个类之间的缝隙。
+Adapter模式有以下两种：
+
+类适配器模式（使用继承的适配器）
+对象适配器模式（使用委托的适配器）
+
+示例将输入的字符串显示为（Hello）或是*Hello*。
+类适配器模式（使用继承）类图
+Banner类123456789101112131415public class Banner &amp;#123;    private String str">
+<meta property="og:image" content="https://s1.ax1x.com/2018/05/28/C4drVI.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/05/28/C4wiRO.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/05/28/C40tje.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/05/28/C40aBd.png">
+<meta property="og:updated_time" content="2018-05-28T13:39:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【图解设计模式】Adapter模式">
+<meta name="twitter:description" content="用于填补具有不同接口（API）的两个类之间的缝隙。
+Adapter模式有以下两种：
+
+类适配器模式（使用继承的适配器）
+对象适配器模式（使用委托的适配器）
+
+示例将输入的字符串显示为（Hello）或是*Hello*。
+类适配器模式（使用继承）类图
+Banner类123456789101112131415public class Banner &amp;#123;    private String str">
+<meta name="twitter:image" content="https://s1.ax1x.com/2018/05/28/C4drVI.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: 'WJ0ABS4YTT',
+      apiKey: '570f8b59ef0850a1cad9dcc2f404577f',
+      indexName: 'mrlonelyjtr',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/29/【图解设计模式】Adapter模式/"/>
+
+
+
+
+
+  <title> 【图解设计模式】Adapter模式 | mrlonelyjtr's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">mrlonelyjtr's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">mrlonelyjtr</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/29/【图解设计模式】Adapter模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mrlonelyjtr">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="mrlonelyjtr's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                【图解设计模式】Adapter模式
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-29T04:27:00+08:00">
+                2018-05-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Design-Pattern/" itemprop="url" rel="index">
+                    <span itemprop="name">Design Pattern</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>用于填补具有不同接口（API）的两个类之间的缝隙。</p>
+<p>Adapter模式有以下两种：</p>
+<ul>
+<li>类适配器模式（使用继承的适配器）</li>
+<li>对象适配器模式（使用委托的适配器）</li>
+</ul>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>将输入的字符串显示为（Hello）或是*Hello*。</p>
+<h3 id="类适配器模式（使用继承）"><a href="#类适配器模式（使用继承）" class="headerlink" title="类适配器模式（使用继承）"></a>类适配器模式（使用继承）</h3><h4 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h4><p><a href="https://imgchr.com/i/C4drVI" target="_blank" rel="external"><img src="https://s1.ax1x.com/2018/05/28/C4drVI.png" alt="C4drVI.png"></a></p>
+<h4 id="Banner类"><a href="#Banner类" class="headerlink" title="Banner类"></a>Banner类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Banner</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> String string;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Banner</span><span class="params">(String string)</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>.string = string;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showWithParen</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"("</span> + string + <span class="string">")"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showWithAster</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"*"</span> + string + <span class="string">"*"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="Print接口"><a href="#Print接口" class="headerlink" title="Print接口"></a>Print接口</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Print</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">printWeak</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">printStrong</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="PrintBanner类"><a href="#PrintBanner类" class="headerlink" title="PrintBanner类"></a>PrintBanner类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrintBanner</span> <span class="keyword">extends</span> <span class="title">Banner</span> <span class="keyword">implements</span> <span class="title">Print</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PrintBanner</span><span class="params">(String string)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(string);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printWeak</span><span class="params">()</span> </span>&#123;</div><div class="line">        showWithParen();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printStrong</span><span class="params">()</span> </span>&#123;</div><div class="line">        showWithAster();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="Main类"><a href="#Main类" class="headerlink" title="Main类"></a>Main类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Print p = <span class="keyword">new</span> PrintBanner(<span class="string">"Hello"</span>);</div><div class="line">        p.printWeak();</div><div class="line">        p.printStrong();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h4><p>(Hello)<br>*Hello*</p>
+<h3 id="对象适配器模式（使用委托）"><a href="#对象适配器模式（使用委托）" class="headerlink" title="对象适配器模式（使用委托）"></a>对象适配器模式（使用委托）</h3><h4 id="类图-1"><a href="#类图-1" class="headerlink" title="类图"></a>类图</h4><p><a href="https://imgchr.com/i/C4wiRO" target="_blank" rel="external"><img src="https://s1.ax1x.com/2018/05/28/C4wiRO.png" alt="C4wiRO.png"></a></p>
+<h4 id="Print类"><a href="#Print类" class="headerlink" title="Print类"></a>Print类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Print</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">printWeak</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">printStrong</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="PrintBanner类-1"><a href="#PrintBanner类-1" class="headerlink" title="PrintBanner类"></a>PrintBanner类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrintBanner</span> <span class="keyword">extends</span> <span class="title">Print</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Banner banner;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PrintBanner</span><span class="params">(String string)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.banner = <span class="keyword">new</span> Banner(string);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">printWeak</span><span class="params">()</span> </span>&#123;</div><div class="line">        banner.showWithParen();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">printStrong</span><span class="params">()</span> </span>&#123;</div><div class="line">        banner.showWithAster();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="登场角色"><a href="#登场角色" class="headerlink" title="登场角色"></a>登场角色</h2><p>在类适配器模式中，Adapter角色通过继承来使用Adaptee角色，而在对象适配器模式中，Adapter角色通过委托来使用Adaptee角色。</p>
+<h3 id="Targer（对象）"><a href="#Targer（对象）" class="headerlink" title="Targer（对象）"></a>Targer（对象）</h3><p>该角色负责定义所需的方法。在示例程序中，由Print接口（使用继承时）和Print类（使用委托时）扮演此角色。</p>
+<h3 id="Client（请求者）"><a href="#Client（请求者）" class="headerlink" title="Client（请求者）"></a>Client（请求者）</h3><p>该角色负责使用Target角色所定义的方法进行具体处理。在示例程序中，由Main类扮演此角色。</p>
+<h3 id="Adaptee（被适配）"><a href="#Adaptee（被适配）" class="headerlink" title="Adaptee（被适配）"></a>Adaptee（被适配）</h3><p>Adaptee是一个持有既定方法的角色。在示例程序中，由Banner类扮演此角色。</p>
+<h3 id="Adapter-适配"><a href="#Adapter-适配" class="headerlink" title="Adapter(适配)"></a>Adapter(适配)</h3><p>Adapter模式的主人公。使用Adaptee角色的方法来满足Target角色的需求，这是Adapter模式的目的，也是Adapter角色的作用。在示例程序中，由PrintBanner类扮演这个角色。</p>
+<h3 id="类适配器模式的类图（使用继承）"><a href="#类适配器模式的类图（使用继承）" class="headerlink" title="类适配器模式的类图（使用继承）"></a>类适配器模式的类图（使用继承）</h3><p><a href="https://imgchr.com/i/C40tje" target="_blank" rel="external"><img src="https://s1.ax1x.com/2018/05/28/C40tje.png" alt="C40tje.png"></a></p>
+<h3 id="对象适配器模式的类图（使用委托）"><a href="#对象适配器模式的类图（使用委托）" class="headerlink" title="对象适配器模式的类图（使用委托）"></a>对象适配器模式的类图（使用委托）</h3><p><a href="https://imgchr.com/i/C40aBd" target="_blank" rel="external"><img src="https://s1.ax1x.com/2018/05/28/C40aBd.png" alt="C40aBd.png"></a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/Design-Pattern/" rel="tag"># Design Pattern</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/30/【图解设计模式】Iterator模式/" rel="next" title="【图解设计模式】Iterator模式">
+                <i class="fa fa-chevron-left"></i> 【图解设计模式】Iterator模式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="mrlonelyjtr" />
+          <p class="site-author-name" itemprop="name">mrlonelyjtr</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">142</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">1.</span> <span class="nav-text">示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类适配器模式（使用继承）"><span class="nav-number">1.1.</span> <span class="nav-text">类适配器模式（使用继承）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#类图"><span class="nav-number">1.1.1.</span> <span class="nav-text">类图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Banner类"><span class="nav-number">1.1.2.</span> <span class="nav-text">Banner类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Print接口"><span class="nav-number">1.1.3.</span> <span class="nav-text">Print接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PrintBanner类"><span class="nav-number">1.1.4.</span> <span class="nav-text">PrintBanner类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Main类"><span class="nav-number">1.1.5.</span> <span class="nav-text">Main类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行结果"><span class="nav-number">1.1.6.</span> <span class="nav-text">运行结果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象适配器模式（使用委托）"><span class="nav-number">1.2.</span> <span class="nav-text">对象适配器模式（使用委托）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#类图-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">类图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Print类"><span class="nav-number">1.2.2.</span> <span class="nav-text">Print类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PrintBanner类-1"><span class="nav-number">1.2.3.</span> <span class="nav-text">PrintBanner类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#登场角色"><span class="nav-number">2.</span> <span class="nav-text">登场角色</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Targer（对象）"><span class="nav-number">2.1.</span> <span class="nav-text">Targer（对象）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Client（请求者）"><span class="nav-number">2.2.</span> <span class="nav-text">Client（请求者）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Adaptee（被适配）"><span class="nav-number">2.3.</span> <span class="nav-text">Adaptee（被适配）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Adapter-适配"><span class="nav-number">2.4.</span> <span class="nav-text">Adapter(适配)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类适配器模式的类图（使用继承）"><span class="nav-number">2.5.</span> <span class="nav-text">类适配器模式的类图（使用继承）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象适配器模式的类图（使用委托）"><span class="nav-number">2.6.</span> <span class="nav-text">对象适配器模式的类图（使用委托）</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">mrlonelyjtr</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
