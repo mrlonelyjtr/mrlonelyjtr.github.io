@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="OJ,Algorithm," />
+  <meta name="keywords" content="Java,Design Pattern," />
 
 
 
@@ -87,19 +87,25 @@
 
 
 
-<meta name="description" content="Find the contiguous subarray within an array (containing at least one number) which has the largest product.
-Examplegiven the array [2,3,-2,4],the contiguous subarray [2,3] has the largest product = 6">
+<meta name="description" content="确保只能生成一个实例。
+示例类图
+Singleton类1234567891011public class Singleton &amp;#123;    private static Singleton singleton = new Singleton();    private Singleton()&amp;#123;        System.out.println(&quot;生成了一个实例&quot;);    &amp;#1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LeetCode] Problem 152 - Maximum Product Subarray">
-<meta property="og:url" content="http://yoursite.com/2017/09/26/LeetCode-Problem-152-Maximum-Product-Subarray/index.html">
+<meta property="og:title" content="【图解设计模式】Singleton模式">
+<meta property="og:url" content="http://yoursite.com/2018/05/31/【图解设计模式】Singleton模式/index.html">
 <meta property="og:site_name" content="mrlonelyjtr's blog">
-<meta property="og:description" content="Find the contiguous subarray within an array (containing at least one number) which has the largest product.
-Examplegiven the array [2,3,-2,4],the contiguous subarray [2,3] has the largest product = 6">
-<meta property="og:updated_time" content="2017-09-25T16:34:31.000Z">
+<meta property="og:description" content="确保只能生成一个实例。
+示例类图
+Singleton类1234567891011public class Singleton &amp;#123;    private static Singleton singleton = new Singleton();    private Singleton()&amp;#123;        System.out.println(&quot;生成了一个实例&quot;);    &amp;#1">
+<meta property="og:image" content="https://s1.ax1x.com/2018/05/30/C5ohRO.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/05/30/C5ohRO.png">
+<meta property="og:updated_time" content="2018-05-30T13:45:49.114Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LeetCode] Problem 152 - Maximum Product Subarray">
-<meta name="twitter:description" content="Find the contiguous subarray within an array (containing at least one number) which has the largest product.
-Examplegiven the array [2,3,-2,4],the contiguous subarray [2,3] has the largest product = 6">
+<meta name="twitter:title" content="【图解设计模式】Singleton模式">
+<meta name="twitter:description" content="确保只能生成一个实例。
+示例类图
+Singleton类1234567891011public class Singleton &amp;#123;    private static Singleton singleton = new Singleton();    private Singleton()&amp;#123;        System.out.println(&quot;生成了一个实例&quot;);    &amp;#1">
+<meta name="twitter:image" content="https://s1.ax1x.com/2018/05/30/C5ohRO.png">
 
 
 
@@ -127,13 +133,13 @@ Examplegiven the array [2,3,-2,4],the contiguous subarray [2,3] has the largest 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/26/LeetCode-Problem-152-Maximum-Product-Subarray/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/31/【图解设计模式】Singleton模式/"/>
 
 
 
 
 
-  <title> [LeetCode] Problem 152 - Maximum Product Subarray | mrlonelyjtr's blog </title>
+  <title> 【图解设计模式】Singleton模式 | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -262,7 +268,7 @@ Examplegiven the array [2,3,-2,4],the contiguous subarray [2,3] has the largest 
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/26/LeetCode-Problem-152-Maximum-Product-Subarray/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/31/【图解设计模式】Singleton模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -283,7 +289,7 @@ Examplegiven the array [2,3,-2,4],the contiguous subarray [2,3] has the largest 
             
             
               
-                [LeetCode] Problem 152 - Maximum Product Subarray
+                【图解设计模式】Singleton模式
               
             
           </h1>
@@ -298,8 +304,8 @@ Examplegiven the array [2,3,-2,4],the contiguous subarray [2,3] has the largest 
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-26T07:29:49+08:00">
-                2017-09-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-30T21:04:43Z">
+                2018-05-30
               </time>
             
 
@@ -321,19 +327,8 @@ Examplegiven the array [2,3,-2,4],the contiguous subarray [2,3] has the largest 
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
+                  <a href="/categories/Design-Pattern/" itemprop="url" rel="index">
+                    <span itemprop="name">Design Pattern</span>
                   </a>
                 </span>
 
@@ -367,9 +362,14 @@ Examplegiven the array [2,3,-2,4],the contiguous subarray [2,3] has the largest 
       
 
       
-        <p>Find the contiguous subarray within an array (containing at least one number) which has the largest product.</p>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>given the array [2,3,-2,4],<br>the contiguous subarray [2,3] has the largest product = 6.</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProduct</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[nums.length][<span class="number">2</span>];</div><div class="line">    <span class="keyword">int</span> max = nums[<span class="number">0</span>];</div><div class="line">    dp[<span class="number">0</span>][<span class="number">0</span>] = dp[<span class="number">0</span>][<span class="number">1</span>] = nums[<span class="number">0</span>];</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.length; i++) &#123;</div><div class="line">        <span class="keyword">int</span> localMin = dp[i-<span class="number">1</span>][<span class="number">1</span>] * nums[i];</div><div class="line">        <span class="keyword">int</span> localMax = dp[i-<span class="number">1</span>][<span class="number">0</span>] * nums[i];</div><div class="line">        </div><div class="line">        dp[i][<span class="number">0</span>] = Math.max(nums[i], Math.max(localMax, localMin));</div><div class="line">        dp[i][<span class="number">1</span>] = Math.min(nums[i], Math.min(localMax, localMin));</div><div class="line">        max = Math.max(max, dp[i][<span class="number">0</span>]);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> max;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>确保只能生成一个实例。</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><h3 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h3><p><a href="https://imgchr.com/i/C5ohRO" target="_blank" rel="external"><img src="https://s1.ax1x.com/2018/05/30/C5ohRO.png" alt="C5ohRO.png"></a></p>
+<h3 id="Singleton类"><a href="#Singleton类" class="headerlink" title="Singleton类"></a>Singleton类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton singleton = <span class="keyword">new</span> Singleton();</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"生成了一个实例"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> singleton;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Main类"><a href="#Main类" class="headerlink" title="Main类"></a>Main类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"Start."</span>);</div><div class="line"></div><div class="line">        Singleton obj1 = Singleton.getInstance();</div><div class="line">        Singleton obj2 = Singleton.getInstance();</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (obj1 == obj2)</div><div class="line">            System.out.println(<span class="string">"obj1与obj2是相同的实例。"</span>);</div><div class="line">        <span class="keyword">else</span></div><div class="line">            System.out.println(<span class="string">"obj1与obj2是不同的实例。"</span>);</div><div class="line"></div><div class="line">        System.out.println(<span class="string">"End."</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><p>Start.<br>生成了一个实例<br>obj1与obj2是相同的实例。<br>End.</p>
+<h2 id="登场角色"><a href="#登场角色" class="headerlink" title="登场角色"></a>登场角色</h2><h3 id="Singleton"><a href="#Singleton" class="headerlink" title="Singleton"></a>Singleton</h3><p>在Singleton模式中，只有Singleton这一个角色。Singleton角色中有一个返回唯一实例的static方法。该方法总是会返回同一个实例。</p>
+<h3 id="类图-1"><a href="#类图-1" class="headerlink" title="类图"></a>类图</h3><p><a href="https://imgchr.com/i/C5ohRO" target="_blank" rel="external"><img src="https://s1.ax1x.com/2018/05/30/C5ohRO.png" alt="C5ohRO.png"></a></p>
+
       
     </div>
 
@@ -398,9 +398,9 @@ Examplegiven the array [2,3,-2,4],the contiguous subarray [2,3] has the largest 
       
         <div class="post-tags">
           
-            <a href="/tags/OJ/" rel="tag"># OJ</a>
+            <a href="/tags/Java/" rel="tag"># Java</a>
           
-            <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+            <a href="/tags/Design-Pattern/" rel="tag"># Design Pattern</a>
           
         </div>
       
@@ -413,8 +413,8 @@ Examplegiven the array [2,3,-2,4],the contiguous subarray [2,3] has the largest 
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/25/LeetCode-Problem-53-Maximum-Subarray/" rel="next" title="[LeetCode] Problem 53 - Maximum Subarray">
-                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 53 - Maximum Subarray
+              <a href="/2018/05/30/【图解设计模式】Factory-Method模式/" rel="next" title="【图解设计模式】Factory Method模式">
+                <i class="fa fa-chevron-left"></i> 【图解设计模式】Factory Method模式
               </a>
             
           </div>
@@ -422,10 +422,6 @@ Examplegiven the array [2,3,-2,4],the contiguous subarray [2,3] has the largest 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/26/LeetCode-Problem-35-Search-Insert-Position/" rel="prev" title="[LeetCode] Problem 35 - Search Insert Position">
-                [LeetCode] Problem 35 - Search Insert Position <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -554,7 +550,7 @@ Examplegiven the array [2,3,-2,4],the contiguous subarray [2,3] has the largest 
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">2.</span> <span class="nav-text">Code</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">1.</span> <span class="nav-text">示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类图"><span class="nav-number">1.1.</span> <span class="nav-text">类图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Singleton类"><span class="nav-number">1.2.</span> <span class="nav-text">Singleton类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Main类"><span class="nav-number">1.3.</span> <span class="nav-text">Main类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行结果"><span class="nav-number">1.4.</span> <span class="nav-text">运行结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#登场角色"><span class="nav-number">2.</span> <span class="nav-text">登场角色</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Singleton"><span class="nav-number">2.1.</span> <span class="nav-text">Singleton</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类图-1"><span class="nav-number">2.2.</span> <span class="nav-text">类图</span></a></li></ol></li></ol></div>
             
 
           </div>
