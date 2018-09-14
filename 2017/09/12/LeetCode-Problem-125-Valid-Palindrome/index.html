@@ -87,19 +87,18 @@
 
 
 
-<meta name="description" content="Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.
-Example“A man, a plan, a canal: Panama” is a palindrome.“race a car” is not a palindrome.">
+<meta name="description" content="Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases. Example“A man, a plan, a canal: Panama” is a palindrome.“race a car” is not a palindrome.">
+<meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[LeetCode] Problem 125 - Valid Palindrome">
 <meta property="og:url" content="http://yoursite.com/2017/09/12/LeetCode-Problem-125-Valid-Palindrome/index.html">
-<meta property="og:site_name" content="mrlonelyjtr's blog">
-<meta property="og:description" content="Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.
-Example“A man, a plan, a canal: Panama” is a palindrome.“race a car” is not a palindrome.">
+<meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
+<meta property="og:description" content="Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases. Example“A man, a plan, a canal: Panama” is a palindrome.“race a car” is not a palindrome.">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-09-11T08:36:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LeetCode] Problem 125 - Valid Palindrome">
-<meta name="twitter:description" content="Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.
-Example“A man, a plan, a canal: Panama” is a palindrome.“race a car” is not a palindrome.">
+<meta name="twitter:description" content="Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases. Example“A man, a plan, a canal: Panama” is a palindrome.“race a car” is not a palindrome.">
 
 
 
@@ -371,7 +370,7 @@ Example“A man, a plan, a canal: Panama” is a palindrome.“race a car” is 
 <h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>“A man, a plan, a canal: Panama” is a palindrome.<br>“race a car” is not a palindrome.</p>
 <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>Have you consider that the string might be empty? This is a good question to ask during an interview.</p>
 <p>For the purpose of this problem, we define empty string as valid palindrome.</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// O(n) runtime, O(1) space</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> start = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> end = s.length() - <span class="number">1</span>;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (start &lt; end) &#123;</div><div class="line">        <span class="keyword">while</span> (start &lt; end &amp;&amp; !Character.isLetterOrDigit(s.charAt(start)))</div><div class="line">            start++;</div><div class="line"></div><div class="line">        <span class="keyword">while</span> (start &lt; end &amp;&amp; !Character.isLetterOrDigit(s.charAt(end)))</div><div class="line">            end--;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (Character.toLowerCase(s.charAt(start)) != Character.toLowerCase(s.charAt(end)))</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line"></div><div class="line">        start++;</div><div class="line">        end--;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// O(n) runtime, O(1) space</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> start = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> end = s.length() - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (start &lt; end) &#123;</span><br><span class="line">        <span class="keyword">while</span> (start &lt; end &amp;&amp; !Character.isLetterOrDigit(s.charAt(start)))</span><br><span class="line">            start++;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (start &lt; end &amp;&amp; !Character.isLetterOrDigit(s.charAt(end)))</span><br><span class="line">            end--;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (Character.toLowerCase(s.charAt(start)) != Character.toLowerCase(s.charAt(end)))</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">        start++;</span><br><span class="line">        end--;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -499,7 +498,7 @@ Example“A man, a plan, a canal: Panama” is a palindrome.“race a car” is 
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">146</span>
+                <span class="site-state-item-count">147</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

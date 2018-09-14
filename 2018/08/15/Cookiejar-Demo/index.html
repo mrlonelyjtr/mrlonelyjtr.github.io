@@ -87,37 +87,18 @@
 
 
 
-<meta name="description" content="如果希望登录状态一直保持，则需要进行Cookie处理。进行Cookie处理的一种常用思路如下：
-
-导入Cookie处理模块http.cookiejar
-使用http.cookiejar.CookieJar()创建CookieJar对象
-使用HTTPCookieProcessor创建cookie处理器，并以其为参数构建opener对象
-创建全局默认的opener对象
-
-123456789101112">
+<meta name="description" content="如果希望登录状态一直保持，则需要进行Cookie处理。进行Cookie处理的一种常用思路如下：  导入Cookie处理模块http.cookiejar 使用http.cookiejar.CookieJar()创建CookieJar对象 使用HTTPCookieProcessor创建cookie处理器，并以其为参数构建opener对象 创建全局默认的opener对象  123456789101112">
+<meta name="keywords" content="Python,Web Crawler">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cookiejar Demo">
 <meta property="og:url" content="http://yoursite.com/2018/08/15/Cookiejar-Demo/index.html">
-<meta property="og:site_name" content="mrlonelyjtr's blog">
-<meta property="og:description" content="如果希望登录状态一直保持，则需要进行Cookie处理。进行Cookie处理的一种常用思路如下：
-
-导入Cookie处理模块http.cookiejar
-使用http.cookiejar.CookieJar()创建CookieJar对象
-使用HTTPCookieProcessor创建cookie处理器，并以其为参数构建opener对象
-创建全局默认的opener对象
-
-123456789101112">
+<meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
+<meta property="og:description" content="如果希望登录状态一直保持，则需要进行Cookie处理。进行Cookie处理的一种常用思路如下：  导入Cookie处理模块http.cookiejar 使用http.cookiejar.CookieJar()创建CookieJar对象 使用HTTPCookieProcessor创建cookie处理器，并以其为参数构建opener对象 创建全局默认的opener对象  123456789101112">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2018-08-14T15:58:39.192Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cookiejar Demo">
-<meta name="twitter:description" content="如果希望登录状态一直保持，则需要进行Cookie处理。进行Cookie处理的一种常用思路如下：
-
-导入Cookie处理模块http.cookiejar
-使用http.cookiejar.CookieJar()创建CookieJar对象
-使用HTTPCookieProcessor创建cookie处理器，并以其为参数构建opener对象
-创建全局默认的opener对象
-
-123456789101112">
+<meta name="twitter:description" content="如果希望登录状态一直保持，则需要进行Cookie处理。进行Cookie处理的一种常用思路如下：  导入Cookie处理模块http.cookiejar 使用http.cookiejar.CookieJar()创建CookieJar对象 使用HTTPCookieProcessor创建cookie处理器，并以其为参数构建opener对象 创建全局默认的opener对象  123456789101112">
 
 
 
@@ -316,7 +297,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-14T23:25:02Z">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-15T07:25:02+08:00">
                 2018-08-14
               </time>
             
@@ -381,7 +362,7 @@
 <li>使用HTTPCookieProcessor创建cookie处理器，并以其为参数构建opener对象</li>
 <li>创建全局默认的opener对象</li>
 </ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> urllib.request</div><div class="line"><span class="keyword">import</span> urllib.parse</div><div class="line"><span class="keyword">import</span> http.cookiejar</div><div class="line"></div><div class="line">url1 = <span class="string">"http://bbs.chinaunix.net/member.php?mod=logging&amp;action=login&amp;loginsubmit=yes&amp;loginhash=LhGEr"</span></div><div class="line">postdata = urllib.parse.urlencode(&#123;</div><div class="line">    <span class="string">"username"</span>: <span class="string">""</span>,</div><div class="line">    <span class="string">"password"</span>: <span class="string">""</span></div><div class="line">&#125;).encode(<span class="string">"utf-8"</span>)</div><div class="line">req = urllib.request.Request(url1, postdata)</div><div class="line">req.add_header(<span class="string">"User-Agent"</span>, <span class="string">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/604.4.7 (KHTML, like Gecko) Version/11.0.2 Safari/604.4.7"</span>)</div><div class="line"></div><div class="line"><span class="comment"># 使用http.cookiejar.CookieJar()创建CookieJar对象</span></div><div class="line">cjar = http.cookiejar.CookieJar()</div><div class="line"><span class="comment"># 使用HTTPCookieProcessor创建cookie处理器，并以其为参数构建opener对象</span></div><div class="line">cookie = urllib.request.HTTPCookieProcessor(cjar)</div><div class="line">opener = urllib.request.build_opener(cookie)</div><div class="line"><span class="comment"># 将opener安装为全局</span></div><div class="line">urllib.request.install_opener(opener)</div><div class="line"></div><div class="line">data1 = opener.open(req).read()</div><div class="line">file1 = open(<span class="string">"/Users/matianyao/Desktop/login.html"</span>, <span class="string">"wb"</span>)</div><div class="line">file1.write(data1)</div><div class="line">file1.close()</div><div class="line"></div><div class="line">url2 = <span class="string">"http://bbs.chinaunix.net"</span></div><div class="line">data2 = urllib.request.urlopen(url2).read()</div><div class="line">file2 = open(<span class="string">"/Users/matianyao/Desktop/crawler.html"</span>, <span class="string">"wb"</span>)</div><div class="line">file2.write(data2)</div><div class="line">file2.close()</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">import</span> urllib.parse</span><br><span class="line"><span class="keyword">import</span> http.cookiejar</span><br><span class="line"></span><br><span class="line">url1 = <span class="string">"http://bbs.chinaunix.net/member.php?mod=logging&amp;action=login&amp;loginsubmit=yes&amp;loginhash=LhGEr"</span></span><br><span class="line">postdata = urllib.parse.urlencode(&#123;</span><br><span class="line">    <span class="string">"username"</span>: <span class="string">""</span>,</span><br><span class="line">    <span class="string">"password"</span>: <span class="string">""</span></span><br><span class="line">&#125;).encode(<span class="string">"utf-8"</span>)</span><br><span class="line">req = urllib.request.Request(url1, postdata)</span><br><span class="line">req.add_header(<span class="string">"User-Agent"</span>, <span class="string">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/604.4.7 (KHTML, like Gecko) Version/11.0.2 Safari/604.4.7"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用http.cookiejar.CookieJar()创建CookieJar对象</span></span><br><span class="line">cjar = http.cookiejar.CookieJar()</span><br><span class="line"><span class="comment"># 使用HTTPCookieProcessor创建cookie处理器，并以其为参数构建opener对象</span></span><br><span class="line">cookie = urllib.request.HTTPCookieProcessor(cjar)</span><br><span class="line">opener = urllib.request.build_opener(cookie)</span><br><span class="line"><span class="comment"># 将opener安装为全局</span></span><br><span class="line">urllib.request.install_opener(opener)</span><br><span class="line"></span><br><span class="line">data1 = opener.open(req).read()</span><br><span class="line">file1 = open(<span class="string">"/Users/matianyao/Desktop/login.html"</span>, <span class="string">"wb"</span>)</span><br><span class="line">file1.write(data1)</span><br><span class="line">file1.close()</span><br><span class="line"></span><br><span class="line">url2 = <span class="string">"http://bbs.chinaunix.net"</span></span><br><span class="line">data2 = urllib.request.urlopen(url2).read()</span><br><span class="line">file2 = open(<span class="string">"/Users/matianyao/Desktop/crawler.html"</span>, <span class="string">"wb"</span>)</span><br><span class="line">file2.write(data2)</span><br><span class="line">file2.close()</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -434,6 +415,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/15/Proxy/" rel="prev" title="Proxy">
+                Proxy <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -496,7 +481,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">146</span>
+                <span class="site-state-item-count">147</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

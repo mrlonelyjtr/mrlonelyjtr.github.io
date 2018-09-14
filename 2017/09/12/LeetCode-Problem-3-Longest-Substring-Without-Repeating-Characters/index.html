@@ -87,22 +87,18 @@
 
 
 
-<meta name="description" content="Given a string, find the length of the longest substring without repeating characters.
-ExampleGiven “abcabcbb”, the answer is “abc”, which the length is 3.
-Given “bbbbb”, the answer is “b”, with the l">
+<meta name="description" content="Given a string, find the length of the longest substring without repeating characters. ExampleGiven “abcabcbb”, the answer is “abc”, which the length is 3. Given “bbbbb”, the answer is “b”, with the l">
+<meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[LeetCode] Problem 3 - Longest Substring Without Repeating Characters">
 <meta property="og:url" content="http://yoursite.com/2017/09/12/LeetCode-Problem-3-Longest-Substring-Without-Repeating-Characters/index.html">
-<meta property="og:site_name" content="mrlonelyjtr's blog">
-<meta property="og:description" content="Given a string, find the length of the longest substring without repeating characters.
-ExampleGiven “abcabcbb”, the answer is “abc”, which the length is 3.
-Given “bbbbb”, the answer is “b”, with the l">
+<meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
+<meta property="og:description" content="Given a string, find the length of the longest substring without repeating characters. ExampleGiven “abcabcbb”, the answer is “abc”, which the length is 3. Given “bbbbb”, the answer is “b”, with the l">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-09-12T07:32:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LeetCode] Problem 3 - Longest Substring Without Repeating Characters">
-<meta name="twitter:description" content="Given a string, find the length of the longest substring without repeating characters.
-ExampleGiven “abcabcbb”, the answer is “abc”, which the length is 3.
-Given “bbbbb”, the answer is “b”, with the l">
+<meta name="twitter:description" content="Given a string, find the length of the longest substring without repeating characters. ExampleGiven “abcabcbb”, the answer is “abc”, which the length is 3. Given “bbbbb”, the answer is “b”, with the l">
 
 
 
@@ -374,7 +370,7 @@ Given “bbbbb”, the answer is “b”, with the l">
 <h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>Given “abcabcbb”, the answer is “abc”, which the length is 3.</p>
 <p>Given “bbbbb”, the answer is “b”, with the length of 1.</p>
 <p>Given “pwwkew”, the answer is “wke”, with the length of 3. Note that the answer must be a substring, “pwke” is a subsequence and not a substring.</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// O(n) runtime, O(1) space</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span>[] ascii = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">256</span>];</div><div class="line">    <span class="keyword">int</span> max = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> idx = <span class="number">0</span>;</div><div class="line"></div><div class="line">    Arrays.fill(ascii, -<span class="number">1</span>);</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</div><div class="line">        <span class="keyword">if</span> (ascii[s.charAt(i)] &gt;= idx)</div><div class="line">            idx = ascii[s.charAt(i)] + <span class="number">1</span>;</div><div class="line"></div><div class="line">        ascii[s.charAt(i)] = i;</div><div class="line">        max = Math.max(max, i - idx + <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> max;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// O(n) runtime, O(1) space</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] ascii = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">256</span>];</span><br><span class="line">    <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> idx = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    Arrays.fill(ascii, -<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (ascii[s.charAt(i)] &gt;= idx)</span><br><span class="line">            idx = ascii[s.charAt(i)] + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        ascii[s.charAt(i)] = i;</span><br><span class="line">        max = Math.max(max, i - idx + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -502,7 +498,7 @@ Given “bbbbb”, the answer is “b”, with the l">
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">146</span>
+                <span class="site-state-item-count">147</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

@@ -87,22 +87,18 @@
 
 
 
-<meta name="description" content="You are climbing a stair case. It takes n steps to reach to the top.
-Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
-NoteGiven n will be a positive int">
+<meta name="description" content="You are climbing a stair case. It takes n steps to reach to the top. Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top? NoteGiven n will be a positive int">
+<meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[LeetCode] Problem 70 - Climbing Stairs">
 <meta property="og:url" content="http://yoursite.com/2017/09/25/LeetCode-Problem-70-Climbing-Stairs/index.html">
-<meta property="og:site_name" content="mrlonelyjtr's blog">
-<meta property="og:description" content="You are climbing a stair case. It takes n steps to reach to the top.
-Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
-NoteGiven n will be a positive int">
+<meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
+<meta property="og:description" content="You are climbing a stair case. It takes n steps to reach to the top. Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top? NoteGiven n will be a positive int">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-09-24T15:05:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LeetCode] Problem 70 - Climbing Stairs">
-<meta name="twitter:description" content="You are climbing a stair case. It takes n steps to reach to the top.
-Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
-NoteGiven n will be a positive int">
+<meta name="twitter:description" content="You are climbing a stair case. It takes n steps to reach to the top. Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top? NoteGiven n will be a positive int">
 
 
 
@@ -373,7 +369,7 @@ NoteGiven n will be a positive int">
         <p>You are climbing a stair case. It takes n steps to reach to the top.</p>
 <p>Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?</p>
 <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>Given n will be a positive integer.</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// O(n) runtime, O(1) space – Dynamic programming</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</div><div class="line">    dp[<span class="number">0</span>] = <span class="number">1</span>;</div><div class="line">    dp[<span class="number">1</span>] = <span class="number">1</span>;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;=n; i++) &#123;</div><div class="line">        <span class="keyword">int</span> current = dp[<span class="number">0</span>] + dp[<span class="number">1</span>];</div><div class="line">        dp[<span class="number">0</span>] = dp[<span class="number">1</span>];</div><div class="line">        dp[<span class="number">1</span>] = current;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> dp[<span class="number">1</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// O(n) runtime, O(1) space – Dynamic programming</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">    dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    dp[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;=n; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> current = dp[<span class="number">0</span>] + dp[<span class="number">1</span>];</span><br><span class="line">        dp[<span class="number">0</span>] = dp[<span class="number">1</span>];</span><br><span class="line">        dp[<span class="number">1</span>] = current;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> dp[<span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -501,7 +497,7 @@ NoteGiven n will be a positive int">
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">146</span>
+                <span class="site-state-item-count">147</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

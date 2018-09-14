@@ -87,22 +87,18 @@
 
 
 
-<meta name="description" content="Implement strStr().
-Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
-Code1234567891011121314// O(nm) runtime, O(1) spacepublic int strStr(Strin">
+<meta name="description" content="Implement strStr(). Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack. Code1234567891011121314// O(nm) runtime, O(1) spacepublic int strStr(Strin">
+<meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[LeetCode] Problem 28 - Implement strStr()">
 <meta property="og:url" content="http://yoursite.com/2017/09/12/LeetCode-Problem-28-Implement-strStr/index.html">
-<meta property="og:site_name" content="mrlonelyjtr's blog">
-<meta property="og:description" content="Implement strStr().
-Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
-Code1234567891011121314// O(nm) runtime, O(1) spacepublic int strStr(Strin">
+<meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
+<meta property="og:description" content="Implement strStr(). Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack. Code1234567891011121314// O(nm) runtime, O(1) spacepublic int strStr(Strin">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-09-11T10:31:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LeetCode] Problem 28 - Implement strStr()">
-<meta name="twitter:description" content="Implement strStr().
-Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
-Code1234567891011121314// O(nm) runtime, O(1) spacepublic int strStr(Strin">
+<meta name="twitter:description" content="Implement strStr(). Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack. Code1234567891011121314// O(nm) runtime, O(1) spacepublic int strStr(Strin">
 
 
 
@@ -372,7 +368,7 @@ Code1234567891011121314// O(nm) runtime, O(1) spacepublic int strStr(Strin">
       
         <p>Implement strStr().</p>
 <p>Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// O(nm) runtime, O(1) space</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">strStr</span><span class="params">(String haystack, String needle)</span> </span>&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= haystack.length() - needle.length(); i++) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; ; j++) &#123;</div><div class="line">            <span class="keyword">if</span> (j == needle.length())</div><div class="line">                <span class="keyword">return</span> i;</div><div class="line"></div><div class="line">            <span class="keyword">if</span> (needle.charAt(j) != haystack.charAt(i+j))</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// O(nm) runtime, O(1) space</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">strStr</span><span class="params">(String haystack, String needle)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= haystack.length() - needle.length(); i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; ; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (j == needle.length())</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (needle.charAt(j) != haystack.charAt(i+j))</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -500,7 +496,7 @@ Code1234567891011121314// O(nm) runtime, O(1) spacepublic int strStr(Strin">
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">146</span>
+                <span class="site-state-item-count">147</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

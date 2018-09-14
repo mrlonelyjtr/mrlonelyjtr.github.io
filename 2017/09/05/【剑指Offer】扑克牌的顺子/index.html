@@ -87,19 +87,18 @@
 
 
 
-<meta name="description" content="题目从扑克牌中随机抽5张牌，判断是不是一个顺子，即这5张牌是不是连续的。2～10为数字本身，A为1，J为11，Q为12，K为13，而大、小王可以看成任意数字。
-实现12345678910111213141516171819public boolean isContinuous(int[] numbers) &amp;#123;    if (numbers == null || numbers.lengt">
+<meta name="description" content="题目从扑克牌中随机抽5张牌，判断是不是一个顺子，即这5张牌是不是连续的。2～10为数字本身，A为1，J为11，Q为12，K为13，而大、小王可以看成任意数字。 实现12345678910111213141516171819public boolean isContinuous(int[] numbers) &amp;#123;    if (numbers == null || numbers.lengt">
+<meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【剑指Offer】扑克牌的顺子">
 <meta property="og:url" content="http://yoursite.com/2017/09/05/【剑指Offer】扑克牌的顺子/index.html">
-<meta property="og:site_name" content="mrlonelyjtr's blog">
-<meta property="og:description" content="题目从扑克牌中随机抽5张牌，判断是不是一个顺子，即这5张牌是不是连续的。2～10为数字本身，A为1，J为11，Q为12，K为13，而大、小王可以看成任意数字。
-实现12345678910111213141516171819public boolean isContinuous(int[] numbers) &amp;#123;    if (numbers == null || numbers.lengt">
+<meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
+<meta property="og:description" content="题目从扑克牌中随机抽5张牌，判断是不是一个顺子，即这5张牌是不是连续的。2～10为数字本身，A为1，J为11，Q为12，K为13，而大、小王可以看成任意数字。 实现12345678910111213141516171819public boolean isContinuous(int[] numbers) &amp;#123;    if (numbers == null || numbers.lengt">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-09-04T14:52:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【剑指Offer】扑克牌的顺子">
-<meta name="twitter:description" content="题目从扑克牌中随机抽5张牌，判断是不是一个顺子，即这5张牌是不是连续的。2～10为数字本身，A为1，J为11，Q为12，K为13，而大、小王可以看成任意数字。
-实现12345678910111213141516171819public boolean isContinuous(int[] numbers) &amp;#123;    if (numbers == null || numbers.lengt">
+<meta name="twitter:description" content="题目从扑克牌中随机抽5张牌，判断是不是一个顺子，即这5张牌是不是连续的。2～10为数字本身，A为1，J为11，Q为12，K为13，而大、小王可以看成任意数字。 实现12345678910111213141516171819public boolean isContinuous(int[] numbers) &amp;#123;    if (numbers == null || numbers.lengt">
 
 
 
@@ -368,7 +367,7 @@
 
       
         <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>从扑克牌中随机抽5张牌，判断是不是一个顺子，即这5张牌是不是连续的。2～10为数字本身，A为1，J为11，Q为12，K为13，而大、小王可以看成任意数字。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isContinuous</span><span class="params">(<span class="keyword">int</span>[] numbers)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (numbers == <span class="keyword">null</span> || numbers.length &lt; <span class="number">1</span>)</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line"></div><div class="line">    Arrays.sort(numbers);</div><div class="line">    <span class="keyword">int</span> numOfZero = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> numOfGap = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numbers.length - <span class="number">1</span>; i++) &#123;</div><div class="line">        <span class="keyword">if</span> (numbers[i] == <span class="number">0</span>)</div><div class="line">            numOfZero++;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (numbers[i] == numbers[i+<span class="number">1</span>])</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        <span class="keyword">else</span></div><div class="line">            numOfGap += numbers[i+<span class="number">1</span>] - numbers[i] - <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> numOfZero &gt;= numOfGap ? <span class="keyword">true</span> : <span class="keyword">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isContinuous</span><span class="params">(<span class="keyword">int</span>[] numbers)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (numbers == <span class="keyword">null</span> || numbers.length &lt; <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">    Arrays.sort(numbers);</span><br><span class="line">    <span class="keyword">int</span> numOfZero = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> numOfGap = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numbers.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (numbers[i] == <span class="number">0</span>)</span><br><span class="line">            numOfZero++;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (numbers[i] == numbers[i+<span class="number">1</span>])</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            numOfGap += numbers[i+<span class="number">1</span>] - numbers[i] - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> numOfZero &gt;= numOfGap ? <span class="keyword">true</span> : <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -496,7 +495,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">146</span>
+                <span class="site-state-item-count">147</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

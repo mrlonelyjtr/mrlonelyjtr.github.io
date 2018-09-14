@@ -87,19 +87,18 @@
 
 
 
-<meta name="description" content="题目给定一个数组和滑动窗口的大小，请找出所有滑动窗口里的最大值。例如，如果输入数组{2, 3, 4, 2, 6, 2, 5, 1}及滑动窗口的大小3，那么一共存在6个滑动窗口，它们的最大值分别为{4, 4, 6, 6, 6, 5}。
-实现1234567891011121314151617181920212223public ArrayList&amp;lt;Integer&amp;gt; maxInWindows">
+<meta name="description" content="题目给定一个数组和滑动窗口的大小，请找出所有滑动窗口里的最大值。例如，如果输入数组{2, 3, 4, 2, 6, 2, 5, 1}及滑动窗口的大小3，那么一共存在6个滑动窗口，它们的最大值分别为{4, 4, 6, 6, 6, 5}。 实现1234567891011121314151617181920212223public ArrayList&amp;lt;Integer&amp;gt; maxInWindows">
+<meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【剑指Offer】滑动窗口的最大值">
 <meta property="og:url" content="http://yoursite.com/2017/09/09/【剑指Offer】滑动窗口的最大值/index.html">
-<meta property="og:site_name" content="mrlonelyjtr's blog">
-<meta property="og:description" content="题目给定一个数组和滑动窗口的大小，请找出所有滑动窗口里的最大值。例如，如果输入数组{2, 3, 4, 2, 6, 2, 5, 1}及滑动窗口的大小3，那么一共存在6个滑动窗口，它们的最大值分别为{4, 4, 6, 6, 6, 5}。
-实现1234567891011121314151617181920212223public ArrayList&amp;lt;Integer&amp;gt; maxInWindows">
+<meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
+<meta property="og:description" content="题目给定一个数组和滑动窗口的大小，请找出所有滑动窗口里的最大值。例如，如果输入数组{2, 3, 4, 2, 6, 2, 5, 1}及滑动窗口的大小3，那么一共存在6个滑动窗口，它们的最大值分别为{4, 4, 6, 6, 6, 5}。 实现1234567891011121314151617181920212223public ArrayList&amp;lt;Integer&amp;gt; maxInWindows">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-09-08T13:43:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【剑指Offer】滑动窗口的最大值">
-<meta name="twitter:description" content="题目给定一个数组和滑动窗口的大小，请找出所有滑动窗口里的最大值。例如，如果输入数组{2, 3, 4, 2, 6, 2, 5, 1}及滑动窗口的大小3，那么一共存在6个滑动窗口，它们的最大值分别为{4, 4, 6, 6, 6, 5}。
-实现1234567891011121314151617181920212223public ArrayList&amp;lt;Integer&amp;gt; maxInWindows">
+<meta name="twitter:description" content="题目给定一个数组和滑动窗口的大小，请找出所有滑动窗口里的最大值。例如，如果输入数组{2, 3, 4, 2, 6, 2, 5, 1}及滑动窗口的大小3，那么一共存在6个滑动窗口，它们的最大值分别为{4, 4, 6, 6, 6, 5}。 实现1234567891011121314151617181920212223public ArrayList&amp;lt;Integer&amp;gt; maxInWindows">
 
 
 
@@ -368,7 +367,7 @@
 
       
         <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个数组和滑动窗口的大小，请找出所有滑动窗口里的最大值。例如，如果输入数组{2, 3, 4, 2, 6, 2, 5, 1}及滑动窗口的大小3，那么一共存在6个滑动窗口，它们的最大值分别为{4, 4, 6, 6, 6, 5}。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> ArrayList&lt;Integer&gt; <span class="title">maxInWindows</span><span class="params">(<span class="keyword">int</span>[] num, <span class="keyword">int</span> size)</span> </span>&#123;</div><div class="line">    ArrayList&lt;Integer&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (num == <span class="keyword">null</span> || num.length &lt; <span class="number">1</span> || size &lt; <span class="number">1</span>)</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line"></div><div class="line">    LinkedList&lt;Integer&gt; deque = <span class="keyword">new</span> LinkedList&lt;&gt;();</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num.length; i++) &#123;</div><div class="line">        <span class="keyword">while</span> (!deque.isEmpty() &amp;&amp; num[i] &gt; num[deque.peekLast()])</div><div class="line">            deque.pollLast();</div><div class="line"></div><div class="line">        deque.offerLast(i);</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (i - deque.peekFirst() &gt; size - <span class="number">1</span>)</div><div class="line">            deque.pollFirst();</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (i &gt;= size - <span class="number">1</span>)</div><div class="line">            result.add(num[deque.peekFirst()]);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ArrayList&lt;Integer&gt; <span class="title">maxInWindows</span><span class="params">(<span class="keyword">int</span>[] num, <span class="keyword">int</span> size)</span> </span>&#123;</span><br><span class="line">    ArrayList&lt;Integer&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (num == <span class="keyword">null</span> || num.length &lt; <span class="number">1</span> || size &lt; <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line"></span><br><span class="line">    LinkedList&lt;Integer&gt; deque = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num.length; i++) &#123;</span><br><span class="line">        <span class="keyword">while</span> (!deque.isEmpty() &amp;&amp; num[i] &gt; num[deque.peekLast()])</span><br><span class="line">            deque.pollLast();</span><br><span class="line"></span><br><span class="line">        deque.offerLast(i);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (i - deque.peekFirst() &gt; size - <span class="number">1</span>)</span><br><span class="line">            deque.pollFirst();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (i &gt;= size - <span class="number">1</span>)</span><br><span class="line">            result.add(num[deque.peekFirst()]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -496,7 +495,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">146</span>
+                <span class="site-state-item-count">147</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

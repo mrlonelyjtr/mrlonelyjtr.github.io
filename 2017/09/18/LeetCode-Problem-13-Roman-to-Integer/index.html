@@ -87,22 +87,18 @@
 
 
 
-<meta name="description" content="Given a roman numeral, convert it to an integer.
-Input is guaranteed to be within the range from 1 to 3999.
-Code12345678910111213141516171819202122public int romanToInt(String s) &amp;#123;    Map&amp;lt;Char">
+<meta name="description" content="Given a roman numeral, convert it to an integer. Input is guaranteed to be within the range from 1 to 3999. Code12345678910111213141516171819202122public int romanToInt(String s) &amp;#123;    Map&amp;lt;Char">
+<meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[LeetCode] Problem 13 - Roman to Integer">
 <meta property="og:url" content="http://yoursite.com/2017/09/18/LeetCode-Problem-13-Roman-to-Integer/index.html">
-<meta property="og:site_name" content="mrlonelyjtr's blog">
-<meta property="og:description" content="Given a roman numeral, convert it to an integer.
-Input is guaranteed to be within the range from 1 to 3999.
-Code12345678910111213141516171819202122public int romanToInt(String s) &amp;#123;    Map&amp;lt;Char">
+<meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
+<meta property="og:description" content="Given a roman numeral, convert it to an integer. Input is guaranteed to be within the range from 1 to 3999. Code12345678910111213141516171819202122public int romanToInt(String s) &amp;#123;    Map&amp;lt;Char">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-09-17T17:39:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LeetCode] Problem 13 - Roman to Integer">
-<meta name="twitter:description" content="Given a roman numeral, convert it to an integer.
-Input is guaranteed to be within the range from 1 to 3999.
-Code12345678910111213141516171819202122public int romanToInt(String s) &amp;#123;    Map&amp;lt;Char">
+<meta name="twitter:description" content="Given a roman numeral, convert it to an integer. Input is guaranteed to be within the range from 1 to 3999. Code12345678910111213141516171819202122public int romanToInt(String s) &amp;#123;    Map&amp;lt;Char">
 
 
 
@@ -372,7 +368,7 @@ Code12345678910111213141516171819202122public int romanToInt(String s) &amp;#123
       
         <p>Given a roman numeral, convert it to an integer.</p>
 <p>Input is guaranteed to be within the range from 1 to 3999.</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">romanToInt</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">    Map&lt;Character, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;Character, Integer&gt;()&#123;&#123;</div><div class="line">        put(<span class="string">'I'</span>, <span class="number">1</span>);</div><div class="line">        put(<span class="string">'V'</span>, <span class="number">5</span>);</div><div class="line">        put(<span class="string">'X'</span>, <span class="number">10</span>);</div><div class="line">        put(<span class="string">'L'</span>, <span class="number">50</span>);</div><div class="line">        put(<span class="string">'C'</span>, <span class="number">100</span>);</div><div class="line">        put(<span class="string">'D'</span>, <span class="number">500</span>);</div><div class="line">        put(<span class="string">'M'</span>, <span class="number">1000</span>);</div><div class="line">    &#125;&#125;;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> num = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> prev = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (Character ch : s.toCharArray()) &#123;</div><div class="line">        <span class="keyword">int</span> current = map.get(ch);</div><div class="line">        num += current &lt;= prev ? current : current - <span class="number">2</span> * prev;</div><div class="line">        prev = current;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> num;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">romanToInt</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    Map&lt;Character, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;Character, Integer&gt;()&#123;&#123;</span><br><span class="line">        put(<span class="string">'I'</span>, <span class="number">1</span>);</span><br><span class="line">        put(<span class="string">'V'</span>, <span class="number">5</span>);</span><br><span class="line">        put(<span class="string">'X'</span>, <span class="number">10</span>);</span><br><span class="line">        put(<span class="string">'L'</span>, <span class="number">50</span>);</span><br><span class="line">        put(<span class="string">'C'</span>, <span class="number">100</span>);</span><br><span class="line">        put(<span class="string">'D'</span>, <span class="number">500</span>);</span><br><span class="line">        put(<span class="string">'M'</span>, <span class="number">1000</span>);</span><br><span class="line">    &#125;&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> prev = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (Character ch : s.toCharArray()) &#123;</span><br><span class="line">        <span class="keyword">int</span> current = map.get(ch);</span><br><span class="line">        num += current &lt;= prev ? current : current - <span class="number">2</span> * prev;</span><br><span class="line">        prev = current;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> num;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -500,7 +496,7 @@ Code12345678910111213141516171819202122public int romanToInt(String s) &amp;#123
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">146</span>
+                <span class="site-state-item-count">147</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

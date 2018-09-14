@@ -87,22 +87,18 @@
 
 
 
-<meta name="description" content="Given an integer, convert it to a roman numeral.
-Input is guaranteed to be within the range from 1 to 3999.
-Code1234567891011121314public String intToRoman(int num) &amp;#123;    StringBuilder sb = new St">
+<meta name="description" content="Given an integer, convert it to a roman numeral. Input is guaranteed to be within the range from 1 to 3999. Code1234567891011121314public String intToRoman(int num) &amp;#123;    StringBuilder sb = new St">
+<meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[LeetCode] Problem 12 - Integer to Roman">
 <meta property="og:url" content="http://yoursite.com/2017/09/18/LeetCode-Problem-12-Integer-to-Roman/index.html">
-<meta property="og:site_name" content="mrlonelyjtr's blog">
-<meta property="og:description" content="Given an integer, convert it to a roman numeral.
-Input is guaranteed to be within the range from 1 to 3999.
-Code1234567891011121314public String intToRoman(int num) &amp;#123;    StringBuilder sb = new St">
+<meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
+<meta property="og:description" content="Given an integer, convert it to a roman numeral. Input is guaranteed to be within the range from 1 to 3999. Code1234567891011121314public String intToRoman(int num) &amp;#123;    StringBuilder sb = new St">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-09-17T17:18:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LeetCode] Problem 12 - Integer to Roman">
-<meta name="twitter:description" content="Given an integer, convert it to a roman numeral.
-Input is guaranteed to be within the range from 1 to 3999.
-Code1234567891011121314public String intToRoman(int num) &amp;#123;    StringBuilder sb = new St">
+<meta name="twitter:description" content="Given an integer, convert it to a roman numeral. Input is guaranteed to be within the range from 1 to 3999. Code1234567891011121314public String intToRoman(int num) &amp;#123;    StringBuilder sb = new St">
 
 
 
@@ -372,7 +368,7 @@ Code1234567891011121314public String intToRoman(int num) &amp;#123;    StringBui
       
         <p>Given an integer, convert it to a roman numeral.</p>
 <p>Input is guaranteed to be within the range from 1 to 3999.</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">intToRoman</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</div><div class="line">    StringBuilder sb = <span class="keyword">new</span> StringBuilder();</div><div class="line">    <span class="keyword">int</span>[] key = &#123;<span class="number">1000</span>, <span class="number">900</span>, <span class="number">500</span>, <span class="number">400</span>, <span class="number">100</span>, <span class="number">90</span>, <span class="number">50</span>, <span class="number">40</span>, <span class="number">10</span>, <span class="number">9</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">1</span>&#125;;</div><div class="line">    String[] val = &#123;<span class="string">"M"</span>, <span class="string">"CM"</span>, <span class="string">"D"</span>, <span class="string">"CD"</span>, <span class="string">"C"</span>, <span class="string">"XC"</span>, <span class="string">"L"</span>, <span class="string">"XL"</span>, <span class="string">"X"</span>, <span class="string">"IX"</span>, <span class="string">"V"</span>, <span class="string">"IV"</span>, <span class="string">"I"</span>&#125;;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; key.length; i++) &#123;</div><div class="line">        <span class="keyword">while</span> (num &gt;= key[i]) &#123;</div><div class="line">            sb.append(val[i]);</div><div class="line">            num -= key[i];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> sb.toString();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">intToRoman</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">    StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">    <span class="keyword">int</span>[] key = &#123;<span class="number">1000</span>, <span class="number">900</span>, <span class="number">500</span>, <span class="number">400</span>, <span class="number">100</span>, <span class="number">90</span>, <span class="number">50</span>, <span class="number">40</span>, <span class="number">10</span>, <span class="number">9</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">1</span>&#125;;</span><br><span class="line">    String[] val = &#123;<span class="string">"M"</span>, <span class="string">"CM"</span>, <span class="string">"D"</span>, <span class="string">"CD"</span>, <span class="string">"C"</span>, <span class="string">"XC"</span>, <span class="string">"L"</span>, <span class="string">"XL"</span>, <span class="string">"X"</span>, <span class="string">"IX"</span>, <span class="string">"V"</span>, <span class="string">"IV"</span>, <span class="string">"I"</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; key.length; i++) &#123;</span><br><span class="line">        <span class="keyword">while</span> (num &gt;= key[i]) &#123;</span><br><span class="line">            sb.append(val[i]);</span><br><span class="line">            num -= key[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> sb.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -500,7 +496,7 @@ Code1234567891011121314public String intToRoman(int num) &amp;#123;    StringBui
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">146</span>
+                <span class="site-state-item-count">147</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

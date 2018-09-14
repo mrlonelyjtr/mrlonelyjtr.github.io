@@ -87,25 +87,18 @@
 
 
 
-<meta name="description" content="Follow up for “Unique Paths”:
-Now consider if some obstacles are added to the grids. How many unique paths would there be?
-An obstacle and empty space is marked as 1 and 0 respectively in the grid.
-Ex">
+<meta name="description" content="Follow up for “Unique Paths”: Now consider if some obstacles are added to the grids. How many unique paths would there be? An obstacle and empty space is marked as 1 and 0 respectively in the grid. Ex">
+<meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[LeetCode] Problem 63 - Unique Paths II">
 <meta property="og:url" content="http://yoursite.com/2017/09/25/LeetCode-Problem-63-Unique-Paths-II/index.html">
-<meta property="og:site_name" content="mrlonelyjtr's blog">
-<meta property="og:description" content="Follow up for “Unique Paths”:
-Now consider if some obstacles are added to the grids. How many unique paths would there be?
-An obstacle and empty space is marked as 1 and 0 respectively in the grid.
-Ex">
+<meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
+<meta property="og:description" content="Follow up for “Unique Paths”: Now consider if some obstacles are added to the grids. How many unique paths would there be? An obstacle and empty space is marked as 1 and 0 respectively in the grid. Ex">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-09-24T16:38:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LeetCode] Problem 63 - Unique Paths II">
-<meta name="twitter:description" content="Follow up for “Unique Paths”:
-Now consider if some obstacles are added to the grids. How many unique paths would there be?
-An obstacle and empty space is marked as 1 and 0 respectively in the grid.
-Ex">
+<meta name="twitter:description" content="Follow up for “Unique Paths”: Now consider if some obstacles are added to the grids. How many unique paths would there be? An obstacle and empty space is marked as 1 and 0 respectively in the grid. Ex">
 
 
 
@@ -380,7 +373,7 @@ Ex">
 <p>[0,0,0],<br>[0,1,0],<br>[0,0,0]</p>
 <p>The total number of unique paths is 2.</p>
 <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>m and n will be at most 100.</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// O(mn) runtime, O(mn) space – Dynamic programming</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniquePathsWithObstacles</span><span class="params">(<span class="keyword">int</span>[][] obstacleGrid)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> m = obstacleGrid.length;</div><div class="line">    <span class="keyword">int</span> n = obstacleGrid[<span class="number">0</span>].length;</div><div class="line">    <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[m][n];</div><div class="line"></div><div class="line">    dp[<span class="number">0</span>][<span class="number">0</span>] = obstacleGrid[<span class="number">0</span>][<span class="number">0</span>] ^ <span class="number">1</span>;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)</div><div class="line">        dp[<span class="number">0</span>][i] = obstacleGrid[<span class="number">0</span>][i] == <span class="number">1</span> ? <span class="number">0</span> : dp[<span class="number">0</span>][i-<span class="number">1</span>];</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; m; i++)</div><div class="line">        dp[i][<span class="number">0</span>] = obstacleGrid[i][<span class="number">0</span>] == <span class="number">1</span> ? <span class="number">0</span> : dp[i-<span class="number">1</span>][<span class="number">0</span>];</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; m; i++) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; n; j++)</div><div class="line">            dp[i][j] = obstacleGrid[i][j] == <span class="number">1</span> ? <span class="number">0</span> : dp[i-<span class="number">1</span>][j] + dp[i][j-<span class="number">1</span>];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> dp[m-<span class="number">1</span>][n-<span class="number">1</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// O(mn) runtime, O(mn) space – Dynamic programming</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniquePathsWithObstacles</span><span class="params">(<span class="keyword">int</span>[][] obstacleGrid)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m = obstacleGrid.length;</span><br><span class="line">    <span class="keyword">int</span> n = obstacleGrid[<span class="number">0</span>].length;</span><br><span class="line">    <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[m][n];</span><br><span class="line"></span><br><span class="line">    dp[<span class="number">0</span>][<span class="number">0</span>] = obstacleGrid[<span class="number">0</span>][<span class="number">0</span>] ^ <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">        dp[<span class="number">0</span>][i] = obstacleGrid[<span class="number">0</span>][i] == <span class="number">1</span> ? <span class="number">0</span> : dp[<span class="number">0</span>][i-<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; m; i++)</span><br><span class="line">        dp[i][<span class="number">0</span>] = obstacleGrid[i][<span class="number">0</span>] == <span class="number">1</span> ? <span class="number">0</span> : dp[i-<span class="number">1</span>][<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; m; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; n; j++)</span><br><span class="line">            dp[i][j] = obstacleGrid[i][j] == <span class="number">1</span> ? <span class="number">0</span> : dp[i-<span class="number">1</span>][j] + dp[i][j-<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> dp[m-<span class="number">1</span>][n-<span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -508,7 +501,7 @@ Ex">
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">146</span>
+                <span class="site-state-item-count">147</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
