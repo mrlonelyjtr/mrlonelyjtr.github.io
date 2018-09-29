@@ -87,18 +87,20 @@
 
 
 
-<meta name="description" content="pyspider的架构主要分为Scheduler(调度器)、Fetcher(抓取器)、Processer(处理器)三个部分，整个爬取过程受到Monitor(监控器)的监控，抓取的结果被Result Worker(结果处理器)处理.">
+<meta name="description" content="pyspider的架构主要分为Scheduler(调度器)、Fetcher(抓取器)、Processer(处理器)三个部分，整个爬取过程受到Monitor(监控器)的监控，抓取的结果被Result Worker(结果处理器)处理. Scheduler发起任务调度，Fetcher负责抓取网页内容，Processer负责解析网页内容，然后将新生成的Request发给Scheduler进行调度，将生成的">
 <meta name="keywords" content="Python,Web Crawler">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Pyspider">
 <meta property="og:url" content="http://yoursite.com/2018/09/30/Pyspider/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="pyspider的架构主要分为Scheduler(调度器)、Fetcher(抓取器)、Processer(处理器)三个部分，整个爬取过程受到Monitor(监控器)的监控，抓取的结果被Result Worker(结果处理器)处理.">
+<meta property="og:description" content="pyspider的架构主要分为Scheduler(调度器)、Fetcher(抓取器)、Processer(处理器)三个部分，整个爬取过程受到Monitor(监控器)的监控，抓取的结果被Result Worker(结果处理器)处理. Scheduler发起任务调度，Fetcher负责抓取网页内容，Processer负责解析网页内容，然后将新生成的Request发给Scheduler进行调度，将生成的">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-09-29T14:49:24.340Z">
+<meta property="og:image" content="https://s1.ax1x.com/2018/09/29/ilsPPJ.png">
+<meta property="og:updated_time" content="2018-09-29T15:20:20.590Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pyspider">
-<meta name="twitter:description" content="pyspider的架构主要分为Scheduler(调度器)、Fetcher(抓取器)、Processer(处理器)三个部分，整个爬取过程受到Monitor(监控器)的监控，抓取的结果被Result Worker(结果处理器)处理.">
+<meta name="twitter:description" content="pyspider的架构主要分为Scheduler(调度器)、Fetcher(抓取器)、Processer(处理器)三个部分，整个爬取过程受到Monitor(监控器)的监控，抓取的结果被Result Worker(结果处理器)处理. Scheduler发起任务调度，Fetcher负责抓取网页内容，Processer负责解析网页内容，然后将新生成的Request发给Scheduler进行调度，将生成的">
+<meta name="twitter:image" content="https://s1.ax1x.com/2018/09/29/ilsPPJ.png">
 
 
 
@@ -356,6 +358,17 @@
 
       
         <p>pyspider的架构主要分为Scheduler(调度器)、Fetcher(抓取器)、Processer(处理器)三个部分，整个爬取过程受到Monitor(监控器)的监控，抓取的结果被Result Worker(结果处理器)处理.</p>
+<p>Scheduler发起任务调度，Fetcher负责抓取网页内容，Processer负责解析网页内容，然后将新生成的Request发给Scheduler进行调度，将生成的提取结果输出保存。</p>
+<p><a href="https://imgchr.com/i/ilsPPJ" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/09/29/ilsPPJ.png" alt="ilsPPJ.png"></a></p>
+<p>pyspider的任务执行流程的逻辑很清晰，具体过程如下所示。</p>
+<ol>
+<li>每个pyspider的项目对应一个Python脚本，该脚本中定义了一个Handler类，它有一个on_start()方法。爬取首先调用on_start()方法生成最初的抓取任务，然后发送给 Scheduler进行调度。</li>
+<li>Scheduler将抓取任务分发给Fetcher进行抓取，Fetcher执行并得到响应，随后将响应发送给Processer。</li>
+<li>Processer处理响应并提取出新的URL生成新的抓取任务，然后通过消息队列的方式通知Scheduler当前抓取任务执行情况，并将新生成的抓取任务发送给Scheduler。如果生成了新的提取结果，则将其发送到结果队列等待Result Worker处理。</li>
+<li>Scheduler接收到新的抓取任务，然后查询数据库，判断其如果是新的抓取任务或者是需要重试的任务就继续进行调度，然后将其发送回Fetcher进行抓取。</li>
+<li>不断重复以上工作，直到所有的任务都执行完毕，抓取结束。</li>
+<li>抓取结束后，程序会回调on_finished()方法，这里可以定义后处理过程。</li>
+</ol>
 
       
     </div>
