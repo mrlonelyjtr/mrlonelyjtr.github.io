@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="OJ,Algorithm," />
+  <meta name="keywords" content="Python,Web Crawler," />
 
 
 
@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="题目输入两棵二叉树A和B，判断B是不是A的子结构。 实现123456789public class TreeNode &amp;#123;    int val = 0;    TreeNode left = null;    TreeNode right = null;    public TreeNode(int val) &amp;#123;        this.val = val;    &amp;#125;">
-<meta name="keywords" content="OJ,Algorithm">
+<meta name="description" content="pyspider的架构主要分为Scheduler(调度器)、Fetcher(抓取器)、Processer(处理器)三个部分，整个爬取过程受到Monitor(监控器)的监控，抓取的结果被Result Worker(结果处理器)处理.">
+<meta name="keywords" content="Python,Web Crawler">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【剑指Offer】树的子结构">
-<meta property="og:url" content="http://yoursite.com/2017/05/14/【剑指Offer】树的子结构/index.html">
+<meta property="og:title" content="Pyspider">
+<meta property="og:url" content="http://yoursite.com/2018/09/30/Pyspider/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="题目输入两棵二叉树A和B，判断B是不是A的子结构。 实现123456789public class TreeNode &amp;#123;    int val = 0;    TreeNode left = null;    TreeNode right = null;    public TreeNode(int val) &amp;#123;        this.val = val;    &amp;#125;">
+<meta property="og:description" content="pyspider的架构主要分为Scheduler(调度器)、Fetcher(抓取器)、Processer(处理器)三个部分，整个爬取过程受到Monitor(监控器)的监控，抓取的结果被Result Worker(结果处理器)处理.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-09-01T15:58:43.000Z">
+<meta property="og:updated_time" content="2018-09-29T14:49:24.340Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【剑指Offer】树的子结构">
-<meta name="twitter:description" content="题目输入两棵二叉树A和B，判断B是不是A的子结构。 实现123456789public class TreeNode &amp;#123;    int val = 0;    TreeNode left = null;    TreeNode right = null;    public TreeNode(int val) &amp;#123;        this.val = val;    &amp;#125;">
+<meta name="twitter:title" content="Pyspider">
+<meta name="twitter:description" content="pyspider的架构主要分为Scheduler(调度器)、Fetcher(抓取器)、Processer(处理器)三个部分，整个爬取过程受到Monitor(监控器)的监控，抓取的结果被Result Worker(结果处理器)处理.">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/14/【剑指Offer】树的子结构/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/30/Pyspider/"/>
 
 
 
 
 
-  <title> 【剑指Offer】树的子结构 | mrlonelyjtr's blog </title>
+  <title> Pyspider | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -261,7 +261,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/14/【剑指Offer】树的子结构/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/30/Pyspider/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -282,7 +282,7 @@
             
             
               
-                【剑指Offer】树的子结构
+                Pyspider
               
             
           </h1>
@@ -297,8 +297,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-14T08:41:31+08:00">
-                2017-05-14
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-30T06:46:18+08:00">
+                2018-09-29
               </time>
             
 
@@ -320,19 +320,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/剑指Offer/" itemprop="url" rel="index">
-                    <span itemprop="name">剑指Offer</span>
+                  <a href="/categories/Web-Crawler/" itemprop="url" rel="index">
+                    <span itemprop="name">Web Crawler</span>
                   </a>
                 </span>
 
@@ -366,9 +355,8 @@
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>输入两棵二叉树A和B，判断B是不是A的子结构。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> val = <span class="number">0</span>;</span><br><span class="line">    TreeNode left = <span class="keyword">null</span>;</span><br><span class="line">    TreeNode right = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TreeNode</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.val = val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">HasSubtree</span><span class="params">(TreeNode root1, TreeNode root2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">boolean</span> result = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (root1 != <span class="keyword">null</span> &amp;&amp; root2 != <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span> (root1.val == root2.val)</span><br><span class="line">            result = DoesTree1HasTree2(root1, root2);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (result == <span class="keyword">false</span>)</span><br><span class="line">            result = HasSubtree(root1.left, root2);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (result == <span class="keyword">false</span>)</span><br><span class="line">            result = HasSubtree(root1.right, root2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">DoesTree1HasTree2</span><span class="params">(TreeNode root1, TreeNode root2)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root2 == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (root1 == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (root1.val != root2.val)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> DoesTree1HasTree2(root1.left, root2.left) &amp;&amp; DoesTree1HasTree2(root1.right, root2.right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>pyspider的架构主要分为Scheduler(调度器)、Fetcher(抓取器)、Processer(处理器)三个部分，整个爬取过程受到Monitor(监控器)的监控，抓取的结果被Result Worker(结果处理器)处理.</p>
+
       
     </div>
 
@@ -397,9 +385,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/OJ/" rel="tag"># OJ</a>
+            <a href="/tags/Python/" rel="tag"># Python</a>
           
-            <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+            <a href="/tags/Web-Crawler/" rel="tag"># Web Crawler</a>
           
         </div>
       
@@ -412,8 +400,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/14/【剑指Offer】合并两个排序的链表/" rel="next" title="【剑指Offer】合并两个排序的链表">
-                <i class="fa fa-chevron-left"></i> 【剑指Offer】合并两个排序的链表
+              <a href="/2018/09/15/Proxy/" rel="next" title="Proxy">
+                <i class="fa fa-chevron-left"></i> Proxy
               </a>
             
           </div>
@@ -421,10 +409,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/14/【剑指Offer】二叉树的镜像/" rel="prev" title="【剑指Offer】二叉树的镜像">
-                【剑指Offer】二叉树的镜像 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -471,17 +455,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -543,22 +518,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
