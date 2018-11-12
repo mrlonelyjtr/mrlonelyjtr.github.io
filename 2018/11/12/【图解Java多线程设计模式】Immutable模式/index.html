@@ -87,27 +87,21 @@
 
 
 
-<meta name="description" content="等待队列所有实例都拥有一个等待队列，它是在实例的wait方法执行后停止操作的线程的队列。当下列任意一种情况发生时，线程便会退出等待队列。  有其他线程的notify方法来唤醒线程 有其他线程的notifyAll方法来唤醒线程 有其他线程的interrupt方法来唤醒线程 wait方法超时  wait方法——将线程放入等待队列获取了锁的线程A执行wait方法。  线程A进入等待队列，释放锁。  线程">
+<meta name="description" content="Immutable模式中存在着确保实例状态不发生改变的类（immutable类）。在访问这些实例时并不需要执行耗时的互斥处理，能提高程序性能。 示例Person.java123456789101112131415161718192021public class Person &amp;#123;    private final String name;    private final String a">
 <meta name="keywords" content="Java,Multithread">
 <meta property="og:type" content="article">
-<meta property="og:title" content="线程的协作">
-<meta property="og:url" content="http://yoursite.com/2018/10/30/线程的协作/index.html">
+<meta property="og:title" content="【图解Java多线程设计模式】Immutable模式">
+<meta property="og:url" content="http://yoursite.com/2018/11/12/【图解Java多线程设计模式】Immutable模式/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="等待队列所有实例都拥有一个等待队列，它是在实例的wait方法执行后停止操作的线程的队列。当下列任意一种情况发生时，线程便会退出等待队列。  有其他线程的notify方法来唤醒线程 有其他线程的notifyAll方法来唤醒线程 有其他线程的interrupt方法来唤醒线程 wait方法超时  wait方法——将线程放入等待队列获取了锁的线程A执行wait方法。  线程A进入等待队列，释放锁。  线程">
+<meta property="og:description" content="Immutable模式中存在着确保实例状态不发生改变的类（immutable类）。在访问这些实例时并不需要执行耗时的互斥处理，能提高程序性能。 示例Person.java123456789101112131415161718192021public class Person &amp;#123;    private final String name;    private final String a">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://s1.ax1x.com/2018/10/30/iRmHYt.md.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/10/30/iRmLSf.md.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/10/30/iRmOl8.md.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/10/30/iRmzwj.md.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/10/30/iRnSTs.md.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/10/30/iRnFpV.md.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/10/30/iRnEXF.md.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/10/30/iRnukR.md.png">
-<meta property="og:updated_time" content="2018-10-31T12:28:33.900Z">
+<meta property="og:image" content="https://s1.ax1x.com/2018/11/12/iOAuUP.md.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/11/12/iOAK4f.md.png">
+<meta property="og:updated_time" content="2018-11-12T14:51:35.324Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="线程的协作">
-<meta name="twitter:description" content="等待队列所有实例都拥有一个等待队列，它是在实例的wait方法执行后停止操作的线程的队列。当下列任意一种情况发生时，线程便会退出等待队列。  有其他线程的notify方法来唤醒线程 有其他线程的notifyAll方法来唤醒线程 有其他线程的interrupt方法来唤醒线程 wait方法超时  wait方法——将线程放入等待队列获取了锁的线程A执行wait方法。  线程A进入等待队列，释放锁。  线程">
-<meta name="twitter:image" content="https://s1.ax1x.com/2018/10/30/iRmHYt.md.png">
+<meta name="twitter:title" content="【图解Java多线程设计模式】Immutable模式">
+<meta name="twitter:description" content="Immutable模式中存在着确保实例状态不发生改变的类（immutable类）。在访问这些实例时并不需要执行耗时的互斥处理，能提高程序性能。 示例Person.java123456789101112131415161718192021public class Person &amp;#123;    private final String name;    private final String a">
+<meta name="twitter:image" content="https://s1.ax1x.com/2018/11/12/iOAuUP.md.png">
 
 
 
@@ -135,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/30/线程的协作/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/12/【图解Java多线程设计模式】Immutable模式/"/>
 
 
 
 
 
-  <title> 线程的协作 | mrlonelyjtr's blog </title>
+  <title> 【图解Java多线程设计模式】Immutable模式 | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -270,7 +264,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/30/线程的协作/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/12/【图解Java多线程设计模式】Immutable模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -291,7 +285,7 @@
             
             
               
-                线程的协作
+                【图解Java多线程设计模式】Immutable模式
               
             
           </h1>
@@ -306,8 +300,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-30T06:03:12+08:00">
-                2018-10-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-11T23:28:49Z">
+                2018-11-11
               </time>
             
 
@@ -364,30 +358,13 @@
       
 
       
-        <h2 id="等待队列"><a href="#等待队列" class="headerlink" title="等待队列"></a>等待队列</h2><p>所有实例都拥有一个等待队列，它是在实例的wait方法执行后停止操作的线程的队列。当下列任意一种情况发生时，线程便会退出等待队列。</p>
-<ol>
-<li>有其他线程的notify方法来唤醒线程</li>
-<li>有其他线程的notifyAll方法来唤醒线程</li>
-<li>有其他线程的interrupt方法来唤醒线程</li>
-<li>wait方法超时</li>
-</ol>
-<h2 id="wait方法——将线程放入等待队列"><a href="#wait方法——将线程放入等待队列" class="headerlink" title="wait方法——将线程放入等待队列"></a>wait方法——将线程放入等待队列</h2><p>获取了锁的线程A执行wait方法。</p>
-<p><a href="https://imgchr.com/i/iRmHYt" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/10/30/iRmHYt.md.png" alt="iRmHYt.md.png"></a></p>
-<p>线程A进入等待队列，释放锁。</p>
-<p><a href="https://imgchr.com/i/iRmLSf" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/10/30/iRmLSf.md.png" alt="iRmLSf.md.png"></a></p>
-<p>线程B能够获取锁。</p>
-<p><a href="https://imgchr.com/i/iRmOl8" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/10/30/iRmOl8.md.png" alt="iRmOl8.md.png"></a></p>
-<h2 id="notify方法——从等待队列中取出线程"><a href="#notify方法——从等待队列中取出线程" class="headerlink" title="notify方法——从等待队列中取出线程"></a>notify方法——从等待队列中取出线程</h2><p>获取了锁的线程B执行notify方法。</p>
-<p><a href="https://imgchr.com/i/iRmzwj" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/10/30/iRmzwj.md.png" alt="iRmzwj.md.png"></a></p>
-<p>线程A退出等待队列，想要进入wait的下一个操作，但刚才执行notify的线程B仍持有着锁。</p>
-<p><a href="https://imgchr.com/i/iRnSTs" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/10/30/iRnSTs.md.png" alt="iRnSTs.md.png"></a></p>
-<p>刚才执行notify的线程B释放了锁。</p>
-<p><a href="https://imgchr.com/i/iRnFpV" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/10/30/iRnFpV.md.png" alt="iRnFpV.md.png"></a></p>
-<p>退出等待队列的线程A获取锁，执行wait的下一个操作。</p>
-<p><a href="https://imgchr.com/i/iRnEXF" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/10/30/iRnEXF.md.png" alt="iRnEXF.md.png"></a></p>
-<h2 id="notifyAll方法——从等待队列中取出所有线程"><a href="#notifyAll方法——从等待队列中取出所有线程" class="headerlink" title="notifyAll方法——从等待队列中取出所有线程"></a>notifyAll方法——从等待队列中取出所有线程</h2><p>notifyAll方法唤醒所有线程，并让所有线程都退出等待队列。</p>
-<p><a href="https://imgchr.com/i/iRnukR" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/10/30/iRnukR.md.png" alt="iRnukR.md.png"></a></p>
-<p>由于notify唤醒的线程较少，所以处理速度要比使用notifyAll时快。<br>但使用notify时，如果处理不好，程序便可能会停止。一般来说，使用notifyAll时的代码要比使用notify时的更为健壮。</p>
+        <p>Immutable模式中存在着确保实例状态不发生改变的类（immutable类）。在访问这些实例时并不需要执行耗时的互斥处理，能提高程序性能。</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><h3 id="Person-java"><a href="#Person-java" class="headerlink" title="Person.java"></a>Person.java</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String address;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name, String address)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.address = address;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getAddress</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> address;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"[ Person: name = "</span> + name + <span class="string">", address = "</span> + address + <span class="string">" ]"</span>;</span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Main-java"><a href="#Main-java" class="headerlink" title="Main.java"></a>Main.java</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Person alice = <span class="keyword">new</span> Person(<span class="string">"Alice"</span>, <span class="string">"Alaska"</span>);</span><br><span class="line">        <span class="keyword">new</span> PrintPersonThread(alice).start();</span><br><span class="line">        <span class="keyword">new</span> PrintPersonThread(alice).start();</span><br><span class="line">        <span class="keyword">new</span> PrintPersonThread(alice).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="PrintPersonThread-java"><a href="#PrintPersonThread-java" class="headerlink" title="PrintPersonThread.java"></a>PrintPersonThread.java</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrintPersonThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Person person;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PrintPersonThread</span><span class="params">(Person person)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.person = person;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            System.out.println(Thread.currentThread().getName() + <span class="string">" prints "</span> + person);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="登场角色"><a href="#登场角色" class="headerlink" title="登场角色"></a>登场角色</h2><h3 id="Immutable（不可变的）"><a href="#Immutable（不可变的）" class="headerlink" title="Immutable（不可变的）"></a>Immutable（不可变的）</h3><p>Immutable角色是一个类，在这个角色中，字段的值不可以修改，也不存在修改字段内容的方法。Immutable角色的实例被创建后，状态将不再发生变化。这时，无需对Immutable角色应用Single Threaded Execution模式。也就是说，无需将Immutable角色的方法声明为synchronized。在示例程序中，由Person类扮演此角色。</p>
+<h3 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h3><p><a href="https://imgchr.com/i/iOAuUP" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/12/iOAuUP.md.png" alt="iOAuUP.md.png"></a></p>
+<h3 id="Timethreads图"><a href="#Timethreads图" class="headerlink" title="Timethreads图"></a>Timethreads图</h3><p><a href="https://imgchr.com/i/iOAK4f" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/12/iOAK4f.md.png" alt="iOAK4f.md.png"></a></p>
 
       
     </div>
@@ -432,8 +409,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/30/线程的互斥/" rel="next" title="线程的互斥">
-                <i class="fa fa-chevron-left"></i> 线程的互斥
+              <a href="/2018/11/06/计数信号量/" rel="next" title="计数信号量">
+                <i class="fa fa-chevron-left"></i> 计数信号量
               </a>
             
           </div>
@@ -441,10 +418,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/01/【图解Java多线程设计模式】Single-Threaded-Execution模式/" rel="prev" title="【图解Java多线程设计模式】Single Threaded Execution模式">
-                【图解Java多线程设计模式】Single Threaded Execution模式 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -573,7 +546,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#等待队列"><span class="nav-number">1.</span> <span class="nav-text">等待队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wait方法——将线程放入等待队列"><span class="nav-number">2.</span> <span class="nav-text">wait方法——将线程放入等待队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#notify方法——从等待队列中取出线程"><span class="nav-number">3.</span> <span class="nav-text">notify方法——从等待队列中取出线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#notifyAll方法——从等待队列中取出所有线程"><span class="nav-number">4.</span> <span class="nav-text">notifyAll方法——从等待队列中取出所有线程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">1.</span> <span class="nav-text">示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Person-java"><span class="nav-number">1.1.</span> <span class="nav-text">Person.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Main-java"><span class="nav-number">1.2.</span> <span class="nav-text">Main.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PrintPersonThread-java"><span class="nav-number">1.3.</span> <span class="nav-text">PrintPersonThread.java</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#登场角色"><span class="nav-number">2.</span> <span class="nav-text">登场角色</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Immutable（不可变的）"><span class="nav-number">2.1.</span> <span class="nav-text">Immutable（不可变的）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类图"><span class="nav-number">2.2.</span> <span class="nav-text">类图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Timethreads图"><span class="nav-number">2.3.</span> <span class="nav-text">Timethreads图</span></a></li></ol></li></ol></div>
             
 
           </div>
