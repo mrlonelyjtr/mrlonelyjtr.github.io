@@ -98,7 +98,7 @@
 <meta property="og:image" content="https://s1.ax1x.com/2018/11/20/F9dQ39.md.png">
 <meta property="og:image" content="https://s1.ax1x.com/2018/11/20/F9wA8H.md.png">
 <meta property="og:image" content="https://s1.ax1x.com/2018/11/20/F9wE2d.md.png">
-<meta property="og:updated_time" content="2018-11-20T15:49:34.052Z">
+<meta property="og:updated_time" content="2018-11-21T13:25:41.670Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【图解Java多线程设计模式】Balking模式">
 <meta name="twitter:description" content="如果现在不适合执行这个操作，或者没必要执行这个操作，就停止处理，直接返回。 示例定期将当前数据内容写入文件中。当数据内容被写入时，会完全覆盖上次写入的内容，只有最新的内容才会被保存。 时序图 Data.java123456789101112131415161718192021222324252627282930313233343536import java.io.FileWriter;import">
@@ -301,7 +301,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-20T23:10:31Z">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-21T07:10:31+08:00">
                 2018-11-20
               </time>
             
@@ -370,6 +370,10 @@
 <h2 id="登场角色"><a href="#登场角色" class="headerlink" title="登场角色"></a>登场角色</h2><h3 id="GuardedObject（被防护的对象）"><a href="#GuardedObject（被防护的对象）" class="headerlink" title="GuardedObject（被防护的对象）"></a>GuardedObject（被防护的对象）</h3><p>GuardedObject角色是一个拥有被防护的方法（guardedMethod）的类。当线程执行guardedMethod方法时，若守护条件成立，则执行实际的处理。而当守护条件不成立时，则不执行实际的处理，直接返回。守护条件的成立与否，会随着GuardedObject角色的状态变化而发生变化。<br>除了guardedMethod之外，GuardedObject角色还有可能有其他来改变状态的方法（stateChangingMethod）。<br>在示例程序中，由Data类扮演此角色。save方法对应的是guardedMethod，change方法对应的则是stateChangingMethod。</p>
 <h3 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h3><p><a href="https://imgchr.com/i/F9wA8H" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/20/F9wA8H.md.png" alt="F9wA8H.md.png"></a></p>
 <h3 id="Timethreads图"><a href="#Timethreads图" class="headerlink" title="Timethreads图"></a>Timethreads图</h3><p><a href="https://imgchr.com/i/F9wE2d" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/11/20/F9wE2d.md.png" alt="F9wE2d.md.png"></a></p>
+<h2 id="balk结果的表示方式"><a href="#balk结果的表示方式" class="headerlink" title="balk结果的表示方式"></a>balk结果的表示方式</h2><p>当从guardedMethod方法中balk并返回时，balk结果的表示方式有如下几种。</p>
+<h3 id="忽略balk"><a href="#忽略balk" class="headerlink" title="忽略balk"></a>忽略balk</h3><p>最简单的方式就是不通知调用端“发生了balk”。</p>
+<h3 id="通过返回值来表示balk"><a href="#通过返回值来表示balk" class="headerlink" title="通过返回值来表示balk"></a>通过返回值来表示balk</h3><p>有时会通过boolean类型的值来表示balk。例如，若返回值为true，则表明未发生balk，处理被执行了，而如果为false，则表明发生了balk，处理并未被执行。<br>返回值为引用类型的方法有时也会用null来表示“发生了balk”。</p>
+<h3 id="通过异常来表示balk的发生"><a href="#通过异常来表示balk的发生" class="headerlink" title="通过异常来表示balk的发生"></a>通过异常来表示balk的发生</h3><p>有时也可以通过异常来表示“发生了balk”。即，当balk发生时，程序并不是从方法中return，而是抛出异常。</p>
 
       
     </div>
@@ -551,7 +555,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">1.</span> <span class="nav-text">示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#时序图"><span class="nav-number">1.1.</span> <span class="nav-text">时序图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-java"><span class="nav-number">1.2.</span> <span class="nav-text">Data.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SaverThread-java"><span class="nav-number">1.3.</span> <span class="nav-text">SaverThread.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ChangerThread-java"><span class="nav-number">1.4.</span> <span class="nav-text">ChangerThread.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Main-java"><span class="nav-number">1.5.</span> <span class="nav-text">Main.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行结果"><span class="nav-number">1.6.</span> <span class="nav-text">运行结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#登场角色"><span class="nav-number">2.</span> <span class="nav-text">登场角色</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GuardedObject（被防护的对象）"><span class="nav-number">2.1.</span> <span class="nav-text">GuardedObject（被防护的对象）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类图"><span class="nav-number">2.2.</span> <span class="nav-text">类图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Timethreads图"><span class="nav-number">2.3.</span> <span class="nav-text">Timethreads图</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">1.</span> <span class="nav-text">示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#时序图"><span class="nav-number">1.1.</span> <span class="nav-text">时序图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-java"><span class="nav-number">1.2.</span> <span class="nav-text">Data.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SaverThread-java"><span class="nav-number">1.3.</span> <span class="nav-text">SaverThread.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ChangerThread-java"><span class="nav-number">1.4.</span> <span class="nav-text">ChangerThread.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Main-java"><span class="nav-number">1.5.</span> <span class="nav-text">Main.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行结果"><span class="nav-number">1.6.</span> <span class="nav-text">运行结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#登场角色"><span class="nav-number">2.</span> <span class="nav-text">登场角色</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GuardedObject（被防护的对象）"><span class="nav-number">2.1.</span> <span class="nav-text">GuardedObject（被防护的对象）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类图"><span class="nav-number">2.2.</span> <span class="nav-text">类图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Timethreads图"><span class="nav-number">2.3.</span> <span class="nav-text">Timethreads图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#balk结果的表示方式"><span class="nav-number">3.</span> <span class="nav-text">balk结果的表示方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#忽略balk"><span class="nav-number">3.1.</span> <span class="nav-text">忽略balk</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过返回值来表示balk"><span class="nav-number">3.2.</span> <span class="nav-text">通过返回值来表示balk</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过异常来表示balk的发生"><span class="nav-number">3.3.</span> <span class="nav-text">通过异常来表示balk的发生</span></a></li></ol></li></ol></div>
             
 
           </div>
