@@ -95,10 +95,12 @@
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
 <meta property="og:description" content="如果方法后面加了throws InterruptedException，则表明该方法中（或者该方法进一步调用的方法中）可能会抛出InterruptedException异常。 加了throws InterruptedException的方法在Java的标准类库中，加了throws InterruptedException的典型方法有如下三个：  java.lang.Object类的wait方法 j">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-12-16T16:04:18.226Z">
+<meta property="og:image" content="https://s1.ax1x.com/2018/12/17/F0oE24.png">
+<meta property="og:updated_time" content="2018-12-17T15:11:39.884Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="InterruptedException异常">
 <meta name="twitter:description" content="如果方法后面加了throws InterruptedException，则表明该方法中（或者该方法进一步调用的方法中）可能会抛出InterruptedException异常。 加了throws InterruptedException的方法在Java的标准类库中，加了throws InterruptedException的典型方法有如下三个：  java.lang.Object类的wait方法 j">
+<meta name="twitter:image" content="https://s1.ax1x.com/2018/12/17/F0oE24.png">
 
 
 
@@ -372,7 +374,11 @@
 <h2 id="sleep方法和interrupt方法"><a href="#sleep方法和interrupt方法" class="headerlink" title="sleep方法和interrupt方法"></a>sleep方法和interrupt方法</h2><p>使用的interrupt方法是Thread类的实例方法。当执行interrupt时，线程并不需要获取Thread实例的锁。无论何时，任何线程都可以调用其他线程的interrupt方法。<br>interrupt方法被调用后，正在sleep的线程会终止暂停状态，抛出InterruptedException异常。<br>这样，线程的控制权就会转移到捕捉该异常的catch语句块中。</p>
 <h2 id="wait方法和interrupt方法"><a href="#wait方法和interrupt方法" class="headerlink" title="wait方法和interrupt方法"></a>wait方法和interrupt方法</h2><p>当使用interrupt方法时，该操作意即告诉正在wait的线程“不用再等待notify/notifyAll了，从等待队列出来吧”。<br>但在wait的情况下，需要注意锁的问题。线程在进入等待队列时，已经释放了锁。当正在wait的线程被调用interrupt方法时（即线程被取消执行时），该线程会在重新获取锁之后，抛出InterruptedException异常。在获取锁之前，线程不会抛出InterruptedException异常。</p>
 <h2 id="join方法和interrupt方法"><a href="#join方法和interrupt方法" class="headerlink" title="join方法和interrupt方法"></a>join方法和interrupt方法</h2><p>由于调用join方法时无需获取锁，所以与使用sleep暂停运行时一样，线程的控制权也会立即跳到catch语句块中。</p>
-<h2 id="interrupt方法只是改变中断状态"><a href="#interrupt方法只是改变中断状态" class="headerlink" title="interrupt方法只是改变中断状态"></a>interrupt方法只是改变中断状态</h2>
+<h2 id="interrupt方法只是改变中断状态"><a href="#interrupt方法只是改变中断状态" class="headerlink" title="interrupt方法只是改变中断状态"></a>interrupt方法只是改变中断状态</h2><p>所谓中断状态（interrupted status），是一种用于表示线程是否被中断的状态。<br>interrupt方法只是改变了线程的中断状态而已。<br>当线程A执行了sleep、wait、join而停止运行时，线程B调用了A的interrupt方法。这时，线程A的确会抛出InterruptedException异常。但这其实是因为sleep、wait、join方法内部对线程的中断状态进行了检查，进而抛出了InterruptedException异常。<br>如果没有调用sleep、wait、join等方法，或者没有编写检查线程的中断状态并抛出InterruptedException异常的代码，那么InterruptedException异常就不会被抛出。</p>
+<p><img src="https://s1.ax1x.com/2018/12/17/F0oE24.png" alt="F0oE24.png"></p>
+<h2 id="isInterrupted方法——检查中断状态"><a href="#isInterrupted方法——检查中断状态" class="headerlink" title="isInterrupted方法——检查中断状态"></a>isInterrupted方法——检查中断状态</h2><p>isInterrupted是Thread类的实例方法，用于检查指定线程的中断状态。若指定线程处于中断状态，则返回true；若指定线程未处于中断状态（即处于非中断状态），则返回false。isInterrupted并不会改变中断状态。</p>
+<h2 id="Thread-interrupted方法——检查并清除中断状态"><a href="#Thread-interrupted方法——检查并清除中断状态" class="headerlink" title="Thread.interrupted方法——检查并清除中断状态"></a>Thread.interrupted方法——检查并清除中断状态</h2><p>Thread.interrupted是Thread类的静态方法，用于检查并清除当前线程的中断状态。若当前线程处于中断状态，则返回true；若当前线程未处于中断状态，则返回false。调用Thread.interrupted后，中断状态会被清除（线程变为非中断状态）。<br>只有这个方法才可以清除中断状态。Thread.interrupted的操作对象是当前线程（即线程本身），所以该方法并不能用于清除其他线程的中断状态。</p>
+
       
     </div>
 
@@ -557,7 +563,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#加了throws-InterruptedException的方法"><span class="nav-number">1.</span> <span class="nav-text">加了throws InterruptedException的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#花费时间的方法"><span class="nav-number">1.1.</span> <span class="nav-text">花费时间的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可以取消的方法"><span class="nav-number">1.2.</span> <span class="nav-text">可以取消的方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sleep方法和interrupt方法"><span class="nav-number">2.</span> <span class="nav-text">sleep方法和interrupt方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wait方法和interrupt方法"><span class="nav-number">3.</span> <span class="nav-text">wait方法和interrupt方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#join方法和interrupt方法"><span class="nav-number">4.</span> <span class="nav-text">join方法和interrupt方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#interrupt方法只是改变中断状态"><span class="nav-number">5.</span> <span class="nav-text">interrupt方法只是改变中断状态</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#加了throws-InterruptedException的方法"><span class="nav-number">1.</span> <span class="nav-text">加了throws InterruptedException的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#花费时间的方法"><span class="nav-number">1.1.</span> <span class="nav-text">花费时间的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可以取消的方法"><span class="nav-number">1.2.</span> <span class="nav-text">可以取消的方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sleep方法和interrupt方法"><span class="nav-number">2.</span> <span class="nav-text">sleep方法和interrupt方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wait方法和interrupt方法"><span class="nav-number">3.</span> <span class="nav-text">wait方法和interrupt方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#join方法和interrupt方法"><span class="nav-number">4.</span> <span class="nav-text">join方法和interrupt方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#interrupt方法只是改变中断状态"><span class="nav-number">5.</span> <span class="nav-text">interrupt方法只是改变中断状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#isInterrupted方法——检查中断状态"><span class="nav-number">6.</span> <span class="nav-text">isInterrupted方法——检查中断状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Thread-interrupted方法——检查并清除中断状态"><span class="nav-number">7.</span> <span class="nav-text">Thread.interrupted方法——检查并清除中断状态</span></a></li></ol></div>
             
 
           </div>
