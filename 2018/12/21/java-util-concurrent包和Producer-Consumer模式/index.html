@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="OJ,Algorithm," />
+  <meta name="keywords" content="Java,Multithread," />
 
 
 
@@ -87,18 +87,20 @@
 
 
 
-<meta name="description" content="题目如何得到一个数据流中的中位数？如果从数据流中读出奇数个数值，那么中位数就是所有数值排序之后位于中间的数值。如果从数据流中读出偶数个数值，那么中位数就是所有数值排序后中间两个数的平均值。 实现123456789101112131415161718192021222324252627private PriorityQueue&amp;lt;Integer&amp;gt; maxHeap = new Priorit">
-<meta name="keywords" content="OJ,Algorithm">
+<meta name="description" content="java.util.concurrent包中的队列java.util.concurrent包提供了BlockingQueue接口及其实现类，它们相当于Producer-Consumer模式中的Channel角色。 类图 BlockingQueue接口——阻塞队列BlockingQueue接口表示的是在达到合适的状态之前线程一直阻塞（wait）的队列。BlockingQueue是java.util.">
+<meta name="keywords" content="Java,Multithread">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【剑指Offer】数据流中的中位数">
-<meta property="og:url" content="http://yoursite.com/2017/09/08/【剑指Offer】数据流中的中位数/index.html">
+<meta property="og:title" content="java.util.concurrent包和Producer-Consumer模式">
+<meta property="og:url" content="http://yoursite.com/2018/12/21/java-util-concurrent包和Producer-Consumer模式/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="题目如何得到一个数据流中的中位数？如果从数据流中读出奇数个数值，那么中位数就是所有数值排序之后位于中间的数值。如果从数据流中读出偶数个数值，那么中位数就是所有数值排序后中间两个数的平均值。 实现123456789101112131415161718192021222324252627private PriorityQueue&amp;lt;Integer&amp;gt; maxHeap = new Priorit">
+<meta property="og:description" content="java.util.concurrent包中的队列java.util.concurrent包提供了BlockingQueue接口及其实现类，它们相当于Producer-Consumer模式中的Channel角色。 类图 BlockingQueue接口——阻塞队列BlockingQueue接口表示的是在达到合适的状态之前线程一直阻塞（wait）的队列。BlockingQueue是java.util.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-09-08T10:22:45.000Z">
+<meta property="og:image" content="https://s1.ax1x.com/2018/12/21/FrTQVs.png">
+<meta property="og:updated_time" content="2018-12-20T16:31:02.629Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【剑指Offer】数据流中的中位数">
-<meta name="twitter:description" content="题目如何得到一个数据流中的中位数？如果从数据流中读出奇数个数值，那么中位数就是所有数值排序之后位于中间的数值。如果从数据流中读出偶数个数值，那么中位数就是所有数值排序后中间两个数的平均值。 实现123456789101112131415161718192021222324252627private PriorityQueue&amp;lt;Integer&amp;gt; maxHeap = new Priorit">
+<meta name="twitter:title" content="java.util.concurrent包和Producer-Consumer模式">
+<meta name="twitter:description" content="java.util.concurrent包中的队列java.util.concurrent包提供了BlockingQueue接口及其实现类，它们相当于Producer-Consumer模式中的Channel角色。 类图 BlockingQueue接口——阻塞队列BlockingQueue接口表示的是在达到合适的状态之前线程一直阻塞（wait）的队列。BlockingQueue是java.util.">
+<meta name="twitter:image" content="https://s1.ax1x.com/2018/12/21/FrTQVs.png">
 
 
 
@@ -126,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/08/【剑指Offer】数据流中的中位数/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/12/21/java-util-concurrent包和Producer-Consumer模式/"/>
 
 
 
 
 
-  <title> 【剑指Offer】数据流中的中位数 | mrlonelyjtr's blog </title>
+  <title> java.util.concurrent包和Producer-Consumer模式 | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -261,7 +263,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/08/【剑指Offer】数据流中的中位数/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/21/java-util-concurrent包和Producer-Consumer模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -282,7 +284,7 @@
             
             
               
-                【剑指Offer】数据流中的中位数
+                java.util.concurrent包和Producer-Consumer模式
               
             
           </h1>
@@ -297,8 +299,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-08T23:34:49+08:00">
-                2017-09-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-21T00:20:58Z">
+                2018-12-21
               </time>
             
 
@@ -320,19 +322,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/剑指Offer/" itemprop="url" rel="index">
-                    <span itemprop="name">剑指Offer</span>
+                  <a href="/categories/Multithread/" itemprop="url" rel="index">
+                    <span itemprop="name">Multithread</span>
                   </a>
                 </span>
 
@@ -366,8 +357,10 @@
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>如何得到一个数据流中的中位数？如果从数据流中读出奇数个数值，那么中位数就是所有数值排序之后位于中间的数值。如果从数据流中读出偶数个数值，那么中位数就是所有数值排序后中间两个数的平均值。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> PriorityQueue&lt;Integer&gt; maxHeap = <span class="keyword">new</span> PriorityQueue&lt;&gt;(<span class="number">5</span>, <span class="keyword">new</span> Comparator&lt;Integer&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Integer o1, Integer o2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> o2.compareTo(o1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> PriorityQueue&lt;Integer&gt; minHeap = <span class="keyword">new</span> PriorityQueue&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Insert</span><span class="params">(Integer num)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (maxHeap.size() == minHeap.size())</span><br><span class="line">        maxHeap.add(num);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        minHeap.add(num);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!minHeap.isEmpty() &amp;&amp; !maxHeap.isEmpty() &amp;&amp; maxHeap.peek() &gt; minHeap.peek()) &#123;</span><br><span class="line">        maxHeap.offer(minHeap.poll());</span><br><span class="line">        minHeap.offer(maxHeap.poll());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> Double <span class="title">GetMedian</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (maxHeap.size() &gt; minHeap.size())</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">double</span>) maxHeap.peek();</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> (maxHeap.peek() + minHeap.peek()) / <span class="number">2.0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="java-util-concurrent包中的队列"><a href="#java-util-concurrent包中的队列" class="headerlink" title="java.util.concurrent包中的队列"></a>java.util.concurrent包中的队列</h2><p>java.util.concurrent包提供了BlockingQueue接口及其实现类，它们相当于Producer-Consumer模式中的Channel角色。</p>
+<h3 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h3><p><img src="https://s1.ax1x.com/2018/12/21/FrTQVs.png" alt="FrTQVs.png"></p>
+<h3 id="BlockingQueue接口——阻塞队列"><a href="#BlockingQueue接口——阻塞队列" class="headerlink" title="BlockingQueue接口——阻塞队列"></a>BlockingQueue接口——阻塞队列</h3><p>BlockingQueue接口表示的是在达到合适的状态之前线程一直阻塞（wait）的队列。BlockingQueue是java.util.Queue接口的子接口，拥有offer方法和poll方法等。但实际上，实现“阻塞”功能的方法是BlockingQueue接口固有的put方法和take方法。</p>
+
       
     </div>
 
@@ -396,9 +389,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/OJ/" rel="tag"># OJ</a>
+            <a href="/tags/Java/" rel="tag"># Java</a>
           
-            <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+            <a href="/tags/Multithread/" rel="tag"># Multithread</a>
           
         </div>
       
@@ -411,8 +404,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/08/【剑指Offer】二叉搜索树的第k个结点/" rel="next" title="【剑指Offer】二叉搜索树的第k个结点">
-                <i class="fa fa-chevron-left"></i> 【剑指Offer】二叉搜索树的第k个结点
+              <a href="/2018/12/17/Map与JavaBean之间相互转化/" rel="next" title="Map与JavaBean之间相互转化">
+                <i class="fa fa-chevron-left"></i> Map与JavaBean之间相互转化
               </a>
             
           </div>
@@ -420,10 +413,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/09/【剑指Offer】滑动窗口的最大值/" rel="prev" title="【剑指Offer】滑动窗口的最大值">
-                【剑指Offer】滑动窗口的最大值 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -563,7 +552,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#java-util-concurrent包中的队列"><span class="nav-number">1.</span> <span class="nav-text">java.util.concurrent包中的队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类图"><span class="nav-number">1.1.</span> <span class="nav-text">类图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BlockingQueue接口——阻塞队列"><span class="nav-number">1.2.</span> <span class="nav-text">BlockingQueue接口——阻塞队列</span></a></li></ol></li></ol></div>
             
 
           </div>
