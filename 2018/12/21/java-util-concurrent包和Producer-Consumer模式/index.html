@@ -96,7 +96,7 @@
 <meta property="og:description" content="java.util.concurrent包中的队列java.util.concurrent包提供了BlockingQueue接口及其实现类，它们相当于Producer-Consumer模式中的Channel角色。 类图 BlockingQueue接口——阻塞队列BlockingQueue接口表示的是在达到合适的状态之前线程一直阻塞（wait）的队列。BlockingQueue是java.util.">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://s1.ax1x.com/2018/12/21/FrTQVs.png">
-<meta property="og:updated_time" content="2018-12-20T16:31:02.629Z">
+<meta property="og:updated_time" content="2018-12-21T14:49:49.585Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java.util.concurrent包和Producer-Consumer模式">
 <meta name="twitter:description" content="java.util.concurrent包中的队列java.util.concurrent包提供了BlockingQueue接口及其实现类，它们相当于Producer-Consumer模式中的Channel角色。 类图 BlockingQueue接口——阻塞队列BlockingQueue接口表示的是在达到合适的状态之前线程一直阻塞（wait）的队列。BlockingQueue是java.util.">
@@ -299,7 +299,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-21T00:20:58Z">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-21T08:20:58+08:00">
                 2018-12-21
               </time>
             
@@ -360,7 +360,13 @@
         <h2 id="java-util-concurrent包中的队列"><a href="#java-util-concurrent包中的队列" class="headerlink" title="java.util.concurrent包中的队列"></a>java.util.concurrent包中的队列</h2><p>java.util.concurrent包提供了BlockingQueue接口及其实现类，它们相当于Producer-Consumer模式中的Channel角色。</p>
 <h3 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h3><p><img src="https://s1.ax1x.com/2018/12/21/FrTQVs.png" alt="FrTQVs.png"></p>
 <h3 id="BlockingQueue接口——阻塞队列"><a href="#BlockingQueue接口——阻塞队列" class="headerlink" title="BlockingQueue接口——阻塞队列"></a>BlockingQueue接口——阻塞队列</h3><p>BlockingQueue接口表示的是在达到合适的状态之前线程一直阻塞（wait）的队列。BlockingQueue是java.util.Queue接口的子接口，拥有offer方法和poll方法等。但实际上，实现“阻塞”功能的方法是BlockingQueue接口固有的put方法和take方法。</p>
-
+<h3 id="ArrayBlockingQueue类——基于数组的BlockingQueue"><a href="#ArrayBlockingQueue类——基于数组的BlockingQueue" class="headerlink" title="ArrayBlockingQueue类——基于数组的BlockingQueue"></a>ArrayBlockingQueue类——基于数组的BlockingQueue</h3><p>ArrayBlockingQueue类表示的是元素个数有最大限制的BlockingQueue。该类基于数组，当数组满了但仍要put数据时，或者数组为空但仍要take数据时，线程就会阻塞。</p>
+<h3 id="LinkedBlockingQueue类——基于链表的BlockingQueue"><a href="#LinkedBlockingQueue类——基于链表的BlockingQueue" class="headerlink" title="LinkedBlockingQueue类——基于链表的BlockingQueue"></a>LinkedBlockingQueue类——基于链表的BlockingQueue</h3><p>LinkedBlockingQueue类表示的是元素个数没有最大限制的BlockingQueue。该类基于链表，如果没有特别指定，元素个数将没有最大限制。只要还有内存，就可以put数据。</p>
+<h3 id="PriorityBlockingQueue类——带有优先级的BlockingQueue"><a href="#PriorityBlockingQueue类——带有优先级的BlockingQueue" class="headerlink" title="PriorityBlockingQueue类——带有优先级的BlockingQueue"></a>PriorityBlockingQueue类——带有优先级的BlockingQueue</h3><p>PriorityBlockingQueue类表示的是带有优先级的BlockingQueue。数据的“优先级”是依据Comparable接口的自然排序，或者构造函数的Comparator接口决定的顺序指定的。</p>
+<h3 id="DelayQueue类——一定时间之后才可以take的BlockingQueue"><a href="#DelayQueue类——一定时间之后才可以take的BlockingQueue" class="headerlink" title="DelayQueue类——一定时间之后才可以take的BlockingQueue"></a>DelayQueue类——一定时间之后才可以take的BlockingQueue</h3><p>DelayQueue类表示的是用于存储java.util.concurrent.Delayed对象的队列。当从该队列take时，只有在各元素指定的时间到期后才可以take。另外，到期时间最长的元素将先被take。</p>
+<h3 id="SynchronousQueue类——直接传递的BlockingQueue"><a href="#SynchronousQueue类——直接传递的BlockingQueue" class="headerlink" title="SynchronousQueue类——直接传递的BlockingQueue"></a>SynchronousQueue类——直接传递的BlockingQueue</h3><p>SynchronousQueue类表示的是BlockingQueue，该BlockingQueue用于执行由Producer角色到Consumer角色的“直接传递”。如果Producer角色先put，在Consumer角色take之前，Producer角色的线程将一直阻塞。相反，如果Consumer角色先take，在Producer角色put之前，Consumer角色的线程将一直阻塞。</p>
+<h3 id="ConcurrentLinkedQueue类——元素个数没有最大限制的线程安全队列"><a href="#ConcurrentLinkedQueue类——元素个数没有最大限制的线程安全队列" class="headerlink" title="ConcurrentLinkedQueue类——元素个数没有最大限制的线程安全队列"></a>ConcurrentLinkedQueue类——元素个数没有最大限制的线程安全队列</h3><p>ConcurrentLinkedQueue类并不是BlockingQueue的实现类，它表示的是元素个数没有最大限制的线程安全队列。在ConcurrentLinkedQueue中，内部的数据结构是分开的，线程之间互不影响，所以也就无需执行互斥处理。根据线程情况的不同，有时程序的性能也会有所提高。</p>
+<h2 id="使用java-util-concurrent-Exchanger类交换缓冲区"><a href="#使用java-util-concurrent-Exchanger类交换缓冲区" class="headerlink" title="使用java.util.concurrent.Exchanger类交换缓冲区"></a>使用java.util.concurrent.Exchanger类交换缓冲区</h2>
       
     </div>
 
@@ -552,7 +558,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#java-util-concurrent包中的队列"><span class="nav-number">1.</span> <span class="nav-text">java.util.concurrent包中的队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类图"><span class="nav-number">1.1.</span> <span class="nav-text">类图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BlockingQueue接口——阻塞队列"><span class="nav-number">1.2.</span> <span class="nav-text">BlockingQueue接口——阻塞队列</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#java-util-concurrent包中的队列"><span class="nav-number">1.</span> <span class="nav-text">java.util.concurrent包中的队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类图"><span class="nav-number">1.1.</span> <span class="nav-text">类图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BlockingQueue接口——阻塞队列"><span class="nav-number">1.2.</span> <span class="nav-text">BlockingQueue接口——阻塞队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ArrayBlockingQueue类——基于数组的BlockingQueue"><span class="nav-number">1.3.</span> <span class="nav-text">ArrayBlockingQueue类——基于数组的BlockingQueue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LinkedBlockingQueue类——基于链表的BlockingQueue"><span class="nav-number">1.4.</span> <span class="nav-text">LinkedBlockingQueue类——基于链表的BlockingQueue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PriorityBlockingQueue类——带有优先级的BlockingQueue"><span class="nav-number">1.5.</span> <span class="nav-text">PriorityBlockingQueue类——带有优先级的BlockingQueue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DelayQueue类——一定时间之后才可以take的BlockingQueue"><span class="nav-number">1.6.</span> <span class="nav-text">DelayQueue类——一定时间之后才可以take的BlockingQueue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SynchronousQueue类——直接传递的BlockingQueue"><span class="nav-number">1.7.</span> <span class="nav-text">SynchronousQueue类——直接传递的BlockingQueue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ConcurrentLinkedQueue类——元素个数没有最大限制的线程安全队列"><span class="nav-number">1.8.</span> <span class="nav-text">ConcurrentLinkedQueue类——元素个数没有最大限制的线程安全队列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用java-util-concurrent-Exchanger类交换缓冲区"><span class="nav-number">2.</span> <span class="nav-text">使用java.util.concurrent.Exchanger类交换缓冲区</span></a></li></ol></div>
             
 
           </div>
