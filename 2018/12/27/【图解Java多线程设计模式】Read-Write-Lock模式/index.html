@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java,Design Pattern," />
+  <meta name="keywords" content="Java,Multithread," />
 
 
 
@@ -88,10 +88,10 @@
 
 
 <meta name="description" content="在Read-Write Lock模式中，读取操作和写入操作是分开考虑的。在执行读取操作之前，线程必须获取用于读取的锁。而在执行写入操作之前，线程必须获取用于写入的锁。由于当线程执行读取操作时，实例的状态不会发生变化，所以多个线程可以同时读取。但在读取时，不可以写入。当线程执行写入操作时，实例的状态就会发生变化。因此，当有一个线程正在写入时，其他线程不可以读取或写入。一般来说，执行互斥处理会降低程序">
-<meta name="keywords" content="Java,Design Pattern">
+<meta name="keywords" content="Java,Multithread">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【图解设计模式】Read-Write Lock模式">
-<meta property="og:url" content="http://yoursite.com/2018/12/27/【图解设计模式】Read-Write-Lock模式/index.html">
+<meta property="og:title" content="【图解Java多线程设计模式】Read-Write Lock模式">
+<meta property="og:url" content="http://yoursite.com/2018/12/27/【图解Java多线程设计模式】Read-Write-Lock模式/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
 <meta property="og:description" content="在Read-Write Lock模式中，读取操作和写入操作是分开考虑的。在执行读取操作之前，线程必须获取用于读取的锁。而在执行写入操作之前，线程必须获取用于写入的锁。由于当线程执行读取操作时，实例的状态不会发生变化，所以多个线程可以同时读取。但在读取时，不可以写入。当线程执行写入操作时，实例的状态就会发生变化。因此，当有一个线程正在写入时，其他线程不可以读取或写入。一般来说，执行互斥处理会降低程序">
 <meta property="og:locale" content="en">
@@ -99,9 +99,9 @@
 <meta property="og:image" content="https://s1.ax1x.com/2018/12/26/F2s3WD.png">
 <meta property="og:image" content="https://s1.ax1x.com/2018/12/26/F2sBY8.png">
 <meta property="og:image" content="https://s1.ax1x.com/2018/12/26/F2sDfS.png">
-<meta property="og:updated_time" content="2018-12-26T15:51:00.223Z">
+<meta property="og:updated_time" content="2018-12-26T15:53:29.401Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【图解设计模式】Read-Write Lock模式">
+<meta name="twitter:title" content="【图解Java多线程设计模式】Read-Write Lock模式">
 <meta name="twitter:description" content="在Read-Write Lock模式中，读取操作和写入操作是分开考虑的。在执行读取操作之前，线程必须获取用于读取的锁。而在执行写入操作之前，线程必须获取用于写入的锁。由于当线程执行读取操作时，实例的状态不会发生变化，所以多个线程可以同时读取。但在读取时，不可以写入。当线程执行写入操作时，实例的状态就会发生变化。因此，当有一个线程正在写入时，其他线程不可以读取或写入。一般来说，执行互斥处理会降低程序">
 <meta name="twitter:image" content="https://s1.ax1x.com/2018/12/26/F2rQ2Q.png">
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/12/27/【图解设计模式】Read-Write-Lock模式/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/12/27/【图解Java多线程设计模式】Read-Write-Lock模式/"/>
 
 
 
 
 
-  <title> 【图解设计模式】Read-Write Lock模式 | mrlonelyjtr's blog </title>
+  <title> 【图解Java多线程设计模式】Read-Write Lock模式 | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -266,7 +266,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/27/【图解设计模式】Read-Write-Lock模式/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/27/【图解Java多线程设计模式】Read-Write-Lock模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -287,7 +287,7 @@
             
             
               
-                【图解设计模式】Read-Write Lock模式
+                【图解Java多线程设计模式】Read-Write Lock模式
               
             
           </h1>
@@ -302,7 +302,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-27T06:41:59+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-26T22:41:59Z">
                 2018-12-26
               </time>
             
@@ -325,8 +325,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Design-Pattern/" itemprop="url" rel="index">
-                    <span itemprop="name">Design Pattern</span>
+                  <a href="/categories/Multithread/" itemprop="url" rel="index">
+                    <span itemprop="name">Multithread</span>
                   </a>
                 </span>
 
@@ -422,7 +422,7 @@
           
             <a href="/tags/Java/" rel="tag"># Java</a>
           
-            <a href="/tags/Design-Pattern/" rel="tag"># Design Pattern</a>
+            <a href="/tags/Multithread/" rel="tag"># Multithread</a>
           
         </div>
       
