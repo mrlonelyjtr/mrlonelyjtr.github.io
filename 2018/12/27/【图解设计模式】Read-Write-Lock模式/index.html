@@ -1,0 +1,765 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Java,Design Pattern," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="在Read-Write Lock模式中，读取操作和写入操作是分开考虑的。在执行读取操作之前，线程必须获取用于读取的锁。而在执行写入操作之前，线程必须获取用于写入的锁。由于当线程执行读取操作时，实例的状态不会发生变化，所以多个线程可以同时读取。但在读取时，不可以写入。当线程执行写入操作时，实例的状态就会发生变化。因此，当有一个线程正在写入时，其他线程不可以读取或写入。一般来说，执行互斥处理会降低程序">
+<meta name="keywords" content="Java,Design Pattern">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【图解设计模式】Read-Write Lock模式">
+<meta property="og:url" content="http://yoursite.com/2018/12/27/【图解设计模式】Read-Write-Lock模式/index.html">
+<meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
+<meta property="og:description" content="在Read-Write Lock模式中，读取操作和写入操作是分开考虑的。在执行读取操作之前，线程必须获取用于读取的锁。而在执行写入操作之前，线程必须获取用于写入的锁。由于当线程执行读取操作时，实例的状态不会发生变化，所以多个线程可以同时读取。但在读取时，不可以写入。当线程执行写入操作时，实例的状态就会发生变化。因此，当有一个线程正在写入时，其他线程不可以读取或写入。一般来说，执行互斥处理会降低程序">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://s1.ax1x.com/2018/12/26/F2rQ2Q.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/12/26/F2s3WD.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/12/26/F2sBY8.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/12/26/F2sDfS.png">
+<meta property="og:updated_time" content="2018-12-26T15:51:00.223Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【图解设计模式】Read-Write Lock模式">
+<meta name="twitter:description" content="在Read-Write Lock模式中，读取操作和写入操作是分开考虑的。在执行读取操作之前，线程必须获取用于读取的锁。而在执行写入操作之前，线程必须获取用于写入的锁。由于当线程执行读取操作时，实例的状态不会发生变化，所以多个线程可以同时读取。但在读取时，不可以写入。当线程执行写入操作时，实例的状态就会发生变化。因此，当有一个线程正在写入时，其他线程不可以读取或写入。一般来说，执行互斥处理会降低程序">
+<meta name="twitter:image" content="https://s1.ax1x.com/2018/12/26/F2rQ2Q.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: 'WJ0ABS4YTT',
+      apiKey: '570f8b59ef0850a1cad9dcc2f404577f',
+      indexName: 'mrlonelyjtr',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/27/【图解设计模式】Read-Write-Lock模式/"/>
+
+
+
+
+
+  <title> 【图解设计模式】Read-Write Lock模式 | mrlonelyjtr's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">mrlonelyjtr's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">写BUG的程序员</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/27/【图解设计模式】Read-Write-Lock模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mrlonelyjtr">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="mrlonelyjtr's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                【图解设计模式】Read-Write Lock模式
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-27T06:41:59+08:00">
+                2018-12-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Design-Pattern/" itemprop="url" rel="index">
+                    <span itemprop="name">Design Pattern</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在Read-Write Lock模式中，读取操作和写入操作是分开考虑的。在执行读取操作之前，线程必须获取用于读取的锁。而在执行写入操作之前，线程必须获取用于写入的锁。<br>由于当线程执行读取操作时，实例的状态不会发生变化，所以多个线程可以同时读取。但在读取时，不可以写入。<br>当线程执行写入操作时，实例的状态就会发生变化。因此，当有一个线程正在写入时，其他线程不可以读取或写入。<br>一般来说，执行互斥处理会降低程序性能。但如果把针对写入的互斥处理和针对读取的互斥处理分开来考虑，则可以提高程序性能。</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>多个线程对Data类的实例执行读写操作。</p>
+<h3 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h3><p><img src="https://s1.ax1x.com/2018/12/26/F2rQ2Q.png" alt="F2rQ2Q.png"></p>
+<h3 id="Main-java"><a href="#Main-java" class="headerlink" title="Main.java"></a>Main.java</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="Data-java"><a href="#Data-java" class="headerlink" title="Data.java"></a>Data.java</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="WriterThread-java"><a href="#WriterThread-java" class="headerlink" title="WriterThread.java"></a>WriterThread.java</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="ReaderThread-java"><a href="#ReaderThread-java" class="headerlink" title="ReaderThread.java"></a>ReaderThread.java</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="ReadWriteLock-java"><a href="#ReadWriteLock-java" class="headerlink" title="ReadWriteLock.java"></a>ReadWriteLock.java</h3><p>为了确保安全性，必须防止如下两种冲突。</p>
+<ul>
+<li>“读取”和“写入”的冲突（read-write conflict）</li>
+<li>“写入”和“写入”的冲突（write-write conflict）</li>
+</ul>
+<p><em>当线程想要获取用于读取的锁时：</em></p>
+<ul>
+<li>如果有线程正在执行写入，则等待。否则，会引起read-write conflict。</li>
+<li>如果有线程正在执行读取，则无需等待。read-read不会引起conflict。</li>
+</ul>
+<p><em>当线程想要获取用于写入的锁时：</em></p>
+<ul>
+<li>如果有线程正在执行写入，则等待。否则，会引起write-write conflict。</li>
+<li>如果有线程正在执行读取，则等待。否则，会引起read-write conflict。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="登场角色"><a href="#登场角色" class="headerlink" title="登场角色"></a>登场角色</h2><h3 id="Reader（读者）"><a href="#Reader（读者）" class="headerlink" title="Reader（读者）"></a>Reader（读者）</h3><p>Reader角色对SharedResource角色执行read操作。在示例程序中，由ReaderThread类扮演此角色。</p>
+<h3 id="Writer（写者）"><a href="#Writer（写者）" class="headerlink" title="Writer（写者）"></a>Writer（写者）</h3><p>Writer角色对SharedResource角色执行write操作。在示例程序中，由WriterThread类扮演此角色。</p>
+<h3 id="SharedResource（共享资源）"><a href="#SharedResource（共享资源）" class="headerlink" title="SharedResource（共享资源）"></a>SharedResource（共享资源）</h3><p>SharedResource角色表示的是Reader角色和Writer角色二者共享的资源。SharedResource角色提供不修改内部状态的操作（read）和修改内部状态的操作（write）。在示例程序中，由Data类扮演此角色。</p>
+<h3 id="ReadWriteLock（读写锁）"><a href="#ReadWriteLock（读写锁）" class="headerlink" title="ReadWriteLock（读写锁）"></a>ReadWriteLock（读写锁）</h3><p>ReadWriteLock角色提供了SharedResource角色实现read操作和write操作时所需的锁。即实现read操作时所需的readLock和readUnlock，以及实现write操作时所需的writeLock和writeUnlock。在示例程序中，由ReadWriteLock类扮演此角色。</p>
+<h3 id="类图-1"><a href="#类图-1" class="headerlink" title="类图"></a>类图</h3><p><img src="https://s1.ax1x.com/2018/12/26/F2s3WD.png" alt="F2s3WD.png"></p>
+<h3 id="Timethreads图"><a href="#Timethreads图" class="headerlink" title="Timethreads图"></a>Timethreads图</h3><h4 id="Reader角色正在读取，Writer角色正在等待"><a href="#Reader角色正在读取，Writer角色正在等待" class="headerlink" title="Reader角色正在读取，Writer角色正在等待"></a>Reader角色正在读取，Writer角色正在等待</h4><p><img src="https://s1.ax1x.com/2018/12/26/F2sBY8.png" alt="F2sBY8.png"></p>
+<h4 id="一个Writer角色正在写入，Reader角色和其他Writer角色正在等待"><a href="#一个Writer角色正在写入，Reader角色和其他Writer角色正在等待" class="headerlink" title="一个Writer角色正在写入，Reader角色和其他Writer角色正在等待"></a>一个Writer角色正在写入，Reader角色和其他Writer角色正在等待</h4><p><img src="https://s1.ax1x.com/2018/12/26/F2sDfS.png" alt="F2sDfS.png"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/Design-Pattern/" rel="tag"># Design Pattern</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/23/【图解Java多线程设计模式】总结/" rel="next" title="【图解Java多线程设计模式】总结">
+                <i class="fa fa-chevron-left"></i> 【图解Java多线程设计模式】总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="mrlonelyjtr" />
+          <p class="site-author-name" itemprop="name">mrlonelyjtr</p>
+           
+              <p class="site-description motion-element" itemprop="description">间歇性踌躇满志，持续性混吃等死</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">166</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/mrlonelyjtr" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">1.</span> <span class="nav-text">示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类图"><span class="nav-number">1.1.</span> <span class="nav-text">类图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Main-java"><span class="nav-number">1.2.</span> <span class="nav-text">Main.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-java"><span class="nav-number">1.3.</span> <span class="nav-text">Data.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WriterThread-java"><span class="nav-number">1.4.</span> <span class="nav-text">WriterThread.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ReaderThread-java"><span class="nav-number">1.5.</span> <span class="nav-text">ReaderThread.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ReadWriteLock-java"><span class="nav-number">1.6.</span> <span class="nav-text">ReadWriteLock.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行结果"><span class="nav-number">1.7.</span> <span class="nav-text">运行结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#登场角色"><span class="nav-number">2.</span> <span class="nav-text">登场角色</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Reader（读者）"><span class="nav-number">2.1.</span> <span class="nav-text">Reader（读者）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Writer（写者）"><span class="nav-number">2.2.</span> <span class="nav-text">Writer（写者）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SharedResource（共享资源）"><span class="nav-number">2.3.</span> <span class="nav-text">SharedResource（共享资源）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ReadWriteLock（读写锁）"><span class="nav-number">2.4.</span> <span class="nav-text">ReadWriteLock（读写锁）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类图-1"><span class="nav-number">2.5.</span> <span class="nav-text">类图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Timethreads图"><span class="nav-number">2.6.</span> <span class="nav-text">Timethreads图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Reader角色正在读取，Writer角色正在等待"><span class="nav-number">2.6.1.</span> <span class="nav-text">Reader角色正在读取，Writer角色正在等待</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一个Writer角色正在写入，Reader角色和其他Writer角色正在等待"><span class="nav-number">2.6.2.</span> <span class="nav-text">一个Writer角色正在写入，Reader角色和其他Writer角色正在等待</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">mrlonelyjtr</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
