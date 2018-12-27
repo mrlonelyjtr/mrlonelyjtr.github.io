@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="OJ,Algorithm," />
+  <meta name="keywords" content="Java,Multithread," />
 
 
 
@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="Determine whether an integer is a palindrome. Do this without extra space. Some hintsCould negative integers be palindromes? (ie, -1) If you are thinking of converting the integer to string, note the">
-<meta name="keywords" content="OJ,Algorithm">
+<meta name="description" content="java.util.concurrent.locks包提供了已实现Read-Write Lock模式的ReadWriteLock接口和ReentrantReadWriteLock类。 java.util.concurrent.locks.ReadWriteLock接口的“用于读取的锁”和“用于写入的锁”是通过其他对象来实现的。获取锁和释放锁的方法：  readLock.lock() readLoc">
+<meta name="keywords" content="Java,Multithread">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LeetCode] Problem 9 - Palindrome Number">
-<meta property="og:url" content="http://yoursite.com/2017/09/13/LeetCode-Problem-9-Palindrome-Number/index.html">
+<meta property="og:title" content="java.util.concurrent.locks包和Read-Write Lock模式">
+<meta property="og:url" content="http://yoursite.com/2018/12/28/java-util-concurrent-locks包和Read-Write-Lock模式/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="Determine whether an integer is a palindrome. Do this without extra space. Some hintsCould negative integers be palindromes? (ie, -1) If you are thinking of converting the integer to string, note the">
+<meta property="og:description" content="java.util.concurrent.locks包提供了已实现Read-Write Lock模式的ReadWriteLock接口和ReentrantReadWriteLock类。 java.util.concurrent.locks.ReadWriteLock接口的“用于读取的锁”和“用于写入的锁”是通过其他对象来实现的。获取锁和释放锁的方法：  readLock.lock() readLoc">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-09-12T16:46:40.000Z">
+<meta property="og:updated_time" content="2018-12-27T16:13:04.717Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LeetCode] Problem 9 - Palindrome Number">
-<meta name="twitter:description" content="Determine whether an integer is a palindrome. Do this without extra space. Some hintsCould negative integers be palindromes? (ie, -1) If you are thinking of converting the integer to string, note the">
+<meta name="twitter:title" content="java.util.concurrent.locks包和Read-Write Lock模式">
+<meta name="twitter:description" content="java.util.concurrent.locks包提供了已实现Read-Write Lock模式的ReadWriteLock接口和ReentrantReadWriteLock类。 java.util.concurrent.locks.ReadWriteLock接口的“用于读取的锁”和“用于写入的锁”是通过其他对象来实现的。获取锁和释放锁的方法：  readLock.lock() readLoc">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/13/LeetCode-Problem-9-Palindrome-Number/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/12/28/java-util-concurrent-locks包和Read-Write-Lock模式/"/>
 
 
 
 
 
-  <title> [LeetCode] Problem 9 - Palindrome Number | mrlonelyjtr's blog </title>
+  <title> java.util.concurrent.locks包和Read-Write Lock模式 | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -261,7 +261,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/13/LeetCode-Problem-9-Palindrome-Number/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/28/java-util-concurrent-locks包和Read-Write-Lock模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -282,7 +282,7 @@
             
             
               
-                [LeetCode] Problem 9 - Palindrome Number
+                java.util.concurrent.locks包和Read-Write Lock模式
               
             
           </h1>
@@ -297,8 +297,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-13T07:59:12+08:00">
-                2017-09-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-27T23:49:33Z">
+                2018-12-27
               </time>
             
 
@@ -320,19 +320,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
+                  <a href="/categories/Multithread/" itemprop="url" rel="index">
+                    <span itemprop="name">Multithread</span>
                   </a>
                 </span>
 
@@ -366,12 +355,24 @@
       
 
       
-        <p>Determine whether an integer is a palindrome. Do this without extra space.</p>
-<h2 id="Some-hints"><a href="#Some-hints" class="headerlink" title="Some hints"></a>Some hints</h2><p>Could negative integers be palindromes? (ie, -1)</p>
-<p>If you are thinking of converting the integer to string, note the restriction of using extra space.</p>
-<p>You could also try reversing an integer. However, if you have solved the problem “Reverse Integer”, you know that the reversed integer might overflow. How would you handle such case?</p>
-<p>There is a more generic way of solving this problem.</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x &lt; <span class="number">0</span> || (x != <span class="number">0</span> &amp;&amp; x % <span class="number">10</span> == <span class="number">0</span>))</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> reverseX = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (x &gt; reverseX) &#123;</span><br><span class="line">        reverseX = reverseX * <span class="number">10</span> + x % <span class="number">10</span>;</span><br><span class="line">        x /= <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> x == reverseX || reverseX / <span class="number">10</span> == x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>java.util.concurrent.locks包提供了已实现Read-Write Lock模式的ReadWriteLock接口和ReentrantReadWriteLock类。</p>
+<p>java.util.concurrent.locks.ReadWriteLock接口的“用于读取的锁”和“用于写入的锁”是通过其他对象来实现的。获取锁和释放锁的方法：</p>
+<ul>
+<li>readLock.lock()</li>
+<li>readLock.unlock()</li>
+<li>writeLock.lock()</li>
+<li>writeLock.unlock()</li>
+</ul>
+<p>java.util.concurrent.locks.ReentrantReadWriteLock类实现了ReadWriteLock接口。ReentrantReadWriteLock类的主要特征如下：</p>
+<p><strong>公平性</strong></p>
+<p>当创建ReentrantReadWriteLock类的实例时，可以选择锁的获取顺序是否要设为公平（fair）的。如果创建的实例是公平的，那么等待时间久的线程将可以优先获取锁。</p>
+<p><strong>可重入性</strong></p>
+<p>ReentrantReadWriteLock类的锁是可重入的（reentrant）。也就是说，Reader角色的线程可以获取“用于写入的锁”，Writer角色的线程也可以获取“用于读取的锁”。</p>
+<p><strong>锁降级</strong></p>
+<p>ReentrantReadWriteLock类可以按如下顺序将“用于写入的锁”降级为“用于读取的锁”：<br>获取用于写入的锁-&gt;获取用于读取的锁-&gt;释放用于写入的锁<br>但是，“用于读取的锁”不可以升级为“用于写入的锁”。</p>
+<p><strong>便捷方法</strong></p>
+<p>ReentrantReadWriteLock类提供了获取等待中的线程的个数的方法getQueueLength，以及检查是否获取了用于写入的锁的方法isWriteLocked等便捷方法。</p>
+
       
     </div>
 
@@ -400,9 +401,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/OJ/" rel="tag"># OJ</a>
+            <a href="/tags/Java/" rel="tag"># Java</a>
           
-            <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+            <a href="/tags/Multithread/" rel="tag"># Multithread</a>
           
         </div>
       
@@ -415,8 +416,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/13/LeetCode-Problem-66-Plus-One/" rel="next" title="[LeetCode] Problem 66 - Plus One">
-                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 66 - Plus One
+              <a href="/2018/12/27/【图解Java多线程设计模式】Read-Write-Lock模式/" rel="next" title="【图解Java多线程设计模式】Read-Write Lock模式">
+                <i class="fa fa-chevron-left"></i> 【图解Java多线程设计模式】Read-Write Lock模式
               </a>
             
           </div>
@@ -424,10 +425,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/13/LeetCode-Problem-21-Merge-Two-Sorted-Lists/" rel="prev" title="[LeetCode] Problem 21 - Merge Two Sorted Lists">
-                [LeetCode] Problem 21 - Merge Two Sorted Lists <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -474,17 +471,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -557,22 +545,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Some-hints"><span class="nav-number">1.</span> <span class="nav-text">Some hints</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">2.</span> <span class="nav-text">Code</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
