@@ -87,18 +87,22 @@
 
 
 
-<meta name="description" content="为每个命令或请求新分配一个线程，由这个线程来执行处理。在Thread-Per-Message模式中，消息的“委托端”和“执行端”是不同的线程。">
+<meta name="description" content="为每个命令或请求新分配一个线程，由这个线程来执行处理。在Thread-Per-Message模式中，消息的“委托端”和“执行端”是不同的线程。 示例Main类委托Host类来显示字符。Host类会创建并启动一个线程，来处理该委托。启动的线程使用Helper类来执行实际的显示。 类图 时序图 Timethreads图 Main.java1234567891011public class Main &amp;">
 <meta name="keywords" content="Java,Multithread">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【图解Java多线程设计模式】Thread-Per-Message模式">
 <meta property="og:url" content="http://yoursite.com/2018/12/30/【图解Java多线程设计模式】Thread-Per-Message模式/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="为每个命令或请求新分配一个线程，由这个线程来执行处理。在Thread-Per-Message模式中，消息的“委托端”和“执行端”是不同的线程。">
+<meta property="og:description" content="为每个命令或请求新分配一个线程，由这个线程来执行处理。在Thread-Per-Message模式中，消息的“委托端”和“执行端”是不同的线程。 示例Main类委托Host类来显示字符。Host类会创建并启动一个线程，来处理该委托。启动的线程使用Helper类来执行实际的显示。 类图 时序图 Timethreads图 Main.java1234567891011public class Main &amp;">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-12-29T15:33:35.879Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/01/01/F5NEe1.md.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/01/01/F5NVdx.md.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/01/01/F5NGwt.md.png">
+<meta property="og:updated_time" content="2019-01-01T15:35:01.807Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【图解Java多线程设计模式】Thread-Per-Message模式">
-<meta name="twitter:description" content="为每个命令或请求新分配一个线程，由这个线程来执行处理。在Thread-Per-Message模式中，消息的“委托端”和“执行端”是不同的线程。">
+<meta name="twitter:description" content="为每个命令或请求新分配一个线程，由这个线程来执行处理。在Thread-Per-Message模式中，消息的“委托端”和“执行端”是不同的线程。 示例Main类委托Host类来显示字符。Host类会创建并启动一个线程，来处理该委托。启动的线程使用Helper类来执行实际的显示。 类图 时序图 Timethreads图 Main.java1234567891011public class Main &amp;">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/01/01/F5NEe1.md.png">
 
 
 
@@ -356,7 +360,20 @@
 
       
         <p>为每个命令或请求新分配一个线程，由这个线程来执行处理。在Thread-Per-Message模式中，消息的“委托端”和“执行端”是不同的线程。</p>
-
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>Main类委托Host类来显示字符。Host类会创建并启动一个线程，来处理该委托。启动的线程使用Helper类来执行实际的显示。</p>
+<h3 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h3><p><a href="https://imgchr.com/i/F5NEe1" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/01/01/F5NEe1.md.png" alt="F5NEe1.md.png"></a></p>
+<h3 id="时序图"><a href="#时序图" class="headerlink" title="时序图"></a>时序图</h3><p><a href="https://imgchr.com/i/F5NVdx" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/01/01/F5NVdx.md.png" alt="F5NVdx.md.png"></a></p>
+<h3 id="Timethreads图"><a href="#Timethreads图" class="headerlink" title="Timethreads图"></a>Timethreads图</h3><p><a href="https://imgchr.com/i/F5NGwt" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/01/01/F5NGwt.md.png" alt="F5NGwt.md.png"></a></p>
+<h3 id="Main-java"><a href="#Main-java" class="headerlink" title="Main.java"></a>Main.java</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"main BEGIN"</span>);</span><br><span class="line">        Host host = <span class="keyword">new</span> Host();</span><br><span class="line">        host.request(<span class="number">10</span>, <span class="string">'A'</span>);</span><br><span class="line">        host.request(<span class="number">20</span>, <span class="string">'B'</span>);</span><br><span class="line">        host.request(<span class="number">30</span>, <span class="string">'C'</span>);</span><br><span class="line">        System.out.println(<span class="string">"main END"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Host-java"><a href="#Host-java" class="headerlink" title="Host.java"></a>Host.java</h3><p>匿名内部类用于执行如下操作：</p>
+<ul>
+<li>声明Thread的子类，并重写run方法</li>
+<li>创建该类的实例</li>
+<li>调用该实例的start方法启动线程</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Host</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Helper helper = <span class="keyword">new</span> Helper();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">request</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> count, <span class="keyword">final</span> <span class="keyword">char</span> c)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"    request("</span> + count + <span class="string">", "</span> + c + <span class="string">") BEGIN"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">new</span> Thread() &#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                helper.handle(count, c);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;.start();</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"    request("</span> + count + <span class="string">", "</span> + c + <span class="string">") END"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Helper-java"><a href="#Helper-java" class="headerlink" title="Helper.java"></a>Helper.java</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Helper</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handle</span><span class="params">(<span class="keyword">int</span> count, <span class="keyword">char</span> c)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"        handle("</span> + count + <span class="string">", "</span> + c + <span class="string">") BEGIN"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">            slowly();</span><br><span class="line">            System.out.print(c);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">""</span>);</span><br><span class="line">        System.out.println(<span class="string">"        handle("</span> + count + <span class="string">", "</span> + c + <span class="string">") END"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">slowly</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">100</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">main BEGIN</span><br><span class="line">    request(10, A) BEGIN</span><br><span class="line">    request(10, A) END</span><br><span class="line">    request(20, B) BEGIN</span><br><span class="line">        handle(10, A) BEGIN</span><br><span class="line">    request(20, B) END</span><br><span class="line">    request(30, C) BEGIN</span><br><span class="line">        handle(20, B) BEGIN</span><br><span class="line">    request(30, C) END</span><br><span class="line">main END</span><br><span class="line">        handle(30, C) BEGIN</span><br><span class="line">CABACBACBABCBCAACBACBACBABCCBA</span><br><span class="line">        handle(10, A) END</span><br><span class="line">CBCBCBBCBCBCCBCBBCCB</span><br><span class="line">        handle(20, B) END</span><br><span class="line">CCCCCCCCCC</span><br><span class="line">        handle(30, C) END</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -455,8 +472,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -530,6 +556,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">1.</span> <span class="nav-text">示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类图"><span class="nav-number">1.1.</span> <span class="nav-text">类图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时序图"><span class="nav-number">1.2.</span> <span class="nav-text">时序图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Timethreads图"><span class="nav-number">1.3.</span> <span class="nav-text">Timethreads图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Main-java"><span class="nav-number">1.4.</span> <span class="nav-text">Main.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Host-java"><span class="nav-number">1.5.</span> <span class="nav-text">Host.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Helper-java"><span class="nav-number">1.6.</span> <span class="nav-text">Helper.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行结果"><span class="nav-number">1.7.</span> <span class="nav-text">运行结果</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -546,7 +588,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

@@ -361,8 +361,11 @@
         
           
           为每个命令或请求新分配一个线程，由这个线程来执行处理。在Thread-Per-Message模式中，消息的“委托端”和“执行端”是不同的线程。
-
-          
+示例Main类委托Host类来显示字符。Host类会创建并启动一个线程，来处理该委托。启动的线程使用Helper类来执行实际的显示。
+类图
+时序图
+Time
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/12/30/【图解Java多线程设计模式】Thread-Per-Message模式/#more" rel="contents">
@@ -1884,7 +1887,7 @@ Data.java123456789101112131415161718192021222324252627
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
