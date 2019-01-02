@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
 <meta property="og:description" content="java.util.concurrent.locks包提供了已实现Read-Write Lock模式的ReadWriteLock接口和ReentrantReadWriteLock类。 java.util.concurrent.locks.ReadWriteLock接口的“用于读取的锁”和“用于写入的锁”是通过其他对象来实现的。获取锁和释放锁的方法：  readLock.lock() readLoc">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-12-27T16:13:04.717Z">
+<meta property="og:updated_time" content="2019-01-02T13:01:39.031Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java.util.concurrent.locks包和Read-Write Lock模式">
 <meta name="twitter:description" content="java.util.concurrent.locks包提供了已实现Read-Write Lock模式的ReadWriteLock接口和ReentrantReadWriteLock类。 java.util.concurrent.locks.ReadWriteLock接口的“用于读取的锁”和“用于写入的锁”是通过其他对象来实现的。获取锁和释放锁的方法：  readLock.lock() readLoc">
@@ -372,7 +372,7 @@
 <p>ReentrantReadWriteLock类可以按如下顺序将“用于写入的锁”降级为“用于读取的锁”：<br>获取用于写入的锁-&gt;获取用于读取的锁-&gt;释放用于写入的锁<br>但是，“用于读取的锁”不可以升级为“用于写入的锁”。</p>
 <p><strong>便捷方法</strong></p>
 <p>ReentrantReadWriteLock类提供了获取等待中的线程的个数的方法getQueueLength，以及检查是否获取了用于写入的锁的方法isWriteLocked等便捷方法。</p>
-
+<h2 id="使用java-util-concurrent-locks"><a href="#使用java-util-concurrent-locks" class="headerlink" title="使用java.util.concurrent.locks"></a>使用java.util.concurrent.locks</h2><h3 id="Data-java"><a href="#Data-java" class="headerlink" title="Data.java"></a>Data.java</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.locks.ReentrantReadWriteLock;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.locks.ReentrantReadWriteLock.ReadLock;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.locks.ReentrantReadWriteLock.WriteLock;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Data</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">char</span>[] buffer;</span><br><span class="line">    <span class="keyword">private</span> ReentrantReadWriteLock lock = <span class="keyword">new</span> ReentrantReadWriteLock(<span class="keyword">true</span>);</span><br><span class="line">    <span class="keyword">private</span> ReadLock readLock = lock.readLock();</span><br><span class="line">    <span class="keyword">private</span> WriteLock writeLock = lock.writeLock();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Data</span><span class="params">(<span class="keyword">int</span> size)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.buffer = <span class="keyword">new</span> <span class="keyword">char</span>[size];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; buffer.length; i++) &#123;</span><br><span class="line">            buffer[i] = <span class="string">'*'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">char</span>[] read() <span class="keyword">throws</span> InterruptedException &#123;</span><br><span class="line">        readLock.lock();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> doRead();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            readLock.unlock();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(<span class="keyword">char</span> c)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        writeLock.lock();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            doWrite(c);</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            writeLock.unlock();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">char</span>[] doRead() &#123;</span><br><span class="line">        <span class="keyword">char</span>[] newbuf = <span class="keyword">new</span> <span class="keyword">char</span>[buffer.length];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; buffer.length; i++) &#123;</span><br><span class="line">            newbuf[i] = buffer[i];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        slowly();</span><br><span class="line">        <span class="keyword">return</span> newbuf;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">doWrite</span><span class="params">(<span class="keyword">char</span> c)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; buffer.length; i++) &#123;</span><br><span class="line">            buffer[i] = c;</span><br><span class="line">            slowly();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">slowly</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">50</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -475,8 +475,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -549,6 +558,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用java-util-concurrent-locks"><span class="nav-number">1.</span> <span class="nav-text">使用java.util.concurrent.locks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-java"><span class="nav-number">1.1.</span> <span class="nav-text">Data.java</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
