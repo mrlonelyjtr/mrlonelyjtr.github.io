@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="间歇性踌躇满志，持续性混吃等死">
+<meta name="description" content="ThreadPoolExecutor类java.util.concurrent.ThreadPoolExecutor类是管理工人线程的类。ThreadPoolExecutor可以轻松地实现Worker Thread模式。ThreadPoolExecutor类可以对线程池（保存和管理工人线程的场所）进行以下设置。  指定线程池的大小 指定提前创建线程还是按需创建线程 指定创建线程的工厂（java.u">
 <meta name="keywords" content="Java,Multithread">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java.util.concurrent包和Worker Thread模式">
 <meta property="og:url" content="http://yoursite.com/2019/01/27/java-util-concurrent包和Worker-Thread模式/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="间歇性踌躇满志，持续性混吃等死">
+<meta property="og:description" content="ThreadPoolExecutor类java.util.concurrent.ThreadPoolExecutor类是管理工人线程的类。ThreadPoolExecutor可以轻松地实现Worker Thread模式。ThreadPoolExecutor类可以对线程池（保存和管理工人线程的场所）进行以下设置。  指定线程池的大小 指定提前创建线程还是按需创建线程 指定创建线程的工厂（java.u">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-01-26T15:31:22.572Z">
+<meta property="og:updated_time" content="2019-01-26T16:27:59.904Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java.util.concurrent包和Worker Thread模式">
-<meta name="twitter:description" content="间歇性踌躇满志，持续性混吃等死">
+<meta name="twitter:description" content="ThreadPoolExecutor类java.util.concurrent.ThreadPoolExecutor类是管理工人线程的类。ThreadPoolExecutor可以轻松地实现Worker Thread模式。ThreadPoolExecutor类可以对线程池（保存和管理工人线程的场所）进行以下设置。  指定线程池的大小 指定提前创建线程还是按需创建线程 指定创建线程的工厂（java.u">
 
 
 
@@ -355,7 +355,21 @@
       
 
       
-        
+        <h2 id="ThreadPoolExecutor类"><a href="#ThreadPoolExecutor类" class="headerlink" title="ThreadPoolExecutor类"></a>ThreadPoolExecutor类</h2><p>java.util.concurrent.ThreadPoolExecutor类是管理工人线程的类。ThreadPoolExecutor可以轻松地实现Worker Thread模式。ThreadPoolExecutor类可以对线程池（保存和管理工人线程的场所）进行以下设置。</p>
+<ul>
+<li>指定线程池的大小</li>
+<li>指定提前创建线程还是按需创建线程</li>
+<li>指定创建线程的工厂（java.util.concurrent.ThreadFactory）</li>
+<li>指定多长时间终止不需要的线程</li>
+<li>指定传递要执行的工作时的排队方式</li>
+<li>指定拒绝工作的方式</li>
+<li>指定执行工作前和执行工作后的处理</li>
+</ul>
+<h2 id="通过java-util-concurrent包创建线程池"><a href="#通过java-util-concurrent包创建线程池" class="headerlink" title="通过java.util.concurrent包创建线程池"></a>通过java.util.concurrent包创建线程池</h2><p>java.util.concurrent.Executors类是用于创建线程池的工具类。</p>
+<h3 id="Executors-newFixedThreadPool方法"><a href="#Executors-newFixedThreadPool方法" class="headerlink" title="Executors.newFixedThreadPool方法"></a>Executors.newFixedThreadPool方法</h3><p>Executors.newFixedThreadPool方法会创建一个线程池，该线程池会创建个数由参数指定的工人线程，而且创建出的线程会被重复利用。如果在这个方法的参数中加上ThreadFactory对象，则线程池会使用该ThreadFactory来创建新的工人线程。</p>
+<h3 id="Executors-newCachedThreadPool方法"><a href="#Executors-newCachedThreadPool方法" class="headerlink" title="Executors.newCachedThreadPool方法"></a>Executors.newCachedThreadPool方法</h3><p>Executors.newCachedThreadPool方法会创建一个线程池，该线程池可以根据需要自动创建工人线程，而且工人线程会被重复利用。没有工作的工人线程会在缓存约60秒后自动终止。如果向这个方法的参数中传入ThreadFactory对象，则线程池会使用这个ThreadFactory来创建新的工人线程。</p>
+<h3 id="Executors-newScheduledThreadPool方法"><a href="#Executors-newScheduledThreadPool方法" class="headerlink" title="Executors.newScheduledThreadPool方法"></a>Executors.newScheduledThreadPool方法</h3><p>Executors.newScheduledThreadPool方法会创建一个线程池，</p>
+
       
     </div>
 
@@ -454,8 +468,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -528,6 +551,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ThreadPoolExecutor类"><span class="nav-number">1.</span> <span class="nav-text">ThreadPoolExecutor类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过java-util-concurrent包创建线程池"><span class="nav-number">2.</span> <span class="nav-text">通过java.util.concurrent包创建线程池</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Executors-newFixedThreadPool方法"><span class="nav-number">2.1.</span> <span class="nav-text">Executors.newFixedThreadPool方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Executors-newCachedThreadPool方法"><span class="nav-number">2.2.</span> <span class="nav-text">Executors.newCachedThreadPool方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Executors-newScheduledThreadPool方法"><span class="nav-number">2.3.</span> <span class="nav-text">Executors.newScheduledThreadPool方法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
