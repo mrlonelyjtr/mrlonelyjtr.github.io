@@ -96,7 +96,7 @@
 <meta property="og:description" content="Double-Checked Locking模式原本是用于改善Single Threaded Execution模式的性能的方法之一。不过在Java中使用Double-Checked Locking模式是很危险的。 Single Threaded Execution模式getInstance是synchronized的，因此性能并不好。 123456789101112131415161718192">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://s2.ax1x.com/2019/02/12/kwXAbt.png">
-<meta property="og:updated_time" content="2019-02-12T15:57:21.677Z">
+<meta property="og:updated_time" content="2019-02-12T15:58:26.377Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Double-Checked Locking模式的危险性">
 <meta name="twitter:description" content="Double-Checked Locking模式原本是用于改善Single Threaded Execution模式的性能的方法之一。不过在Java中使用Double-Checked Locking模式是很危险的。 Single Threaded Execution模式getInstance是synchronized的，因此性能并不好。 123456789101112131415161718192">
@@ -299,7 +299,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-12T23:05:58Z">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-13T07:05:58+08:00">
                 2019-02-12
               </time>
             
@@ -372,7 +372,7 @@
 <p>这段程序会使用Holder的“类的初始化”来创建唯一的实例，并确保线程安全。这是因为在Java规范中，类的初始化是线程安全的。</p>
 <p>在代码中，并没有使用synchronized和volatile来进行同步，因此性能不会下降。</p>
 <p>而且，还使用了嵌套类的延迟初始化。Holder类的初始化在线程刚刚要使用该类时才会开始进行。也就是说，在调用MySystem.getInstance方法前，Holder类不会被初始化，甚至连MySystem的实例都不会创建。因此，使用Initialization On Demand Holder模式可以避免内存浪费。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MySystem</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Holder</span> </span>&#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> MySystem instance = <span class="keyword">new</span> MySystem();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> Date date = <span class="keyword">new</span> Date();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">MySystem</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> MySystem <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Holder.instance;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Date <span class="title">getDate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> date;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MySystem</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Holder</span> </span>&#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> MySystem instance = <span class="keyword">new</span> MySystem();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> Date date = <span class="keyword">new</span> Date();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">MySystem</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> MySystem <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Holder.instance;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Date <span class="title">getDate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> date;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -425,6 +425,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/13/【图解Java多线程设计模式】Thread-Specific-Storage模式/" rel="prev" title="【图解Java多线程设计模式】Thread-Specific Storage模式">
+                【图解Java多线程设计模式】Thread-Specific Storage模式 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -496,7 +500,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">185</span>
+                <span class="site-state-item-count">186</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

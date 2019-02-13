@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="OJ,Algorithm," />
+  <meta name="keywords" content="Java,Multithread," />
 
 
 
@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="Write an algorithm to determine if a number is “happy”. A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares of">
-<meta name="keywords" content="OJ,Algorithm">
+<meta name="description" content="即使只有一个入口，也会在内部为每个线程分配特有的存储空间。在Java标准类库中，java.lang.ThreadLocal类实现了该模式。 关于java.lang.ThreadLocal类ThreadLocal的实例会管理多个对象由于一个ThreadLocal的实例可以管理多个对象，所以ThreadLocal定义了可以“存储”（set）和“获取”（get）对象的方法。 set方法 ThreadLo">
+<meta name="keywords" content="Java,Multithread">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LeetCode] Problem 202 - Happy Number">
-<meta property="og:url" content="http://yoursite.com/2017/10/31/LeetCode-Problem-202-Happy-Number/index.html">
+<meta property="og:title" content="【图解Java多线程设计模式】Thread-Specific Storage模式">
+<meta property="og:url" content="http://yoursite.com/2019/02/13/【图解Java多线程设计模式】Thread-Specific-Storage模式/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="Write an algorithm to determine if a number is “happy”. A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares of">
+<meta property="og:description" content="即使只有一个入口，也会在内部为每个线程分配特有的存储空间。在Java标准类库中，java.lang.ThreadLocal类实现了该模式。 关于java.lang.ThreadLocal类ThreadLocal的实例会管理多个对象由于一个ThreadLocal的实例可以管理多个对象，所以ThreadLocal定义了可以“存储”（set）和“获取”（get）对象的方法。 set方法 ThreadLo">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-10-30T15:22:27.000Z">
+<meta property="og:updated_time" content="2019-02-13T04:49:52.741Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LeetCode] Problem 202 - Happy Number">
-<meta name="twitter:description" content="Write an algorithm to determine if a number is “happy”. A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares of">
+<meta name="twitter:title" content="【图解Java多线程设计模式】Thread-Specific Storage模式">
+<meta name="twitter:description" content="即使只有一个入口，也会在内部为每个线程分配特有的存储空间。在Java标准类库中，java.lang.ThreadLocal类实现了该模式。 关于java.lang.ThreadLocal类ThreadLocal的实例会管理多个对象由于一个ThreadLocal的实例可以管理多个对象，所以ThreadLocal定义了可以“存储”（set）和“获取”（get）对象的方法。 set方法 ThreadLo">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/10/31/LeetCode-Problem-202-Happy-Number/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/02/13/【图解Java多线程设计模式】Thread-Specific-Storage模式/"/>
 
 
 
 
 
-  <title> [LeetCode] Problem 202 - Happy Number | mrlonelyjtr's blog </title>
+  <title> 【图解Java多线程设计模式】Thread-Specific Storage模式 | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -261,7 +261,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/31/LeetCode-Problem-202-Happy-Number/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/13/【图解Java多线程设计模式】Thread-Specific-Storage模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -282,7 +282,7 @@
             
             
               
-                [LeetCode] Problem 202 - Happy Number
+                【图解Java多线程设计模式】Thread-Specific Storage模式
               
             
           </h1>
@@ -297,8 +297,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-31T07:20:03+08:00">
-                2017-10-30
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-13T00:00:28Z">
+                2019-02-13
               </time>
             
 
@@ -320,19 +320,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
+                  <a href="/categories/Multithread/" itemprop="url" rel="index">
+                    <span itemprop="name">Multithread</span>
                   </a>
                 </span>
 
@@ -366,11 +355,18 @@
       
 
       
-        <p>Write an algorithm to determine if a number is “happy”.</p>
-<p>A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers for which this process ends in 1 are happy numbers.</p>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>19 is a happy number</p>
-<p>1^2 + 9^2 = 82<br>8^2 + 2^2 = 68<br>6^2 + 8^2 = 100<br>1^2 + 0^2 + 0^2 = 1</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isHappy</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    HashSet&lt;Integer&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (n != <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (set.contains(n))</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">        set.add(n);</span><br><span class="line">        n = sum(n);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (n != <span class="number">0</span>) &#123;</span><br><span class="line">        sum += Math.pow(n % <span class="number">10</span>, <span class="number">2</span>);</span><br><span class="line">        n /= <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>即使只有一个入口，也会在内部为每个线程分配特有的存储空间。<br>在Java标准类库中，java.lang.ThreadLocal类实现了该模式。</p>
+<h2 id="关于java-lang-ThreadLocal类"><a href="#关于java-lang-ThreadLocal类" class="headerlink" title="关于java.lang.ThreadLocal类"></a>关于java.lang.ThreadLocal类</h2><h3 id="ThreadLocal的实例会管理多个对象"><a href="#ThreadLocal的实例会管理多个对象" class="headerlink" title="ThreadLocal的实例会管理多个对象"></a>ThreadLocal的实例会管理多个对象</h3><p>由于一个ThreadLocal的实例可以管理多个对象，所以ThreadLocal定义了可以“存储”（set）和“获取”（get）对象的方法。</p>
+<p><em>set方法</em></p>
+<p>ThreadLocal类的set方法用于将通过参数接收的实例与调用该方法的线程（当前线程）对应并存储起来。这里存储的对象可以通过get方法获取。set方法中没有表示线程的参数。set方法会先查询当前线程（即表达式Thread.currentThread()的值），然后以它作为键来存储实例。</p>
+<p><em>get方法</em></p>
+<p>ThreadLocal类的get方法用于获取与调用get方法的线程（当前线程）对应的实例。该线程之前通过set方法存储的实例就是get方法的返回值。如果之前一次都还没有调用过set方法，则get方法的返回值为null。</p>
+<p>与set方法一样，get方法中也没有表示线程的参数。这是因为，get方法也会去查询当前线程。即get方法会以当前线程自身作为健去获取对象。</p>
+<h3 id="java-lang-ThreadLocal与泛型"><a href="#java-lang-ThreadLocal与泛型" class="headerlink" title="java.lang.ThreadLocal与泛型"></a>java.lang.ThreadLocal与泛型</h3><p>java.lang.ThreadLocal是一个泛型类，可以通过参数的类型来指定要存储的对象的类型。ThreadLocal类的声明大致如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadLocal</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(T value)</span> </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">get</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>即，通过ThreadLocal<t>的T指定的类型就是set方法的参数的类型以及get方法的返回值的类型。</t></p>
+<h2 id="示例1：不使用Thread-Specific-Storage模式"><a href="#示例1：不使用Thread-Specific-Storage模式" class="headerlink" title="示例1：不使用Thread-Specific Storage模式"></a>示例1：不使用Thread-Specific Storage模式</h2><p>使用Log类的静态方法将日志记录在文件中。</p>
+<h3 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h3>
       
     </div>
 
@@ -399,9 +395,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/OJ/" rel="tag"># OJ</a>
+            <a href="/tags/Java/" rel="tag"># Java</a>
           
-            <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+            <a href="/tags/Multithread/" rel="tag"># Multithread</a>
           
         </div>
       
@@ -414,8 +410,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/12/LeetCode-Problem-82-Remove-Duplicates-from-Sorted-List-II/" rel="next" title="[LeetCode] Problem 82 - Remove Duplicates from Sorted List II">
-                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 82 - Remove Duplicates from Sorted List II
+              <a href="/2019/02/13/Double-Checked-Locking模式的危险性/" rel="next" title="Double-Checked Locking模式的危险性">
+                <i class="fa fa-chevron-left"></i> Double-Checked Locking模式的危险性
               </a>
             
           </div>
@@ -423,10 +419,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/10/31/LeetCode-Problem-263-Ugly-Number/" rel="prev" title="[LeetCode] Problem 263 - Ugly Number">
-                [LeetCode] Problem 263 - Ugly Number <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -566,7 +558,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">2.</span> <span class="nav-text">Code</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于java-lang-ThreadLocal类"><span class="nav-number">1.</span> <span class="nav-text">关于java.lang.ThreadLocal类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ThreadLocal的实例会管理多个对象"><span class="nav-number">1.1.</span> <span class="nav-text">ThreadLocal的实例会管理多个对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-lang-ThreadLocal与泛型"><span class="nav-number">1.2.</span> <span class="nav-text">java.lang.ThreadLocal与泛型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例1：不使用Thread-Specific-Storage模式"><span class="nav-number">2.</span> <span class="nav-text">示例1：不使用Thread-Specific Storage模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类图"><span class="nav-number">2.1.</span> <span class="nav-text">类图</span></a></li></ol></li></ol></div>
             
 
           </div>
