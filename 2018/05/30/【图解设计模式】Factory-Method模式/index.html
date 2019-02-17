@@ -87,20 +87,20 @@
 
 
 
-<meta name="description" content="使用Template Method模式生成实例。 示例制作身份证（ID卡）。 类图 Product类12345package framework;public abstract class Product &amp;#123;    public abstract void use();&amp;#125; Factory类123456789101112package framework;public abstr">
+<meta name="description" content="使用Template Method模式来构建生成实例的工厂。 父类决定实例的生成方式，但并不决定所要生成的具体的类，具体的处理全部交给子类负责。这样就可以将生成实例的框架和实际负责生成实例的类解耦。 示例制作身份证（ID卡）。 类图 Product类12345package framework;public abstract class Product &amp;#123;    public abstr">
 <meta name="keywords" content="Java,Design Pattern">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【图解设计模式】Factory Method模式">
 <meta property="og:url" content="http://yoursite.com/2018/05/30/【图解设计模式】Factory-Method模式/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="使用Template Method模式生成实例。 示例制作身份证（ID卡）。 类图 Product类12345package framework;public abstract class Product &amp;#123;    public abstract void use();&amp;#125; Factory类123456789101112package framework;public abstr">
+<meta property="og:description" content="使用Template Method模式来构建生成实例的工厂。 父类决定实例的生成方式，但并不决定所要生成的具体的类，具体的处理全部交给子类负责。这样就可以将生成实例的框架和实际负责生成实例的类解耦。 示例制作身份证（ID卡）。 类图 Product类12345package framework;public abstract class Product &amp;#123;    public abstr">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://s1.ax1x.com/2018/05/29/C5Qx7F.png">
 <meta property="og:image" content="https://s1.ax1x.com/2018/05/29/C5lF6x.png">
-<meta property="og:updated_time" content="2018-05-29T15:32:11.428Z">
+<meta property="og:updated_time" content="2019-02-17T14:35:24.539Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【图解设计模式】Factory Method模式">
-<meta name="twitter:description" content="使用Template Method模式生成实例。 示例制作身份证（ID卡）。 类图 Product类12345package framework;public abstract class Product &amp;#123;    public abstract void use();&amp;#125; Factory类123456789101112package framework;public abstr">
+<meta name="twitter:description" content="使用Template Method模式来构建生成实例的工厂。 父类决定实例的生成方式，但并不决定所要生成的具体的类，具体的处理全部交给子类负责。这样就可以将生成实例的框架和实际负责生成实例的类解耦。 示例制作身份证（ID卡）。 类图 Product类12345package framework;public abstract class Product &amp;#123;    public abstr">
 <meta name="twitter:image" content="https://s1.ax1x.com/2018/05/29/C5Qx7F.png">
 
 
@@ -358,7 +358,8 @@
       
 
       
-        <p>使用Template Method模式生成实例。</p>
+        <p>使用Template Method模式来构建生成实例的工厂。</p>
+<p>父类决定实例的生成方式，但并不决定所要生成的具体的类，具体的处理全部交给子类负责。这样就可以将生成实例的框架和实际负责生成实例的类解耦。</p>
 <h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>制作身份证（ID卡）。</p>
 <h3 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h3><p><a href="https://imgchr.com/i/C5Qx7F" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/05/29/C5Qx7F.png" alt="C5Qx7F.png"></a></p>
 <h3 id="Product类"><a href="#Product类" class="headerlink" title="Product类"></a>Product类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> framework;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Product</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">use</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

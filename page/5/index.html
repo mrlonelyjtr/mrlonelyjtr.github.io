@@ -1122,11 +1122,11 @@ Singleton类1234567891011public class Singleton &#123;    private static Singlet
       
         
           
-          使用Template Method模式生成实例。
+          使用Template Method模式来构建生成实例的工厂。
+父类决定实例的生成方式，但并不决定所要生成的具体的类，具体的处理全部交给子类负责。这样就可以将生成实例的框架和实际负责生成实例的类解耦。
 示例制作身份证（ID卡）。
 类图
-Product类12345package framework;public abstract class Product &#123;    public abstract void use();&#125;
-Fac
+Product类12345package framework;pu
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1275,10 +1275,9 @@ Fac
       
         
           
-          在父类中定义处理的流程，在子类中实现具体处理内容。
-示例将字符和字符串循环显示5次。
-类图
-AbstractDisplay类1234567891011121314public abstract class AbstractDisplay &#123;    abstract void open();
+          在父类中定义处理流程的框架，在子类中实现具体处理。
+组成模板的方法被定义在父类中。由于这些方法是抽象方法，所以只查看父类的代码是无法知道这些方法最终会进行何种具体处理的，唯一能知道的就是父类是如何调用这些方法的。
+实现上述这些抽象方法的是子类。在子类中实现了抽象方法也就决定了具体的处理。也就是说，只
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1427,7 +1426,7 @@ AbstractDisplay类1234567891011121314public abstract class AbstractDisplay &#123
       
         
           
-          用于填补具有不同接口（API）的两个类之间的缝隙。
+          用于填补“现有的程序”和“所需的程序”之间差异。
 Adapter模式有以下两种：
 
 类适配器模式（使用继承的适配器）
@@ -1435,7 +1434,7 @@ Adapter模式有以下两种：
 
 示例将输入的字符串显示为（Hello）或是*Hello*。
 类适配器模式（使用继承）类图
-Banner类1234567891011121314
+Banner类12345678910111213141
           ...
           <!--noindex-->
           <div class="post-button text-center">
