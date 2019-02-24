@@ -87,18 +87,20 @@
 
 
 
-<meta name="description" content="Clone an undirected graph. Each node in the graph contains a label and a list of its neighbors. Undirected graph serializationNodes are labeled uniquely. We use # as a separator for each node, and , a">
+<meta name="description" content="Given a reference of a node in a connected undirected graph, return a deep copy (clone) of the graph. Each node in the graph contains a val (int) and a list (List[Node]) of its neighbors. Example Inpu">
 <meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[LeetCode] Problem 133 - Clone Graph">
 <meta property="og:url" content="http://yoursite.com/2017/09/18/LeetCode-Problem-133-Clone-Graph/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="Clone an undirected graph. Each node in the graph contains a label and a list of its neighbors. Undirected graph serializationNodes are labeled uniquely. We use # as a separator for each node, and , a">
+<meta property="og:description" content="Given a reference of a node in a connected undirected graph, return a deep copy (clone) of the graph. Each node in the graph contains a val (int) and a list (List[Node]) of its neighbors. Example Inpu">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-09-18T06:53:41.000Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/24/k5eE4S.png">
+<meta property="og:updated_time" content="2019-02-24T15:44:28.269Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LeetCode] Problem 133 - Clone Graph">
-<meta name="twitter:description" content="Clone an undirected graph. Each node in the graph contains a label and a list of its neighbors. Undirected graph serializationNodes are labeled uniquely. We use # as a separator for each node, and , a">
+<meta name="twitter:description" content="Given a reference of a node in a connected undirected graph, return a deep copy (clone) of the graph. Each node in the graph contains a val (int) and a list (List[Node]) of its neighbors. Example Inpu">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/02/24/k5eE4S.png">
 
 
 
@@ -366,15 +368,14 @@
       
 
       
-        <p>Clone an undirected graph. Each node in the graph contains a label and a list of its neighbors.</p>
-<h2 id="Undirected-graph-serialization"><a href="#Undirected-graph-serialization" class="headerlink" title="Undirected graph serialization"></a>Undirected graph serialization</h2><p>Nodes are labeled uniquely.</p>
-<p>We use # as a separator for each node, and , as a separator for node label and each neighbor of the node.<br>As an example, consider the serialized graph {0,1,2#1,2#2,2}.</p>
-<p>The graph has a total of three nodes, and therefore contains three parts as separated by #.</p>
-<ol>
-<li>First node is labeled as 0. Connect node 0 to both nodes 1 and 2.</li>
-<li>Second node is labeled as 1. Connect node 1 to node 2.</li>
-<li>Third node is labeled as 2. Connect node 2 to node 2 (itself), thus forming a self-cycle.</li>
-</ol>
+        <p>Given a reference of a node in a connected undirected graph, return a deep copy (clone) of the graph. Each node in the graph contains a val (int) and a list (List[Node]) of its neighbors.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p><img src="https://s2.ax1x.com/2019/02/24/k5eE4S.png" alt="k5eE4S.png"></p>
+<p>Input:<br>{“$id”:”1”,”neighbors”:[{“$id”:”2”,”neighbors”:[{“$ref”:”1”},{“$id”:”3”,”neighbors”:[{“$ref”:”2”},{“$id”:”4”,”neighbors”:[{“$ref”:”3”},{“$ref”:”1”}],”val”:4}],”val”:3}],”val”:2},{“$ref”:”4”}],”val”:1}</p>
+<p>Explanation:<br>Node 1’s value is 1, and it has two neighbors: Node 2 and 4.<br>Node 2’s value is 2, and it has two neighbors: Node 1 and 3.<br>Node 3’s value is 3, and it has two neighbors: Node 2 and 4.<br>Node 4’s value is 4, and it has two neighbors: Node 1 and 3.</p>
+<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>The number of nodes will be between 1 and 100.</p>
+<p>The undirected graph is a simple graph, which means no repeated edges and no self-loops in the graph.</p>
+<p>Since the graph is undirected, if node p has node q as neighbor, then node q must have node p as neighbor too.</p>
+<p>You must return the copy of the given node as a reference to the cloned graph.</p>
 <h2 id="O-n-runtime-O-n-space-–-Depth-first-traversal"><a href="#O-n-runtime-O-n-space-–-Depth-first-traversal" class="headerlink" title="O(n) runtime, O(n) space – Depth-first traversal"></a>O(n) runtime, O(n) space – Depth-first traversal</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UndirectedGraphNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> label;</span><br><span class="line">    List&lt;UndirectedGraphNode&gt; neighbors;</span><br><span class="line">    UndirectedGraphNode(<span class="keyword">int</span> x) &#123; label = x; neighbors = <span class="keyword">new</span> ArrayList&lt;UndirectedGraphNode&gt;(); &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> UndirectedGraphNode <span class="title">cloneGraph</span><span class="params">(UndirectedGraphNode node)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (node == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    Map&lt;UndirectedGraphNode, UndirectedGraphNode&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    <span class="keyword">return</span> dfs(map, node);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> UndirectedGraphNode <span class="title">dfs</span><span class="params">(Map&lt;UndirectedGraphNode, UndirectedGraphNode&gt; map, UndirectedGraphNode node)</span> </span>&#123;</span><br><span class="line">    UndirectedGraphNode copy = <span class="keyword">new</span> UndirectedGraphNode(node.label);</span><br><span class="line">    map.put(node, copy);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (UndirectedGraphNode neighbor : node.neighbors) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!map.containsKey(neighbor))</span><br><span class="line">            copy.neighbors.add(dfs(map, neighbor));</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            copy.neighbors.add(map.get(neighbor));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> copy;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="O-n-runtime-O-n-space-–-Breadth-first-traversal"><a href="#O-n-runtime-O-n-space-–-Breadth-first-traversal" class="headerlink" title="O(n) runtime, O(n) space – Breadth-first traversal"></a>O(n) runtime, O(n) space – Breadth-first traversal</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UndirectedGraphNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> label;</span><br><span class="line">    List&lt;UndirectedGraphNode&gt; neighbors;</span><br><span class="line">    UndirectedGraphNode(<span class="keyword">int</span> x) &#123; label = x; neighbors = <span class="keyword">new</span> ArrayList&lt;UndirectedGraphNode&gt;(); &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -574,7 +575,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Undirected-graph-serialization"><span class="nav-number">1.</span> <span class="nav-text">Undirected graph serialization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#O-n-runtime-O-n-space-–-Depth-first-traversal"><span class="nav-number">2.</span> <span class="nav-text">O(n) runtime, O(n) space – Depth-first traversal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#O-n-runtime-O-n-space-–-Breadth-first-traversal"><span class="nav-number">3.</span> <span class="nav-text">O(n) runtime, O(n) space – Breadth-first traversal</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">2.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#O-n-runtime-O-n-space-–-Depth-first-traversal"><span class="nav-number">3.</span> <span class="nav-text">O(n) runtime, O(n) space – Depth-first traversal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#O-n-runtime-O-n-space-–-Breadth-first-traversal"><span class="nav-number">4.</span> <span class="nav-text">O(n) runtime, O(n) space – Breadth-first traversal</span></a></li></ol></div>
             
 
           </div>

@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="Implement int sqrt(int x). Compute and return the square root of x. x is guaranteed to be a non-negative integer. ExampleNo.1Input: 4Output: 2 No.2Input: 8Output: 2Explanation: The square root of 8 is">
+<meta name="description" content="Implement int sqrt(int x). Compute and return the square root of x, where x is guaranteed to be a non-negative integer. Since the return type is an integer, the decimal digits are truncated and only t">
 <meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[LeetCode] Problem 69 - Sqrt(x)">
 <meta property="og:url" content="http://yoursite.com/2018/01/23/LeetCode-Problem-69-Sqrt-x/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="Implement int sqrt(int x). Compute and return the square root of x. x is guaranteed to be a non-negative integer. ExampleNo.1Input: 4Output: 2 No.2Input: 8Output: 2Explanation: The square root of 8 is">
+<meta property="og:description" content="Implement int sqrt(int x). Compute and return the square root of x, where x is guaranteed to be a non-negative integer. Since the return type is an integer, the decimal digits are truncated and only t">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-01-22T13:38:56.000Z">
+<meta property="og:updated_time" content="2019-02-24T15:22:59.091Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LeetCode] Problem 69 - Sqrt(x)">
-<meta name="twitter:description" content="Implement int sqrt(int x). Compute and return the square root of x. x is guaranteed to be a non-negative integer. ExampleNo.1Input: 4Output: 2 No.2Input: 8Output: 2Explanation: The square root of 8 is">
+<meta name="twitter:description" content="Implement int sqrt(int x). Compute and return the square root of x, where x is guaranteed to be a non-negative integer. Since the return type is an integer, the decimal digits are truncated and only t">
 
 
 
@@ -367,10 +367,13 @@
 
       
         <p>Implement int sqrt(int x).</p>
-<p>Compute and return the square root of x.</p>
-<p>x is guaranteed to be a non-negative integer.</p>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Input: 4<br>Output: 2</p>
-<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Input: 8<br>Output: 2<br>Explanation: The square root of 8 is 2.82842…, and since we want to return an integer, the decimal part will be truncated.</p>
+<p>Compute and return the square root of x, where x is guaranteed to be a non-negative integer.</p>
+<p>Since the return type is an integer, the decimal digits are truncated and only the integer part of the result is returned.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Input: 4</p>
+<p>Output: 2</p>
+<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Input: 8</p>
+<p>Output: 2</p>
+<p>Explanation: The square root of 8 is 2.82842…, and since we want to return an integer, the decimal part will be truncated.</p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">mySqrt</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> start = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> end = x;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> mid = start + (end - start) / <span class="number">2</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (mid &gt; x / mid)</span><br><span class="line">            end = mid - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> ((mid + <span class="number">1</span>) &gt; x / (mid + <span class="number">1</span>))</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">            </span><br><span class="line">            start = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>

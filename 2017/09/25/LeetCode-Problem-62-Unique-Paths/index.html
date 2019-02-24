@@ -95,10 +95,12 @@
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
 <meta property="og:description" content="A robot is located at the top-left corner of a m x n grid. The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid. How many">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-09-24T16:36:11.000Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/24/k5Fgjx.png">
+<meta property="og:updated_time" content="2019-02-24T15:18:25.681Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LeetCode] Problem 62 - Unique Paths">
 <meta name="twitter:description" content="A robot is located at the top-left corner of a m x n grid. The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid. How many">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/02/24/k5Fgjx.png">
 
 
 
@@ -369,7 +371,18 @@
         <p>A robot is located at the top-left corner of a m x n grid.</p>
 <p>The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid.</p>
 <p>How many possible unique paths are there?</p>
+<p><img src="https://s2.ax1x.com/2019/02/24/k5Fgjx.png" alt="k5Fgjx.png"></p>
 <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>m and n will be at most 100.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Input: m = 3, n = 2</p>
+<p>Output: 3</p>
+<p>Explanation:<br>From the top-left corner, there are a total of 3 ways to reach the bottom-right corner:</p>
+<ol>
+<li>Right -&gt; Right -&gt; Down</li>
+<li>Right -&gt; Down -&gt; Right</li>
+<li>Down -&gt; Right -&gt; Right</li>
+</ol>
+<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Input: m = 7, n = 3</p>
+<p>Output: 28</p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// O(mn) runtime, O(mn) space – Bottom-up dynamic programming</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniquePaths</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[m][n];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i == <span class="number">0</span> || j == <span class="number">0</span>)</span><br><span class="line">                dp[i][j] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                dp[i][j] = dp[i-<span class="number">1</span>][j] + dp[i][j-<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> dp[m-<span class="number">1</span>][n-<span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -566,7 +579,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">1.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">2.</span> <span class="nav-text">Code</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">1.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">2.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1"><span class="nav-number">2.1.</span> <span class="nav-text">No.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2"><span class="nav-number">2.2.</span> <span class="nav-text">No.2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li></ol></div>
             
 
           </div>

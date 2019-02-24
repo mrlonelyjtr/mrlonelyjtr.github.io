@@ -87,18 +87,20 @@
 
 
 
-<meta name="description" content="A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null. Return a deep copy of the list. Code12345public class RandomListNode">
+<meta name="description" content="A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null. Return a deep copy of the list. Example Input:{“$id”:”1”,”next”:{“$i">
 <meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[LeetCode] Problem 138 - Copy List with Random Pointer">
 <meta property="og:url" content="http://yoursite.com/2017/09/14/LeetCode-Problem-138-Copy-List-with-Random-Pointer/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null. Return a deep copy of the list. Code12345public class RandomListNode">
+<meta property="og:description" content="A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null. Return a deep copy of the list. Example Input:{“$id”:”1”,”next”:{“$i">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-09-13T16:40:47.000Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/24/k5eY34.png">
+<meta property="og:updated_time" content="2019-02-24T15:51:47.312Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LeetCode] Problem 138 - Copy List with Random Pointer">
-<meta name="twitter:description" content="A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null. Return a deep copy of the list. Code12345public class RandomListNode">
+<meta name="twitter:description" content="A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null. Return a deep copy of the list. Example Input:{“$id”:”1”,”next”:{“$i">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/02/24/k5eY34.png">
 
 
 
@@ -368,6 +370,9 @@
       
         <p>A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null.</p>
 <p>Return a deep copy of the list.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p><img src="https://s2.ax1x.com/2019/02/24/k5eY34.png" alt="k5eY34.png"></p>
+<p>Input:<br>{“$id”:”1”,”next”:{“$id”:”2”,”next”:null,”random”:{“$ref”:”2”},”val”:2},”random”:{“$ref”:”2”},”val”:1}</p>
+<p>Explanation:<br>Node 1’s value is 1, both of its next and random pointer points to Node 2.<br>Node 2’s value is 2, its next pointer points to null and its random pointer points to itself.</p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RandomListNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> label;</span><br><span class="line">    RandomListNode next, random;</span><br><span class="line">    RandomListNode(<span class="keyword">int</span> x) &#123; <span class="keyword">this</span>.label = x; &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// O(n) runtime, O(1) space – Modify original structure</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> RandomListNode <span class="title">copyRandomList</span><span class="params">(RandomListNode head)</span> </span>&#123;</span><br><span class="line">    RandomListNode current = head;</span><br><span class="line">    RandomListNode copyHead = <span class="keyword">null</span>, copyCurrent = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (current != <span class="keyword">null</span>) &#123;</span><br><span class="line">        RandomListNode copy = <span class="keyword">new</span> RandomListNode(current.label);</span><br><span class="line">        copy.next = current.next;</span><br><span class="line">        current.next = copy;</span><br><span class="line">        current = copy.next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    current = head;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (current != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (current.random != <span class="keyword">null</span>)</span><br><span class="line">            current.next.random = current.random.next;</span><br><span class="line"></span><br><span class="line">        current = current.next.next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    current = head;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (current != <span class="keyword">null</span>) &#123;</span><br><span class="line">        copyHead = copyCurrent = current.next;</span><br><span class="line">        current.next = current.next.next;</span><br><span class="line">        current = copyCurrent.next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (current != <span class="keyword">null</span>) &#123;</span><br><span class="line">        copyCurrent.next = current.next;</span><br><span class="line">        current.next = current.next.next;</span><br><span class="line">        copyCurrent = copyCurrent.next;</span><br><span class="line">        current = current.next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> copyHead;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
@@ -565,7 +570,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">1.</span> <span class="nav-text">Code</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">2.</span> <span class="nav-text">Code</span></a></li></ol></div>
             
 
           </div>

@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="Given an integer, convert it to a roman numeral. Input is guaranteed to be within the range from 1 to 3999. Code1234567891011121314public String intToRoman(int num) &amp;#123;    StringBuilder sb = new St">
+<meta name="description" content="Given an integer, convert it to a roman numeral. Input is guaranteed to be within the range from 1 to 3999. Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M. Symbol">
 <meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[LeetCode] Problem 12 - Integer to Roman">
 <meta property="og:url" content="http://yoursite.com/2017/09/18/LeetCode-Problem-12-Integer-to-Roman/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="Given an integer, convert it to a roman numeral. Input is guaranteed to be within the range from 1 to 3999. Code1234567891011121314public String intToRoman(int num) &amp;#123;    StringBuilder sb = new St">
+<meta property="og:description" content="Given an integer, convert it to a roman numeral. Input is guaranteed to be within the range from 1 to 3999. Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M. Symbol">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-09-17T17:18:46.000Z">
+<meta property="og:updated_time" content="2019-02-24T14:57:59.198Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LeetCode] Problem 12 - Integer to Roman">
-<meta name="twitter:description" content="Given an integer, convert it to a roman numeral. Input is guaranteed to be within the range from 1 to 3999. Code1234567891011121314public String intToRoman(int num) &amp;#123;    StringBuilder sb = new St">
+<meta name="twitter:description" content="Given an integer, convert it to a roman numeral. Input is guaranteed to be within the range from 1 to 3999. Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M. Symbol">
 
 
 
@@ -366,8 +366,24 @@
       
 
       
-        <p>Given an integer, convert it to a roman numeral.</p>
-<p>Input is guaranteed to be within the range from 1 to 3999.</p>
+        <p>Given an integer, convert it to a roman numeral. Input is guaranteed to be within the range from 1 to 3999.</p>
+<p>Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.</p>
+<p>Symbol       Value<br>I             1<br>V             5<br>X             10<br>L             50<br>C             100<br>D             500<br>M             1000</p>
+<p>For example, two is written as II in Roman numeral, just two one’s added together. Twelve is written as, XII, which is simply X + II. The number twenty seven is written as XXVII, which is XX + V + II.</p>
+<p>Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not IIII. Instead, the number four is written as IV. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as IX. There are six instances where subtraction is used:</p>
+<p>I can be placed before V (5) and X (10) to make 4 and 9.<br>X can be placed before L (50) and C (100) to make 40 and 90.<br>C can be placed before D (500) and M (1000) to make 400 and 900.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Input: 3</p>
+<p>Output: “III”</p>
+<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Input: 4</p>
+<p>Output: “IV”</p>
+<h3 id="No-3"><a href="#No-3" class="headerlink" title="No.3"></a>No.3</h3><p>Input: 9</p>
+<p>Output: “IX”</p>
+<h3 id="No-4"><a href="#No-4" class="headerlink" title="No.4"></a>No.4</h3><p>Input: 58</p>
+<p>Output: “LVIII”</p>
+<p>Explanation: L = 50, V = 5, III = 3.</p>
+<h3 id="No-5"><a href="#No-5" class="headerlink" title="No.5"></a>No.5</h3><p>Input: 1994</p>
+<p>Output: “MCMXCIV”</p>
+<p>Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.</p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">intToRoman</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">    StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">    <span class="keyword">int</span>[] key = &#123;<span class="number">1000</span>, <span class="number">900</span>, <span class="number">500</span>, <span class="number">400</span>, <span class="number">100</span>, <span class="number">90</span>, <span class="number">50</span>, <span class="number">40</span>, <span class="number">10</span>, <span class="number">9</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">1</span>&#125;;</span><br><span class="line">    String[] val = &#123;<span class="string">"M"</span>, <span class="string">"CM"</span>, <span class="string">"D"</span>, <span class="string">"CD"</span>, <span class="string">"C"</span>, <span class="string">"XC"</span>, <span class="string">"L"</span>, <span class="string">"XL"</span>, <span class="string">"X"</span>, <span class="string">"IX"</span>, <span class="string">"V"</span>, <span class="string">"IV"</span>, <span class="string">"I"</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; key.length; i++) &#123;</span><br><span class="line">        <span class="keyword">while</span> (num &gt;= key[i]) &#123;</span><br><span class="line">            sb.append(val[i]);</span><br><span class="line">            num -= key[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> sb.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -564,7 +580,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">1.</span> <span class="nav-text">Code</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1"><span class="nav-number">1.1.</span> <span class="nav-text">No.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2"><span class="nav-number">1.2.</span> <span class="nav-text">No.2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-3"><span class="nav-number">1.3.</span> <span class="nav-text">No.3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-4"><span class="nav-number">1.4.</span> <span class="nav-text">No.4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-5"><span class="nav-number">1.5.</span> <span class="nav-text">No.5</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">2.</span> <span class="nav-text">Code</span></a></li></ol></div>
             
 
           </div>

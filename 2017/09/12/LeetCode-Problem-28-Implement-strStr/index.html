@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="Implement strStr(). Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack. Code1234567891011121314// O(nm) runtime, O(1) spacepublic int strStr(Strin">
+<meta name="description" content="Implement strStr(). Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack. ExampleNo.1Input: haystack = “hello”, needle = “ll” Output: 2 No.2Input: h">
 <meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[LeetCode] Problem 28 - Implement strStr()">
 <meta property="og:url" content="http://yoursite.com/2017/09/12/LeetCode-Problem-28-Implement-strStr/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="Implement strStr(). Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack. Code1234567891011121314// O(nm) runtime, O(1) spacepublic int strStr(Strin">
+<meta property="og:description" content="Implement strStr(). Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack. ExampleNo.1Input: haystack = “hello”, needle = “ll” Output: 2 No.2Input: h">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-09-11T10:31:28.000Z">
+<meta property="og:updated_time" content="2019-02-24T15:11:29.286Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LeetCode] Problem 28 - Implement strStr()">
-<meta name="twitter:description" content="Implement strStr(). Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack. Code1234567891011121314// O(nm) runtime, O(1) spacepublic int strStr(Strin">
+<meta name="twitter:description" content="Implement strStr(). Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack. ExampleNo.1Input: haystack = “hello”, needle = “ll” Output: 2 No.2Input: h">
 
 
 
@@ -368,6 +368,12 @@
       
         <p>Implement strStr().</p>
 <p>Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Input: haystack = “hello”, needle = “ll”</p>
+<p>Output: 2</p>
+<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Input: haystack = “aaaaa”, needle = “bba”</p>
+<p>Output: -1</p>
+<h2 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h2><p>What should we return when needle is an empty string? This is a great question to ask during an interview.</p>
+<p>For the purpose of this problem, we will return 0 when needle is an empty string. This is consistent to C’s strstr() and Java’s indexOf().</p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// O(nm) runtime, O(1) space</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">strStr</span><span class="params">(String haystack, String needle)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= haystack.length() - needle.length(); i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; ; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (j == needle.length())</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (needle.charAt(j) != haystack.charAt(i+j))</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -564,7 +570,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">1.</span> <span class="nav-text">Code</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1"><span class="nav-number">1.1.</span> <span class="nav-text">No.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2"><span class="nav-number">1.2.</span> <span class="nav-text">No.2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Clarification"><span class="nav-number">2.</span> <span class="nav-text">Clarification</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li></ol></div>
             
 
           </div>

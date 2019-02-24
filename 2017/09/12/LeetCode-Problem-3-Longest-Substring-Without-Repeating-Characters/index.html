@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="Given a string, find the length of the longest substring without repeating characters. ExampleGiven “abcabcbb”, the answer is “abc”, which the length is 3. Given “bbbbb”, the answer is “b”, with the l">
+<meta name="description" content="Given a string, find the length of the longest substring without repeating characters. ExampleNo.1Input: “abcabcbb” Output: 3  Explanation: The answer is “abc”, with the length of 3.  No.2Input: “bbbb">
 <meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[LeetCode] Problem 3 - Longest Substring Without Repeating Characters">
 <meta property="og:url" content="http://yoursite.com/2017/09/12/LeetCode-Problem-3-Longest-Substring-Without-Repeating-Characters/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="Given a string, find the length of the longest substring without repeating characters. ExampleGiven “abcabcbb”, the answer is “abc”, which the length is 3. Given “bbbbb”, the answer is “b”, with the l">
+<meta property="og:description" content="Given a string, find the length of the longest substring without repeating characters. ExampleNo.1Input: “abcabcbb” Output: 3  Explanation: The answer is “abc”, with the length of 3.  No.2Input: “bbbb">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-09-12T07:32:12.000Z">
+<meta property="og:updated_time" content="2019-02-24T14:48:54.865Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LeetCode] Problem 3 - Longest Substring Without Repeating Characters">
-<meta name="twitter:description" content="Given a string, find the length of the longest substring without repeating characters. ExampleGiven “abcabcbb”, the answer is “abc”, which the length is 3. Given “bbbbb”, the answer is “b”, with the l">
+<meta name="twitter:description" content="Given a string, find the length of the longest substring without repeating characters. ExampleNo.1Input: “abcabcbb” Output: 3  Explanation: The answer is “abc”, with the length of 3.  No.2Input: “bbbb">
 
 
 
@@ -367,9 +367,15 @@
 
       
         <p>Given a string, find the length of the longest substring without repeating characters.</p>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>Given “abcabcbb”, the answer is “abc”, which the length is 3.</p>
-<p>Given “bbbbb”, the answer is “b”, with the length of 1.</p>
-<p>Given “pwwkew”, the answer is “wke”, with the length of 3. Note that the answer must be a substring, “pwke” is a subsequence and not a substring.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Input: “abcabcbb”</p>
+<p>Output: 3 </p>
+<p>Explanation: The answer is “abc”, with the length of 3. </p>
+<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Input: “bbbbb”</p>
+<p>Output: 1</p>
+<p>Explanation: The answer is “b”, with the length of 1.</p>
+<h3 id="No-3"><a href="#No-3" class="headerlink" title="No.3"></a>No.3</h3><p>Input: “pwwkew”</p>
+<p>Output: 3</p>
+<p>Explanation: The answer is “wke”, with the length of 3. Note that the answer must be a substring, “pwke” is a subsequence and not a substring.</p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// O(n) runtime, O(1) space</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] ascii = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">256</span>];</span><br><span class="line">    <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> idx = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    Arrays.fill(ascii, -<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (ascii[s.charAt(i)] &gt;= idx)</span><br><span class="line">            idx = ascii[s.charAt(i)] + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        ascii[s.charAt(i)] = i;</span><br><span class="line">        max = Math.max(max, i - idx + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -566,7 +572,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">2.</span> <span class="nav-text">Code</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1"><span class="nav-number">1.1.</span> <span class="nav-text">No.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2"><span class="nav-number">1.2.</span> <span class="nav-text">No.2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-3"><span class="nav-number">1.3.</span> <span class="nav-text">No.3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">2.</span> <span class="nav-text">Code</span></a></li></ol></div>
             
 
           </div>

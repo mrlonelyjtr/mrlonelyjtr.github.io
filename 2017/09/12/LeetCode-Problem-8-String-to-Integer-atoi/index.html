@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="Implement atoi to convert a string to an integer. HintCarefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.">
+<meta name="description" content="Implement atoi to convert a string to an integer. The function first discards as many whitespace characters as necessary until the first non-whitespace character is found. Then, starting from this cha">
 <meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[LeetCode] Problem 8 - String to Integer (atoi)">
 <meta property="og:url" content="http://yoursite.com/2017/09/12/LeetCode-Problem-8-String-to-Integer-atoi/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="Implement atoi to convert a string to an integer. HintCarefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.">
+<meta property="og:description" content="Implement atoi to convert a string to an integer. The function first discards as many whitespace characters as necessary until the first non-whitespace character is found. Then, starting from this cha">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-09-11T16:17:18.000Z">
+<meta property="og:updated_time" content="2019-02-24T14:55:17.351Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LeetCode] Problem 8 - String to Integer (atoi)">
-<meta name="twitter:description" content="Implement atoi to convert a string to an integer. HintCarefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.">
+<meta name="twitter:description" content="Implement atoi to convert a string to an integer. The function first discards as many whitespace characters as necessary until the first non-whitespace character is found. Then, starting from this cha">
 
 
 
@@ -367,12 +367,26 @@
 
       
         <p>Implement atoi to convert a string to an integer.</p>
-<h2 id="Hint"><a href="#Hint" class="headerlink" title="Hint"></a>Hint</h2><p>Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.</p>
-<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><p>It is intended for this problem to be specified vaguely (ie, no given input specs). You are responsible to gather all the input requirements up front.</p>
-<h2 id="Requirements-for-atoi"><a href="#Requirements-for-atoi" class="headerlink" title="Requirements for atoi"></a>Requirements for atoi</h2><p>The function first discards as many whitespace characters as necessary until the first non-whitespace character is found. Then, starting from this character, takes an optional initial plus or minus sign followed by as many numerical digits as possible, and interprets them as a numerical value.</p>
+<p>The function first discards as many whitespace characters as necessary until the first non-whitespace character is found. Then, starting from this character, takes an optional initial plus or minus sign followed by as many numerical digits as possible, and interprets them as a numerical value.</p>
 <p>The string can contain additional characters after those that form the integral number, which are ignored and have no effect on the behavior of this function.</p>
 <p>If the first sequence of non-whitespace characters in str is not a valid integral number, or if no such sequence exists because either str is empty or it contains only whitespace characters, no conversion is performed.</p>
 <p>If no valid conversion could be performed, a zero value is returned. If the correct value is out of the range of representable values, INT_MAX (2147483647) or INT_MIN (-2147483648) is returned.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Input: “42”</p>
+<p>Output: 42</p>
+<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Input: “   -42”</p>
+<p>Output: -42</p>
+<p>Explanation: The first non-whitespace character is ‘-‘, which is the minus sign. Then take as many numerical digits as possible, which gets 42.</p>
+<h3 id="No-3"><a href="#No-3" class="headerlink" title="No.3"></a>No.3</h3><p>Input: “4193 with words”</p>
+<p>Output: 4193</p>
+<p>Explanation: Conversion stops at digit ‘3’ as the next character is not a numerical digit.</p>
+<h3 id="No-4"><a href="#No-4" class="headerlink" title="No.4"></a>No.4</h3><p>Input: “words and 987”</p>
+<p>Output: 0</p>
+<p>Explanation: The first non-whitespace character is ‘w’, which is not a numerical digit or a +/- sign. Therefore no valid conversion could be performed.</p>
+<h3 id="No-5"><a href="#No-5" class="headerlink" title="No.5"></a>No.5</h3><p>Input: “-91283472332”</p>
+<p>Output: -2147483648</p>
+<p>Explanation: The number “-91283472332” is out of the range of a 32-bit signed integer. Thefore INT_MIN (−2^31) is returned.</p>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><p>Only the space character ‘ ‘ is considered as whitespace character.</p>
+<p>Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−2^31,  2^31 − 1]. If the numerical value is out of the range of representable values, INT_MAX (2^31 − 1) or INT_MIN (−2^31) is returned.</p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">myAtoi</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (i &lt; str.length() &amp;&amp; Character.isWhitespace(str.charAt(i)))</span><br><span class="line">        i++;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (i &lt; str.length() &amp;&amp; str.charAt(i) == <span class="string">'-'</span>) &#123;</span><br><span class="line">        flag = -<span class="number">1</span>;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (i &lt; str.length() &amp;&amp; str.charAt(i) == <span class="string">'+'</span>)</span><br><span class="line">        i++;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (i &lt; str.length() &amp;&amp; Character.isDigit(str.charAt(i))) &#123;</span><br><span class="line">        <span class="keyword">int</span> digit = Character.getNumericValue(str.charAt(i));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (num &gt; Integer.MAX_VALUE / <span class="number">10</span> || (num == <span class="number">214748364</span> &amp;&amp; digit &gt; <span class="number">7</span>))</span><br><span class="line">            <span class="keyword">return</span> flag == <span class="number">1</span> ? Integer.MAX_VALUE : Integer.MIN_VALUE;</span><br><span class="line"></span><br><span class="line">        num = <span class="number">10</span> * num + digit;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> flag * num;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -569,7 +583,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hint"><span class="nav-number">1.</span> <span class="nav-text">Hint</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Notes"><span class="nav-number">2.</span> <span class="nav-text">Notes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Requirements-for-atoi"><span class="nav-number">3.</span> <span class="nav-text">Requirements for atoi</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">4.</span> <span class="nav-text">Code</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1"><span class="nav-number">1.1.</span> <span class="nav-text">No.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2"><span class="nav-number">1.2.</span> <span class="nav-text">No.2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-3"><span class="nav-number">1.3.</span> <span class="nav-text">No.3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-4"><span class="nav-number">1.4.</span> <span class="nav-text">No.4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-5"><span class="nav-number">1.5.</span> <span class="nav-text">No.5</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Notes"><span class="nav-number">2.</span> <span class="nav-text">Notes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li></ol></div>
             
 
           </div>
