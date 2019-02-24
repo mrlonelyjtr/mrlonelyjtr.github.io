@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="Determine whether an integer is a palindrome. Do this without extra space. Some hintsCould negative integers be palindromes? (ie, -1) If you are thinking of converting the integer to string, note the">
+<meta name="description" content="Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward. ExampleNo.1Input: 121 Output: true No.2Input: -121 Output: false Explanation: From">
 <meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[LeetCode] Problem 9 - Palindrome Number">
 <meta property="og:url" content="http://yoursite.com/2017/09/13/LeetCode-Problem-9-Palindrome-Number/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="Determine whether an integer is a palindrome. Do this without extra space. Some hintsCould negative integers be palindromes? (ie, -1) If you are thinking of converting the integer to string, note the">
+<meta property="og:description" content="Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward. ExampleNo.1Input: 121 Output: true No.2Input: -121 Output: false Explanation: From">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-09-12T16:46:40.000Z">
+<meta property="og:updated_time" content="2019-02-24T14:43:01.443Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LeetCode] Problem 9 - Palindrome Number">
-<meta name="twitter:description" content="Determine whether an integer is a palindrome. Do this without extra space. Some hintsCould negative integers be palindromes? (ie, -1) If you are thinking of converting the integer to string, note the">
+<meta name="twitter:description" content="Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward. ExampleNo.1Input: 121 Output: true No.2Input: -121 Output: false Explanation: From">
 
 
 
@@ -366,11 +366,16 @@
       
 
       
-        <p>Determine whether an integer is a palindrome. Do this without extra space.</p>
-<h2 id="Some-hints"><a href="#Some-hints" class="headerlink" title="Some hints"></a>Some hints</h2><p>Could negative integers be palindromes? (ie, -1)</p>
-<p>If you are thinking of converting the integer to string, note the restriction of using extra space.</p>
-<p>You could also try reversing an integer. However, if you have solved the problem “Reverse Integer”, you know that the reversed integer might overflow. How would you handle such case?</p>
-<p>There is a more generic way of solving this problem.</p>
+        <p>Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Input: 121</p>
+<p>Output: true</p>
+<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Input: -121</p>
+<p>Output: false</p>
+<p>Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.</p>
+<h3 id="No-3"><a href="#No-3" class="headerlink" title="No.3"></a>No.3</h3><p>Input: 10</p>
+<p>Output: false</p>
+<p>Explanation: Reads 01 from right to left. Therefore it is not a palindrome.</p>
+<h2 id="Follow-up"><a href="#Follow-up" class="headerlink" title="Follow up"></a>Follow up</h2><p>Coud you solve it without converting the integer to a string?</p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x &lt; <span class="number">0</span> || (x != <span class="number">0</span> &amp;&amp; x % <span class="number">10</span> == <span class="number">0</span>))</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> reverseX = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (x &gt; reverseX) &#123;</span><br><span class="line">        reverseX = reverseX * <span class="number">10</span> + x % <span class="number">10</span>;</span><br><span class="line">        x /= <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> x == reverseX || reverseX / <span class="number">10</span> == x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -499,7 +504,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">191</span>
+                <span class="site-state-item-count">192</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -567,7 +572,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Some-hints"><span class="nav-number">1.</span> <span class="nav-text">Some hints</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">2.</span> <span class="nav-text">Code</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1"><span class="nav-number">1.1.</span> <span class="nav-text">No.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2"><span class="nav-number">1.2.</span> <span class="nav-text">No.2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-3"><span class="nav-number">1.3.</span> <span class="nav-text">No.3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Follow-up"><span class="nav-number">2.</span> <span class="nav-text">Follow up</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li></ol></div>
             
 
           </div>
