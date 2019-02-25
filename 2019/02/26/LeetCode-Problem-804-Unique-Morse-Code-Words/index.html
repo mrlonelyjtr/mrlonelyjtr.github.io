@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="Given an input string, reverse the string word by word. NoteA word is defined as a sequence of non-space characters. Input string may contain leading or trailing spaces. However, your reversed string">
+<meta name="description" content="International Morse Code defines a standard encoding where each letter is mapped to a series of dots and dashes, as follows: “a” maps to “.-“, “b” maps to “-…”, “c” maps to “-.-.”, and so on. For conv">
 <meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LeetCode] Problem 151 - Reverse Words in a String">
-<meta property="og:url" content="http://yoursite.com/2017/09/12/LeetCode-Problem-151-Reverse-Words-in-a-String/index.html">
+<meta property="og:title" content="[LeetCode] Problem 804 - Unique Morse Code Words">
+<meta property="og:url" content="http://yoursite.com/2019/02/26/LeetCode-Problem-804-Unique-Morse-Code-Words/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="Given an input string, reverse the string word by word. NoteA word is defined as a sequence of non-space characters. Input string may contain leading or trailing spaces. However, your reversed string">
+<meta property="og:description" content="International Morse Code defines a standard encoding where each letter is mapped to a series of dots and dashes, as follows: “a” maps to “.-“, “b” maps to “-…”, “c” maps to “-.-.”, and so on. For conv">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-02-24T15:53:33.341Z">
+<meta property="og:updated_time" content="2019-02-25T15:55:09.820Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LeetCode] Problem 151 - Reverse Words in a String">
-<meta name="twitter:description" content="Given an input string, reverse the string word by word. NoteA word is defined as a sequence of non-space characters. Input string may contain leading or trailing spaces. However, your reversed string">
+<meta name="twitter:title" content="[LeetCode] Problem 804 - Unique Morse Code Words">
+<meta name="twitter:description" content="International Morse Code defines a standard encoding where each letter is mapped to a series of dots and dashes, as follows: “a” maps to “.-“, “b” maps to “-…”, “c” maps to “-.-.”, and so on. For conv">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/12/LeetCode-Problem-151-Reverse-Words-in-a-String/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/02/26/LeetCode-Problem-804-Unique-Morse-Code-Words/"/>
 
 
 
 
 
-  <title> [LeetCode] Problem 151 - Reverse Words in a String | mrlonelyjtr's blog </title>
+  <title> [LeetCode] Problem 804 - Unique Morse Code Words | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -261,7 +261,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/12/LeetCode-Problem-151-Reverse-Words-in-a-String/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/26/LeetCode-Problem-804-Unique-Morse-Code-Words/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -282,7 +282,7 @@
             
             
               
-                [LeetCode] Problem 151 - Reverse Words in a String
+                [LeetCode] Problem 804 - Unique Morse Code Words
               
             
           </h1>
@@ -297,8 +297,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-12T02:35:34+08:00">
-                2017-09-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-25T23:43:11Z">
+                2019-02-25
               </time>
             
 
@@ -366,13 +366,17 @@
       
 
       
-        <p>Given an input string, reverse the string word by word.</p>
-<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>A word is defined as a sequence of non-space characters.</p>
-<p>Input string may contain leading or trailing spaces. However, your reversed string should not contain leading or trailing spaces.</p>
-<p>You need to reduce multiple spaces between two words to a single space in the reversed string.</p>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>Input: “the sky is blue”,</p>
-<p>Output: “blue is sky the”.</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// O(n) runtime, O(n) space</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">reverseWords</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">    <span class="keyword">int</span> end = s.length();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> start = s.length() - <span class="number">1</span>; start &gt;= <span class="number">0</span>; start--) &#123;</span><br><span class="line">        <span class="keyword">if</span> (s.charAt(start) == <span class="string">' '</span>)</span><br><span class="line">            end = start;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (start == <span class="number">0</span> || s.charAt(start - <span class="number">1</span>) == <span class="string">' '</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (sb.length() != <span class="number">0</span>)</span><br><span class="line">                sb.append(<span class="string">" "</span>);</span><br><span class="line">            </span><br><span class="line">            sb.append(s.substring(start, end));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> sb.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>International Morse Code defines a standard encoding where each letter is mapped to a series of dots and dashes, as follows: “a” maps to “.-“, “b” maps to “-…”, “c” maps to “-.-.”, and so on.</p>
+<p>For convenience, the full table for the 26 letters of the English alphabet is given below:</p>
+<p>[“.-“,”-…”,”-.-.”,”-..”,”.”,”..-.”,”–.”,”….”,”..”,”.—“,”-.-“,”.-..”,”–”,”-.”,”—“,”.–.”,”–.-“,”.-.”,”…”,”-“,”..-“,”…-“,”.–”,”-..-“,”-.–”,”–..”]</p>
+<p>Now, given a list of words, each word can be written as a concatenation of the Morse code of each letter. For example, “cba” can be written as “-.-..–…”, (which is the concatenation “-.-.” + “-…” + “.-“). We’ll call such a concatenation, the transformation of a word.</p>
+<p>Return the number of different transformations among all words we have.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>Input: words = [“gin”, “zen”, “gig”, “msg”]</p>
+<p>Output: 2</p>
+<p>Explanation:<br>The transformation of each word is:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"gin"</span> -&gt; <span class="string">"--...-."</span></span><br><span class="line"><span class="string">"zen"</span> -&gt; <span class="string">"--...-."</span></span><br><span class="line"><span class="string">"gig"</span> -&gt; <span class="string">"--...--."</span></span><br><span class="line"><span class="string">"msg"</span> -&gt; <span class="string">"--...--."</span></span><br></pre></td></tr></table></figure></p>
+<p>There are 2 different transformations, “–…-.” and “–…–.”.</p>
+<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>The length of words will be at most 100.<br>Each words[i] will have length in range [1, 12].<br>words[i] will only consist of lowercase letters.</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniqueMorseRepresentations</span><span class="params">(String[] words)</span> </span>&#123;</span><br><span class="line">    Set&lt;String&gt; result = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">    String[] morse = &#123;<span class="string">".-"</span>,<span class="string">"-..."</span>,<span class="string">"-.-."</span>,<span class="string">"-.."</span>,<span class="string">"."</span>,<span class="string">"..-."</span>,<span class="string">"--."</span>,<span class="string">"...."</span>,<span class="string">".."</span>,<span class="string">".---"</span>,<span class="string">"-.-"</span>,<span class="string">".-.."</span>,<span class="string">"--"</span>,<span class="string">"-."</span>,<span class="string">"---"</span>,                    <span class="string">".--."</span>,<span class="string">"--.-"</span>,<span class="string">".-."</span>,<span class="string">"..."</span>,<span class="string">"-"</span>,<span class="string">"..-"</span>,<span class="string">"...-"</span>,<span class="string">".--"</span>,<span class="string">"-..-"</span>,<span class="string">"-.--"</span>,<span class="string">"--.."</span>&#125;;</span><br><span class="line">    <span class="keyword">for</span> (String word : words) &#123;</span><br><span class="line">        String str = <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> ch : word.toCharArray())</span><br><span class="line">            str += morse[ch - <span class="string">'a'</span>];</span><br><span class="line">        </span><br><span class="line">        result.add(str);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result.size();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -416,8 +420,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/12/LeetCode-Problem-28-Implement-strStr/" rel="next" title="[LeetCode] Problem 28 - Implement strStr()">
-                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 28 - Implement strStr()
+              <a href="/2019/02/26/LeetCode-Problem-709-To-Lower-Case/" rel="next" title="[LeetCode] Problem 709 - To Lower Case">
+                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 709 - To Lower Case
               </a>
             
           </div>
@@ -425,10 +429,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/12/LeetCode-Problem-8-String-to-Integer-atoi/" rel="prev" title="[LeetCode] Problem 8 - String to Integer (atoi)">
-                [LeetCode] Problem 8 - String to Integer (atoi) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -568,7 +568,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">1.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">2.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">2.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li></ol></div>
             
 
           </div>
