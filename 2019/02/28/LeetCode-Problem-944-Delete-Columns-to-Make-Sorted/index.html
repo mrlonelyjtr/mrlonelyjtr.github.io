@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="题目请实现一个函数用来匹配包含‘.’和‘’的正则表达式。模式中的字符‘.’表示任意一个字符，而‘’表示它前面的字符可以出现任意次（含0次）。在本题中，匹配是指字符串的所有字符匹配整个模式。例如，字符串“aaa”与模式“a.a”和“abaca”匹配，但与“aa.a”及“ab*a”均不匹配。 实现12345678910111213141516171819202122232425262728public">
+<meta name="description" content="We are given an array A of N lowercase letter strings, all of the same length. Now, we may choose any set of deletion indices, and for each string, we delete all the characters in those indices. For e">
 <meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【剑指Offer】正则表达式匹配">
-<meta property="og:url" content="http://yoursite.com/2017/09/07/【剑指Offer】正则表达式匹配/index.html">
+<meta property="og:title" content="[LeetCode] Problem 944 - Delete Columns to Make Sorted">
+<meta property="og:url" content="http://yoursite.com/2019/02/28/LeetCode-Problem-944-Delete-Columns-to-Make-Sorted/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="题目请实现一个函数用来匹配包含‘.’和‘’的正则表达式。模式中的字符‘.’表示任意一个字符，而‘’表示它前面的字符可以出现任意次（含0次）。在本题中，匹配是指字符串的所有字符匹配整个模式。例如，字符串“aaa”与模式“a.a”和“abaca”匹配，但与“aa.a”及“ab*a”均不匹配。 实现12345678910111213141516171819202122232425262728public">
+<meta property="og:description" content="We are given an array A of N lowercase letter strings, all of the same length. Now, we may choose any set of deletion indices, and for each string, we delete all the characters in those indices. For e">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-09-06T13:55:32.000Z">
+<meta property="og:updated_time" content="2019-02-27T14:38:48.014Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【剑指Offer】正则表达式匹配">
-<meta name="twitter:description" content="题目请实现一个函数用来匹配包含‘.’和‘’的正则表达式。模式中的字符‘.’表示任意一个字符，而‘’表示它前面的字符可以出现任意次（含0次）。在本题中，匹配是指字符串的所有字符匹配整个模式。例如，字符串“aaa”与模式“a.a”和“abaca”匹配，但与“aa.a”及“ab*a”均不匹配。 实现12345678910111213141516171819202122232425262728public">
+<meta name="twitter:title" content="[LeetCode] Problem 944 - Delete Columns to Make Sorted">
+<meta name="twitter:description" content="We are given an array A of N lowercase letter strings, all of the same length. Now, we may choose any set of deletion indices, and for each string, we delete all the characters in those indices. For e">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/07/【剑指Offer】正则表达式匹配/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/02/28/LeetCode-Problem-944-Delete-Columns-to-Make-Sorted/"/>
 
 
 
 
 
-  <title> 【剑指Offer】正则表达式匹配 | mrlonelyjtr's blog </title>
+  <title> [LeetCode] Problem 944 - Delete Columns to Make Sorted | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -261,7 +261,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/07/【剑指Offer】正则表达式匹配/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/LeetCode-Problem-944-Delete-Columns-to-Make-Sorted/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -282,7 +282,7 @@
             
             
               
-                【剑指Offer】正则表达式匹配
+                [LeetCode] Problem 944 - Delete Columns to Make Sorted
               
             
           </h1>
@@ -297,8 +297,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-07T05:50:41+08:00">
-                2017-09-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-27T22:25:28Z">
+                2019-02-27
               </time>
             
 
@@ -331,8 +331,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/剑指Offer/" itemprop="url" rel="index">
-                    <span itemprop="name">剑指Offer</span>
+                  <a href="/categories/Algorithm/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
                   </a>
                 </span>
 
@@ -366,8 +366,22 @@
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>请实现一个函数用来匹配包含‘.’和‘<em>’的正则表达式。模式中的字符‘.’表示任意一个字符，而‘</em>’表示它前面的字符可以出现任意次（含0次）。在本题中，匹配是指字符串的所有字符匹配整个模式。例如，字符串“aaa”与模式“a.a”和“ab<em>ac</em>a”匹配，但与“aa.a”及“ab*a”均不匹配。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">match</span><span class="params">(<span class="keyword">char</span>[] str, <span class="keyword">char</span>[] pattern)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (str == <span class="keyword">null</span> || pattern == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> matchHelper(str, <span class="number">0</span>, pattern, <span class="number">0</span> );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">matchHelper</span><span class="params">(<span class="keyword">char</span>[] str, <span class="keyword">int</span> strIdx, <span class="keyword">char</span>[] pattern, <span class="keyword">int</span> patternIdx)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (strIdx == str.length &amp;&amp; patternIdx == pattern.length)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (strIdx != str.length &amp;&amp; patternIdx == pattern.length)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (patternIdx + <span class="number">1</span> &lt; pattern.length &amp;&amp; pattern[patternIdx+<span class="number">1</span>] == <span class="string">'*'</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (strIdx &lt; str.length &amp;&amp; (str[strIdx] == pattern[patternIdx] || pattern[patternIdx] == <span class="string">'.'</span>))</span><br><span class="line">            <span class="keyword">return</span> matchHelper(str, strIdx, pattern, patternIdx + <span class="number">2</span>)</span><br><span class="line">                    || matchHelper(str , strIdx + <span class="number">1</span>, pattern, patternIdx)</span><br><span class="line">                    || matchHelper(str, strIdx + <span class="number">1</span>, pattern, patternIdx + <span class="number">2</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> matchHelper(str, strIdx, pattern, patternIdx + <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (strIdx &lt; str.length &amp;&amp; (str[strIdx] == pattern[patternIdx] || pattern[patternIdx] == <span class="string">'.'</span>))</span><br><span class="line">        <span class="keyword">return</span> matchHelper(str, strIdx + <span class="number">1</span>, pattern, patternIdx + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>We are given an array A of N lowercase letter strings, all of the same length.</p>
+<p>Now, we may choose any set of deletion indices, and for each string, we delete all the characters in those indices.</p>
+<p>For example, if we have an array A = [“abcdef”,”uvwxyz”] and deletion indices {0, 2, 3}, then the final array after deletions is [“bef”, “vyz”], and the remaining columns of A are [“b”,”v”], [“e”,”y”], and [“f”,”z”].  (Formally, the c-th column is [A[0][c], A[1][c], …, A[A.length-1][c]].)</p>
+<p>Suppose we chose a set of deletion indices D such that after deletions, each remaining column in A is in non-decreasing sorted order.</p>
+<p>Return the minimum possible value of D.length.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Input: [“cba”,”daf”,”ghi”]</p>
+<p>Output: 1</p>
+<p>Explanation:<br>After choosing D = {1}, each column [“c”,”d”,”g”] and [“a”,”f”,”i”] are in non-decreasing sorted order.<br>If we chose D = {}, then a column [“b”,”a”,”h”] would not be in non-decreasing sorted order.</p>
+<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Input: [“a”,”b”]</p>
+<p>Output: 0</p>
+<p>Explanation: D = {}</p>
+<h3 id="No-3"><a href="#No-3" class="headerlink" title="No.3"></a>No.3</h3><p>Input: [“zyx”,”wvu”,”tsr”]</p>
+<p>Output: 3</p>
+<p>Explanation: D = {0, 1, 2}</p>
+<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>1 &lt;= A.length &lt;= 100<br>1 &lt;= A[i].length &lt;= 1000</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minDeletionSize</span><span class="params">(String[] A)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; A[<span class="number">0</span>].length(); i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; A.length - <span class="number">1</span>; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (A[j].charAt(i) &gt; A[j + <span class="number">1</span>].charAt(i)) &#123;</span><br><span class="line">                result++;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -411,8 +425,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/07/【剑指Offer】构建乘积数组/" rel="next" title="【剑指Offer】构建乘积数组">
-                <i class="fa fa-chevron-left"></i> 【剑指Offer】构建乘积数组
+              <a href="/2019/02/28/LeetCode-Problem-942-DI-String-Match/" rel="next" title="[LeetCode] Problem 942 - DI String Match">
+                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 942 - DI String Match
               </a>
             
           </div>
@@ -420,10 +434,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/07/【剑指Offer】表示数值的字符串/" rel="prev" title="【剑指Offer】表示数值的字符串">
-                【剑指Offer】表示数值的字符串 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -563,7 +573,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1"><span class="nav-number">1.1.</span> <span class="nav-text">No.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2"><span class="nav-number">1.2.</span> <span class="nav-text">No.2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-3"><span class="nav-number">1.3.</span> <span class="nav-text">No.3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">2.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li></ol></div>
             
 
           </div>
