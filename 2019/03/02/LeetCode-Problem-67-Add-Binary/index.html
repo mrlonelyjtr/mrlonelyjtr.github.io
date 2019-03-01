@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="Write a program to check whether a given number is an ugly number. Ugly numbers are positive numbers whose prime factors only include 2, 3, 5.  Note1 is typically treated as an ugly number. Input is w">
+<meta name="description" content="Given two binary strings, return their sum (also a binary string). The input strings are both non-empty and contains only characters 1 or 0. ExampleNo.1Input: a = “11”, b = “1” Output: “100” No.2Input">
 <meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LeetCode] Problem 263 - Ugly Number">
-<meta property="og:url" content="http://yoursite.com/2017/10/31/LeetCode-Problem-263-Ugly-Number/index.html">
+<meta property="og:title" content="[LeetCode] Problem 67 - Add Binary">
+<meta property="og:url" content="http://yoursite.com/2019/03/02/LeetCode-Problem-67-Add-Binary/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="Write a program to check whether a given number is an ugly number. Ugly numbers are positive numbers whose prime factors only include 2, 3, 5.  Note1 is typically treated as an ugly number. Input is w">
+<meta property="og:description" content="Given two binary strings, return their sum (also a binary string). The input strings are both non-empty and contains only characters 1 or 0. ExampleNo.1Input: a = “11”, b = “1” Output: “100” No.2Input">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-02-24T16:03:59.245Z">
+<meta property="og:updated_time" content="2019-03-01T16:48:21.418Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LeetCode] Problem 263 - Ugly Number">
-<meta name="twitter:description" content="Write a program to check whether a given number is an ugly number. Ugly numbers are positive numbers whose prime factors only include 2, 3, 5.  Note1 is typically treated as an ugly number. Input is w">
+<meta name="twitter:title" content="[LeetCode] Problem 67 - Add Binary">
+<meta name="twitter:description" content="Given two binary strings, return their sum (also a binary string). The input strings are both non-empty and contains only characters 1 or 0. ExampleNo.1Input: a = “11”, b = “1” Output: “100” No.2Input">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/10/31/LeetCode-Problem-263-Ugly-Number/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/02/LeetCode-Problem-67-Add-Binary/"/>
 
 
 
 
 
-  <title> [LeetCode] Problem 263 - Ugly Number | mrlonelyjtr's blog </title>
+  <title> [LeetCode] Problem 67 - Add Binary | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -261,7 +261,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/31/LeetCode-Problem-263-Ugly-Number/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/02/LeetCode-Problem-67-Add-Binary/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -282,7 +282,7 @@
             
             
               
-                [LeetCode] Problem 263 - Ugly Number
+                [LeetCode] Problem 67 - Add Binary
               
             
           </h1>
@@ -297,8 +297,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-31T07:24:56+08:00">
-                2017-10-30
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-02T00:30:46Z">
+                2019-03-02
               </time>
             
 
@@ -366,20 +366,13 @@
       
 
       
-        <p>Write a program to check whether a given number is an ugly number.</p>
-<p>Ugly numbers are positive numbers whose prime factors only include 2, 3, 5. </p>
-<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>1 is typically treated as an ugly number.</p>
-<p>Input is within the 32-bit signed integer range: [−2^31,  2^31 − 1].</p>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Input: 6</p>
-<p>Output: true</p>
-<p>Explanation: 6 = 2 × 3</p>
-<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Input: 8</p>
-<p>Output: true</p>
-<p>Explanation: 8 = 2 × 2 × 2</p>
-<h3 id="No-3"><a href="#No-3" class="headerlink" title="No.3"></a>No.3</h3><p>Input: 14</p>
-<p>Output: false </p>
-<p>Explanation: 14 is not ugly since it includes another prime factor 7.</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isUgly</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (num &lt;= <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (num == <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (num % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">        num /= <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (num % <span class="number">3</span> == <span class="number">0</span>)</span><br><span class="line">        num /= <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (num % <span class="number">5</span> == <span class="number">0</span>)</span><br><span class="line">        num /= <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> num == <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>Given two binary strings, return their sum (also a binary string).</p>
+<p>The input strings are both non-empty and contains only characters 1 or 0.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Input: a = “11”, b = “1”</p>
+<p>Output: “100”</p>
+<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Input: a = “1010”, b = “1011”</p>
+<p>Output: “10101”</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">addBinary</span><span class="params">(String a, String b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> carry = <span class="number">0</span>;</span><br><span class="line">    StringBuffer result = <span class="keyword">new</span> StringBuffer();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = a.length() - <span class="number">1</span>, j = b.length() - <span class="number">1</span>; i &gt;= <span class="number">0</span> || j &gt;= <span class="number">0</span>; i--, j--) &#123;</span><br><span class="line">        <span class="keyword">int</span> sum = carry;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (i &gt;= <span class="number">0</span>)</span><br><span class="line">            sum += a.charAt(i) - <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">if</span> (j &gt;= <span class="number">0</span>)</span><br><span class="line">            sum += b.charAt(j) - <span class="string">'0'</span>;</span><br><span class="line">        </span><br><span class="line">        carry = sum / <span class="number">2</span>;</span><br><span class="line">        result.insert(<span class="number">0</span>, sum % <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (carry &gt; <span class="number">0</span>)</span><br><span class="line">        result.insert(<span class="number">0</span>, carry);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> result.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -423,8 +416,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/31/LeetCode-Problem-202-Happy-Number/" rel="next" title="[LeetCode] Problem 202 - Happy Number">
-                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 202 - Happy Number
+              <a href="/2019/03/02/LeetCode-Problem-100-Same-Tree/" rel="next" title="[LeetCode] Problem 100 - Same Tree">
+                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 100 - Same Tree
               </a>
             
           </div>
@@ -432,10 +425,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/10/31/LeetCode-Problem-264-Ugly-Number-II/" rel="prev" title="[LeetCode] Problem 264 - Ugly Number II">
-                [LeetCode] Problem 264 - Ugly Number II <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -575,7 +564,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">1.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">2.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1"><span class="nav-number">2.1.</span> <span class="nav-text">No.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2"><span class="nav-number">2.2.</span> <span class="nav-text">No.2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-3"><span class="nav-number">2.3.</span> <span class="nav-text">No.3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1"><span class="nav-number">1.1.</span> <span class="nav-text">No.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2"><span class="nav-number">1.2.</span> <span class="nav-text">No.2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">2.</span> <span class="nav-text">Code</span></a></li></ol></div>
             
 
           </div>
