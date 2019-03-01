@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases. NoteFor the purpose of this problem, we define empty string as valid palindrome. ExampleNo">
+<meta name="description" content="Given a string s consists of upper/lower-case alphabets and empty space characters ‘ ‘, return the length of last word in the string. If the last word does not exist, return 0. NoteA word is defined a">
 <meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LeetCode] Problem 125 - Valid Palindrome">
-<meta property="og:url" content="http://yoursite.com/2017/09/12/LeetCode-Problem-125-Valid-Palindrome/index.html">
+<meta property="og:title" content="[LeetCode] Problem 58 - Length of Last Word">
+<meta property="og:url" content="http://yoursite.com/2019/03/02/LeetCode-Problem-58-Length-of-Last-Word/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases. NoteFor the purpose of this problem, we define empty string as valid palindrome. ExampleNo">
+<meta property="og:description" content="Given a string s consists of upper/lower-case alphabets and empty space characters ‘ ‘, return the length of last word in the string. If the last word does not exist, return 0. NoteA word is defined a">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-02-24T15:38:07.252Z">
+<meta property="og:updated_time" content="2019-03-01T17:06:37.155Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LeetCode] Problem 125 - Valid Palindrome">
-<meta name="twitter:description" content="Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases. NoteFor the purpose of this problem, we define empty string as valid palindrome. ExampleNo">
+<meta name="twitter:title" content="[LeetCode] Problem 58 - Length of Last Word">
+<meta name="twitter:description" content="Given a string s consists of upper/lower-case alphabets and empty space characters ‘ ‘, return the length of last word in the string. If the last word does not exist, return 0. NoteA word is defined a">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/12/LeetCode-Problem-125-Valid-Palindrome/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/02/LeetCode-Problem-58-Length-of-Last-Word/"/>
 
 
 
 
 
-  <title> [LeetCode] Problem 125 - Valid Palindrome | mrlonelyjtr's blog </title>
+  <title> [LeetCode] Problem 58 - Length of Last Word | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -261,7 +261,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/12/LeetCode-Problem-125-Valid-Palindrome/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/02/LeetCode-Problem-58-Length-of-Last-Word/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -282,7 +282,7 @@
             
             
               
-                [LeetCode] Problem 125 - Valid Palindrome
+                [LeetCode] Problem 58 - Length of Last Word
               
             
           </h1>
@@ -297,8 +297,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-12T00:18:23+08:00">
-                2017-09-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-02T00:49:42Z">
+                2019-03-02
               </time>
             
 
@@ -366,13 +366,12 @@
       
 
       
-        <p>Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.</p>
-<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>For the purpose of this problem, we define empty string as valid palindrome.</p>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Input: “A man, a plan, a canal: Panama”</p>
-<p>Output: true</p>
-<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Input: “race a car”</p>
-<p>Output: false</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// O(n) runtime, O(1) space</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> start = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> end = s.length() - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (start &lt; end) &#123;</span><br><span class="line">        <span class="keyword">while</span> (start &lt; end &amp;&amp; !Character.isLetterOrDigit(s.charAt(start)))</span><br><span class="line">            start++;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (start &lt; end &amp;&amp; !Character.isLetterOrDigit(s.charAt(end)))</span><br><span class="line">            end--;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (Character.toLowerCase(s.charAt(start)) != Character.toLowerCase(s.charAt(end)))</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">        start++;</span><br><span class="line">        end--;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>Given a string s consists of upper/lower-case alphabets and empty space characters ‘ ‘, return the length of last word in the string.</p>
+<p>If the last word does not exist, return 0.</p>
+<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>A word is defined as a character sequence consists of non-space characters only.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>Input: “Hello World”</p>
+<p>Output: 5</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLastWord</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (s == <span class="keyword">null</span> || s.length() &lt; <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> i = s.length() - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (i &gt;= <span class="number">0</span> &amp;&amp; s.charAt(i) == <span class="string">' '</span>)</span><br><span class="line">        i--;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (i &gt;= <span class="number">0</span> &amp;&amp; s.charAt(i) != <span class="string">' '</span>) &#123;</span><br><span class="line">        result++;</span><br><span class="line">        i--;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -416,8 +415,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/11/LeetCode-Problem-167-Two-Sum-II-Input-array-is-sorted/" rel="next" title="[LeetCode] Problem 167 - Two Sum II - Input array is sorted">
-                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 167 - Two Sum II - Input array is sorted
+              <a href="/2019/03/02/LeetCode-Problem-67-Add-Binary/" rel="next" title="[LeetCode] Problem 67 - Add Binary">
+                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 67 - Add Binary
               </a>
             
           </div>
@@ -425,10 +424,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/12/LeetCode-Problem-28-Implement-strStr/" rel="prev" title="[LeetCode] Problem 28 - Implement strStr()">
-                [LeetCode] Problem 28 - Implement strStr() <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -568,7 +563,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">1.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">2.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1"><span class="nav-number">2.1.</span> <span class="nav-text">No.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2"><span class="nav-number">2.2.</span> <span class="nav-text">No.2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">1.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">2.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li></ol></div>
             
 
           </div>
