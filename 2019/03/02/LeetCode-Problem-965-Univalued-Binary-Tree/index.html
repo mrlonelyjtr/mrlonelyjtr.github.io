@@ -87,18 +87,21 @@
 
 
 
-<meta name="description" content="Given a binary tree, find its minimum depth. The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node. NoteA leaf is a node with no children. E">
+<meta name="description" content="A binary tree is univalued if every node in the tree has the same value. Return true if and only if the given tree is univalued. ExampleNo.1 Input: [1,1,1,1,1,null,1] Output: true No.2 Input: [2,2,2,5">
 <meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LeetCode] Problem 111 - Minimum Depth of Binary Tree">
-<meta property="og:url" content="http://yoursite.com/2017/09/15/LeetCode-Problem-111-Minimum-Depth-of-Binary-Tree/index.html">
+<meta property="og:title" content="[LeetCode] Problem 965 - Univalued Binary Tree">
+<meta property="og:url" content="http://yoursite.com/2019/03/02/LeetCode-Problem-965-Univalued-Binary-Tree/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="Given a binary tree, find its minimum depth. The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node. NoteA leaf is a node with no children. E">
+<meta property="og:description" content="A binary tree is univalued if every node in the tree has the same value. Return true if and only if the given tree is univalued. ExampleNo.1 Input: [1,1,1,1,1,null,1] Output: true No.2 Input: [2,2,2,5">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-02-24T15:33:47.243Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/01/kb8uO1.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/01/kb88YD.png">
+<meta property="og:updated_time" content="2019-03-01T15:26:21.252Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LeetCode] Problem 111 - Minimum Depth of Binary Tree">
-<meta name="twitter:description" content="Given a binary tree, find its minimum depth. The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node. NoteA leaf is a node with no children. E">
+<meta name="twitter:title" content="[LeetCode] Problem 965 - Univalued Binary Tree">
+<meta name="twitter:description" content="A binary tree is univalued if every node in the tree has the same value. Return true if and only if the given tree is univalued. ExampleNo.1 Input: [1,1,1,1,1,null,1] Output: true No.2 Input: [2,2,2,5">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/03/01/kb8uO1.png">
 
 
 
@@ -126,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/15/LeetCode-Problem-111-Minimum-Depth-of-Binary-Tree/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/02/LeetCode-Problem-965-Univalued-Binary-Tree/"/>
 
 
 
 
 
-  <title> [LeetCode] Problem 111 - Minimum Depth of Binary Tree | mrlonelyjtr's blog </title>
+  <title> [LeetCode] Problem 965 - Univalued Binary Tree | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -261,7 +264,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/15/LeetCode-Problem-111-Minimum-Depth-of-Binary-Tree/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/02/LeetCode-Problem-965-Univalued-Binary-Tree/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -282,7 +285,7 @@
             
             
               
-                [LeetCode] Problem 111 - Minimum Depth of Binary Tree
+                [LeetCode] Problem 965 - Univalued Binary Tree
               
             
           </h1>
@@ -297,8 +300,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-15T06:15:09+08:00">
-                2017-09-14
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-01T23:13:08Z">
+                2019-03-01
               </time>
             
 
@@ -366,15 +369,17 @@
       
 
       
-        <p>Given a binary tree, find its minimum depth.</p>
-<p>The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.</p>
-<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>A leaf is a node with no children.</p>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>Given binary tree [3,9,20,null,null,15,7],<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  3</span><br><span class="line"> / \</span><br><span class="line">9  20</span><br><span class="line">  /  \</span><br><span class="line"> 15   7</span><br></pre></td></tr></table></figure></p>
-<p>return its minimum depth = 2.</p>
-<h2 id="O-n-runtime-O-log-n-space-–-Depth-first-traversal"><a href="#O-n-runtime-O-log-n-space-–-Depth-first-traversal" class="headerlink" title="O(n) runtime, O(log n) space – Depth-first traversal"></a>O(n) runtime, O(log n) space – Depth-first traversal</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    TreeNode left;</span><br><span class="line">    TreeNode right;</span><br><span class="line">    TreeNode(<span class="keyword">int</span> x) &#123; val = x; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (root.left == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span> minDepth(root.right) + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (root.right == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span> minDepth(root.left) + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> Math.min(minDepth(root.right), minDepth(root.left)) + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="O-n-runtime-O-n-space-–-Breadth-first-traversal"><a href="#O-n-runtime-O-n-space-–-Breadth-first-traversal" class="headerlink" title="O(n) runtime, O(n) space – Breadth-first traversal"></a>O(n) runtime, O(n) space – Breadth-first traversal</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    TreeNode left;</span><br><span class="line">    TreeNode right;</span><br><span class="line">    TreeNode(<span class="keyword">int</span> x) &#123; val = x; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    Queue&lt;TreeNode&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    queue.offer(root);</span><br><span class="line">    TreeNode levelEnd = root;</span><br><span class="line">    <span class="keyword">int</span> depth = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (!queue.isEmpty()) &#123;</span><br><span class="line">        TreeNode current = queue.poll();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (current.left == <span class="keyword">null</span> &amp;&amp; current.right == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (current.left != <span class="keyword">null</span>)</span><br><span class="line">            queue.offer(current.left);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (current.right != <span class="keyword">null</span>)</span><br><span class="line">            queue.offer(current.right);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (current == levelEnd) &#123;</span><br><span class="line">            levelEnd = current.right == <span class="keyword">null</span> ? current.left : current.right;</span><br><span class="line">            depth++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> depth;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>A binary tree is univalued if every node in the tree has the same value.</p>
+<p>Return true if and only if the given tree is univalued.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p><img src="https://s2.ax1x.com/2019/03/01/kb8uO1.png" alt="kb8uO1.png"></p>
+<p>Input: [1,1,1,1,1,null,1]</p>
+<p>Output: true</p>
+<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p><img src="https://s2.ax1x.com/2019/03/01/kb88YD.png" alt="kb88YD.png"></p>
+<p>Input: [2,2,2,5,2]</p>
+<p>Output: false</p>
+<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>The number of nodes in the given tree will be in the range [1, 100].<br>Each node’s value will be an integer in the range [0, 99].</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    TreeNode left;</span><br><span class="line">    TreeNode right;</span><br><span class="line">    TreeNode(<span class="keyword">int</span> x) &#123; val = x; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isUnivalTree</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (root.left != <span class="keyword">null</span> &amp;&amp; root.val != root.left.val)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    <span class="keyword">if</span> (root.right != <span class="keyword">null</span> &amp;&amp; root.val != root.right.val)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> isUnivalTree(root.left) &amp;&amp; isUnivalTree(root.right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -418,8 +423,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/15/LeetCode-Problem-104-Maximum-Depth-of-Binary-Tree/" rel="next" title="[LeetCode] Problem 104 - Maximum Depth of Binary Tree">
-                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 104 - Maximum Depth of Binary Tree
+              <a href="/2019/03/02/LeetCode-Problem-985-Sum-of-Even-Numbers-After-Queries/" rel="next" title="[LeetCode] Problem 985 - Sum of Even Numbers After Queries">
+                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 985 - Sum of Even Numbers After Queries
               </a>
             
           </div>
@@ -427,10 +432,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/15/LeetCode-Problem-110-Balanced-Binary-Tree/" rel="prev" title="[LeetCode] Problem 110 - Balanced Binary Tree">
-                [LeetCode] Problem 110 - Balanced Binary Tree <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -570,7 +571,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">1.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">2.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#O-n-runtime-O-log-n-space-–-Depth-first-traversal"><span class="nav-number">3.</span> <span class="nav-text">O(n) runtime, O(log n) space – Depth-first traversal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#O-n-runtime-O-n-space-–-Breadth-first-traversal"><span class="nav-number">4.</span> <span class="nav-text">O(n) runtime, O(n) space – Breadth-first traversal</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1"><span class="nav-number">1.1.</span> <span class="nav-text">No.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2"><span class="nav-number">1.2.</span> <span class="nav-text">No.2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">2.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li></ol></div>
             
 
           </div>
