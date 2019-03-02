@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="题目输入两个递增排序的链表，合并这两个链表并使新链表中的结点仍然是按照递增排序的。 实现12345678public class ListNode &amp;#123;    int val;    ListNode next = null;    ListNode(int val) &amp;#123;        this.val = val;    &amp;#125;&amp;#125; 123456789101112">
+<meta name="description" content="Given an array nums of n integers and an integer target, find three integers in nums such that the sum is closest to target. Return the sum of the three integers. You may assume that each input would">
 <meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【剑指Offer】合并两个排序的链表">
-<meta property="og:url" content="http://yoursite.com/2017/05/14/【剑指Offer】合并两个排序的链表/index.html">
+<meta property="og:title" content="[LeetCode] Problem 16 - 3Sum Closest">
+<meta property="og:url" content="http://yoursite.com/2019/03/03/LeetCode-Problem-16-3Sum-Closest/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="题目输入两个递增排序的链表，合并这两个链表并使新链表中的结点仍然是按照递增排序的。 实现12345678public class ListNode &amp;#123;    int val;    ListNode next = null;    ListNode(int val) &amp;#123;        this.val = val;    &amp;#125;&amp;#125; 123456789101112">
+<meta property="og:description" content="Given an array nums of n integers and an integer target, find three integers in nums such that the sum is closest to target. Return the sum of the three integers. You may assume that each input would">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-09-01T16:20:51.000Z">
+<meta property="og:updated_time" content="2019-03-02T15:34:48.973Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【剑指Offer】合并两个排序的链表">
-<meta name="twitter:description" content="题目输入两个递增排序的链表，合并这两个链表并使新链表中的结点仍然是按照递增排序的。 实现12345678public class ListNode &amp;#123;    int val;    ListNode next = null;    ListNode(int val) &amp;#123;        this.val = val;    &amp;#125;&amp;#125; 123456789101112">
+<meta name="twitter:title" content="[LeetCode] Problem 16 - 3Sum Closest">
+<meta name="twitter:description" content="Given an array nums of n integers and an integer target, find three integers in nums such that the sum is closest to target. Return the sum of the three integers. You may assume that each input would">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/14/【剑指Offer】合并两个排序的链表/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/03/LeetCode-Problem-16-3Sum-Closest/"/>
 
 
 
 
 
-  <title> 【剑指Offer】合并两个排序的链表 | mrlonelyjtr's blog </title>
+  <title> [LeetCode] Problem 16 - 3Sum Closest | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -261,7 +261,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/14/【剑指Offer】合并两个排序的链表/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/03/LeetCode-Problem-16-3Sum-Closest/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -282,7 +282,7 @@
             
             
               
-                【剑指Offer】合并两个排序的链表
+                [LeetCode] Problem 16 - 3Sum Closest
               
             
           </h1>
@@ -297,8 +297,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-14T07:58:29+08:00">
-                2017-05-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-02T23:33:49Z">
+                2019-03-02
               </time>
             
 
@@ -331,8 +331,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/剑指Offer/" itemprop="url" rel="index">
-                    <span itemprop="name">剑指Offer</span>
+                  <a href="/categories/Algorithm/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
                   </a>
                 </span>
 
@@ -366,9 +366,10 @@
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>输入两个递增排序的链表，合并这两个链表并使新链表中的结点仍然是按照递增排序的。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    ListNode next = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    ListNode(<span class="keyword">int</span> val) &#123;</span><br><span class="line">        <span class="keyword">this</span>.val = val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">Merge</span><span class="params">(ListNode list1, ListNode list2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (list1 == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span> list2;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (list2 == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span> list1;</span><br><span class="line"></span><br><span class="line">    ListNode head = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (list1.val &lt; list2.val)&#123;</span><br><span class="line">        head = list1;</span><br><span class="line">        head.next = Merge(list1.next, list2);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        head = list2;</span><br><span class="line">        head.next = Merge(list1, list2.next);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>Given an array nums of n integers and an integer target, find three integers in nums such that the sum is closest to target. Return the sum of the three integers. You may assume that each input would have exactly one solution.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>Given array nums = [-1, 2, 1, -4], and target = 1.</p>
+<p>The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">threeSumClosest</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    Arrays.sort(nums);</span><br><span class="line">    <span class="keyword">int</span> result = nums[<span class="number">0</span>] + nums[<span class="number">1</span>] + nums[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length - <span class="number">2</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> left = i + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> right = nums.length - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="keyword">int</span> sum = nums[i] + nums[left] + nums[right];</span><br><span class="line">            result = Math.abs(target - sum) &lt; Math.abs(target - result) ? sum : result;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (sum &lt; target)</span><br><span class="line">                left++;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                right--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -412,8 +413,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/14/【剑指Offer】反转链表/" rel="next" title="【剑指Offer】反转链表">
-                <i class="fa fa-chevron-left"></i> 【剑指Offer】反转链表
+              <a href="/2019/03/03/LeetCode-Problem-15-3Sum/" rel="next" title="[LeetCode] Problem 15 - 3Sum">
+                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 15 - 3Sum
               </a>
             
           </div>
@@ -421,10 +422,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/14/【剑指Offer】树的子结构/" rel="prev" title="【剑指Offer】树的子结构">
-                【剑指Offer】树的子结构 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -564,7 +561,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">2.</span> <span class="nav-text">Code</span></a></li></ol></div>
             
 
           </div>
