@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses. For example, given n = 3, a solution set is: [  “((()))”,  “(()())”,  “(())()”,  “()(())”,  “()(">
+<meta name="description" content="Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses. For example, given n = 3, a solution set is:1234567[  &quot;((()))&quot;,  &quot;(()())&quot;,  &quot;(())()&quot;,  &quot;()(())&quot;,">
 <meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[LeetCode] Problem 22 - Generate Parentheses">
 <meta property="og:url" content="http://yoursite.com/2019/03/03/LeetCode-Problem-22-Generate-Parentheses/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses. For example, given n = 3, a solution set is: [  “((()))”,  “(()())”,  “(())()”,  “()(())”,  “()(">
+<meta property="og:description" content="Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses. For example, given n = 3, a solution set is:1234567[  &quot;((()))&quot;,  &quot;(()())&quot;,  &quot;(())()&quot;,  &quot;()(())&quot;,">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-03T05:46:52.642Z">
+<meta property="og:updated_time" content="2019-03-03T05:49:36.979Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LeetCode] Problem 22 - Generate Parentheses">
-<meta name="twitter:description" content="Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses. For example, given n = 3, a solution set is: [  “((()))”,  “(()())”,  “(())()”,  “()(())”,  “()(">
+<meta name="twitter:description" content="Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses. For example, given n = 3, a solution set is:1234567[  &quot;((()))&quot;,  &quot;(()())&quot;,  &quot;(())()&quot;,  &quot;()(())&quot;,">
 
 
 
@@ -367,8 +367,7 @@
 
       
         <p>Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.</p>
-<p>For example, given n = 3, a solution set is:</p>
-<p>[<br>  “((()))”,<br>  “(()())”,<br>  “(())()”,<br>  “()(())”,<br>  “()()()”<br>]</p>
+<p>For example, given n = 3, a solution set is:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  <span class="string">"((()))"</span>,</span><br><span class="line">  <span class="string">"(()())"</span>,</span><br><span class="line">  <span class="string">"(())()"</span>,</span><br><span class="line">  <span class="string">"()(())"</span>,</span><br><span class="line">  <span class="string">"()()()"</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">generateParenthesis</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    List&lt;String&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    generateParenthesisHelper(result, n, <span class="number">0</span>, <span class="number">0</span>, <span class="string">""</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">generateParenthesisHelper</span><span class="params">(List&lt;String&gt; result, <span class="keyword">int</span> n, <span class="keyword">int</span> open, <span class="keyword">int</span> close, String str)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (str.length() == <span class="number">2</span> * n) &#123;</span><br><span class="line">        result.add(str);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (close &lt; open)</span><br><span class="line">        generateParenthesisHelper(result, n, open, close + <span class="number">1</span>, str + <span class="string">")"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (open &lt; n)</span><br><span class="line">        generateParenthesisHelper(result, n, open + <span class="number">1</span>, close, str + <span class="string">"("</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -422,6 +421,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/04/LeetCode-Problem-32-Longest-Valid-Parentheses/" rel="prev" title="[LeetCode] Problem 32 - Longest Valid Parentheses">
+                [LeetCode] Problem 32 - Longest Valid Parentheses <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -493,7 +496,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">217</span>
+                <span class="site-state-item-count">218</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
