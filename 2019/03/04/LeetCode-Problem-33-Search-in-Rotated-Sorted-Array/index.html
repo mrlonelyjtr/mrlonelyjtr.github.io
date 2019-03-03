@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="Given a sorted array, remove the duplicates in-place such that each element appear only once and return the new length. Do not allocate extra space for another array, you must do this by modifying the">
+<meta name="description" content="Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand. (i.e., [0,1,2,4,5,6,7] might become [4,5,6,7,0,1,2]). You are given a target value to search. If found in">
 <meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LeetCode] Problem 26 - Remove Duplicates from Sorted Array">
-<meta property="og:url" content="http://yoursite.com/2018/01/16/LeetCode-Problem-26-Remove-Duplicates-from-Sorted-Array/index.html">
+<meta property="og:title" content="[LeetCode] Problem 33 - Search in Rotated Sorted Array">
+<meta property="og:url" content="http://yoursite.com/2019/03/04/LeetCode-Problem-33-Search-in-Rotated-Sorted-Array/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="Given a sorted array, remove the duplicates in-place such that each element appear only once and return the new length. Do not allocate extra space for another array, you must do this by modifying the">
+<meta property="og:description" content="Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand. (i.e., [0,1,2,4,5,6,7] might become [4,5,6,7,0,1,2]). You are given a target value to search. If found in">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-02-24T15:09:17.814Z">
+<meta property="og:updated_time" content="2019-03-03T14:29:39.343Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LeetCode] Problem 26 - Remove Duplicates from Sorted Array">
-<meta name="twitter:description" content="Given a sorted array, remove the duplicates in-place such that each element appear only once and return the new length. Do not allocate extra space for another array, you must do this by modifying the">
+<meta name="twitter:title" content="[LeetCode] Problem 33 - Search in Rotated Sorted Array">
+<meta name="twitter:description" content="Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand. (i.e., [0,1,2,4,5,6,7] might become [4,5,6,7,0,1,2]). You are given a target value to search. If found in">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/16/LeetCode-Problem-26-Remove-Duplicates-from-Sorted-Array/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/04/LeetCode-Problem-33-Search-in-Rotated-Sorted-Array/"/>
 
 
 
 
 
-  <title> [LeetCode] Problem 26 - Remove Duplicates from Sorted Array | mrlonelyjtr's blog </title>
+  <title> [LeetCode] Problem 33 - Search in Rotated Sorted Array | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -261,7 +261,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/16/LeetCode-Problem-26-Remove-Duplicates-from-Sorted-Array/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/04/LeetCode-Problem-33-Search-in-Rotated-Sorted-Array/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -282,7 +282,7 @@
             
             
               
-                [LeetCode] Problem 26 - Remove Duplicates from Sorted Array
+                [LeetCode] Problem 33 - Search in Rotated Sorted Array
               
             
           </h1>
@@ -297,8 +297,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-16T01:13:23+08:00">
-                2018-01-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-03T22:27:52Z">
+                2019-03-03
               </time>
             
 
@@ -366,19 +366,16 @@
       
 
       
-        <p>Given a sorted array, remove the duplicates in-place such that each element appear only once and return the new length.</p>
-<p>Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.</p>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Given nums = [1,1,2],</p>
-<p>Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively.</p>
-<p>It doesn’t matter what you leave beyond the new length.</p>
-<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Given nums = [0,0,1,1,1,2,2,3,3,4],</p>
-<p>Your function should return length = 5, with the first five elements of nums being modified to 0, 1, 2, 3, and 4 respectively.</p>
-<p>It doesn’t matter what values are set beyond the returned length.</p>
-<h2 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h2><p>Confused why the returned value is an integer but your answer is an array?</p>
-<p>Note that the input array is passed in by reference, which means modification to the input array will be known to the caller as well.</p>
-<p>Internally you can think of this:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// nums is passed in by reference. (i.e., without making a copy)</span></span><br><span class="line"><span class="keyword">int</span> len = removeDuplicates(nums);</span><br><span class="line"></span><br><span class="line"><span class="comment">// any modification to nums in your function would be known by the caller.</span></span><br><span class="line"><span class="comment">// using the length returned by your function, it prints the first len elements.</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">    print(nums[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length &lt; <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> length = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[i] != nums[length])</span><br><span class="line">            nums[++length] = nums[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> length + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.</p>
+<p>(i.e., [0,1,2,4,5,6,7] might become [4,5,6,7,0,1,2]).</p>
+<p>You are given a target value to search. If found in the array return its index, otherwise return -1.</p>
+<p>You may assume no duplicate exists in the array.</p>
+<p>Your algorithm’s runtime complexity must be in the order of O(log n).</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Input: nums = [4,5,6,7,0,1,2], target = 0</p>
+<p>Output: 4</p>
+<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Input: nums = [4,5,6,7,0,1,2], target = 3</p>
+<p>Output: -1</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> right = nums.length - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">        <span class="keyword">int</span> mid = (left + right) &gt;&gt; <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (nums[mid] == target)</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (nums[mid] &lt; nums[left]) &#123;</span><br><span class="line">            <span class="keyword">if</span> (target &lt;= nums[right] &amp;&amp; target &gt; nums[mid])</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                right = mid - <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (target &lt; nums[mid] &amp;&amp; target &gt;= nums[left])</span><br><span class="line">                right = mid - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -422,8 +419,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/29/Urllib-Demo/" rel="next" title="Urllib Demo">
-                <i class="fa fa-chevron-left"></i> Urllib Demo
+              <a href="/2019/03/04/LeetCode-Problem-32-Longest-Valid-Parentheses/" rel="next" title="[LeetCode] Problem 32 - Longest Valid Parentheses">
+                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 32 - Longest Valid Parentheses
               </a>
             
           </div>
@@ -431,10 +428,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/16/LeetCode-Problem-27-Remove-Element/" rel="prev" title="[LeetCode] Problem 27 - Remove Element">
-                [LeetCode] Problem 27 - Remove Element <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -574,7 +567,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1"><span class="nav-number">1.1.</span> <span class="nav-text">No.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2"><span class="nav-number">1.2.</span> <span class="nav-text">No.2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Clarification"><span class="nav-number">2.</span> <span class="nav-text">Clarification</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1"><span class="nav-number">1.1.</span> <span class="nav-text">No.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2"><span class="nav-number">1.2.</span> <span class="nav-text">No.2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">2.</span> <span class="nav-text">Code</span></a></li></ol></div>
             
 
           </div>
