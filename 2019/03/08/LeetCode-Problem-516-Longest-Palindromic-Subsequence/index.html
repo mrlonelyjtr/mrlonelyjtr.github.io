@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="题目输入一个链表，输出该链表中倒数第k个结点。例如一个链表有6个结点，从头结点开始它们的值依次是1、2、3、4、5、6。这个链表的倒数第3个结点是值为4的结点。 实现12345678public class ListNode &amp;#123;    int val;    ListNode next = null;    ListNode(int val) &amp;#123;        this.val">
+<meta name="description" content="Given a string s, find the longest palindromic subsequence’s length in s. You may assume that the maximum length of s is 1000. ExampleNo.1Input:“bbbab” Output:4 One possible longest palindromic subseq">
 <meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【剑指Offer】链表中倒数第k个结点">
-<meta property="og:url" content="http://yoursite.com/2017/05/14/【剑指Offer】链表中倒数第k个结点/index.html">
+<meta property="og:title" content="[LeetCode] Problem 516 - Longest Palindromic Subsequence">
+<meta property="og:url" content="http://yoursite.com/2019/03/08/LeetCode-Problem-516-Longest-Palindromic-Subsequence/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="题目输入一个链表，输出该链表中倒数第k个结点。例如一个链表有6个结点，从头结点开始它们的值依次是1、2、3、4、5、6。这个链表的倒数第3个结点是值为4的结点。 实现12345678public class ListNode &amp;#123;    int val;    ListNode next = null;    ListNode(int val) &amp;#123;        this.val">
+<meta property="og:description" content="Given a string s, find the longest palindromic subsequence’s length in s. You may assume that the maximum length of s is 1000. ExampleNo.1Input:“bbbab” Output:4 One possible longest palindromic subseq">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-09-01T15:49:12.000Z">
+<meta property="og:updated_time" content="2019-03-07T15:46:16.856Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【剑指Offer】链表中倒数第k个结点">
-<meta name="twitter:description" content="题目输入一个链表，输出该链表中倒数第k个结点。例如一个链表有6个结点，从头结点开始它们的值依次是1、2、3、4、5、6。这个链表的倒数第3个结点是值为4的结点。 实现12345678public class ListNode &amp;#123;    int val;    ListNode next = null;    ListNode(int val) &amp;#123;        this.val">
+<meta name="twitter:title" content="[LeetCode] Problem 516 - Longest Palindromic Subsequence">
+<meta name="twitter:description" content="Given a string s, find the longest palindromic subsequence’s length in s. You may assume that the maximum length of s is 1000. ExampleNo.1Input:“bbbab” Output:4 One possible longest palindromic subseq">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/14/【剑指Offer】链表中倒数第k个结点/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/08/LeetCode-Problem-516-Longest-Palindromic-Subsequence/"/>
 
 
 
 
 
-  <title> 【剑指Offer】链表中倒数第k个结点 | mrlonelyjtr's blog </title>
+  <title> [LeetCode] Problem 516 - Longest Palindromic Subsequence | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -261,7 +261,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/14/【剑指Offer】链表中倒数第k个结点/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/08/LeetCode-Problem-516-Longest-Palindromic-Subsequence/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -282,7 +282,7 @@
             
             
               
-                【剑指Offer】链表中倒数第k个结点
+                [LeetCode] Problem 516 - Longest Palindromic Subsequence
               
             
           </h1>
@@ -297,8 +297,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-14T05:59:54+08:00">
-                2017-05-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-07T23:44:36Z">
+                2019-03-07
               </time>
             
 
@@ -331,8 +331,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/剑指Offer/" itemprop="url" rel="index">
-                    <span itemprop="name">剑指Offer</span>
+                  <a href="/categories/Algorithm/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
                   </a>
                 </span>
 
@@ -366,16 +366,14 @@
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>输入一个链表，输出该链表中倒数第k个结点。例如一个链表有6个结点，从头结点开始它们的值依次是1、2、3、4、5、6。这个链表的倒数第3个结点是值为4的结点。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    ListNode next = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    ListNode(<span class="keyword">int</span> val) &#123;</span><br><span class="line">        <span class="keyword">this</span>.val = val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">FindKthToTail</span><span class="params">(ListNode head, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (k == <span class="number">0</span> || head == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    ListNode ahead = head;</span><br><span class="line">    ListNode behind = head;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; k; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (ahead.next == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        ahead = ahead.next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (ahead.next != <span class="keyword">null</span>)&#123;</span><br><span class="line">        ahead = ahead.next;</span><br><span class="line">        behind = behind.next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> behind;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="相关题目"><a href="#相关题目" class="headerlink" title="相关题目"></a>相关题目</h2><ol>
-<li><p>求链表的中间结点。如果链表中结点总数为奇数，返回中间结点；如果结点总数是偶数，返回中间两个结点的任意一个。我们也可以定义两个指针，同时从链表的头结点出发，一个指针一次走一步，另一个指针一次走两步。当走得快的指针走到链表的末尾时，走得慢的指针正好在链表的中间。</p>
-</li>
-<li><p>判断一个单向链表是否形成了环形结构。定义两个指针，同时从链表的头结点出发，一个指针一次走一步，另一个指针一次走两步。如果走得快的指针追上了走得慢的指针，那么链表就是环形链表；如果走得快的指针走到了链表的末尾都没有追上第一个指针，那么链表就不是环形链表。</p>
-</li>
-</ol>
-
+        <p>Given a string s, find the longest palindromic subsequence’s length in s. You may assume that the maximum length of s is 1000.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Input:<br>“bbbab”</p>
+<p>Output:<br>4</p>
+<p>One possible longest palindromic subsequence is “bbbb”.</p>
+<h3 id="No-2"><a href="#No-2" class="headerlink" title="No. 2"></a>No. 2</h3><p>Input:<br>“cbbd”</p>
+<p>Output:<br>2</p>
+<p>One possible longest palindromic subsequence is “bb”.</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">longestPalindromeSubseq</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = s.length();</span><br><span class="line">    <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n][n];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// dp[i][j] = dp[i+1][j-1] + 2            (Si == Sj)</span></span><br><span class="line">    <span class="comment">// dp[i][j] = Max(dp[i+1][j], dp[i][j-1]) (Si != Sj)</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        dp[i][i] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; n; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s.charAt(i) == s.charAt(j))</span><br><span class="line">                dp[i][j] = dp[i+<span class="number">1</span>][j-<span class="number">1</span>] + <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                dp[i][j] = Math.max(dp[i+<span class="number">1</span>][j], dp[i][j-<span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> dp[<span class="number">0</span>][n-<span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -419,8 +417,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/13/【剑指Offer】调整数组顺序使奇数位于偶数前面/" rel="next" title="【剑指Offer】调整数组顺序使奇数位于偶数前面">
-                <i class="fa fa-chevron-left"></i> 【剑指Offer】调整数组顺序使奇数位于偶数前面
+              <a href="/2019/03/08/LeetCode-Problem-653-Two-Sum-IV-Input-is-a-BST/" rel="next" title="[LeetCode] Problem 653 - Two Sum IV - Input is a BST">
+                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 653 - Two Sum IV - Input is a BST
               </a>
             
           </div>
@@ -428,10 +426,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/14/【剑指Offer】反转链表/" rel="prev" title="【剑指Offer】反转链表">
-                【剑指Offer】反转链表 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -571,7 +565,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关题目"><span class="nav-number">3.</span> <span class="nav-text">相关题目</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1"><span class="nav-number">1.1.</span> <span class="nav-text">No.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2"><span class="nav-number">1.2.</span> <span class="nav-text">No. 2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">2.</span> <span class="nav-text">Code</span></a></li></ol></div>
             
 
           </div>
