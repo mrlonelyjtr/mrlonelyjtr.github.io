@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="Given an array of integers, every element appears twice except for one. Find that single one. NoteYour algorithm should have a linear runtime complexity. Could you implement it without using extra mem">
+<meta name="description" content="Given a string s and a non-empty string p, find all the start indices of p’s anagrams in s. Strings consists of lowercase English letters only and the length of both strings s and p will not be larger">
 <meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LeetCode] Problem 136 - Single Number">
-<meta property="og:url" content="http://yoursite.com/2017/09/16/LeetCode-Problem-136-Single-Number/index.html">
+<meta property="og:title" content="[LeetCode] Problem 438 - Find All Anagrams in a String">
+<meta property="og:url" content="http://yoursite.com/2019/03/10/LeetCode-Problem-438-Find-All-Anagrams-in-a-String/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="Given an array of integers, every element appears twice except for one. Find that single one. NoteYour algorithm should have a linear runtime complexity. Could you implement it without using extra mem">
+<meta property="og:description" content="Given a string s and a non-empty string p, find all the start indices of p’s anagrams in s. Strings consists of lowercase English letters only and the length of both strings s and p will not be larger">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-02-24T15:45:21.170Z">
+<meta property="og:updated_time" content="2019-03-10T05:01:23.310Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LeetCode] Problem 136 - Single Number">
-<meta name="twitter:description" content="Given an array of integers, every element appears twice except for one. Find that single one. NoteYour algorithm should have a linear runtime complexity. Could you implement it without using extra mem">
+<meta name="twitter:title" content="[LeetCode] Problem 438 - Find All Anagrams in a String">
+<meta name="twitter:description" content="Given a string s and a non-empty string p, find all the start indices of p’s anagrams in s. Strings consists of lowercase English letters only and the length of both strings s and p will not be larger">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/16/LeetCode-Problem-136-Single-Number/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/10/LeetCode-Problem-438-Find-All-Anagrams-in-a-String/"/>
 
 
 
 
 
-  <title> [LeetCode] Problem 136 - Single Number | mrlonelyjtr's blog </title>
+  <title> [LeetCode] Problem 438 - Find All Anagrams in a String | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -261,7 +261,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/16/LeetCode-Problem-136-Single-Number/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/10/LeetCode-Problem-438-Find-All-Anagrams-in-a-String/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -282,7 +282,7 @@
             
             
               
-                [LeetCode] Problem 136 - Single Number
+                [LeetCode] Problem 438 - Find All Anagrams in a String
               
             
           </h1>
@@ -297,8 +297,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-16T07:15:52+08:00">
-                2017-09-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-10T01:38:02+08:00">
+                2019-03-09
               </time>
             
 
@@ -366,13 +366,16 @@
       
 
       
-        <p>Given an array of integers, every element appears twice except for one. Find that single one.</p>
-<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Input: [2,2,1]</p>
-<p>Output: 1</p>
-<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Input: [4,1,2,1,2]</p>
-<p>Output: 4</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> n : nums)</span><br><span class="line">        num ^= n;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> num;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>Given a string s and a non-empty string p, find all the start indices of p’s anagrams in s.</p>
+<p>Strings consists of lowercase English letters only and the length of both strings s and p will not be larger than 20,100.</p>
+<p>The order of output does not matter.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Input:<br>s: “cbaebabacd” p: “abc”</p>
+<p>Output:<br>[0, 6]</p>
+<p>Explanation:<br>The substring with start index = 0 is “cba”, which is an anagram of “abc”.<br>The substring with start index = 6 is “bac”, which is an anagram of “abc”.</p>
+<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Input:<br>s: “abab” p: “ab”</p>
+<p>Output:<br>[0, 1, 2]</p>
+<p>Explanation:<br>The substring with start index = 0 is “ab”, which is an anagram of “ab”.<br>The substring with start index = 1 is “ba”, which is an anagram of “ab”.<br>The substring with start index = 2 is “ab”, which is an anagram of “ab”.</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">findAnagrams</span><span class="params">(String s, String p)</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (s.length() &lt; p.length())</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span>[] count = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">26</span>];</span><br><span class="line">    <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> start = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> end = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">char</span> ch : p.toCharArray()) &#123;</span><br><span class="line">        <span class="keyword">int</span> idx = ch - <span class="string">'a'</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (count[idx] == <span class="number">0</span>)</span><br><span class="line">            num++;</span><br><span class="line"></span><br><span class="line">        count[idx]++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (end &lt; s.length()) &#123;</span><br><span class="line">        <span class="keyword">int</span> idxEnd = s.charAt(end) - <span class="string">'a'</span>;</span><br><span class="line">        count[idxEnd]--;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (count[idxEnd] == <span class="number">0</span>)</span><br><span class="line">            num--;</span><br><span class="line"></span><br><span class="line">        end++;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (num == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> idxStart = s.charAt(start) - <span class="string">'a'</span>;</span><br><span class="line">            count[idxStart]++;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (count[idxStart] &gt; <span class="number">0</span>)</span><br><span class="line">                num++;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (end - start == p.length())</span><br><span class="line">                result.add(start);</span><br><span class="line">            </span><br><span class="line">            start++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -416,8 +419,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/16/LeetCode-Problem-124-Binary-Tree-Maximum-Path-Sum/" rel="next" title="[LeetCode] Problem 124 - Binary Tree Maximum Path Sum">
-                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 124 - Binary Tree Maximum Path Sum
+              <a href="/2019/03/10/LintCode-Problem-597-Subtree-with-Maximum-Average/" rel="next" title="[LintCode] Problem 597 - Subtree with Maximum Average">
+                <i class="fa fa-chevron-left"></i> [LintCode] Problem 597 - Subtree with Maximum Average
               </a>
             
           </div>
@@ -425,10 +428,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/16/LeetCode-Problem-137-Single-Number-II/" rel="prev" title="[LeetCode] Problem 137 - Single Number II">
-                [LeetCode] Problem 137 - Single Number II <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -568,7 +567,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">1.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">2.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1"><span class="nav-number">2.1.</span> <span class="nav-text">No.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2"><span class="nav-number">2.2.</span> <span class="nav-text">No.2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1"><span class="nav-number">1.1.</span> <span class="nav-text">No.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2"><span class="nav-number">1.2.</span> <span class="nav-text">No.2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">2.</span> <span class="nav-text">Code</span></a></li></ol></div>
             
 
           </div>
