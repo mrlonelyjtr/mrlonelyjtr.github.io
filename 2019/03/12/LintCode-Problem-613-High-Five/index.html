@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="Given a string, find the length of the longest substring without repeating characters. ExampleNo.1Input: “abcabcbb” Output: 3  Explanation: The answer is “abc”, with the length of 3.  No.2Input: “bbbb">
+<meta name="description" content="There are two properties in the node student id and scores, to ensure that each student will have at least 5 points, find the average of 5 highest scores for each person. ExampleNo.1Input:[[1,91],[1,9">
 <meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LeetCode] Problem 3 - Longest Substring Without Repeating Characters">
-<meta property="og:url" content="http://yoursite.com/2017/09/12/LeetCode-Problem-3-Longest-Substring-Without-Repeating-Characters/index.html">
+<meta property="og:title" content="[LintCode] Problem 613 - High Five">
+<meta property="og:url" content="http://yoursite.com/2019/03/12/LintCode-Problem-613-High-Five/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="Given a string, find the length of the longest substring without repeating characters. ExampleNo.1Input: “abcabcbb” Output: 3  Explanation: The answer is “abc”, with the length of 3.  No.2Input: “bbbb">
+<meta property="og:description" content="There are two properties in the node student id and scores, to ensure that each student will have at least 5 points, find the average of 5 highest scores for each person. ExampleNo.1Input:[[1,91],[1,9">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-02-24T14:48:54.865Z">
+<meta property="og:updated_time" content="2019-03-12T11:44:59.369Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LeetCode] Problem 3 - Longest Substring Without Repeating Characters">
-<meta name="twitter:description" content="Given a string, find the length of the longest substring without repeating characters. ExampleNo.1Input: “abcabcbb” Output: 3  Explanation: The answer is “abc”, with the length of 3.  No.2Input: “bbbb">
+<meta name="twitter:title" content="[LintCode] Problem 613 - High Five">
+<meta name="twitter:description" content="There are two properties in the node student id and scores, to ensure that each student will have at least 5 points, find the average of 5 highest scores for each person. ExampleNo.1Input:[[1,91],[1,9">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/12/LeetCode-Problem-3-Longest-Substring-Without-Repeating-Characters/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/12/LintCode-Problem-613-High-Five/"/>
 
 
 
 
 
-  <title> [LeetCode] Problem 3 - Longest Substring Without Repeating Characters | mrlonelyjtr's blog </title>
+  <title> [LintCode] Problem 613 - High Five | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -261,7 +261,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/12/LeetCode-Problem-3-Longest-Substring-Without-Repeating-Characters/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/12/LintCode-Problem-613-High-Five/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -282,7 +282,7 @@
             
             
               
-                [LeetCode] Problem 3 - Longest Substring Without Repeating Characters
+                [LintCode] Problem 613 - High Five
               
             
           </h1>
@@ -297,8 +297,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-12T09:10:22+08:00">
-                2017-09-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-12T00:25:31Z">
+                2019-03-12
               </time>
             
 
@@ -331,8 +331,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
+                  <a href="/categories/Algorithm/LintCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LintCode</span>
                   </a>
                 </span>
 
@@ -366,17 +366,13 @@
       
 
       
-        <p>Given a string, find the length of the longest substring without repeating characters.</p>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Input: “abcabcbb”</p>
-<p>Output: 3 </p>
-<p>Explanation: The answer is “abc”, with the length of 3. </p>
-<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Input: “bbbbb”</p>
-<p>Output: 1</p>
-<p>Explanation: The answer is “b”, with the length of 1.</p>
-<h3 id="No-3"><a href="#No-3" class="headerlink" title="No.3"></a>No.3</h3><p>Input: “pwwkew”</p>
-<p>Output: 3</p>
-<p>Explanation: The answer is “wke”, with the length of 3. Note that the answer must be a substring, “pwke” is a subsequence and not a substring.</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// O(n) runtime, O(1) space</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] ascii = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">256</span>];</span><br><span class="line">    <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> idx = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    Arrays.fill(ascii, -<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (ascii[s.charAt(i)] &gt;= idx)</span><br><span class="line">            idx = ascii[s.charAt(i)] + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        ascii[s.charAt(i)] = i;</span><br><span class="line">        max = Math.max(max, i - idx + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>There are two properties in the node student id and scores, to ensure that each student will have at least 5 points, find the average of 5 highest scores for each person.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Input:<br>[[1,91],[1,92],[2,93],[2,99],[2,98],[2,97],[1,60],[1,58],[2,100],[1,61]]</p>
+<p>Output:<br>1: 72.40<br>2: 97.40</p>
+<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Input:<br>[[1,90],[1,90],[1,90],[1,90],[1,90],[1,90]]</p>
+<p>Output:<br>1: 90.00</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Record</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> id, score;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Record</span><span class="params">(<span class="keyword">int</span> id, <span class="keyword">int</span> score)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">        <span class="keyword">this</span>.score = score;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Map&lt;Integer, Double&gt; <span class="title">highFive</span><span class="params">(Record[] results)</span> </span>&#123;</span><br><span class="line">    Map&lt;Integer, Double&gt; avgHigh = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    PriorityQueue&lt;Record&gt; queue = <span class="keyword">new</span> PriorityQueue&lt;&gt;(<span class="keyword">new</span> Comparator&lt;Record&gt;() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Record o1, Record o2)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (o1.id != o2.id)</span><br><span class="line">                <span class="keyword">return</span> o1.id - o2.id;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> o2.score - o1.score;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (Record record : results)</span><br><span class="line">        queue.offer(record);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> id = Integer.MIN_VALUE;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (!queue.isEmpty()) &#123;</span><br><span class="line">        <span class="keyword">if</span> (queue.peek().id != id) &#123;</span><br><span class="line">            id = queue.peek().id;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">                Record record = queue.poll();</span><br><span class="line">                sum += record.score;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            avgHigh.put(id, (<span class="keyword">double</span>) sum / <span class="number">5</span>);</span><br><span class="line">            sum = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (!queue.isEmpty() &amp;&amp; queue.peek().id == id)</span><br><span class="line">            queue.poll();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> avgHigh;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -420,8 +416,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/12/LeetCode-Problem-65-Valid-Number/" rel="next" title="[LeetCode] Problem 65 - Valid Number">
-                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 65 - Valid Number
+              <a href="/2019/03/12/LeetCode-Problem-409-Longest-Palindrome/" rel="next" title="[LeetCode] Problem 409 - Longest Palindrome">
+                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 409 - Longest Palindrome
               </a>
             
           </div>
@@ -429,10 +425,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/12/LeetCode-Problem-5-Longest-Palindromic-Substring/" rel="prev" title="[LeetCode] Problem 5 - Longest Palindromic Substring">
-                [LeetCode] Problem 5 - Longest Palindromic Substring <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -572,7 +564,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1"><span class="nav-number">1.1.</span> <span class="nav-text">No.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2"><span class="nav-number">1.2.</span> <span class="nav-text">No.2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-3"><span class="nav-number">1.3.</span> <span class="nav-text">No.3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">2.</span> <span class="nav-text">Code</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1"><span class="nav-number">1.1.</span> <span class="nav-text">No.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2"><span class="nav-number">1.2.</span> <span class="nav-text">No.2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">2.</span> <span class="nav-text">Code</span></a></li></ol></div>
             
 
           </div>
