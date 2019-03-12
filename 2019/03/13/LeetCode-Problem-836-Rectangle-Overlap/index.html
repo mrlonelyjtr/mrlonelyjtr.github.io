@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="Given an array nums of n integers, find two integers in nums such that the sum is closest to a given number, target. Return the absolute value of difference between the sum of the two integers and the">
+<meta name="description" content="A rectangle is represented as a list [x1, y1, x2, y2], where (x1, y1) are the coordinates of its bottom-left corner, and (x2, y2) are the coordinates of its top-right corner. Two rectangles overlap if">
 <meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LintCode] Problem 533 - Two Sum - Closest to target">
-<meta property="og:url" content="http://yoursite.com/2019/03/13/LintCode-Problem-533-Two-Sum-Closest-to-target/index.html">
+<meta property="og:title" content="[LeetCode] Problem 836 - Rectangle Overlap">
+<meta property="og:url" content="http://yoursite.com/2019/03/13/LeetCode-Problem-836-Rectangle-Overlap/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="Given an array nums of n integers, find two integers in nums such that the sum is closest to a given number, target. Return the absolute value of difference between the sum of the two integers and the">
+<meta property="og:description" content="A rectangle is represented as a list [x1, y1, x2, y2], where (x1, y1) are the coordinates of its bottom-left corner, and (x2, y2) are the coordinates of its top-right corner. Two rectangles overlap if">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-12T12:55:48.213Z">
+<meta property="og:updated_time" content="2019-03-12T14:51:15.829Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LintCode] Problem 533 - Two Sum - Closest to target">
-<meta name="twitter:description" content="Given an array nums of n integers, find two integers in nums such that the sum is closest to a given number, target. Return the absolute value of difference between the sum of the two integers and the">
+<meta name="twitter:title" content="[LeetCode] Problem 836 - Rectangle Overlap">
+<meta name="twitter:description" content="A rectangle is represented as a list [x1, y1, x2, y2], where (x1, y1) are the coordinates of its bottom-left corner, and (x2, y2) are the coordinates of its top-right corner. Two rectangles overlap if">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/13/LintCode-Problem-533-Two-Sum-Closest-to-target/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/13/LeetCode-Problem-836-Rectangle-Overlap/"/>
 
 
 
 
 
-  <title> [LintCode] Problem 533 - Two Sum - Closest to target | mrlonelyjtr's blog </title>
+  <title> [LeetCode] Problem 836 - Rectangle Overlap | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -261,7 +261,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/13/LintCode-Problem-533-Two-Sum-Closest-to-target/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/13/LeetCode-Problem-836-Rectangle-Overlap/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -282,7 +282,7 @@
             
             
               
-                [LintCode] Problem 533 - Two Sum - Closest to target
+                [LeetCode] Problem 836 - Rectangle Overlap
               
             
           </h1>
@@ -297,7 +297,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-13T04:13:07+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-12T20:57:30Z">
                 2019-03-12
               </time>
             
@@ -331,8 +331,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/LintCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LintCode</span>
+                  <a href="/categories/Algorithm/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
                   </a>
                 </span>
 
@@ -366,16 +366,15 @@
       
 
       
-        <p>Given an array nums of n integers, find two integers in nums such that the sum is closest to a given number, target.</p>
-<p>Return the absolute value of difference between the sum of the two integers and the target.</p>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Input:  nums = [-1, 2, 1, -4] and target = 4</p>
-<p>Output: 1</p>
-<p>Explanation:<br>The minimum difference is 1. (4 - (2 + 1) = 1).</p>
-<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Input:  nums = [-1, -1, -1, -4] and target = 4</p>
-<p>Output: 6</p>
-<p>Explanation:<br>The minimum difference is 6. (4 - (- 1 - 1) = 6).</p>
-<h2 id="Challenge"><a href="#Challenge" class="headerlink" title="Challenge"></a>Challenge</h2><p>Do it in O(nlogn) time complexity.</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">twoSumClosest</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> result = Integer.MAX_VALUE;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length &lt; <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> right = nums.length - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    Arrays.sort(nums);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">        <span class="keyword">int</span> sum = nums[left] + nums[right];</span><br><span class="line">        result = Math.min(result, Math.abs(sum - target));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (sum &lt; target)</span><br><span class="line">            left++;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (sum &gt; target)</span><br><span class="line">            right--;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>A rectangle is represented as a list [x1, y1, x2, y2], where (x1, y1) are the coordinates of its bottom-left corner, and (x2, y2) are the coordinates of its top-right corner.</p>
+<p>Two rectangles overlap if the area of their intersection is positive.  To be clear, two rectangles that only touch at the corner or edges do not overlap.</p>
+<p>Given two (axis-aligned) rectangles, return whether they overlap.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Input: rec1 = [0,0,2,2], rec2 = [1,1,3,3]</p>
+<p>Output: true</p>
+<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Input: rec1 = [0,0,1,1], rec2 = [1,0,2,1]</p>
+<p>Output: false</p>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><p>Both rectangles rec1 and rec2 are lists of 4 integers.<br>All coordinates in rectangles will be between -10^9 and 10^9.</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isRectangleOverlap</span><span class="params">(<span class="keyword">int</span>[] rec1, <span class="keyword">int</span>[] rec2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x1 = rec1[<span class="number">0</span>], y1 = rec1[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">int</span> x2 = rec1[<span class="number">2</span>], y2 = rec1[<span class="number">3</span>];</span><br><span class="line">    <span class="keyword">int</span> x3 = rec2[<span class="number">0</span>], y3 = rec2[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">int</span> x4 = rec2[<span class="number">2</span>], y4 = rec2[<span class="number">3</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (x1 &gt;= x4 || x2 &lt;= x3 || y1 &gt;= y4 || y2 &lt;= y3)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -419,8 +418,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/12/LintCode-Problem-613-High-Five/" rel="next" title="[LintCode] Problem 613 - High Five">
-                <i class="fa fa-chevron-left"></i> [LintCode] Problem 613 - High Five
+              <a href="/2019/03/13/LintCode-Problem-533-Two-Sum-Closest-to-target/" rel="next" title="[LintCode] Problem 533 - Two Sum - Closest to target">
+                <i class="fa fa-chevron-left"></i> [LintCode] Problem 533 - Two Sum - Closest to target
               </a>
             
           </div>
@@ -428,10 +427,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/13/LeetCode-Problem-836-Rectangle-Overlap/" rel="prev" title="[LeetCode] Problem 836 - Rectangle Overlap">
-                [LeetCode] Problem 836 - Rectangle Overlap <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -571,7 +566,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1"><span class="nav-number">1.1.</span> <span class="nav-text">No.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2"><span class="nav-number">1.2.</span> <span class="nav-text">No.2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Challenge"><span class="nav-number">2.</span> <span class="nav-text">Challenge</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1"><span class="nav-number">1.1.</span> <span class="nav-text">No.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2"><span class="nav-number">1.2.</span> <span class="nav-text">No.2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Notes"><span class="nav-number">2.</span> <span class="nav-text">Notes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li></ol></div>
             
 
           </div>
