@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="Given a non-negative integer represented as a non-empty array of digits, plus one to the integer. The digits are stored such that the most significant digit is at the head of the list, and each elemen">
+<meta name="description" content="Given a knight in a chessboard (a binary matrix with 0 as empty and 1 as barrier) with a source position, find the shortest path to a destination position, return the length of the route. Return -1 if">
 <meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LeetCode] Problem 66 - Plus One">
-<meta property="og:url" content="http://yoursite.com/2017/09/13/LeetCode-Problem-66-Plus-One/index.html">
+<meta property="og:title" content="[LintCode] Problem 611 - Knight Shortest Path">
+<meta property="og:url" content="http://yoursite.com/2019/03/14/LintCode-Problem-611-Knight-Shortest-Path/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="Given a non-negative integer represented as a non-empty array of digits, plus one to the integer. The digits are stored such that the most significant digit is at the head of the list, and each elemen">
+<meta property="og:description" content="Given a knight in a chessboard (a binary matrix with 0 as empty and 1 as barrier) with a source position, find the shortest path to a destination position, return the length of the route. Return -1 if">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-02-24T15:22:22.252Z">
+<meta property="og:updated_time" content="2019-03-13T23:30:15.970Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LeetCode] Problem 66 - Plus One">
-<meta name="twitter:description" content="Given a non-negative integer represented as a non-empty array of digits, plus one to the integer. The digits are stored such that the most significant digit is at the head of the list, and each elemen">
+<meta name="twitter:title" content="[LintCode] Problem 611 - Knight Shortest Path">
+<meta name="twitter:description" content="Given a knight in a chessboard (a binary matrix with 0 as empty and 1 as barrier) with a source position, find the shortest path to a destination position, return the length of the route. Return -1 if">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/09/13/LeetCode-Problem-66-Plus-One/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/14/LintCode-Problem-611-Knight-Shortest-Path/"/>
 
 
 
 
 
-  <title> [LeetCode] Problem 66 - Plus One | mrlonelyjtr's blog </title>
+  <title> [LintCode] Problem 611 - Knight Shortest Path | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -261,7 +261,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/13/LeetCode-Problem-66-Plus-One/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/14/LintCode-Problem-611-Knight-Shortest-Path/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -282,7 +282,7 @@
             
             
               
-                [LeetCode] Problem 66 - Plus One
+                [LintCode] Problem 611 - Knight Shortest Path
               
             
           </h1>
@@ -297,8 +297,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-13T07:35:30+08:00">
-                2017-09-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-13T23:44:45Z">
+                2019-03-13
               </time>
             
 
@@ -331,8 +331,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
+                  <a href="/categories/Algorithm/LintCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LintCode</span>
                   </a>
                 </span>
 
@@ -366,16 +366,20 @@
       
 
       
-        <p>Given a non-negative integer represented as a non-empty array of digits, plus one to the integer.</p>
-<p>The digits are stored such that the most significant digit is at the head of the list, and each element in the array contain a single digit.</p>
-<p>You may assume the integer does not contain any leading zero, except the number 0 itself.</p>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Input: [1,2,3]</p>
-<p>Output: [1,2,4]</p>
-<p>Explanation: The array represents the integer 123.</p>
-<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Input: [4,3,2,1]</p>
-<p>Output: [4,3,2,2]</p>
-<p>Explanation: The array represents the integer 4321.</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] plusOne(<span class="keyword">int</span>[] digits) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = digits.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        <span class="keyword">if</span> (digits[i] != <span class="number">9</span>) &#123;</span><br><span class="line">            digits[i]++;</span><br><span class="line">            <span class="keyword">return</span> digits;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            digits[i] = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span>[] newDigit = <span class="keyword">new</span> <span class="keyword">int</span>[digits.length+<span class="number">1</span>];</span><br><span class="line">    newDigit[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> newDigit;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>Given a knight in a chessboard (a binary matrix with 0 as empty and 1 as barrier) with a source position, find the shortest path to a destination position, return the length of the route.</p>
+<p>Return -1 if destination cannot be reached.</p>
+<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>source and destination must be empty.<br>Knight can not enter the barrier.</p>
+<h2 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h2><p>If the knight is at (x, y), he can get to the following positions in one step:</p>
+<p>(x + 1, y + 2)<br>(x + 1, y - 2)<br>(x - 1, y + 2)<br>(x - 1, y - 2)<br>(x + 2, y + 1)<br>(x + 2, y - 1)<br>(x - 2, y + 1)<br>(x - 2, y - 1)</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Input:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[[0,0,0],</span><br><span class="line"> [0,0,0],</span><br><span class="line"> [0,0,0]]</span><br></pre></td></tr></table></figure></p>
+<p>source = [2, 0] destination = [2, 2]</p>
+<p>Output: 2</p>
+<p>Explanation:<br>[2,0]-&gt;[0,1]-&gt;[2,2]</p>
+<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Input:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[[0,1,0],</span><br><span class="line"> [0,0,1],</span><br><span class="line"> [0,0,0]]</span><br></pre></td></tr></table></figure></p>
+<p>source = [2, 0] destination = [2, 2] </p>
+<p>Output: -1</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">int</span> y;</span><br><span class="line">    Point() &#123; x = <span class="number">0</span>; y = <span class="number">0</span>; &#125;</span><br><span class="line">    Point(<span class="keyword">int</span> a, <span class="keyword">int</span> b) &#123; x = a; y = b; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">shortestPath</span><span class="params">(<span class="keyword">boolean</span>[][] grid, Point source, Point destination)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> n = grid.length;</span><br><span class="line">    <span class="keyword">int</span> m = grid[<span class="number">0</span>].length;</span><br><span class="line">    <span class="keyword">int</span>[][] visited = <span class="keyword">new</span> <span class="keyword">int</span>[n][m];</span><br><span class="line">    <span class="keyword">int</span>[][] directions = &#123;&#123;<span class="number">1</span>, <span class="number">2</span>&#125;, &#123;<span class="number">1</span>, -<span class="number">2</span>&#125;, &#123;-<span class="number">1</span>, <span class="number">2</span>&#125;, &#123;-<span class="number">1</span>, -<span class="number">2</span>&#125;, &#123;<span class="number">2</span>, <span class="number">1</span>&#125;, &#123;<span class="number">2</span>, -<span class="number">1</span>&#125;, &#123;-<span class="number">2</span>, <span class="number">1</span>&#125;, &#123;-<span class="number">2</span>, -<span class="number">1</span>&#125;&#125;;</span><br><span class="line">    Queue&lt;Point&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    queue.offer(source);</span><br><span class="line">    visited[source.x][source.y] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (!queue.isEmpty()) &#123;</span><br><span class="line">        <span class="keyword">int</span> size = queue.size();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">            Point position = queue.poll();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (position.x == destination.x &amp;&amp; position.y == destination.y)</span><br><span class="line">                <span class="keyword">return</span> result;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span>[] direction : directions) &#123;</span><br><span class="line">                <span class="keyword">int</span> x = position.x + direction[<span class="number">0</span>];</span><br><span class="line">                <span class="keyword">int</span> y = position.y + direction[<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (x &gt;= <span class="number">0</span> &amp;&amp; x &lt; n &amp;&amp; y &gt;= <span class="number">0</span> &amp;&amp; y &lt; m &amp;&amp; grid[x][y] == <span class="keyword">false</span> &amp;&amp; visited[x][y] == <span class="number">0</span>) &#123;</span><br><span class="line">                    Point nextPos = <span class="keyword">new</span> Point(x, y);</span><br><span class="line">                    queue.offer(nextPos);</span><br><span class="line">                    visited[x][y] = <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        result++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -419,8 +423,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/13/LeetCode-Problem-7-Reverse-Integer/" rel="next" title="[LeetCode] Problem 7 - Reverse Integer">
-                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 7 - Reverse Integer
+              <a href="/2019/03/14/LeetCode-Problem-387-First-Unique-Character-in-a-String/" rel="next" title="[LeetCode] Problem 387 - First Unique Character in a String">
+                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 387 - First Unique Character in a String
               </a>
             
           </div>
@@ -428,10 +432,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/13/LeetCode-Problem-9-Palindrome-Number/" rel="prev" title="[LeetCode] Problem 9 - Palindrome Number">
-                [LeetCode] Problem 9 - Palindrome Number <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -571,7 +571,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1"><span class="nav-number">1.1.</span> <span class="nav-text">No.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2"><span class="nav-number">1.2.</span> <span class="nav-text">No.2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">2.</span> <span class="nav-text">Code</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">1.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Clarification"><span class="nav-number">2.</span> <span class="nav-text">Clarification</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">3.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1"><span class="nav-number">3.1.</span> <span class="nav-text">No.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2"><span class="nav-number">3.2.</span> <span class="nav-text">No.2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">4.</span> <span class="nav-text">Code</span></a></li></ol></div>
             
 
           </div>
