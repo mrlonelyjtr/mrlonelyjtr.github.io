@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
 <meta property="og:description" content="Given a nested list of integers, return the sum of all integers in the list weighted by their depth. Each element is either an integer, or a list – whose elements may also be integers or other lists.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-17T03:55:07.272Z">
+<meta property="og:updated_time" content="2019-03-18T13:30:58.501Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LintCode] Problem 551 - Nested List Weight Sum">
 <meta name="twitter:description" content="Given a nested list of integers, return the sum of all integers in the list weighted by their depth. Each element is either an integer, or a list – whose elements may also be integers or other lists.">
@@ -369,10 +369,10 @@
         <p>Given a nested list of integers, return the sum of all integers in the list weighted by their depth. Each element is either an integer, or a list – whose elements may also be integers or other lists.</p>
 <h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Input: the list [[1,1],2,[1,1]], </p>
 <p>Output: 10. </p>
-<p>Explanation:<br>four 1’s at depth 2, one 2 at depth 1, 4 <em> 1 </em> 2 + 1 <em> 2 </em> 1 = 10</p>
+<p>Explanation:<br>four 1’s at depth 2, one 2 at depth 1, 4 * 1 * 2 + 1 * 2 * 1 = 10</p>
 <h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Input: the list [1,[4,[6]]], </p>
 <p>Output: 27. </p>
-<p>Explanation:<br>one 1 at depth 1, one 4 at depth 2, and one 6 at depth 3; 1 + 4 <em> 2 + 6 </em> 3 = 27</p>
+<p>Explanation:<br>one 1 at depth 1, one 4 at depth 2, and one 6 at depth 3; 1 + 4 * 2 + 6 * 3 = 27</p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">NestedInteger</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isInteger</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">getInteger</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;NestedInteger&gt; <span class="title">getList</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
       
@@ -427,6 +427,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/19/LintCode-Problem-642-Moving-Average-from-Data-Stream/" rel="prev" title="[LintCode] Problem 642 - Moving Average from Data Stream">
+                [LintCode] Problem 642 - Moving Average from Data Stream <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -498,7 +502,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">248</span>
+                <span class="site-state-item-count">249</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
