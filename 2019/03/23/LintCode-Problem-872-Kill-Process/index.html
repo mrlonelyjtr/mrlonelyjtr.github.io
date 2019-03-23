@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="题目实现函数double Power(double base, int exponent)，求base的exponent次方。不得使用库函数，同时不需要考虑大数问题。 自以为题目简单的解法1234567891011public double Power(double base, int exponent) &amp;#123;    double result = 1;    for (int i = 1">
+<meta name="description" content="In this problem, each process has a unique PID (process id) and PPID (parent process id). Each process only has one parent process, but may have one or more children processes. This is just like a tre">
 <meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【剑指Offer】数值的整数次方">
-<meta property="og:url" content="http://yoursite.com/2017/05/12/【剑指Offer】数值的整数次方/index.html">
+<meta property="og:title" content="[LintCode] Problem 872 - Kill Process">
+<meta property="og:url" content="http://yoursite.com/2019/03/23/LintCode-Problem-872-Kill-Process/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="题目实现函数double Power(double base, int exponent)，求base的exponent次方。不得使用库函数，同时不需要考虑大数问题。 自以为题目简单的解法1234567891011public double Power(double base, int exponent) &amp;#123;    double result = 1;    for (int i = 1">
+<meta property="og:description" content="In this problem, each process has a unique PID (process id) and PPID (parent process id). Each process only has one parent process, but may have one or more children processes. This is just like a tre">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-09-01T16:16:23.000Z">
+<meta property="og:updated_time" content="2019-03-23T10:01:30.410Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【剑指Offer】数值的整数次方">
-<meta name="twitter:description" content="题目实现函数double Power(double base, int exponent)，求base的exponent次方。不得使用库函数，同时不需要考虑大数问题。 自以为题目简单的解法1234567891011public double Power(double base, int exponent) &amp;#123;    double result = 1;    for (int i = 1">
+<meta name="twitter:title" content="[LintCode] Problem 872 - Kill Process">
+<meta name="twitter:description" content="In this problem, each process has a unique PID (process id) and PPID (parent process id). Each process only has one parent process, but may have one or more children processes. This is just like a tre">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/12/【剑指Offer】数值的整数次方/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/23/LintCode-Problem-872-Kill-Process/"/>
 
 
 
 
 
-  <title> 【剑指Offer】数值的整数次方 | mrlonelyjtr's blog </title>
+  <title> [LintCode] Problem 872 - Kill Process | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -261,7 +261,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/12/【剑指Offer】数值的整数次方/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/LintCode-Problem-872-Kill-Process/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -282,7 +282,7 @@
             
             
               
-                【剑指Offer】数值的整数次方
+                [LintCode] Problem 872 - Kill Process
               
             
           </h1>
@@ -297,8 +297,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-12T21:54:36+08:00">
-                2017-05-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-23T22:52:10+08:00">
+                2019-03-23
               </time>
             
 
@@ -331,8 +331,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/剑指Offer/" itemprop="url" rel="index">
-                    <span itemprop="name">剑指Offer</span>
+                  <a href="/categories/Algorithm/LintCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LintCode</span>
                   </a>
                 </span>
 
@@ -366,9 +366,20 @@
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>实现函数double Power(double base, int exponent)，求base的exponent次方。不得使用库函数，同时不需要考虑大数问题。</p>
-<h2 id="自以为题目简单的解法"><a href="#自以为题目简单的解法" class="headerlink" title="自以为题目简单的解法"></a>自以为题目简单的解法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">Power</span><span class="params">(<span class="keyword">double</span> base, <span class="keyword">int</span> exponent)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">double</span> result = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= Math.abs(exponent); i++)</span><br><span class="line">        result *= base;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (exponent &lt; <span class="number">0</span>)</span><br><span class="line">        result = <span class="number">1</span> / result;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="全面又高效的解法，确保我们能拿到Offer"><a href="#全面又高效的解法，确保我们能拿到Offer" class="headerlink" title="全面又高效的解法，确保我们能拿到Offer"></a>全面又高效的解法，确保我们能拿到Offer</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">Power</span><span class="params">(<span class="keyword">double</span> base, <span class="keyword">int</span> exponent)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (exponent == <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> base;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (exponent == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">double</span> result = Power(base, Math.abs(exponent) &gt;&gt; <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    result *= result;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ((exponent &amp; <span class="number">1</span>) == <span class="number">1</span>)</span><br><span class="line">        result *= base;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (exponent &lt; <span class="number">0</span>)</span><br><span class="line">        result = <span class="number">1</span> / result;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>In this problem, each process has a unique PID (process id) and PPID (parent process id).</p>
+<p>Each process only has one parent process, but may have one or more children processes. This is just like a tree structure. Only one process has PPID that is 0, which means this process has no parent process. All the PIDs will be distinct positive integers.</p>
+<p>We use two list of integers to represent a list of processes, where the first list contains PID for each process and the second list contains the corresponding PPID.</p>
+<p>Now given the two lists, and a PID representing a process you want to kill, return a list of PIDs of processes that will be killed in the end. You should assume that when a process is killed, all its children processes will be killed. No order is required for the final answer.</p>
+<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><ol>
+<li>The given kill id is guaranteed to be one of the given PIDs.</li>
+<li>There is at least one PID in the list.</li>
+</ol>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Input: PID = [1, 3, 10, 5], PPID = [3, 0, 5, 3], killID = 5</p>
+<p>Output: [5, 10]</p>
+<p>Explanation: Kill 5 will also kill 10.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   3</span><br><span class="line"> /   \</span><br><span class="line">1     5</span><br><span class="line">     /</span><br><span class="line">    10</span><br></pre></td></tr></table></figure></p>
+<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Input: PID = [1, 2, 3], PPID = [0, 1, 1], killID = 2</p>
+<p>Output: [2]</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">killProcess</span><span class="params">(List&lt;Integer&gt; pid, List&lt;Integer&gt; ppid, <span class="keyword">int</span> kill)</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    Map&lt;Integer, List&lt;Integer&gt;&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ppid.size(); i++) &#123;</span><br><span class="line">        map.putIfAbsent(ppid.get(i), <span class="keyword">new</span> ArrayList&lt;&gt;());</span><br><span class="line">        map.get(ppid.get(i)).add(pid.get(i));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    dfs(result, map, kill);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(List&lt;Integer&gt; result, Map&lt;Integer, List&lt;Integer&gt;&gt; map, <span class="keyword">int</span> pid)</span> </span>&#123;</span><br><span class="line">    result.add(pid);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!map.containsKey(pid))</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (Integer i : map.get(pid))</span><br><span class="line">        dfs(result, map, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -412,8 +423,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/12/【剑指Offer】二进制中1的个数/" rel="next" title="【剑指Offer】二进制中1的个数">
-                <i class="fa fa-chevron-left"></i> 【剑指Offer】二进制中1的个数
+              <a href="/2019/03/23/LintCode-Problem-879-Output-Contest-Matches/" rel="next" title="[LintCode] Problem 879 - Output Contest Matches">
+                <i class="fa fa-chevron-left"></i> [LintCode] Problem 879 - Output Contest Matches
               </a>
             
           </div>
@@ -421,10 +432,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/13/【剑指Offer】打印1到最大的n位数/" rel="prev" title="【剑指Offer】打印1到最大的n位数">
-                【剑指Offer】打印1到最大的n位数 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -564,7 +571,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自以为题目简单的解法"><span class="nav-number">2.</span> <span class="nav-text">自以为题目简单的解法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全面又高效的解法，确保我们能拿到Offer"><span class="nav-number">3.</span> <span class="nav-text">全面又高效的解法，确保我们能拿到Offer</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">1.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">2.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1"><span class="nav-number">2.1.</span> <span class="nav-text">No.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2"><span class="nav-number">2.2.</span> <span class="nav-text">No.2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li></ol></div>
             
 
           </div>
