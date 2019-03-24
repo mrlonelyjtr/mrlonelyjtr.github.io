@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="Given an array nums of n integers, find two integers in nums such that the sum is closest to a given number, target. Return the absolute value of difference between the sum of the two integers and the">
+<meta name="description" content="Follow up Zigzag Iterator: What if you are given k 1d vectors? How well can your code be extended to such cases? The “Zigzag” order is not clearly defined and is ambiguous for k &amp;gt; 2 cases. If “Zigz">
 <meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LintCode] Problem 533 - Two Sum - Closest to target">
-<meta property="og:url" content="http://yoursite.com/2019/03/13/LintCode-Problem-533-Two-Sum-Closest-to-target/index.html">
+<meta property="og:title" content="[LintCode] Problem 541 - Zigzag Iterator II">
+<meta property="og:url" content="http://yoursite.com/2019/03/24/LintCode-Problem-541-Zigzag-Iterator-II/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="Given an array nums of n integers, find two integers in nums such that the sum is closest to a given number, target. Return the absolute value of difference between the sum of the two integers and the">
+<meta property="og:description" content="Follow up Zigzag Iterator: What if you are given k 1d vectors? How well can your code be extended to such cases? The “Zigzag” order is not clearly defined and is ambiguous for k &amp;gt; 2 cases. If “Zigz">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-12T12:55:48.213Z">
+<meta property="og:updated_time" content="2019-03-24T04:46:06.656Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LintCode] Problem 533 - Two Sum - Closest to target">
-<meta name="twitter:description" content="Given an array nums of n integers, find two integers in nums such that the sum is closest to a given number, target. Return the absolute value of difference between the sum of the two integers and the">
+<meta name="twitter:title" content="[LintCode] Problem 541 - Zigzag Iterator II">
+<meta name="twitter:description" content="Follow up Zigzag Iterator: What if you are given k 1d vectors? How well can your code be extended to such cases? The “Zigzag” order is not clearly defined and is ambiguous for k &amp;gt; 2 cases. If “Zigz">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/13/LintCode-Problem-533-Two-Sum-Closest-to-target/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/24/LintCode-Problem-541-Zigzag-Iterator-II/"/>
 
 
 
 
 
-  <title> [LintCode] Problem 533 - Two Sum - Closest to target | mrlonelyjtr's blog </title>
+  <title> [LintCode] Problem 541 - Zigzag Iterator II | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -261,7 +261,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/13/LintCode-Problem-533-Two-Sum-Closest-to-target/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/24/LintCode-Problem-541-Zigzag-Iterator-II/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -282,7 +282,7 @@
             
             
               
-                [LintCode] Problem 533 - Two Sum - Closest to target
+                [LintCode] Problem 541 - Zigzag Iterator II
               
             
           </h1>
@@ -297,8 +297,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-13T04:13:07+08:00">
-                2019-03-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-24T12:02:33Z">
+                2019-03-24
               </time>
             
 
@@ -366,16 +366,12 @@
       
 
       
-        <p>Given an array nums of n integers, find two integers in nums such that the sum is closest to a given number, target.</p>
-<p>Return the absolute value of difference between the sum of the two integers and the target.</p>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Input:  nums = [-1, 2, 1, -4] and target = 4</p>
-<p>Output: 1</p>
-<p>Explanation:<br>The minimum difference is 1. (4 - (2 + 1) = 1).</p>
-<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Input:  nums = [-1, -1, -1, -4] and target = 4</p>
-<p>Output: 6</p>
-<p>Explanation:<br>The minimum difference is 6. (4 - (- 1 - 1) = 6).</p>
-<h2 id="Challenge"><a href="#Challenge" class="headerlink" title="Challenge"></a>Challenge</h2><p>Do it in O(nlogn) time complexity.</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">twoSumClosest</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> result = Integer.MAX_VALUE;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length &lt; <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> right = nums.length - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    Arrays.sort(nums);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">        <span class="keyword">int</span> sum = nums[left] + nums[right];</span><br><span class="line">        result = Math.min(result, Math.abs(sum - target));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (sum &lt; target)</span><br><span class="line">            left++;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (sum &gt; target)</span><br><span class="line">            right--;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>Follow up Zigzag Iterator: What if you are given k 1d vectors? How well can your code be extended to such cases? The “Zigzag” order is not clearly defined and is ambiguous for k &gt; 2 cases. If “Zigzag” does not look right to you, replace “Zigzag” with “Cyclic”.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Input: k = 3<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vecs = [</span><br><span class="line">    [1,2,3],</span><br><span class="line">    [4,5,6,7],</span><br><span class="line">    [8,9],</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<p>Output: [1,4,8,2,5,9,3,6,7]</p>
+<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Input: k = 3<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vecs = [</span><br><span class="line">    [1,1,1]</span><br><span class="line">    [2,2,2]</span><br><span class="line">    [3,3,3]</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<p>Output: [1,2,3,1,2,3,1,2,3]</p>
+<h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> Queue&lt;Iterator&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ZigzagIterator2</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; vecs)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (List&lt;Integer&gt; vec : vecs) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!vec.isEmpty())</span><br><span class="line">            queue.offer(vec.iterator());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Iterator iterator = queue.poll();</span><br><span class="line">    <span class="keyword">int</span> next = (<span class="keyword">int</span>) iterator.next();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (iterator.hasNext())</span><br><span class="line">        queue.offer(iterator);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> next;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> !queue.isEmpty();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -419,8 +415,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/12/LintCode-Problem-613-High-Five/" rel="next" title="[LintCode] Problem 613 - High Five">
-                <i class="fa fa-chevron-left"></i> [LintCode] Problem 613 - High Five
+              <a href="/2019/03/24/LintCode-Problem-540-Zigzag-Iterator/" rel="next" title="[LintCode] Problem 540 - Zigzag Iterator">
+                <i class="fa fa-chevron-left"></i> [LintCode] Problem 540 - Zigzag Iterator
               </a>
             
           </div>
@@ -428,10 +424,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/13/LeetCode-Problem-836-Rectangle-Overlap/" rel="prev" title="[LeetCode] Problem 836 - Rectangle Overlap">
-                [LeetCode] Problem 836 - Rectangle Overlap <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -571,7 +563,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1"><span class="nav-number">1.1.</span> <span class="nav-text">No.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2"><span class="nav-number">1.2.</span> <span class="nav-text">No.2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Challenge"><span class="nav-number">2.</span> <span class="nav-text">Challenge</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1"><span class="nav-number">1.1.</span> <span class="nav-text">No.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2"><span class="nav-number">1.2.</span> <span class="nav-text">No.2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#code"><span class="nav-number">2.</span> <span class="nav-text">code</span></a></li></ol></div>
             
 
           </div>
