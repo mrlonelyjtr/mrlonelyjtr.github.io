@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="Given a string s, return all the palindromic permutations (without duplicates) of it. Return an empty list if no palindromic permutation could be form. ExampleNo.1Input: s = “aabb” Output: [“abba”,”ba">
+<meta name="description" content="Given an array of numbers nums, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once. ExampleInput:  [1,2,1,3,2,5">
 <meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LintCode] Problem 917 - Palindrome Permutation II">
-<meta property="og:url" content="http://yoursite.com/2019/03/21/LintCode-Problem-917-Palindrome-Permutation-II/index.html">
+<meta property="og:title" content="[LeetCode] Problem 260 - Single Number III">
+<meta property="og:url" content="http://yoursite.com/2019/03/25/LeetCode-Problem-260-Single-Number-III/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="Given a string s, return all the palindromic permutations (without duplicates) of it. Return an empty list if no palindromic permutation could be form. ExampleNo.1Input: s = “aabb” Output: [“abba”,”ba">
+<meta property="og:description" content="Given an array of numbers nums, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once. ExampleInput:  [1,2,1,3,2,5">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-20T16:07:39.938Z">
+<meta property="og:updated_time" content="2019-03-24T13:26:39.893Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LintCode] Problem 917 - Palindrome Permutation II">
-<meta name="twitter:description" content="Given a string s, return all the palindromic permutations (without duplicates) of it. Return an empty list if no palindromic permutation could be form. ExampleNo.1Input: s = “aabb” Output: [“abba”,”ba">
+<meta name="twitter:title" content="[LeetCode] Problem 260 - Single Number III">
+<meta name="twitter:description" content="Given an array of numbers nums, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once. ExampleInput:  [1,2,1,3,2,5">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/21/LintCode-Problem-917-Palindrome-Permutation-II/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/25/LeetCode-Problem-260-Single-Number-III/"/>
 
 
 
 
 
-  <title> [LintCode] Problem 917 - Palindrome Permutation II | mrlonelyjtr's blog </title>
+  <title> [LeetCode] Problem 260 - Single Number III | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -261,7 +261,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/21/LintCode-Problem-917-Palindrome-Permutation-II/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/LeetCode-Problem-260-Single-Number-III/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -282,7 +282,7 @@
             
             
               
-                [LintCode] Problem 917 - Palindrome Permutation II
+                [LeetCode] Problem 260 - Single Number III
               
             
           </h1>
@@ -297,8 +297,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-21T04:37:56+08:00">
-                2019-03-20
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-24T19:15:23Z">
+                2019-03-24
               </time>
             
 
@@ -331,8 +331,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/LintCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LintCode</span>
+                  <a href="/categories/Algorithm/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
                   </a>
                 </span>
 
@@ -366,12 +366,14 @@
       
 
       
-        <p>Given a string s, return all the palindromic permutations (without duplicates) of it. Return an empty list if no palindromic permutation could be form.</p>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Input: s = “aabb”</p>
-<p>Output: [“abba”,”baab”]</p>
-<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Input: “abc”</p>
-<p>Output: []</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">generatePalindromes</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    List&lt;String&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    Map&lt;Character, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    String odd = <span class="string">""</span>;</span><br><span class="line">    List&lt;Character&gt; half = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (Character ch : s.toCharArray())</span><br><span class="line">        map.put(ch, map.getOrDefault(ch, <span class="number">0</span>) + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (Map.Entry&lt;Character, Integer&gt; entry : map.entrySet()) &#123;</span><br><span class="line">        Character key = entry.getKey();</span><br><span class="line">        Integer value = entry.getValue();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (value % <span class="number">2</span> != <span class="number">0</span>) &#123;</span><br><span class="line">            count++;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (count &gt; <span class="number">1</span>)</span><br><span class="line">                <span class="keyword">return</span> result;</span><br><span class="line"></span><br><span class="line">            odd = String.valueOf(key);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; value / <span class="number">2</span>; i++)</span><br><span class="line">            half.add(key);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    permutation(result, half, odd, <span class="keyword">new</span> StringBuilder(), <span class="keyword">new</span> <span class="keyword">boolean</span>[half.size()]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">permutation</span><span class="params">(List&lt;String&gt; result, List&lt;Character&gt; half, String odd, StringBuilder sb, <span class="keyword">boolean</span>[] visit)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (sb.length() == half.size()) &#123;</span><br><span class="line">        result.add(sb.toString() + odd + sb.reverse().toString());</span><br><span class="line">        sb.reverse();</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; half.size(); i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; half.get(i) == half.get(i - <span class="number">1</span>) &amp;&amp; !visit[i - <span class="number">1</span>])</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">if</span> (!visit[i]) &#123;</span><br><span class="line">            visit[i] = <span class="keyword">true</span>;</span><br><span class="line">            sb.append(half.get(i));</span><br><span class="line">            permutation(result, half, odd, sb, visit);</span><br><span class="line">            sb.deleteCharAt(sb.length() - <span class="number">1</span>);</span><br><span class="line">            visit[i] = <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>Given an array of numbers nums, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>Input:  [1,2,1,3,2,5]</p>
+<p>Output: [3,5]</p>
+<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><ol>
+<li>The order of the result is not important. So in the above example, [5, 3] is also correct.</li>
+<li>Your algorithm should run in linear runtime complexity. Could you implement it using only constant space complexity?</li>
+</ol>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] singleNumber(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">    <span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">    <span class="keyword">int</span> xor = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> num1 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> num2 = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> num : nums)</span><br><span class="line">        xor ^= num;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> last = xor - (xor &amp; (xor - <span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> ((last &amp; nums[i]) == <span class="number">0</span>)</span><br><span class="line">            num1 ^= nums[i];</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            num2 ^= nums[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    result[<span class="number">0</span>] = num1;</span><br><span class="line">    result[<span class="number">1</span>] = num2;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -415,8 +417,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/19/LintCode-Problem-916-Palindrome-Permutation/" rel="next" title="[LintCode] Problem 916 - Palindrome Permutation">
-                <i class="fa fa-chevron-left"></i> [LintCode] Problem 916 - Palindrome Permutation
+              <a href="/2019/03/25/LeetCode-Problem-703-Kth-Largest-Element-in-a-Stream/" rel="next" title="[LeetCode] Problem 703 - Kth Largest Element in a Stream">
+                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 703 - Kth Largest Element in a Stream
               </a>
             
           </div>
@@ -424,10 +426,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/22/LeetCode-Problem-56-Merge-Intervals/" rel="prev" title="[LeetCode] Problem 56 - Merge Intervals">
-                [LeetCode] Problem 56 - Merge Intervals <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -567,7 +565,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1"><span class="nav-number">1.1.</span> <span class="nav-text">No.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2"><span class="nav-number">1.2.</span> <span class="nav-text">No.2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">2.</span> <span class="nav-text">Code</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">2.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li></ol></div>
             
 
           </div>
