@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="Given an array and a value, remove all instances of that value in-place and return the new length. Do not allocate extra space for another array, you must do this by modifying the input array in-place">
+<meta name="description" content="Given two 1d vectors, implement an iterator to return their elements alternately. ExampleNo.1Input: v1 = [1, 2] and v2 = [3, 4, 5, 6] Output: [1, 3, 2, 4, 5, 6] Explanation:By calling next repeatedly">
 <meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LeetCode] Problem 27 - Remove Element">
-<meta property="og:url" content="http://yoursite.com/2018/01/16/LeetCode-Problem-27-Remove-Element/index.html">
+<meta property="og:title" content="[LintCode] Problem 540 - Zigzag Iterator">
+<meta property="og:url" content="http://yoursite.com/2019/03/24/LintCode-Problem-540-Zigzag-Iterator/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="Given an array and a value, remove all instances of that value in-place and return the new length. Do not allocate extra space for another array, you must do this by modifying the input array in-place">
+<meta property="og:description" content="Given two 1d vectors, implement an iterator to return their elements alternately. ExampleNo.1Input: v1 = [1, 2] and v2 = [3, 4, 5, 6] Output: [1, 3, 2, 4, 5, 6] Explanation:By calling next repeatedly">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-02-24T15:10:30.373Z">
+<meta property="og:updated_time" content="2019-03-24T04:00:36.921Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LeetCode] Problem 27 - Remove Element">
-<meta name="twitter:description" content="Given an array and a value, remove all instances of that value in-place and return the new length. Do not allocate extra space for another array, you must do this by modifying the input array in-place">
+<meta name="twitter:title" content="[LintCode] Problem 540 - Zigzag Iterator">
+<meta name="twitter:description" content="Given two 1d vectors, implement an iterator to return their elements alternately. ExampleNo.1Input: v1 = [1, 2] and v2 = [3, 4, 5, 6] Output: [1, 3, 2, 4, 5, 6] Explanation:By calling next repeatedly">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/16/LeetCode-Problem-27-Remove-Element/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/24/LintCode-Problem-540-Zigzag-Iterator/"/>
 
 
 
 
 
-  <title> [LeetCode] Problem 27 - Remove Element | mrlonelyjtr's blog </title>
+  <title> [LintCode] Problem 540 - Zigzag Iterator | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -261,7 +261,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/16/LeetCode-Problem-27-Remove-Element/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/24/LintCode-Problem-540-Zigzag-Iterator/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -282,7 +282,7 @@
             
             
               
-                [LeetCode] Problem 27 - Remove Element
+                [LintCode] Problem 540 - Zigzag Iterator
               
             
           </h1>
@@ -297,8 +297,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-16T01:34:15+08:00">
-                2018-01-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-24T08:32:48+08:00">
+                2019-03-24
               </time>
             
 
@@ -331,8 +331,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
+                  <a href="/categories/Algorithm/LintCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LintCode</span>
                   </a>
                 </span>
 
@@ -366,22 +366,13 @@
       
 
       
-        <p>Given an array and a value, remove all instances of that value in-place and return the new length.</p>
-<p>Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.</p>
-<p>The order of elements can be changed. It doesn’t matter what you leave beyond the new length.</p>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Given nums = [3,2,2,3], val = 3,</p>
-<p>Your function should return length = 2, with the first two elements of nums being 2.</p>
-<p>It doesn’t matter what you leave beyond the returned length.</p>
-<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Given nums = [0,1,2,2,3,0,4,2], val = 2,</p>
-<p>Your function should return length = 5, with the first five elements of nums containing 0, 1, 3, 0, and 4.</p>
-<p>Note that the order of those five elements can be arbitrary.</p>
-<p>It doesn’t matter what values are set beyond the returned length.</p>
-<h2 id="Clarification"><a href="#Clarification" class="headerlink" title="Clarification"></a>Clarification</h2><p>Confused why the returned value is an integer but your answer is an array?</p>
-<p>Note that the input array is passed in by reference, which means modification to the input array will be known to the caller as well.</p>
-<p>Internally you can think of this:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// nums is passed in by reference. (i.e., without making a copy)</span></span><br><span class="line"><span class="keyword">int</span> len = removeElement(nums, val);</span><br><span class="line"></span><br><span class="line"><span class="comment">// any modification to nums in your function would be known by the caller.</span></span><br><span class="line"><span class="comment">// using the length returned by your function, it prints the first len elements.</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">    print(nums[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeElement</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length &lt; <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> length = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[i] != val)</span><br><span class="line">            nums[length++] = nums[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="When-elements-to-remove-are-rare"><a href="#When-elements-to-remove-are-rare" class="headerlink" title="When elements to remove are rare"></a>When elements to remove are rare</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeElement</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length &lt; <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> start = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> end = nums.length - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (start &lt;= end) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[start] == val)</span><br><span class="line">            nums[start] = nums[end--];</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            start++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> end + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>Given two 1d vectors, implement an iterator to return their elements alternately.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Input: v1 = [1, 2] and v2 = [3, 4, 5, 6]</p>
+<p>Output: [1, 3, 2, 4, 5, 6]</p>
+<p>Explanation:<br>By calling next repeatedly until hasNext returns false, the order of elements returned by next should be: [1, 3, 2, 4, 5, 6].</p>
+<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Input: v1 = [1, 1, 1, 1] and v2 = [3, 4, 5, 6]</p>
+<p>Output: [1, 3, 1, 4, 1, 5, 1, 6]</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> Queue&lt;Iterator&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ZigzagIterator</span><span class="params">(List&lt;Integer&gt; v1, List&lt;Integer&gt; v2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!v1.isEmpty())</span><br><span class="line">        queue.offer(v1.iterator());</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!v2.isEmpty())</span><br><span class="line">        queue.offer(v2.iterator());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Iterator iterator = queue.poll();</span><br><span class="line">    <span class="keyword">int</span> next = (<span class="keyword">int</span>) iterator.next();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (iterator.hasNext())</span><br><span class="line">        queue.offer(iterator);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> next;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> !queue.isEmpty();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -425,8 +416,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/16/LeetCode-Problem-26-Remove-Duplicates-from-Sorted-Array/" rel="next" title="[LeetCode] Problem 26 - Remove Duplicates from Sorted Array">
-                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 26 - Remove Duplicates from Sorted Array
+              <a href="/2019/03/24/LintCode-Problem-904-Plus-One-Linked-List/" rel="next" title="[LintCode] Problem 904 - Plus One Linked List">
+                <i class="fa fa-chevron-left"></i> [LintCode] Problem 904 - Plus One Linked List
               </a>
             
           </div>
@@ -434,10 +425,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/23/LeetCode-Problem-88-Merge-Sorted-Array/" rel="prev" title="[LeetCode] Problem 88 - Merge Sorted Array">
-                [LeetCode] Problem 88 - Merge Sorted Array <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -577,7 +564,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1"><span class="nav-number">1.1.</span> <span class="nav-text">No.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2"><span class="nav-number">1.2.</span> <span class="nav-text">No.2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Clarification"><span class="nav-number">2.</span> <span class="nav-text">Clarification</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#When-elements-to-remove-are-rare"><span class="nav-number">4.</span> <span class="nav-text">When elements to remove are rare</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1"><span class="nav-number">1.1.</span> <span class="nav-text">No.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2"><span class="nav-number">1.2.</span> <span class="nav-text">No.2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">2.</span> <span class="nav-text">Code</span></a></li></ol></div>
             
 
           </div>
