@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
 <meta property="og:description" content="Implement a basic calculator to evaluate a simple expression string. The expression string may contain open ( and closing parentheses ), the plus + or minus sign -, non-negative integers and empty spa">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-04-07T12:43:01.321Z">
+<meta property="og:updated_time" content="2019-04-07T13:26:37.844Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LeetCode] Problem 224 - Basic Calculator">
 <meta name="twitter:description" content="Implement a basic calculator to evaluate a simple expression string. The expression string may contain open ( and closing parentheses ), the plus + or minus sign -, non-negative integers and empty spa">
@@ -297,7 +297,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-07T20:40:27Z">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-08T04:40:27+08:00">
                 2019-04-07
               </time>
             
@@ -378,7 +378,7 @@
 <li>You may assume that the given expression is always valid.</li>
 <li>Do not use the eval built-in library function.</li>
 </ul>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">calculate</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">    <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> sign = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">        <span class="keyword">char</span> ch = s.charAt(i);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (Character.isDigit(ch)) &#123;</span><br><span class="line">            num = <span class="number">10</span> * num + (ch - <span class="string">'0'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (ch == <span class="string">'+'</span> || ch == <span class="string">'-'</span>) &#123;</span><br><span class="line">            result += sign * num;</span><br><span class="line">            num = <span class="number">0</span>;</span><br><span class="line">            sign = ch == <span class="string">'+'</span> ? <span class="number">1</span> : -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (ch == <span class="string">'('</span>) &#123;</span><br><span class="line">            stack.push(result);</span><br><span class="line">            stack.push(sign);</span><br><span class="line">            sign = <span class="number">1</span>;</span><br><span class="line">            result = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (ch == <span class="string">')'</span>) &#123;</span><br><span class="line">            result += sign * num;</span><br><span class="line">            num = <span class="number">0</span>;</span><br><span class="line">            result *= stack.pop();</span><br><span class="line">            result += stack.pop();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    result += sign * num;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -431,6 +431,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/08/LeetCode-Problem-227-Basic-Calculator-II/" rel="prev" title="[LeetCode] Problem 227 - Basic Calculator II">
+                [LeetCode] Problem 227 - Basic Calculator II <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -502,7 +506,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">307</span>
+                <span class="site-state-item-count">308</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
