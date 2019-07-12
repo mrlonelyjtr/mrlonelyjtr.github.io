@@ -87,19 +87,19 @@
 
 
 
-<meta name="description" content="You are given a perfect binary tree where all leaves are on the same level, and every parent has two children. The binary tree has the following definition: 123456struct Node &amp;#123;  int val;  Node *l">
+<meta name="description" content="You are given a perfect binary tree where all leaves are on the same level, and every parent has two children. The binary tree has the following definition: 123456struct Node &amp;#123;    int val;    Nod">
 <meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[LeetCode] Problem 116 - Populating Next Right Pointers in Each Node">
 <meta property="og:url" content="http://yoursite.com/2019/07/12/LeetCode-Problem-116-Populating-Next-Right-Pointers-in-Each-Node/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="You are given a perfect binary tree where all leaves are on the same level, and every parent has two children. The binary tree has the following definition: 123456struct Node &amp;#123;  int val;  Node *l">
+<meta property="og:description" content="You are given a perfect binary tree where all leaves are on the same level, and every parent has two children. The binary tree has the following definition: 123456struct Node &amp;#123;    int val;    Nod">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://s2.ax1x.com/2019/07/12/ZRo8pD.png">
-<meta property="og:updated_time" content="2019-07-12T04:01:49.713Z">
+<meta property="og:updated_time" content="2019-07-12T11:46:02.817Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LeetCode] Problem 116 - Populating Next Right Pointers in Each Node">
-<meta name="twitter:description" content="You are given a perfect binary tree where all leaves are on the same level, and every parent has two children. The binary tree has the following definition: 123456struct Node &amp;#123;  int val;  Node *l">
+<meta name="twitter:description" content="You are given a perfect binary tree where all leaves are on the same level, and every parent has two children. The binary tree has the following definition: 123456struct Node &amp;#123;    int val;    Nod">
 <meta name="twitter:image" content="https://s2.ax1x.com/2019/07/12/ZRo8pD.png">
 
 
@@ -299,7 +299,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-12T01:41:01Z">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-12T09:41:01+08:00">
                 2019-07-12
               </time>
             
@@ -369,19 +369,19 @@
 
       
         <p>You are given a perfect binary tree where all leaves are on the same level, and every parent has two children. The binary tree has the following definition:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Node &#123;</span><br><span class="line">  <span class="keyword">int</span> val;</span><br><span class="line">  Node *left;</span><br><span class="line">  Node *right;</span><br><span class="line">  Node *next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Node &#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    Node *left;</span><br><span class="line">    Node *right;</span><br><span class="line">    Node *next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.</p>
 <p>Initially, all next pointers are set to NULL.</p>
 <h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p><a href="https://imgchr.com/i/ZRo8pD" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/07/12/ZRo8pD.png" alt="ZRo8pD.png"></a></p>
-<p>Input: {“$id”:”1”,”left”:{“$id”:”2”,”left”:{“$id”:”3”,”left”:null,”next”:null,”right”:null,”val”:4},”next”:null,”right”:{“$id”:”4”,”left”:null,”next”:null,”right”:null,”val”:5},”val”:2},”next”:null,”right”:{“$id”:”5”,”left”:{“$id”:”6”,”left”:null,”next”:null,”right”:null,”val”:6},”next”:null,”right”:{“$id”:”7”,”left”:null,”next”:null,”right”:null,”val”:7},”val”:3},”val”:1}</p>
-<p>Output: {“$id”:”1”,”left”:{“$id”:”2”,”left”:{“$id”:”3”,”left”:null,”next”:{“$id”:”4”,”left”:null,”next”:{“$id”:”5”,”left”:null,”next”:{“$id”:”6”,”left”:null,”next”:null,”right”:null,”val”:7},”right”:null,”val”:6},”right”:null,”val”:5},”right”:null,”val”:4},”next”:{“$id”:”7”,”left”:{“$ref”:”5”},”next”:null,”right”:{“$ref”:”6”},”val”:3},”right”:{“$ref”:”4”},”val”:2},”next”:null,”right”:{“$ref”:”7”},”val”:1}</p>
+<p>Input:<br>{“$id”:”1”,”left”:{“$id”:”2”,”left”:{“$id”:”3”,”left”:null,”next”:null,”right”:null,”val”:4},”next”:null,”right”:{“$id”:”4”,”left”:null,”next”:null,”right”:null,”val”:5},”val”:2},”next”:null,”right”:{“$id”:”5”,”left”:{“$id”:”6”,”left”:null,”next”:null,”right”:null,”val”:6},”next”:null,”right”:{“$id”:”7”,”left”:null,”next”:null,”right”:null,”val”:7},”val”:3},”val”:1}</p>
+<p>Output:<br>{“$id”:”1”,”left”:{“$id”:”2”,”left”:{“$id”:”3”,”left”:null,”next”:{“$id”:”4”,”left”:null,”next”:{“$id”:”5”,”left”:null,”next”:{“$id”:”6”,”left”:null,”next”:null,”right”:null,”val”:7},”right”:null,”val”:6},”right”:null,”val”:5},”right”:null,”val”:4},”next”:{“$id”:”7”,”left”:{“$ref”:”5”},”next”:null,”right”:{“$ref”:”6”},”val”:3},”right”:{“$ref”:”4”},”val”:2},”next”:null,”right”:{“$ref”:”7”},”val”:1}</p>
 <p>Explanation: Given the above perfect binary tree (Figure A), your function should populate each next pointer to point to its next right node, just like in Figure B.</p>
 <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><ul>
 <li>You may only use constant extra space.</li>
 <li>Recursive approach is fine, implicit stack space does not count as extra space for this problem.</li>
 </ul>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> val;</span><br><span class="line">    <span class="keyword">public</span> Node left;</span><br><span class="line">    <span class="keyword">public</span> Node right;</span><br><span class="line">    <span class="keyword">public</span> Node next;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Node</span><span class="params">(<span class="keyword">int</span> _val, Node _left, Node _right, Node _next)</span> </span>&#123;</span><br><span class="line">        val = _val;</span><br><span class="line">        left = _left;</span><br><span class="line">        right = _right;</span><br><span class="line">        next = _next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Node <span class="title">connect</span><span class="params">(Node root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    </span><br><span class="line">    Node start = root;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (start.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">        Node current = start;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (current != <span class="keyword">null</span>) &#123;</span><br><span class="line">            current.left.next = current.right;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (current.next != <span class="keyword">null</span>)</span><br><span class="line">                current.right.next = current.next.left;</span><br><span class="line"></span><br><span class="line">            current = current.next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        start = start.left;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Node <span class="title">connect</span><span class="params">(Node root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    Node parent = root;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (parent.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">        Node current = parent;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (current != <span class="keyword">null</span>) &#123;</span><br><span class="line">            current.left.next = current.right;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (current.next != <span class="keyword">null</span>)</span><br><span class="line">                current.right.next = current.next.left;</span><br><span class="line"></span><br><span class="line">            current = current.next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        parent = parent.left;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -434,6 +434,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/12/LeetCode-Problem-117-Populating-Next-Right-Pointers-in-Each-Node-II/" rel="prev" title="[LeetCode] Problem 117 - Populating Next Right Pointers in Each Node II">
+                [LeetCode] Problem 117 - Populating Next Right Pointers in Each Node II <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -505,7 +509,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">476</span>
+                <span class="site-state-item-count">477</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
