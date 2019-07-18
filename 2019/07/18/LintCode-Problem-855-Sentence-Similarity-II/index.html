@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="间歇性踌躇满志，持续性混吃等死">
+<meta name="description" content="Given two sentences words1, words2 (each represented as an array of strings), and a list of similar word pairs pairs, determine if two sentences are similar. For example, words1 = [“great”, “acting”,">
 <meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[LintCode] Problem 855 - Sentence Similarity II">
 <meta property="og:url" content="http://yoursite.com/2019/07/18/LintCode-Problem-855-Sentence-Similarity-II/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="间歇性踌躇满志，持续性混吃等死">
+<meta property="og:description" content="Given two sentences words1, words2 (each represented as an array of strings), and a list of similar word pairs pairs, determine if two sentences are similar. For example, words1 = [“great”, “acting”,">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-07-17T11:39:44.726Z">
+<meta property="og:updated_time" content="2019-07-18T06:27:44.647Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LintCode] Problem 855 - Sentence Similarity II">
-<meta name="twitter:description" content="间歇性踌躇满志，持续性混吃等死">
+<meta name="twitter:description" content="Given two sentences words1, words2 (each represented as an array of strings), and a list of similar word pairs pairs, determine if two sentences are similar. For example, words1 = [“great”, “acting”,">
 
 
 
@@ -366,7 +366,23 @@
       
 
       
-        
+        <p>Given two sentences words1, words2 (each represented as an array of strings), and a list of similar word pairs pairs, determine if two sentences are similar.</p>
+<p>For example, words1 = [“great”, “acting”, “skills”] and words2 = [“fine”, “drama”, “talent”] are similar, if the similar word pairs are pairs = [[“great”, “good”], [“fine”, “good”], [“acting”,”drama”], [“skills”,”talent”]].</p>
+<p>Note that the similarity relation is transitive. For example, if “great” and “good” are similar, and “fine” and “good” are similar, then “great” and “fine” are similar.</p>
+<p>Similarity is also symmetric. For example, “great” and “fine” being similar is the same as “fine” and “great” being similar.</p>
+<p>Also, a word is always similar with itself. For example, the sentences words1 = [“great”], words2 = [“great”], pairs = [] are similar, even though there are no specified similar word pairs.</p>
+<p>Finally, sentences can only be similar if they have the same number of words. So a sentence like words1 = [“great”] can never be similar to words2 = [“doubleplus”,”good”].</p>
+<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><ol>
+<li>The length of words1 and words2 will not exceed 1000.</li>
+<li>The length of pairs will not exceed 2000.</li>
+<li>The length of each pairs[i] will be 2.</li>
+<li>The length of each words[i] and pairs[i][j] will be in the range [1, 20].</li>
+</ol>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Input:<br>[“7”, “5”, “4”, “11”, “13”, “15”, “19”, “12”, “0”, “10”]<br>[“16”, “1”, “7”, “3”, “15”, “10”, “13”, “2”, “19”, “8”]<br>[[“6”, “18”], [“8”, “17”], [“1”, “13”], [“0”, “8”], [“9”, “14”], [“11”, “17”], [“11”, “19”], [“13”, “16”], [“0”, “18”], [“3”, “11”], [“1”, “9”], [“2”, “11”], [“2”, “4”], [“0”, “19”], [“8”, “12”], [“8”, “19”], [“16”, “19”], [“1”, “11”], [“2”, “18”], [“0”, “16”], [“7”, “11”], [“6”, “8”], [“9”, “17”], [“8”, “16”], [“3”, “13”], [“7”, “9”], [“7”, “10”], [“3”, “6”], [“15”, “19”], [“1”, “5”], [“2”, “14”], [“1”, “18”], [“8”, “15”], [“14”, “19”], [“3”, “17”], [“6”, “10”], [“5”, “17”], [“10”, “15”], [“1”, “10”], [“4”, “6”]]</p>
+<p>Output:<br>true</p>
+<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Input:<br>[“great”,”acting”,”skills”]<br>[“fine”,”drama”,”talent”]<br>[[“great”,”good”],[“fine”,”good”],[“drama”,”acting”],[“skills”,”talent”]]</p>
+<p>Output:<br>true</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> Map&lt;String, String&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">areSentencesSimilarTwo</span><span class="params">(List&lt;String&gt; words1, List&lt;String&gt; words2, List&lt;List&lt;String&gt;&gt; pairs)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (words1.size() != words2.size())</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (List&lt;String&gt; pair : pairs) &#123;</span><br><span class="line">        String parent1 = getParent(pair.get(<span class="number">0</span>));</span><br><span class="line">        String parent2 = getParent(pair.get(<span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!parent1.equals(parent2))</span><br><span class="line">            map.put(parent1, parent2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; words1.size(); i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (words1.get(i).equals(words2.get(i)))</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!getParent(words1.get(i)).equals(getParent(words2.get(i))))</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> String <span class="title">getParent</span><span class="params">(String word)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!map.containsKey(word))</span><br><span class="line">        map.put(word, word);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> word.equals(map.get(word)) ? word : getParent(map.get(word));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -465,8 +481,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -539,6 +564,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">1.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">2.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1"><span class="nav-number">2.1.</span> <span class="nav-text">No.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2"><span class="nav-number">2.2.</span> <span class="nav-text">No.2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
