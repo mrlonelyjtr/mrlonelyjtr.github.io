@@ -107,7 +107,7 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/02/02/k82GnO.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/02/13/kBSzYq.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/02/16/ksR5tJ.png">
-<meta property="og:updated_time" content="2019-02-16T15:12:49.874Z">
+<meta property="og:updated_time" content="2019-07-22T15:21:37.465Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【图解Java多线程设计模式】总结">
 <meta name="twitter:description" content="Single Threaded Execution模式 语境多个线程共享实例时。 问题如果各个线程都随意地改变实例状态，实例会失去安全性。 解决方案首先，严格地规定实例的不稳定状态的范围（临界区）。接着，施加保护，确保临界区只能被一个线程执行。这样就可以确保实例的安全性。 实现Java可以使用synchronized来实现临界区。 Immutable模式 语境虽然多个线程共享了实例，但是实例的状态">
@@ -422,8 +422,8 @@
 <h3 id="实现-3"><a href="#实现-3" class="headerlink" title="实现"></a>实现</h3><p>Java可以使用if语句来检查守护条件。这里可以使用return语句从方法中返回或是通过throw语句抛出异常来进行中断。而检查和改变守护条件则可以使用Single Threaded Execution模式来实现。</p>
 <h2 id="Producer-Consumer模式"><a href="#Producer-Consumer模式" class="headerlink" title="Producer-Consumer模式"></a>Producer-Consumer模式</h2><p><img src="https://s1.ax1x.com/2018/12/22/FyNsit.png" alt="FyNsit.png"></p>
 <h3 id="语境-4"><a href="#语境-4" class="headerlink" title="语境"></a>语境</h3><p>想从某个线程（Producer角色）向其他线程（Consumer角色）传递数据时。</p>
-<h3 id="问题-4"><a href="#问题-4" class="headerlink" title="问题"></a>问题</h3><p>如果Producer角色和Consumer角色的处理速度不一致，那么处理速度快的角色会被处理速度慢的角色拖后腿，从而导致吞吐量的下降。  另外，如果在Producer角色写数据的同时，Consumer角色去读取数据，又会失去安全性。</p>
-<h3 id="解决方案-4"><a href="#解决方案-4" class="headerlink" title="解决方案"></a>解决方案</h3><p>在Producer角色和Consumer角色之间准备一个中转站——Channel角色。接着，让Channel角色持有多个数据。这样，就可以缓解Producer角色与Consumer角色之间的处理速度差异。另外，如果在Channel角色中进行线程互斥，就不会失去数据的安全性。这样就可以既不降低吞吐量，又可以在多个线程之间安全地传递数据。</p>
+<h3 id="问题-4"><a href="#问题-4" class="headerlink" title="问题"></a>问题</h3><p>如果Producer角色和Consumer角色的处理速度不一致，那么处理速度快的角色会被处理速度慢的角色拖后腿，从而导致吞吐量的下降。  另外，如果在Producer角色写数据的同时，Consumer角色去读取数据，又会失去安全性。</p>
+<h3 id="解决方案-4"><a href="#解决方案-4" class="headerlink" title="解决方案"></a>解决方案</h3><p>在Producer角色和Consumer角色之间准备一个中转站——Channel角色。接着，让Channel角色持有多个数据。这样，就可以缓解Producer角色与Consumer角色之间的处理速度差异。另外，如果在Channel角色中进行线程互斥，就不会失去数据的安全性。这样就可以既不降低吞吐量，又可以在多个线程之间安全地传递数据。</p>
 <h2 id="Read-Write-Lock模式"><a href="#Read-Write-Lock模式" class="headerlink" title="Read-Write Lock模式"></a>Read-Write Lock模式</h2><p><img src="https://s1.ax1x.com/2018/12/28/FW0WxH.png" alt="FW0WxH.png"></p>
 <h3 id="语境-5"><a href="#语境-5" class="headerlink" title="语境"></a>语境</h3><p>当多个线程共享了实例，且存在读取实例状态的线程（Reader角色）和改变实例状态的线程（Writer角色）时。</p>
 <h3 id="问题-5"><a href="#问题-5" class="headerlink" title="问题"></a>问题</h3><p>如果不进行线程的互斥处理将会失去安全性。但是，如果使用Single Threaded Execution模式，吞吐量又会下降。</p>
