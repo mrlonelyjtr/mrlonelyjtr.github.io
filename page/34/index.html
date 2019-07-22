@@ -113,11 +113,11 @@
       author: 'Author'
     },
     algolia: {
-      applicationID: 'WJ0ABS4YTT',
-      apiKey: '570f8b59ef0850a1cad9dcc2f404577f',
-      indexName: 'mrlonelyjtr',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: "",
+      labels: ""
     }
   };
 </script>
@@ -1155,7 +1155,7 @@ java.util.concurrent.Callable接口将“返回值的某种处理的调用”抽
           
           获取Future角色的线程会在稍后使用Future角色来获取运行结果。如果运行结果已经出来了，那么直接领取即可；如果运行结果还没有出来，那么需要等待结果出来。
 示例在每次发出请求时都创建一个线程。程序一旦发出请求，就会立即获取返回值。也就是说，会有下面这样的返回值（data）。
-Data data 
+1Data data
           ...
           <!--noindex-->
           <div class="post-button text-center">

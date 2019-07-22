@@ -87,21 +87,21 @@
 
 
 
-<meta name="description" content="获取Future角色的线程会在稍后使用Future角色来获取运行结果。如果运行结果已经出来了，那么直接领取即可；如果运行结果还没有出来，那么需要等待结果出来。 示例在每次发出请求时都创建一个线程。程序一旦发出请求，就会立即获取返回值。也就是说，会有下面这样的返回值（data）。 Data data = host.request(10, ‘A’); 但是，这里的返回值data并非请求的运行结果。为了">
+<meta name="description" content="获取Future角色的线程会在稍后使用Future角色来获取运行结果。如果运行结果已经出来了，那么直接领取即可；如果运行结果还没有出来，那么需要等待结果出来。 示例在每次发出请求时都创建一个线程。程序一旦发出请求，就会立即获取返回值。也就是说，会有下面这样的返回值（data）。 1Data data = host.request(10, &apos;A&apos;);  但是，这里的返回值data并非请求的运行结果。">
 <meta name="keywords" content="Java,Multithread">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【图解Java多线程设计模式】Future模式">
 <meta property="og:url" content="http://yoursite.com/2019/01/29/【图解Java多线程设计模式】Future模式/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="获取Future角色的线程会在稍后使用Future角色来获取运行结果。如果运行结果已经出来了，那么直接领取即可；如果运行结果还没有出来，那么需要等待结果出来。 示例在每次发出请求时都创建一个线程。程序一旦发出请求，就会立即获取返回值。也就是说，会有下面这样的返回值（data）。 Data data = host.request(10, ‘A’); 但是，这里的返回值data并非请求的运行结果。为了">
+<meta property="og:description" content="获取Future角色的线程会在稍后使用Future角色来获取运行结果。如果运行结果已经出来了，那么直接领取即可；如果运行结果还没有出来，那么需要等待结果出来。 示例在每次发出请求时都创建一个线程。程序一旦发出请求，就会立即获取返回值。也就是说，会有下面这样的返回值（data）。 1Data data = host.request(10, &apos;A&apos;);  但是，这里的返回值data并非请求的运行结果。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://s2.ax1x.com/2019/01/28/kMRQOJ.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/01/28/kMR8T1.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/01/29/kQO0UK.png">
-<meta property="og:updated_time" content="2019-01-29T14:52:37.878Z">
+<meta property="og:updated_time" content="2019-07-22T14:32:21.840Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【图解Java多线程设计模式】Future模式">
-<meta name="twitter:description" content="获取Future角色的线程会在稍后使用Future角色来获取运行结果。如果运行结果已经出来了，那么直接领取即可；如果运行结果还没有出来，那么需要等待结果出来。 示例在每次发出请求时都创建一个线程。程序一旦发出请求，就会立即获取返回值。也就是说，会有下面这样的返回值（data）。 Data data = host.request(10, ‘A’); 但是，这里的返回值data并非请求的运行结果。为了">
+<meta name="twitter:description" content="获取Future角色的线程会在稍后使用Future角色来获取运行结果。如果运行结果已经出来了，那么直接领取即可；如果运行结果还没有出来，那么需要等待结果出来。 示例在每次发出请求时都创建一个线程。程序一旦发出请求，就会立即获取返回值。也就是说，会有下面这样的返回值（data）。 1Data data = host.request(10, &apos;A&apos;);  但是，这里的返回值data并非请求的运行结果。">
 <meta name="twitter:image" content="https://s2.ax1x.com/2019/01/28/kMRQOJ.png">
 
 
@@ -119,11 +119,11 @@
       author: 'Author'
     },
     algolia: {
-      applicationID: 'WJ0ABS4YTT',
-      apiKey: '570f8b59ef0850a1cad9dcc2f404577f',
-      indexName: 'mrlonelyjtr',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: "",
+      labels: ""
     }
   };
 </script>
@@ -393,10 +393,12 @@
       
         <p>获取Future角色的线程会在稍后使用Future角色来获取运行结果。如果运行结果已经出来了，那么直接领取即可；如果运行结果还没有出来，那么需要等待结果出来。</p>
 <h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>在每次发出请求时都创建一个线程。程序一旦发出请求，就会立即获取返回值。也就是说，会有下面这样的返回值（data）。</p>
-<p><em>Data data = host.request(10, ‘A’);</em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Data data = host.request(<span class="number">10</span>, <span class="string">'A'</span>);</span><br></pre></td></tr></table></figure>
+
 <p>但是，这里的返回值data并非请求的运行结果。为了获取请求的运行结果，刚刚启动了其他线程去进行计算。</p>
 <p>如下所示，过了一段时间后，线程会调用data的getContent方法去获取运行结果。</p>
-<p><em>data.getContent</em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.getContent</span><br></pre></td></tr></table></figure>
+
 <p>如果其他线程处理完了请求，那么调用getContent的线程会立即从该方法返回；而如果其他线程还没有处理完请求，那么调用getContent的线程会继续等待运行结果。</p>
 <h3 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h3><p><img src="https://s2.ax1x.com/2019/01/28/kMRQOJ.png" alt="kMRQOJ.png"></p>
 <h3 id="时序图"><a href="#时序图" class="headerlink" title="时序图"></a>时序图</h3><p><img src="https://s2.ax1x.com/2019/01/28/kMR8T1.png" alt="kMR8T1.png"></p>
