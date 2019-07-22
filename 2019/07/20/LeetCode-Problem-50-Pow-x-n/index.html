@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
 <meta property="og:description" content="Implement pow(x, n), which calculates x raised to the power n (x^n). ExampleNo.1Input: 2.00000, 10 Output: 1024.00000 No.2Input: 2.10000, 3 Output: 9.26100 No.3Input: 2.00000, -2 Output: 0.25000 Expla">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-07-19T13:54:13.898Z">
+<meta property="og:updated_time" content="2019-07-22T16:15:06.342Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LeetCode] Problem 50 - Pow(x, n)">
 <meta name="twitter:description" content="Implement pow(x, n), which calculates x raised to the power n (x^n). ExampleNo.1Input: 2.00000, 10 Output: 1024.00000 No.2Input: 2.10000, 3 Output: 9.26100 No.3Input: 2.00000, -2 Output: 0.25000 Expla">
@@ -410,7 +410,7 @@
 <li>-100.0 &lt; x &lt; 100.0</li>
 <li>n is a 32-bit signed integer, within the range [−231, 231 − 1]</li>
 </ul>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">myPow</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> n &gt;= <span class="number">0</span> ? pow(x, n) : <span class="number">1</span> / pow(x, -n);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">double</span> <span class="title">pow</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">double</span> result = pow(x, n / <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> n % <span class="number">2</span> == <span class="number">0</span> ? result * result : result * result * x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
