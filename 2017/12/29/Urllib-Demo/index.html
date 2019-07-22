@@ -6,15 +6,15 @@
 
 
 <html class="theme-next pisces use-motion" lang="en">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -32,7 +32,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -66,21 +66,21 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Python,Web Crawler," />
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
+  <meta name="keywords" content="Python,Web Crawler,">
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
 
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/29/Urllib-Demo/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/12/29/Urllib-Demo/">
 
 
 
@@ -166,7 +166,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">mrlonelyjtr's blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -196,7 +196,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             Home
           </a>
@@ -206,7 +206,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             Categories
           </a>
@@ -216,7 +216,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             Archives
           </a>
@@ -226,7 +226,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             Tags
           </a>
@@ -234,9 +234,41 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -265,7 +297,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
@@ -308,7 +340,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -356,13 +388,19 @@
 
       
         <h2 id="使用Urllib爬取网页"><a href="#使用Urllib爬取网页" class="headerlink" title="使用Urllib爬取网页"></a>使用Urllib爬取网页</h2><h3 id="将爬取到的网页以网页的形式保存在本地"><a href="#将爬取到的网页以网页的形式保存在本地" class="headerlink" title="将爬取到的网页以网页的形式保存在本地"></a>将爬取到的网页以网页的形式保存在本地</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line"><span class="comment"># 爬取百度首页</span></span><br><span class="line">file = urllib.request.urlopen(<span class="string">"http://www.baidu.com"</span>)</span><br><span class="line"><span class="comment"># 将对应的网页内容读取出来</span></span><br><span class="line">data = file.read()</span><br><span class="line"><span class="comment">#print(data)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 以二进制写入的方式打开文件</span></span><br><span class="line">fhandle = open(<span class="string">"/Users/matianyao/Desktop/crawler.html"</span>, <span class="string">"wb"</span>)</span><br><span class="line"><span class="comment"># 写入对应的数据</span></span><br><span class="line">fhandle.write(data)</span><br><span class="line"><span class="comment"># 关闭文件</span></span><br><span class="line">fhandle.close()</span><br></pre></td></tr></table></figure>
+
 <h3 id="直接将对应信息写入本地文件"><a href="#直接将对应信息写入本地文件" class="headerlink" title="直接将对应信息写入本地文件"></a>直接将对应信息写入本地文件</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line"><span class="comment"># 直接将网页写入本地文件</span></span><br><span class="line">filename = urllib.request.urlretrieve(<span class="string">"http://edu.51cto.com"</span>, filename=<span class="string">"/Users/matianyao/Desktop/crawler.html"</span>)</span><br><span class="line"><span class="comment"># 清除urlretrieve执行所造成的缓存</span></span><br><span class="line">urllib.request.urlcleanup()</span><br></pre></td></tr></table></figure>
+
 <h3 id="其它常见用法"><a href="#其它常见用法" class="headerlink" title="其它常见用法"></a>其它常见用法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 返回与当前环境有关的信息</span></span><br><span class="line">file.info()</span><br><span class="line"><span class="comment"># 获取当前爬取网页的状态码</span></span><br><span class="line">file.getcode()</span><br><span class="line"><span class="comment"># 获取当前所爬取的url地址</span></span><br><span class="line">file.geturl()</span><br><span class="line"><span class="comment"># 对网址进行编码</span></span><br><span class="line">urllib.request.quote(<span class="string">"http://www.sina.com.cn"</span>)</span><br><span class="line"><span class="comment"># 对编码的网址进行解码</span></span><br><span class="line">urllib.request.unquote(<span class="string">"http%3A//www.sina.com.cn"</span>)</span><br></pre></td></tr></table></figure>
+
 <h2 id="浏览器的模拟——Headers属性"><a href="#浏览器的模拟——Headers属性" class="headerlink" title="浏览器的模拟——Headers属性"></a>浏览器的模拟——Headers属性</h2><p>有时候，无法爬取一些网页，会出现403错误，因为这些网页为了防止别人恶意采集其信息所以进行了一些反爬虫的设置。<br>可以设置一些Headers信息，模拟成浏览器去访问这些网站。</p>
 <h3 id="使用build-opener-修改报头"><a href="#使用build-opener-修改报头" class="headerlink" title="使用build_opener()修改报头"></a>使用build_opener()修改报头</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">url = <span class="string">"http://worldagnetwork.com/"</span></span><br><span class="line">headers = (<span class="string">"User-Agent"</span>, <span class="string">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/604.4.7 (KHTML, like Gecko) Version/11.0.2 Safari/604.4.7"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建自定义的opener对象</span></span><br><span class="line">opener = urllib.request.build_opener()</span><br><span class="line"><span class="comment"># 设置对应的头信息</span></span><br><span class="line">opener.addheaders = [headers]</span><br><span class="line"><span class="comment"># 打开对应的网址，再读取对应数据</span></span><br><span class="line">data = opener.open(url).read()</span><br></pre></td></tr></table></figure>
+
 <h3 id="使用add-header-添加报头"><a href="#使用add-header-添加报头" class="headerlink" title="使用add_header()添加报头"></a>使用add_header()添加报头</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">url = <span class="string">"http://worldagnetwork.com/"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个Request对象</span></span><br><span class="line">req = urllib.request.Request(url)</span><br><span class="line"><span class="comment"># 添加对应的报头信息</span></span><br><span class="line">req.add_header(<span class="string">"User-Agent"</span>, <span class="string">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/604.4.7 (KHTML, like Gecko) Version/11.0.2 Safari/604.4.7"</span>)</span><br><span class="line"><span class="comment"># 打开对应网址并读取了网页内容</span></span><br><span class="line">data = urllib.request.urlopen(req).read()</span><br></pre></td></tr></table></figure>
+
 <h2 id="超时设置"><a href="#超时设置" class="headerlink" title="超时设置"></a>超时设置</h2><p>有时候，访问一个网页，如果该网页长时间未响应，那么系统就会判断该网页超时了，即无法打开该网页。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range (<span class="number">1</span>, <span class="number">30</span>):</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment"># 在爬取的时候设置超时异常的值</span></span><br><span class="line">        file = urllib.request.urlopen(<span class="string">"http://yum.iqianyue.com"</span>, timeout=<span class="number">0.1</span>)</span><br><span class="line">        data = file.read()</span><br><span class="line">        print(len(data))</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        print(<span class="string">"ERROR--&gt;"</span> + str(e))</span><br></pre></td></tr></table></figure>
+
 <h2 id="HTTP协议请求实战"><a href="#HTTP协议请求实战" class="headerlink" title="HTTP协议请求实战"></a>HTTP协议请求实战</h2><h3 id="GET请求实例分析"><a href="#GET请求实例分析" class="headerlink" title="GET请求实例分析"></a>GET请求实例分析</h3><ol>
 <li>构建对应的url地址，该url地址包含GET请求的字段名和字段内容等信息，并且url地址满足GET请求的格式，即“http://网址?字段名1=字段内容1&amp;字段名2=字段内容2”</li>
 <li>以对应的url为参数，构建Request对象</li>
@@ -370,6 +408,7 @@
 <li>按需求进行后续的处理操作，比如读取网页的内容、将内容写入文件等</li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">key = <span class="string">"哈哈"</span></span><br><span class="line">url = <span class="string">"http://www.baidu.com/s?wd="</span></span><br><span class="line">key_code = urllib.request.quote(key)</span><br><span class="line">url_all = url + key_code</span><br><span class="line">req = urllib.request.Request(url_all)</span><br><span class="line">data = urllib.request.urlopen(req).read()</span><br><span class="line"></span><br><span class="line">fhandle = open(<span class="string">"/Users/matianyao/Desktop/crawler.html"</span>, <span class="string">"wb"</span>)</span><br><span class="line">fhandle.write(data)</span><br><span class="line">fhandle.close()</span><br></pre></td></tr></table></figure>
+
 <h3 id="POST请求实例分析"><a href="#POST请求实例分析" class="headerlink" title="POST请求实例分析"></a>POST请求实例分析</h3><ol>
 <li>设置好url网址</li>
 <li>构建表单数据，并使用urllib.parse.urlencode对数据进行编码处理</li>
@@ -379,11 +418,15 @@
 <li>后续处理，比如读取网页内容、将内容写入文件等</li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">import</span> urllib.parse</span><br><span class="line"></span><br><span class="line">url = <span class="string">"http://www.iqianyue.com/mypost/"</span></span><br><span class="line">postdata = urllib.parse.urlencode(&#123;</span><br><span class="line">    <span class="string">"name"</span>: <span class="string">"ceo@iqianyue.com"</span>,</span><br><span class="line">    <span class="string">"pass"</span>: <span class="string">"aA123456"</span></span><br><span class="line">&#125;).encode(<span class="string">"utf-8"</span>)</span><br><span class="line">req = urllib.request.Request(url, postdata)</span><br><span class="line">req.add_header(<span class="string">"User-Agent"</span>, <span class="string">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/604.4.7 (KHTML, like Gecko) Version/11.0.2 Safari/604.4.7"</span>)</span><br><span class="line">data = urllib.request.urlopen(req).read()</span><br><span class="line"></span><br><span class="line">fhandle = open(<span class="string">"/Users/matianyao/Desktop/crawler.html"</span>, <span class="string">"wb"</span>)</span><br><span class="line">fhandle.write(data)</span><br><span class="line">fhandle.close()</span><br></pre></td></tr></table></figure>
+
 <h2 id="代理服务器的设置"><a href="#代理服务器的设置" class="headerlink" title="代理服务器的设置"></a>代理服务器的设置</h2><p>有时使用同一个IP去爬取同一个网站上的网页，久了之后会被该网站服务器屏蔽。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用代理服务器来爬取某个url网页</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">use_proxy</span><span class="params">(proxy_addr, url)</span>:</span></span><br><span class="line">    <span class="comment"># 设置对应的代理服务器信息</span></span><br><span class="line">    proxy = urllib.request.ProxyHandler(&#123;<span class="string">"http"</span>: proxy_addr&#125;)</span><br><span class="line">    <span class="comment"># 创建一个自定义的opener对象</span></span><br><span class="line">    opener = urllib.request.build_opener(proxy, urllib.request.HTTPHandler)</span><br><span class="line">    <span class="comment"># 创建全局默认的opener对象</span></span><br><span class="line">    urllib.request.install_opener(opener)</span><br><span class="line">    <span class="comment"># 打开对应网址爬取网页并读取</span></span><br><span class="line">    data = urllib.request.urlopen(url).read().decode(<span class="string">"utf-8"</span>)</span><br><span class="line">    <span class="keyword">return</span> data</span><br><span class="line"></span><br><span class="line">proxy_addr = <span class="string">"61.135.217.7:80"</span></span><br><span class="line">data = use_proxy(proxy_addr, <span class="string">"http://www.baidu.com"</span>)</span><br><span class="line">print(len(data))</span><br></pre></td></tr></table></figure>
+
 <h2 id="异常处理神器——URLError实战"><a href="#异常处理神器——URLError实战" class="headerlink" title="异常处理神器——URLError实战"></a>异常处理神器——URLError实战</h2><p>一般来说，产生URLError的原因有如下几种可能：<br>1） 连接不上服务器<br>2） 远程url不存在<br>3） 无网络<br>4） 触发了HTTPError</p>
 <h3 id="HTTPError"><a href="#HTTPError" class="headerlink" title="HTTPError"></a>HTTPError</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">import</span> urllib.error</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    urllib.request.urlopen(<span class="string">"http://worldagnetwork.com/"</span>)</span><br><span class="line"><span class="keyword">except</span> urllib.error.HTTPError <span class="keyword">as</span> e:</span><br><span class="line">    print(e.code)</span><br><span class="line">    print(e.reason)</span><br></pre></td></tr></table></figure>
+
 <h3 id="URLError"><a href="#URLError" class="headerlink" title="URLError"></a>URLError</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">import</span> urllib.error</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    urllib.request.urlopen(<span class="string">"http://www.baidusss.net/"</span>)</span><br><span class="line"><span class="keyword">except</span> urllib.error.URLError <span class="keyword">as</span> e:</span><br><span class="line">    print(e.reason)</span><br></pre></td></tr></table></figure>
+
 <h3 id="整合改进"><a href="#整合改进" class="headerlink" title="整合改进"></a>整合改进</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">import</span> urllib.error</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    urllib.request.urlopen(<span class="string">"http://www.baidusss.com/"</span>)</span><br><span class="line"><span class="keyword">except</span> urllib.error.URLError <span class="keyword">as</span> e:</span><br><span class="line">    <span class="keyword">if</span> hasattr(e, <span class="string">"code"</span>):</span><br><span class="line">        print(e.code)</span><br><span class="line">    <span class="keyword">if</span> hasattr(e, <span class="string">"reason"</span>):</span><br><span class="line">        print(e.reason)</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -488,7 +531,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -499,9 +542,7 @@
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.jpg"
-               alt="mrlonelyjtr" />
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="mrlonelyjtr">
           <p class="site-author-name" itemprop="name">mrlonelyjtr</p>
            
               <p class="site-description motion-element" itemprop="description">间歇性踌躇满志，持续性混吃等死</p>
@@ -512,7 +553,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">500</span>
+                <span class="site-state-item-count">501</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -600,7 +641,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
   <span itemprop="copyrightYear">2019</span>
@@ -745,6 +786,132 @@
 
 
   
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
 
 
 
