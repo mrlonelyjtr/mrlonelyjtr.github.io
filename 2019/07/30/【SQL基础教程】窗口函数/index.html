@@ -98,7 +98,10 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/07/30/eJhQSS.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/07/30/eJogDe.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/07/30/eJ7UYR.png">
-<meta property="og:updated_time" content="2019-07-30T14:03:51.327Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/30/eJvXO1.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/31/eYPKhV.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/31/eYPBcD.png">
+<meta property="og:updated_time" content="2019-07-30T16:48:26.548Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【SQL基础教程】窗口函数">
 <meta name="twitter:description" content="什么是窗口函数窗口函数也称为OLAP函数。OLAP是Online Analytical Processing的简称，意思是对数据库数据进行实时分析处理。例如，市场分析、创建财务报表、创建计划等日常性商务工作。窗口函数就是为了实现OLAP而添加的标准SQL功能。 窗口函数的语法1&amp;lt;窗口函数&amp;gt; OVER ([PARTITION BY &amp;lt;列清单&amp;gt;] ORDER BY &amp;lt;排序">
@@ -416,7 +419,38 @@
 <p>上述SELECT语句的结果如下所示。</p>
 <p><a href="https://imgchr.com/i/eJ7UYR" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/07/30/eJ7UYR.png" alt="eJ7UYR.png"></a></p>
 <p>之前得到的是按照商品种类分组后的排序，而这次变成了全部商品的排序。像这样，当希望先将表中的数据分为多个部分（窗口），再使用窗口函数时，可以使用PARTITION BY选项。</p>
+<h2 id="专用窗口函数的种类"><a href="#专用窗口函数的种类" class="headerlink" title="专用窗口函数的种类"></a>专用窗口函数的种类</h2><p>从上述结果中可以看到，“打卡器”和“叉子”都排在第2位，而之后的“擦菜板”跳过了第3位，直接排到了第4位，这也是通常的排序方法，但某些情况下可能并不希望跳过某个位次来进行排序。<br>这时可以使用RANK函数之外的函数来实现。下面就来总结一下具有代表性的专用窗口函数。</p>
+<ul>
+<li>RANK函数 </li>
+</ul>
+<p>计算排序时，如果存在相同位次的记录，则会跳过之后的位次。<br>例）有3条记录排在第1位时：1位、1位、1位、4位…</p>
+<ul>
+<li>DENSE_RANK函数</li>
+</ul>
+<p>同样是计算排序，即使存在相同位次的记录，也不会跳过之后的位次。<br>例）有3条记录排在第1位时：1位、1位、1位、2位…</p>
+<ul>
+<li>ROW_NUMBER函数</li>
+</ul>
+<p>赋予唯一的连续位次。<br>例）有3条记录排在第1位时：1位、2位、3位、4位…</p>
+<p>除此之外，各DBMS还提供了各自特有的窗口函数。上述3个函数在所有的DBMS中都能够使用。下面就来比较一下使用这3个函数所得到的结果吧。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> product_name, product_type, sale_price, </span><br><span class="line">       <span class="keyword">RANK</span> () <span class="keyword">OVER</span> (<span class="keyword">ORDER</span> <span class="keyword">BY</span> sale_price) <span class="keyword">AS</span> ranking,</span><br><span class="line">       <span class="keyword">DENSE_RANK</span> () <span class="keyword">OVER</span> (<span class="keyword">ORDER</span> <span class="keyword">BY</span> sale_price) <span class="keyword">AS</span> dense_ranking,</span><br><span class="line">       ROW_NUMBER () <span class="keyword">OVER</span> (<span class="keyword">ORDER</span> <span class="keyword">BY</span> sale_price) <span class="keyword">AS</span> row_num</span><br><span class="line"><span class="keyword">FROM</span> Product;</span><br></pre></td></tr></table></figure>
 
+<p><a href="https://imgchr.com/i/eJvXO1" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/07/30/eJvXO1.png" alt="eJvXO1.png"></a></p>
+<p>使用RANK或ROW_NUMBER时无需任何参数，只需要像RANK()或者ROW_NUMBER()这样保持括号中为空就可以了。这也是专用窗口函数通常的使用方式。这一点与作为窗口函数使用的聚合函数有很大的不同。</p>
+<h2 id="窗口函数的适用范围"><a href="#窗口函数的适用范围" class="headerlink" title="窗口函数的适用范围"></a>窗口函数的适用范围</h2><p>使用窗口函数的位置有非常大的限制。更确切地说，窗口函数只能书写在一个特定的位置。<br>这个位置就是SELECT子句之中。反过来说，就是这类函数不能再WHERE子句或者GROUP BY子句中使用。</p>
+<p>其理由就是，在DBMS内部，窗口函数是对WHERE子句或者GROUP BY子句处理后的“结果”进行的操作。在得到用户想要的结果之前，即使进行了排序处理，结果也是错误的。在得到排序结果之后，如果通过WHERE子句中的条件除去了某些记录，或者使用GROUP BY子句进行了汇总处理，那好不容易得到的排序结果也无法使用了。<br>正是由于这样的原因，在SELECT子句之外“使用窗口函数是没有意义的”，所以在语法上才会有这样的限制。</p>
+<h2 id="作为窗口函数使用的聚合函数"><a href="#作为窗口函数使用的聚合函数" class="headerlink" title="作为窗口函数使用的聚合函数"></a>作为窗口函数使用的聚合函数</h2><p>前面介绍了使用专用窗口函数的示例，下面再来看一看把SUM或者AVG等聚合函数作为窗口函数使用的方法。</p>
+<p>先来看一个将SUM函数作为窗口函数使用的例子。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> product_id, product_name, sale_price, </span><br><span class="line">       <span class="keyword">SUM</span> (sale_price) <span class="keyword">OVER</span> (<span class="keyword">ORDER</span> <span class="keyword">BY</span> product_id) <span class="keyword">AS</span> current_sum</span><br><span class="line"><span class="keyword">FROM</span> Product;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://imgchr.com/i/eYPKhV" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/07/31/eYPKhV.png" alt="eYPKhV.png"></a></p>
+<p>使用SUM函数时，并不像RANK或者ROW_NUMBER那样括号中的内容为空，而是需要在括号内指定作为汇总对象的列。本例中计算出了销售单价(sale_price)的合计值(current_sum)。<br>但是得到的并不仅仅是合计值，而是按照ORDER BY子句指定的product_id的升序进行排列，计算出商品编号“小于自己”的商品的销售单价的合计值。因此，计算该合计值的逻辑就像金字塔堆积那样，一行一行逐渐添加计算对象。</p>
+<p>使用其他聚合函数时的操作逻辑也和本例相同。例如，使用AVG来代替SELECT语句中的SUM。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> product_id, product_name, sale_price, </span><br><span class="line">       <span class="keyword">AVG</span> (sale_price) <span class="keyword">OVER</span> (<span class="keyword">ORDER</span> <span class="keyword">BY</span> product_id) <span class="keyword">AS</span> current_avg</span><br><span class="line"><span class="keyword">FROM</span> Product;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://imgchr.com/i/eYPBcD" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/07/31/eYPBcD.png" alt="eYPBcD.png"></a></p>
+<p>从结果中可以看到，current_avg的计算方法确实是计算平均值的方法，但作为统计对象的却只是“排在自己之上”的记录。像这样以“自身记录（当前记录）”所谓基准进行统计，就是将聚合函数当作窗口函数使用时的最大特征。</p>
+<h2 id="计算移动平均"><a href="#计算移动平均" class="headerlink" title="计算移动平均"></a>计算移动平均</h2>
       
     </div>
 
@@ -604,7 +638,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是窗口函数"><span class="nav-number">1.</span> <span class="nav-text">什么是窗口函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#窗口函数的语法"><span class="nav-number">2.</span> <span class="nav-text">窗口函数的语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法的基本使用方法——使用RANK函数"><span class="nav-number">3.</span> <span class="nav-text">语法的基本使用方法——使用RANK函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无需指定PARTITION-BY"><span class="nav-number">4.</span> <span class="nav-text">无需指定PARTITION BY</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是窗口函数"><span class="nav-number">1.</span> <span class="nav-text">什么是窗口函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#窗口函数的语法"><span class="nav-number">2.</span> <span class="nav-text">窗口函数的语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法的基本使用方法——使用RANK函数"><span class="nav-number">3.</span> <span class="nav-text">语法的基本使用方法——使用RANK函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无需指定PARTITION-BY"><span class="nav-number">4.</span> <span class="nav-text">无需指定PARTITION BY</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#专用窗口函数的种类"><span class="nav-number">5.</span> <span class="nav-text">专用窗口函数的种类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#窗口函数的适用范围"><span class="nav-number">6.</span> <span class="nav-text">窗口函数的适用范围</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作为窗口函数使用的聚合函数"><span class="nav-number">7.</span> <span class="nav-text">作为窗口函数使用的聚合函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算移动平均"><span class="nav-number">8.</span> <span class="nav-text">计算移动平均</span></a></li></ol></div>
             
 
           </div>
