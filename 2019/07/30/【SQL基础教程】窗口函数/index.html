@@ -101,7 +101,9 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/07/30/eJvXO1.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/07/31/eYPKhV.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/07/31/eYPBcD.png">
-<meta property="og:updated_time" content="2019-07-30T16:48:26.548Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/31/etWO4x.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/07/31/et4HbQ.png">
+<meta property="og:updated_time" content="2019-07-31T09:43:38.476Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【SQL基础教程】窗口函数">
 <meta name="twitter:description" content="什么是窗口函数窗口函数也称为OLAP函数。OLAP是Online Analytical Processing的简称，意思是对数据库数据进行实时分析处理。例如，市场分析、创建财务报表、创建计划等日常性商务工作。窗口函数就是为了实现OLAP而添加的标准SQL功能。 窗口函数的语法1&amp;lt;窗口函数&amp;gt; OVER ([PARTITION BY &amp;lt;列清单&amp;gt;] ORDER BY &amp;lt;排序">
@@ -450,7 +452,32 @@
 
 <p><a href="https://imgchr.com/i/eYPBcD" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/07/31/eYPBcD.png" alt="eYPBcD.png"></a></p>
 <p>从结果中可以看到，current_avg的计算方法确实是计算平均值的方法，但作为统计对象的却只是“排在自己之上”的记录。像这样以“自身记录（当前记录）”所谓基准进行统计，就是将聚合函数当作窗口函数使用时的最大特征。</p>
-<h2 id="计算移动平均"><a href="#计算移动平均" class="headerlink" title="计算移动平均"></a>计算移动平均</h2>
+<h2 id="计算移动平均"><a href="#计算移动平均" class="headerlink" title="计算移动平均"></a>计算移动平均</h2><p>窗口函数就是将表以窗口为单位进行分割，并在其中进行排序的函数。其实其中还包含在窗口中指定更加详细的汇总范围的备选功能，该备选功能中的汇总范围称为框架。<br>其语法需要在ORDER BY子句之后使用指定范围的关键字。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> product_id, product_name, sale_price, </span><br><span class="line">       <span class="keyword">AVG</span> (sale_price) <span class="keyword">OVER</span> (<span class="keyword">ORDER</span> <span class="keyword">BY</span> product_id <span class="keyword">ROWS</span> <span class="number">2</span> <span class="keyword">PRECEDING</span>) <span class="keyword">AS</span> moving_avg</span><br><span class="line"><span class="keyword">FROM</span> Product;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://imgchr.com/i/etWO4x" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/07/31/etWO4x.png" alt="etWO4x.png"></a></p>
+<h3 id="指定框架（汇总范围）"><a href="#指定框架（汇总范围）" class="headerlink" title="指定框架（汇总范围）"></a>指定框架（汇总范围）</h3><p>这里使用了ROWS（“行”）和PRECEDING（“之前”）两个关键字，将框架指定为“截止到之前～行”，因此“ROWS 2 PRECEDING”就是将框架指定为“截止到之前2行”，也就是将作为汇总对象的记录限定为如下的“最靠近的3行”。</p>
+<ul>
+<li>自身（当前记录）</li>
+<li>之前1行的记录</li>
+<li>之前2行的记录</li>
+</ul>
+<p>也就是说，由于框架是根据当前记录来确定的，因此和固定的窗口不同，其范围会随着当前记录的变化而变化。</p>
+<p>这样的统计方法称为移动平均(moving average)。由于这种方法在希望实时把握“最近状态”时非常方便，因此常常会应用在对股市趋势的实时跟踪当中。</p>
+<p>使用关键字FOLLOWING（“之后”）替换PRECEDING，就可以指定“截止到之后～行”作为框架了。</p>
+<h3 id="将当前记录的前后行作为汇总对象"><a href="#将当前记录的前后行作为汇总对象" class="headerlink" title="将当前记录的前后行作为汇总对象"></a>将当前记录的前后行作为汇总对象</h3><p>如果希望将当前记录的前后行作为汇总对象时，就可以同时使用PRECEDING（“之前”）和FOLLOWING（“之后”）关键字来实现。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> product_id, product_name, sale_price, </span><br><span class="line">       <span class="keyword">AVG</span> (sale_price) <span class="keyword">OVER</span> (<span class="keyword">ORDER</span> <span class="keyword">BY</span> product_id <span class="keyword">ROWS</span> <span class="keyword">BETWEEN</span> <span class="number">1</span> <span class="keyword">PRECEDING</span> <span class="keyword">AND</span> <span class="number">1</span> <span class="keyword">FOLLOWING</span>) <span class="keyword">AS</span> moving_avg</span><br><span class="line"><span class="keyword">FROM</span> Product;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://imgchr.com/i/et4HbQ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/07/31/et4HbQ.png" alt="et4HbQ.png"></a></p>
+<p>在上述代码中，通过指定框架，将“1 PRECEDING”（之前1行）和“1 FOLLOWING”（之后1行）的区间作为汇总对象。具体来说，就是将如下3行作为汇总对象来进行计算。</p>
+<ul>
+<li>之前1行的记录</li>
+<li>自身（当前记录）</li>
+<li>之后1行的记录</li>
+</ul>
+<h2 id="两个ORDER-BY"><a href="#两个ORDER-BY" class="headerlink" title="两个ORDER BY"></a>两个ORDER BY</h2><p>最后来介绍一下使用窗口函数时与结果形式相关的注意事项，那就是记录的排列顺序。<br>OVER子句中的ORDER BY只是用来决定窗口函数按照什么样的顺序进行计算的，对结果的排列顺序并没有影响。因此也有可能得到一个记录的排列顺序比较混乱的结果。有些DBMS也可以按照窗口函数的ORDER BY子句所指定的顺序对结果进行排序，但那也仅仅是个例而已。</p>
+<p>那么，如何才能让记录切实按照ranking列的升序进行排列呢？<br>答案非常简单。那就是在SELECT语句的最后，使用ORDER BY子句进行指定。这样就能保证SELECT语句的结果中记录的排列顺序了。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> product_name, product_type, sale_price, </span><br><span class="line">       <span class="keyword">RANK</span> () <span class="keyword">OVER</span> (<span class="keyword">ORDER</span> <span class="keyword">BY</span> sale_price) <span class="keyword">AS</span> ranking</span><br><span class="line"><span class="keyword">FROM</span> Product</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> ranking;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -638,7 +665,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是窗口函数"><span class="nav-number">1.</span> <span class="nav-text">什么是窗口函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#窗口函数的语法"><span class="nav-number">2.</span> <span class="nav-text">窗口函数的语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法的基本使用方法——使用RANK函数"><span class="nav-number">3.</span> <span class="nav-text">语法的基本使用方法——使用RANK函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无需指定PARTITION-BY"><span class="nav-number">4.</span> <span class="nav-text">无需指定PARTITION BY</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#专用窗口函数的种类"><span class="nav-number">5.</span> <span class="nav-text">专用窗口函数的种类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#窗口函数的适用范围"><span class="nav-number">6.</span> <span class="nav-text">窗口函数的适用范围</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作为窗口函数使用的聚合函数"><span class="nav-number">7.</span> <span class="nav-text">作为窗口函数使用的聚合函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算移动平均"><span class="nav-number">8.</span> <span class="nav-text">计算移动平均</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是窗口函数"><span class="nav-number">1.</span> <span class="nav-text">什么是窗口函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#窗口函数的语法"><span class="nav-number">2.</span> <span class="nav-text">窗口函数的语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法的基本使用方法——使用RANK函数"><span class="nav-number">3.</span> <span class="nav-text">语法的基本使用方法——使用RANK函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无需指定PARTITION-BY"><span class="nav-number">4.</span> <span class="nav-text">无需指定PARTITION BY</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#专用窗口函数的种类"><span class="nav-number">5.</span> <span class="nav-text">专用窗口函数的种类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#窗口函数的适用范围"><span class="nav-number">6.</span> <span class="nav-text">窗口函数的适用范围</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作为窗口函数使用的聚合函数"><span class="nav-number">7.</span> <span class="nav-text">作为窗口函数使用的聚合函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算移动平均"><span class="nav-number">8.</span> <span class="nav-text">计算移动平均</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#指定框架（汇总范围）"><span class="nav-number">8.1.</span> <span class="nav-text">指定框架（汇总范围）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将当前记录的前后行作为汇总对象"><span class="nav-number">8.2.</span> <span class="nav-text">将当前记录的前后行作为汇总对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两个ORDER-BY"><span class="nav-number">9.</span> <span class="nav-text">两个ORDER BY</span></a></li></ol></div>
             
 
           </div>
