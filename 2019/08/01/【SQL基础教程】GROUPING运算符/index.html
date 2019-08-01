@@ -102,7 +102,8 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/07/31/eN7GaF.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/08/01/eU1Q4P.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/08/01/eUJtzV.png">
-<meta property="og:updated_time" content="2019-08-01T03:53:03.483Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/08/01/eUYHAJ.png">
+<meta property="og:updated_time" content="2019-08-01T03:54:19.275Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【SQL基础教程】GROUPING运算符">
 <meta name="twitter:description" content="同时得到合计行如果想要获得同时得出小计和合计的结果，通常的做法是分别计算出合计行和按照商品种类进行汇总的结果，然后通过UNION ALL连接在一起。 123456SELECT &apos;合计&apos; AS product_type, SUM(sale_price)FROM ProductUNION ALLSELECT product_type, SUM(sale_price)FROM ProductGROUP">
@@ -455,6 +456,7 @@
 <h2 id="GROUPING-SETS取得期望的积木"><a href="#GROUPING-SETS取得期望的积木" class="headerlink" title="GROUPING SETS取得期望的积木"></a>GROUPING SETS取得期望的积木</h2><p>最后要介绍的GROUPING运算符是GROUPING SETS。该运算符可以用于从ROLLUP或者CUBE的结果中取出部分记录。<br>例如，之前的CUBE的结果就是根据聚合键的所有可能的组合计算而来的。如果希望从中选取出将“商品种类”和“登记日期”各自作为聚合键的结果，或者不想得到“合计记录和使用2个聚合键的记录”时，可以使用GROUPING SETS。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">GROUPING</span>(product_type) = <span class="number">1</span> <span class="keyword">THEN</span> <span class="string">'商品种类 合计'</span> </span><br><span class="line">            <span class="keyword">ELSE</span> product_type <span class="keyword">END</span> <span class="keyword">AS</span> product_type, </span><br><span class="line">       <span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">GROUPING</span>(regist_date) = <span class="number">1</span> <span class="keyword">THEN</span> <span class="string">'登记日期 合计'</span> </span><br><span class="line">            <span class="keyword">ELSE</span> <span class="keyword">CAST</span>(regist_date <span class="keyword">AS</span> <span class="built_in">VARCHAR</span>(<span class="number">16</span>)) <span class="keyword">END</span> <span class="keyword">AS</span> regist_date, </span><br><span class="line">       <span class="keyword">SUM</span>(sale_price) <span class="keyword">AS</span> sum_price</span><br><span class="line"><span class="keyword">FROM</span> Product</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">GROUPING</span> <span class="keyword">SETS</span> (product_type, regist_date);</span><br></pre></td></tr></table></figure>
 
+<p><a href="https://imgchr.com/i/eUYHAJ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/08/01/eUYHAJ.png" alt="eUYHAJ.png"></a></p>
 <p>与ROLLUP或者CUBE能够得到规定的结果相对，GROUPING SETS用于从中取出个别条件对应的不固定的结果。然而，由于期望获得不固定结果的情况少之又少，因此与ROLLUP或者CUBE比起来，使用GROUPING SETS的机会也就很少了。</p>
 
       
@@ -507,6 +509,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/01/【SQL进阶教程】CASE表达式/" rel="prev" title="【SQL进阶教程】CASE表达式">
+                【SQL进阶教程】CASE表达式 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -576,7 +582,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">509</span>
+                <span class="site-state-item-count">510</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
