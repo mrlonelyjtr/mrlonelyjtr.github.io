@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
 <meta property="og:description" content="Given an elevation map, heights[i] representing the height of the terrain at that index. The width at each index is 1. After V units of water fall at index K, how much water is at each index? Water fi">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-06T12:48:10.861Z">
+<meta property="og:updated_time" content="2019-08-06T12:58:59.848Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LintCode] Problem 851 - Pour Water">
 <meta name="twitter:description" content="Given an elevation map, heights[i] representing the height of the terrain at that index. The width at each index is 1. After V units of water fall at index K, how much water is at each index? Water fi">
@@ -329,7 +329,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-06T13:01:36Z">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-06T21:01:36+08:00">
                 2019-08-06
               </time>
             
@@ -425,7 +425,10 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#       #</span></span><br><span class="line"><span class="comment">#       #</span></span><br><span class="line"><span class="comment">## w# ###</span></span><br><span class="line"><span class="comment">#########</span></span><br><span class="line"> 0123456    </span><br><span class="line"> 2122122</span><br></pre></td></tr></table></figure>
 
 <p>Since moving left will not make it fall, it stays in place.  The next droplet falls:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">#       #</span></span><br><span class="line">  <span class="comment">#   w   #</span></span><br><span class="line">  <span class="comment">## w# ###</span></span><br><span class="line">  <span class="comment">#########</span></span><br><span class="line">   0123456 </span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">Since the new droplet moving left will eventually make it fall, it moves left.</span><br><span class="line">Notice that the droplet still preferred to move left,</span><br><span class="line">even though it could move right (and moving right makes it fall quicker.)</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">  <span class="comment">#       #</span></span><br><span class="line">  <span class="comment">#  w    #</span></span><br><span class="line">  <span class="comment">## w# ###</span></span><br><span class="line">  <span class="comment">#########</span></span><br><span class="line">   0123456</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#       #</span></span><br><span class="line"><span class="comment">#   w   #</span></span><br><span class="line"><span class="comment">## w# ###</span></span><br><span class="line"><span class="comment">#########</span></span><br><span class="line"> 0123456</span><br></pre></td></tr></table></figure>
+
+<p>Since the new droplet moving left will eventually make it fall, it moves left.<br>Notice that the droplet still preferred to move left,<br>even though it could move right (and moving right makes it fall quicker.)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#       #</span></span><br><span class="line"><span class="comment">#  w    #</span></span><br><span class="line"><span class="comment">## w# ###</span></span><br><span class="line"><span class="comment">#########</span></span><br><span class="line"> 0123456</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#       #</span></span><br><span class="line"><span class="comment">#       #</span></span><br><span class="line"><span class="comment">##ww# ###</span></span><br><span class="line"><span class="comment">#########</span></span><br><span class="line"> 0123456  </span><br><span class="line"> 2222122</span><br></pre></td></tr></table></figure>
 
@@ -499,6 +502,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/08/07/LeetCode-Problem-848-Shifting-Letters/" rel="prev" title="[LeetCode] Problem 848 - Shifting Letters">
+                [LeetCode] Problem 848 - Shifting Letters <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -567,7 +574,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">518</span>
+                <span class="site-state-item-count">519</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
