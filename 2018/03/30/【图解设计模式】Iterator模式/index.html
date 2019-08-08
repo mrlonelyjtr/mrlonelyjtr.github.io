@@ -97,7 +97,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://s1.ax1x.com/2018/04/01/9zl4fO.png">
 <meta property="og:image" content="https://s1.ax1x.com/2018/04/01/9z19Xj.png">
-<meta property="og:updated_time" content="2019-02-18T13:55:41.231Z">
+<meta property="og:updated_time" content="2019-08-08T15:33:35.408Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【图解设计模式】Iterator模式">
 <meta name="twitter:description" content="按照统一的方法遍历集合中的元素。 示例将书（Book）放置到书架（BookShelf）中，并将书的名字按顺序显示出来。 类图 Aggregate接口123public interface Aggregate &amp;#123;    Iterator iterator();&amp;#125;  Iterator接口1234public interface Iterator &amp;#123;    boolean">
@@ -405,7 +405,7 @@
 
 <h3 id="Main类"><a href="#Main类" class="headerlink" title="Main类"></a>Main类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        BookShelf bookShelf = <span class="keyword">new</span> BookShelf(<span class="number">4</span>);</span><br><span class="line">        bookShelf.appendBook(<span class="keyword">new</span> Book(<span class="string">"Around the World in 80 Days"</span>));</span><br><span class="line">        bookShelf.appendBook(<span class="keyword">new</span> Book(<span class="string">"Bible"</span>));</span><br><span class="line">        bookShelf.appendBook(<span class="keyword">new</span> Book(<span class="string">"Cinderella"</span>));</span><br><span class="line">        bookShelf.appendBook(<span class="keyword">new</span> Book(<span class="string">"Daddy-Long-Legs"</span>));</span><br><span class="line"></span><br><span class="line">        Iterator it = <span class="keyword">new</span> BookShelfIterator(bookShelf);</span><br><span class="line">        <span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line">            Book book = (Book) it.next();</span><br><span class="line">            System.out.println(book.getName());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Around the World <span class="keyword">in</span> 80 Days</span><br><span class="line">Bible</span><br><span class="line">Cinderella</span><br><span class="line">Daddy-Long-Legs</span><br></pre></td></tr></table></figure>
+<h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Around the World in 80 Days</span><br><span class="line">Bible</span><br><span class="line">Cinderella</span><br><span class="line">Daddy-Long-Legs</span><br></pre></td></tr></table></figure>
 
 <h2 id="登场角色"><a href="#登场角色" class="headerlink" title="登场角色"></a>登场角色</h2><h3 id="Iterator（迭代器）"><a href="#Iterator（迭代器）" class="headerlink" title="Iterator（迭代器）"></a>Iterator（迭代器）</h3><p>该角色负责定义按顺序逐个遍历元素的接口（API）。在示例程序中，由Iterator接口扮演这个角色，它定义了hasNext和next两个方法。其中，hasNext方法用于判断是否存在下一个元素，next方法则用于获取该元素。</p>
 <h3 id="ConcreteIterator（具体的迭代器）"><a href="#ConcreteIterator（具体的迭代器）" class="headerlink" title="ConcreteIterator（具体的迭代器）"></a>ConcreteIterator（具体的迭代器）</h3><p>该角色负责实现Iterator角色所定义的接口（API）。在示例程序中，由BookShelfIterator类扮演这个角色。该角色中包含了遍历集合所必需的信息。在示例程序中，BookShelf类的实例保存在bookShelf字段中，被指向的书的下标保存在index字段中。</p>
@@ -538,7 +538,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">521</span>
+                <span class="site-state-item-count">522</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

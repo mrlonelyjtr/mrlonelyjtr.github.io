@@ -97,7 +97,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://s1.ax1x.com/2018/05/30/C5ohRO.png">
 <meta property="og:image" content="https://s1.ax1x.com/2018/05/30/C5ohRO.png">
-<meta property="og:updated_time" content="2019-02-18T13:55:16.809Z">
+<meta property="og:updated_time" content="2019-08-08T15:34:11.870Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【图解设计模式】Singleton模式">
 <meta name="twitter:description" content="确保只能生成一个实例。 示例类图 Singleton类1234567891011public class Singleton &amp;#123;    private static Singleton singleton = new Singleton();    private Singleton()&amp;#123;        System.out.println(&quot;生成了一个实例&quot;);    &amp;#1">
@@ -396,7 +396,7 @@
 
 <h3 id="Main类"><a href="#Main类" class="headerlink" title="Main类"></a>Main类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Start."</span>);</span><br><span class="line"></span><br><span class="line">        Singleton obj1 = Singleton.getInstance();</span><br><span class="line">        Singleton obj2 = Singleton.getInstance();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (obj1 == obj2)</span><br><span class="line">            System.out.println(<span class="string">"obj1与obj2是相同的实例。"</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            System.out.println(<span class="string">"obj1与obj2是不同的实例。"</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"End."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Start.</span><br><span class="line">生成了一个实例</span><br><span class="line">obj1与obj2是相同的实例。</span><br><span class="line">End.</span><br></pre></td></tr></table></figure>
+<h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Start.</span><br><span class="line">生成了一个实例</span><br><span class="line">obj1与obj2是相同的实例。</span><br><span class="line">End.</span><br></pre></td></tr></table></figure>
 
 <h2 id="登场角色"><a href="#登场角色" class="headerlink" title="登场角色"></a>登场角色</h2><h3 id="Singleton"><a href="#Singleton" class="headerlink" title="Singleton"></a>Singleton</h3><p>在Singleton模式中，只有Singleton这一个角色。Singleton角色中有一个返回唯一实例的static方法。该方法总是会返回同一个实例。</p>
 <h3 id="类图-1"><a href="#类图-1" class="headerlink" title="类图"></a>类图</h3><p><a href="https://imgchr.com/i/C5ohRO" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/05/30/C5ohRO.png" alt="C5ohRO.png"></a></p>
@@ -526,7 +526,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">521</span>
+                <span class="site-state-item-count">522</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
