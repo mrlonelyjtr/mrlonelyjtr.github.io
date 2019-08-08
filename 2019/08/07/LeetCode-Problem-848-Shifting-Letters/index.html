@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
 <meta property="og:description" content="We have a string S of lowercase letters, and an integer array shifts. Call the shift of a letter, the next letter in the alphabet, (wrapping around so that ‘z’ becomes ‘a’). For example, shift(‘a’) =">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-07T06:48:52.070Z">
+<meta property="og:updated_time" content="2019-08-07T07:29:41.632Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LeetCode] Problem 848 - Shifting Letters">
 <meta name="twitter:description" content="We have a string S of lowercase letters, and an integer array shifts. Call the shift of a letter, the next letter in the alphabet, (wrapping around so that ‘z’ becomes ‘a’). For example, shift(‘a’) =">
@@ -410,7 +410,7 @@
 <li>1 &lt;= S.length = shifts.length &lt;= 20000</li>
 <li>0 &lt;= shifts[i] &lt;= 10 ^ 9</li>
 </ol>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">shiftingLetters</span><span class="params">(String S, <span class="keyword">int</span>[] shifts)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">char</span>[] ch = S.toCharArray();</span><br><span class="line">    <span class="keyword">int</span> shift = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = shifts.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        shift = (shift + shifts[i] % <span class="number">26</span>) % <span class="number">26</span>;</span><br><span class="line">        ch[i] = (<span class="keyword">char</span>) (<span class="string">'a'</span> + (ch[i] - <span class="string">'a'</span> + shift) % <span class="number">26</span>);</span><br><span class="line">    &#125;   </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> String.valueOf(ch);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">shiftingLetters</span><span class="params">(String S, <span class="keyword">int</span>[] shifts)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">char</span>[] ch = S.toCharArray();</span><br><span class="line">    <span class="keyword">int</span> shift = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = shifts.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        shift += shifts[i] % <span class="number">26</span>;</span><br><span class="line">        ch[i] = (<span class="keyword">char</span>) (<span class="string">'a'</span> + (ch[i] - <span class="string">'a'</span> + shift) % <span class="number">26</span>);</span><br><span class="line">    &#125;   </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> String.valueOf(ch);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -463,6 +463,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/07/LeetCode-Problem-792-Number-of-Matching-Subsequences/" rel="prev" title="[LeetCode] Problem 792 - Number of Matching Subsequences">
+                [LeetCode] Problem 792 - Number of Matching Subsequences <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -532,7 +536,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">519</span>
+                <span class="site-state-item-count">521</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
