@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[java.io包与Decorator模式]]></title>
+    <url>%2F2019%2F08%2F09%2Fjava-io%E5%8C%85%E4%B8%8EDecorator%E6%A8%A1%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[java.io包是用于输入输出（I/O）的包。这里，使用了Decorator模式。 首先，可以像下面这样生成一个读取文件的实例。 1Reader reader = new FileReader("datafile.txt"); 然后，也可以像下面这样在读取文件时将文件内容放入缓冲区。 12Reader reader = new BufferedReader( new FileReader("datafile.txt")); 这样，在生成BufferedReader类的实例时，会指定将文件读取到FileReader类的实例中。再然后，也可以像下面这样管理行号。 123Reader reader = new LineNumberReader( new BufferedReader( new FileReader("datafile.txt"))); 无论是LineNumberReader类的构造函数还是BufferedReader类的构造函数，都可以接收Reader类（的子类）的实例作为参数，因此可以像上面那样自由地进行各种组合。还可以管理行号，但不进行缓存处理。 12Reader reader = new LineNumberReader( new FileReader("datafile.txt")); 接下来，还会管理行号，进行缓存，但是不从文件中读取数据，而是从网络中读取数据。 1234567java.net.Socket socket = new Socket(hostname, portnumber);...Reader reader = new LineNumberReader( new BufferedReader( new InputStreamReader( socket.getInputStream() ))); 这里使用的InputStreamReader类既接收getInputStream方法返回的InputStream类的实例作为构造函数的参数，也提供了Reader类的接口（API）。]]></content>
+      <categories>
+        <category>Design Pattern</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Design Pattern</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Problem 784 - Letter Case Permutation]]></title>
     <url>%2F2019%2F08%2F09%2FLeetCode-Problem-784-Letter-Case-Permutation%2F</url>
     <content type="text"><![CDATA[Given a string S, we can transform every letter individually to be lowercase or uppercase to create another string. Return a list of all possible strings we could create. ExampleNo.1Input: S = “a1b2” Output: [“a1b2”, “a1B2”, “A1b2”, “A1B2”] No.2Input: S = “3z4” Output: [“3z4”, “3Z4”] No.3Input: S = “12345” Output: [“12345”] Note S will be a string with length between 1 and 12. S will consist only of letters or digits. Code123456789101112131415161718192021public List&lt;String&gt; letterCasePermutation(String S) &#123; List&lt;String&gt; result = new ArrayList&lt;&gt;(); dfs(result, S.toCharArray(), 0); return result;&#125;private void dfs(List&lt;String&gt; result, char[] str, int idx) &#123; if (idx == str.length) &#123; result.add(String.valueOf(str)); return; &#125; dfs(result, str, idx + 1); char ch = str[idx]; if (Character.isLetter(ch)) &#123; str[idx] = (char) (ch ^ (1 &lt;&lt; 5)); dfs(result, str, idx + 1); str[idx] = ch; &#125;&#125;]]></content>
