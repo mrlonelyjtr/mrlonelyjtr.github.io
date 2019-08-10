@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LeetCode] Problem 559 - Maximum Depth of N-ary Tree]]></title>
+    <url>%2F2019%2F08%2F11%2FLeetCode-Problem-559-Maximum-Depth-of-N-ary-Tree%2F</url>
+    <content type="text"><![CDATA[Given a n-ary tree, find its maximum depth. The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node. For example, given a 3-ary tree: We should return its max depth, which is 3. Note The depth of the tree is at most 1000. The total number of nodes is at most 5000. Code12345678public class Node &#123; public int val; public List&lt;Node&gt; children; public Node(int _val, List&lt;Node&gt; _children) &#123; val = _val; children = _children; &#125;&#125; 1234567891011public int maxDepth(Node root) &#123; if (root == null) return 0; int max = 0; for (Node child : root.children) max = Math.max(max, maxDepth(child)); return max + 1;&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>OJ</tag>
+        <tag>Algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Problem 883 - Projection Area of 3D Shapes]]></title>
     <url>%2F2019%2F08%2F11%2FLeetCode-Problem-883-Projection-Area-of-3D-Shapes%2F</url>
     <content type="text"><![CDATA[On a N * N grid, we place some 1 * 1 * 1 cubes that are axis-aligned with the x, y, and z axes. Each value v = grid[i][j] represents a tower of v cubes placed on top of grid cell (i, j). Now we view the projection of these cubes onto the xy, yz, and zx planes. A projection is like a shadow, that maps our 3 dimensional figure to a 2 dimensional plane. Here, we are viewing the “shadow” when looking at the cubes from the top, the front, and the side. Return the total area of all three projections. ExampleNo.1Input: [[2]] Output: 5 No.2Input: [[1,2],[3,4]] Output: 17 Explanation:Here are the three projections (“shadows”) of the shape made with each axis-aligned plane. No.3Input: [[1,0],[0,2]] Output: 8 No.4Input: [[1,1,1],[1,0,1],[1,1,1]] Output: 14 No.5Input: [[2,2,2],[2,1,2],[2,2,2]] Output: 21 Note 1 &lt;= grid.length = grid[0].length &lt;= 50 0 &lt;= grid[i][j] &lt;= 50 Code123456789101112131415161718192021public int projectionArea(int[][] grid) &#123; int result = 0; int n = grid.length; for (int i = 0; i &lt; n; i++) &#123; int row = 0; int col = 0; for (int j = 0; j &lt; n; j++) &#123; if (grid[i][j] &gt; 0) result++; row = Math.max(row, grid[i][j]); col = Math.max(col, grid[j][i]); &#125; result += row + col; &#125; return result;&#125;]]></content>
