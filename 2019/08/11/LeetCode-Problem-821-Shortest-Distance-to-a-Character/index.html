@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="OJ,Algorithm,">
 
 
 
@@ -87,17 +87,18 @@
 
 
 
-<meta name="description" content="间歇性踌躇满志，持续性混吃等死">
+<meta name="description" content="Given a string S and a character C, return an array of integers representing the shortest distance from the character C in the string. ExampleInput: S = “loveleetcode”, C = ‘e’Output: [3, 2, 1, 0, 1,">
+<meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[LeetCode] Problem 821 - Shortest Distance to a Character">
 <meta property="og:url" content="http://yoursite.com/2019/08/11/LeetCode-Problem-821-Shortest-Distance-to-a-Character/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="间歇性踌躇满志，持续性混吃等死">
+<meta property="og:description" content="Given a string S and a character C, return an array of integers representing the shortest distance from the character C in the string. ExampleInput: S = “loveleetcode”, C = ‘e’Output: [3, 2, 1, 0, 1,">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-10T16:37:10.740Z">
+<meta property="og:updated_time" content="2019-08-11T07:34:08.685Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LeetCode] Problem 821 - Shortest Distance to a Character">
-<meta name="twitter:description" content="间歇性踌躇满志，持续性混吃等死">
+<meta name="twitter:description" content="Given a string S and a character C, return an array of integers representing the shortest distance from the character C in the string. ExampleInput: S = “loveleetcode”, C = ‘e’Output: [3, 2, 1, 0, 1,">
 
 
 
@@ -328,7 +329,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-11T00:37:10Z">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-11T08:37:10+08:00">
                 2019-08-11
               </time>
             
@@ -338,6 +339,39 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -364,7 +398,14 @@
       
 
       
-        
+        <p>Given a string S and a character C, return an array of integers representing the shortest distance from the character C in the string.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>Input: S = “loveleetcode”, C = ‘e’<br>Output: [3, 2, 1, 0, 1, 0, 0, 1, 2, 2, 1, 0]</p>
+<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><ol>
+<li>S string length is in [1, 10000].</li>
+<li>C is a single character, and guaranteed to be in string S.</li>
+<li>All letters in S and C are lowercase.</li>
+</ol>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] shortestToChar(String S, <span class="keyword">char</span> C) &#123;</span><br><span class="line">    <span class="keyword">int</span> n = S.length();</span><br><span class="line">    <span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">    Arrays.fill(result, n);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (S.charAt(i) == C)</span><br><span class="line">            result[i] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (i &gt; <span class="number">0</span>)</span><br><span class="line">            result[i] = result[i - <span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = n - <span class="number">2</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">        result[i] = Math.min(result[i], result[i + <span class="number">1</span>] + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -390,6 +431,14 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/OJ/" rel="tag"># OJ</a>
+          
+            <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+          
+        </div>
       
 
       
@@ -455,8 +504,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="mrlonelyjtr">
           <p class="site-author-name" itemprop="name">mrlonelyjtr</p>
@@ -527,6 +585,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">2.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
