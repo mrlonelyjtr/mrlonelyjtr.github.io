@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LeetCode] Problem 476 - Number Complement]]></title>
+    <url>%2F2019%2F08%2F13%2FLeetCode-Problem-476-Number-Complement%2F</url>
+    <content type="text"><![CDATA[Given a positive integer, output its complement number. The complement strategy is to flip the bits of its binary representation. Note The given integer is guaranteed to fit within the range of a 32-bit signed integer. You could assume no leading zero bit in the integer’s binary representation. ExampleNo.1Input: 5 Output: 2 Explanation: The binary representation of 5 is 101 (no leading zero bits), and its complement is 010. So you need to output 2. No.2Input: 1 Output: 0 Explanation: The binary representation of 1 is 1 (no leading zero bits), and its complement is 0. So you need to output 0. Code12345678public int findComplement(int num) &#123; int mask = ~0; while ((num &amp; mask) != 0) mask &lt;&lt;= 1; return ~num ^ mask;&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>OJ</tag>
+        <tag>Algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Problem 669 - Trim a Binary Search Tree]]></title>
     <url>%2F2019%2F08%2F12%2FLeetCode-Problem-669-Trim-a-Binary-Search-Tree%2F</url>
     <content type="text"><![CDATA[Given a binary search tree and the lowest and highest boundaries as L and R, trim the tree so that all its elements lies in [L, R] (R &gt;= L). You might need to change the root of the tree, so the result should return the new root of the trimmed binary search tree. ExampleNo.1Input: 123456 1 / \0 2L = 1R = 2 Output: 1231 \ 2 No.2Input: 12345678910 3 / \0 4 \ 2 /1L = 1R = 3 Output: 12345 3 / 2 /1 Code123456public class TreeNode &#123; int val; TreeNode left; TreeNode right; TreeNode(int x) &#123; val = x; &#125;&#125; 12345678910111213public TreeNode trimBST(TreeNode root, int L, int R) &#123; if (root == null) return null; if (root.val &gt; R) return trimBST(root.left, L, R); else if (root.val &lt; L) return trimBST(root.right, L, R); root.left = trimBST(root.left, L, R); root.right = trimBST(root.right, L, R); return root;&#125;]]></content>
