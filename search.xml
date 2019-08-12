@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LeetCode] Problem 807 - Max Increase to Keep City Skyline]]></title>
+    <url>%2F2019%2F08%2F13%2FLeetCode-Problem-807-Max-Increase-to-Keep-City-Skyline%2F</url>
+    <content type="text"><![CDATA[In a 2 dimensional array grid, each value grid[i][j] represents the height of a building located there. We are allowed to increase the height of any number of buildings, by any amount (the amounts can be different for different buildings). Height 0 is considered to be a building as well. At the end, the “skyline” when viewed from all four directions of the grid, i.e. top, bottom, left, and right, must be the same as the skyline of the original grid. A city’s skyline is the outer contour of the rectangles formed by all the buildings when viewed from a distance. See the following example. What is the maximum total sum that the height of the buildings can be increased? ExampleInput: grid = [[3,0,8,4],[2,4,5,7],[9,2,6,3],[0,3,1,0]] Output: 35 Explanation:The grid is: 1234[ [3, 0, 8, 4], [2, 4, 5, 7], [9, 2, 6, 3], [0, 3, 1, 0] ] The skyline viewed from top or bottom is: [9, 4, 8, 7]The skyline viewed from left or right is: [8, 7, 9, 3] The grid after increasing the height of buildings without affecting skylines is: gridNew = 1234[ [8, 4, 8, 7], [7, 4, 7, 7], [9, 4, 8, 7], [3, 3, 3, 3] ] Notes 1 &lt; grid.length = grid[0].length &lt;= 50. All heights grid[i][j] are in the range [0, 100]. All buildings in grid[i][j] occupy the entire grid cell: that is, they are a 1 x 1 x grid[i][j] rectangular prism. Code1234567891011121314151617181920public int maxIncreaseKeepingSkyline(int[][] grid) &#123; int result = 0; int n = grid.length; int[] row = new int[n]; int[] col = new int[n]; for (int i = 0; i &lt; n; i++) &#123; for (int j = 0; j &lt; n; j++) &#123; row[i] = Math.max(row[i], grid[i][j]); col[i] = Math.max(col[i], grid[j][i]); &#125; &#125; for (int i = 0; i &lt; n; i++) &#123; for (int j = 0; j &lt; n; j++) result += Math.min(row[i], col[j]) - grid[i][j]; &#125; return result;&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>OJ</tag>
+        <tag>Algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Problem 476 - Number Complement]]></title>
     <url>%2F2019%2F08%2F13%2FLeetCode-Problem-476-Number-Complement%2F</url>
     <content type="text"><![CDATA[Given a positive integer, output its complement number. The complement strategy is to flip the bits of its binary representation. Note The given integer is guaranteed to fit within the range of a 32-bit signed integer. You could assume no leading zero bit in the integer’s binary representation. ExampleNo.1Input: 5 Output: 2 Explanation: The binary representation of 5 is 101 (no leading zero bits), and its complement is 010. So you need to output 2. No.2Input: 1 Output: 0 Explanation: The binary representation of 1 is 1 (no leading zero bits), and its complement is 0. So you need to output 0. Code12345678public int findComplement(int num) &#123; int mask = ~0; while ((num &amp; mask) != 0) mask &lt;&lt;= 1; return ~num ^ mask;&#125;]]></content>
