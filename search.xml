@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LeetCode] Problem 894 - All Possible Full Binary Trees]]></title>
+    <url>%2F2019%2F08%2F13%2FLeetCode-Problem-894-All-Possible-Full-Binary-Trees%2F</url>
+    <content type="text"><![CDATA[A full binary tree is a binary tree where each node has exactly 0 or 2 children. Return a list of all possible full binary trees with N nodes. Each element of the answer is the root node of one possible tree. Each node of each tree in the answer must have node.val = 0. You may return the final list of trees in any order. ExampleInput: 7 Output: [[0,0,0,null,null,0,0,null,null,0,0],[0,0,0,null,null,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,null,null,null,null,0,0],[0,0,0,0,0,null,null,0,0]] Explanation: Note 1 &lt;= N &lt;= 20 Code123456public class TreeNode &#123; int val; TreeNode left; TreeNode right; TreeNode(int x) &#123; val = x; &#125;&#125; 123456789101112131415161718192021222324252627282930313233private Map&lt;Integer, List&lt;TreeNode&gt;&gt; map = new HashMap&lt;&gt;();public List&lt;TreeNode&gt; allPossibleFBT(int N) &#123; List&lt;TreeNode&gt; result = new ArrayList&lt;&gt;(); if (N == 1) &#123; result.add(new TreeNode(0)); return result; &#125; else if (N % 2 == 0) return result; if (map.containsKey(N)) return map.get(N); for (int i = 1; i &lt; N; i += 2) &#123; List&lt;TreeNode&gt; left = allPossibleFBT(i); List&lt;TreeNode&gt; right = allPossibleFBT(N - i - 1); for (TreeNode l : left) &#123; for (TreeNode r : right) &#123; TreeNode root = new TreeNode(0); root.left = l; root.right = r; result.add(root); &#125; &#125; &#125; map.put(N, result); return result;&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>OJ</tag>
+        <tag>Algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Problem 797 - All Paths From Source to Target]]></title>
     <url>%2F2019%2F08%2F13%2FLeetCode-Problem-797-All-Paths-From-Source-to-Target%2F</url>
     <content type="text"><![CDATA[Given a directed, acyclic graph of N nodes. Find all possible paths from node 0 to node N-1, and return them in any order. The graph is given as follows: the nodes are 0, 1, …, graph.length - 1. graph[i] is a list of all nodes j for which the edge (i, j) exists. ExampleInput: [[1,2], [3], [3], []] Output: [[0,1,3],[0,2,3]] Explanation: The graph looks like this: 12340---&gt;1| |v v2---&gt;3 There are two paths: 0 -&gt; 1 -&gt; 3 and 0 -&gt; 2 -&gt; 3. Note The number of nodes in the graph will be in the range [2, 15]. You can print different paths in any order, but you should keep the order of nodes inside one path. Code1234567891011121314151617181920public List&lt;List&lt;Integer&gt;&gt; allPathsSourceTarget(int[][] graph) &#123; List&lt;List&lt;Integer&gt;&gt; paths = new ArrayList&lt;&gt;(); List&lt;Integer&gt; path = new ArrayList&lt;&gt;(); path.add(0); findPath(paths, path, graph, 0); return paths;&#125;private void findPath(List&lt;List&lt;Integer&gt;&gt; paths, List&lt;Integer&gt; path, int[][] graph, int node) &#123; if (node == graph.length - 1) &#123; paths.add(new ArrayList&lt;&gt;(path)); return; &#125; for (int nextNode : graph[node]) &#123; path.add(nextNode); findPath(paths, path, graph, nextNode); path.remove(path.size() - 1); &#125;&#125;]]></content>
