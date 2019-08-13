@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LeetCode] Problem 921 - Minimum Add to Make Parentheses Valid]]></title>
+    <url>%2F2019%2F08%2F13%2FLeetCode-Problem-921-Minimum-Add-to-Make-Parentheses-Valid%2F</url>
+    <content type="text"><![CDATA[Given a string S of ‘(‘ and ‘)’ parentheses, we add the minimum number of parentheses ( ‘(‘ or ‘)’, and in any positions ) so that the resulting parentheses string is valid. Formally, a parentheses string is valid if and only if: It is the empty string, or It can be written as AB (A concatenated with B), where A and B are valid strings, or It can be written as (A), where A is a valid string. Given a parentheses string, return the minimum number of parentheses we must add to make the resulting string valid. ExampleNo.1Input: “())” Output: 1 No.2Input: “(((“ Output: 3 No.3Input: “()” Output: 0 No.4Input: “()))((“ Output: 4 Note S.length &lt;= 1000 S only consists of ‘(‘ and ‘)’ characters. Code123456789101112131415public int minAddToMakeValid(String S) &#123; int left = 0; int right = 0; for (char ch : S.toCharArray()) &#123; if (ch == '(') left++; else if (left &gt; 0) left--; else right++; &#125; return left + right;&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>OJ</tag>
+        <tag>Algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Problem 890 - Find and Replace Pattern]]></title>
     <url>%2F2019%2F08%2F13%2FLeetCode-Problem-890-Find-and-Replace-Pattern%2F</url>
     <content type="text"><![CDATA[You have a list of words and a pattern, and you want to know which words in words matches the pattern. A word matches the pattern if there exists a permutation of letters p so that after replacing every letter x in the pattern with p(x), we get the desired word. (Recall that a permutation of letters is a bijection from letters to letters: every letter maps to another letter, and no two letters map to the same letter.) Return a list of the words in words that match the given pattern. You may return the answer in any order. ExampleInput: words = [“abc”,”deq”,”mee”,”aqq”,”dkd”,”ccc”], pattern = “abb” Output: [“mee”,”aqq”] Explanation: “mee” matches the pattern because there is a permutation {a -&gt; m, b -&gt; e, …}.“ccc” does not match the pattern because {a -&gt; c, b -&gt; c, …} is not a permutation,since a and b map to the same letter. Note 1 &lt;= words.length &lt;= 50 1 &lt;= pattern.length = words[i].length &lt;= 20 Code1234567891011121314151617181920212223242526public List&lt;String&gt; findAndReplacePattern(String[] words, String pattern) &#123; List&lt;String&gt; result = new ArrayList&lt;&gt;(); for (String word : words) &#123; if (match(word, pattern)) result.add(word); &#125; return result;&#125;private boolean match(String word, String pattern) &#123; int[] w = new int[26]; int[] p = new int[26]; Arrays.fill(w, -1); Arrays.fill(p, -1); for (int i = 0; i &lt; pattern.length(); i++) &#123; if (w[word.charAt(i) - 'a'] != p[pattern.charAt(i) - 'a']) return false; w[word.charAt(i) - 'a'] = p[pattern.charAt(i) - 'a'] = i; &#125; return true;&#125;]]></content>
