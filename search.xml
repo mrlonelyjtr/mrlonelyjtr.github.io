@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LeetCode] Problem 419 - Battleships in a Board]]></title>
+    <url>%2F2019%2F08%2F14%2FLeetCode-Problem-419-Battleships-in-a-Board%2F</url>
+    <content type="text"><![CDATA[Given an 2D board, count how many battleships are in it. The battleships are represented with ‘X’s, empty slots are represented with ‘.’s. You may assume the following rules: You receive a valid board, made of only battleships or empty slots. Battleships can only be placed horizontally or vertically. In other words, they can only be made of the shape 1xN (1 row, N columns) or Nx1 (N rows, 1 column), where N can be of any size. At least one horizontal or vertical cell separates between two battleships - there are no adjacent battleships. Example: 123X..X...X...X In the above board there are 2 battleships. Invalid Example: 123...XXXXX...X This is an invalid board that you will not receive - as battleships will always have a cell separating between them. Follow upCould you do it in one-pass, using only O(1) extra memory and without modifying the value of the board? Code12345678910111213public int countBattleships(char[][] board) &#123; int count = 0; for (int i = 0; i &lt; board.length; i++) &#123; for (int j = 0; j &lt; board[0].length; j++) &#123; if (board[i][j] == 'X' &amp;&amp; (i == 0 || board[i - 1][j] == '.') &amp;&amp; (j == 0 || board[i][j - 1] == '.')) count++; &#125; &#125; return count;&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>OJ</tag>
+        <tag>Algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Problem 894 - All Possible Full Binary Trees]]></title>
     <url>%2F2019%2F08%2F13%2FLeetCode-Problem-894-All-Possible-Full-Binary-Trees%2F</url>
     <content type="text"><![CDATA[A full binary tree is a binary tree where each node has exactly 0 or 2 children. Return a list of all possible full binary trees with N nodes. Each element of the answer is the root node of one possible tree. Each node of each tree in the answer must have node.val = 0. You may return the final list of trees in any order. ExampleInput: 7 Output: [[0,0,0,null,null,0,0,null,null,0,0],[0,0,0,null,null,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,null,null,null,null,0,0],[0,0,0,0,0,null,null,0,0]] Explanation: Note 1 &lt;= N &lt;= 20 Code123456public class TreeNode &#123; int val; TreeNode left; TreeNode right; TreeNode(int x) &#123; val = x; &#125;&#125; 123456789101112131415161718192021222324252627282930313233private Map&lt;Integer, List&lt;TreeNode&gt;&gt; map = new HashMap&lt;&gt;();public List&lt;TreeNode&gt; allPossibleFBT(int N) &#123; List&lt;TreeNode&gt; result = new ArrayList&lt;&gt;(); if (N == 1) &#123; result.add(new TreeNode(0)); return result; &#125; else if (N % 2 == 0) return result; if (map.containsKey(N)) return map.get(N); for (int i = 1; i &lt; N; i += 2) &#123; List&lt;TreeNode&gt; left = allPossibleFBT(i); List&lt;TreeNode&gt; right = allPossibleFBT(N - i - 1); for (TreeNode l : left) &#123; for (TreeNode r : right) &#123; TreeNode root = new TreeNode(0); root.left = l; root.right = r; result.add(root); &#125; &#125; &#125; map.put(N, result); return result;&#125;]]></content>
