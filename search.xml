@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LeetCode] Problem 319 - Bulb Switcher]]></title>
+    <url>%2F2019%2F08%2F16%2FLeetCode-Problem-319-Bulb-Switcher%2F</url>
+    <content type="text"><![CDATA[There are n bulbs that are initially off. You first turn on all the bulbs. Then, you turn off every second bulb. On the third round, you toggle every third bulb (turning on if it’s off or turning off if it’s on). For the i-th round, you toggle every i bulb. For the n-th round, you only toggle the last bulb. Find how many bulbs are on after n rounds. ExampleInput: 3 Output: 1 Explanation:At first, the three bulbs are [off, off, off].After first round, the three bulbs are [on, on, on].After second round, the three bulbs are [on, off, on].After third round, the three bulbs are [on, off, off].So you should return 1, because there is only one bulb is on. Code123public int bulbSwitch(int n) &#123; return (int) Math.sqrt(n);&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>OJ</tag>
+        <tag>Algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Problem 275 - H-Index II]]></title>
     <url>%2F2019%2F08%2F15%2FLeetCode-Problem-275-H-Index-II%2F</url>
     <content type="text"><![CDATA[Given an array of citations sorted in ascending order (each citation is a non-negative integer) of a researcher, write a function to compute the researcher’s h-index. According to the definition of h-index on Wikipedia: “A scientist has index h if h of his/her N papers have at least h citations each, and the other N − h papers have no more than h citations each.” ExampleInput: citations = [0,1,3,5,6] Output: 3 Explanation: [0,1,3,5,6] means the researcher has 5 papers in total and each of them had received 0, 1, 3, 5, 6 citations respectively. Since the researcher has 3 papers with at least 3 citations each and the remaining two with no more than 3 citations each, her h-index is 3. NoteIf there are several possible values for h, the maximum one is taken as the h-index. Follow up This is a follow up problem to H-Index, where citations is now guaranteed to be sorted in ascending order. Could you solve it in logarithmic time complexity? Code12345678910111213141516public int hIndex(int[] citations) &#123; int n = citations.length; int left = 0; int right = n; while (left &lt; right) &#123; int mid = left + (right - left) / 2; if (citations[n - mid - 1] &lt;= mid) right = mid; else left = mid + 1; &#125; return left;&#125;]]></content>
@@ -16,7 +29,7 @@
   <entry>
     <title><![CDATA[[LeetCode] Problem 274 - H-Index]]></title>
     <url>%2F2019%2F08%2F15%2FLeetCode-Problem-274-H-Index%2F</url>
-    <content type="text"><![CDATA[Given an array of citations (each citation is a non-negative integer) of a researcher, write a function to compute the researcher’s h-index. According to the definition of h-index on Wikipedia: “A scientist has index h if h of his/her N papers have at least h citations each, and the other N − h papers have no more than h citations each.” ExampleInput: citations = [3,0,6,1,5] Output: 3 Explanation: [3,0,6,1,5] means the researcher has 5 papers in total and each of them had received 3, 0, 6, 1, 5 citations respectively. Since the researcher has 3 papers with at least 3 citations each and the remaining two with no more than 3 citations each, her h-index is 3. NoteIf there are several possible values for h, the maximum one is taken as the h-index. Code12345678910111213141516171819public int hIndex(int[] citations) &#123; int n = citations.length; int[] stats = new int[n + 1]; int sum = 0; for (int i = 0; i &lt; n; i++) &#123; int idx = citations[i] &gt; n ? n : citations[i]; stats[idx]++; &#125; for (int i = n; i &gt;= 0; i--) &#123; sum += stats[i]; if (sum &gt;= i) return i; &#125; return 0;&#125;]]></content>
+    <content type="text"><![CDATA[Given an array of citations (each citation is a non-negative integer) of a researcher, write a function to compute the researcher’s h-index. According to the definition of h-index on Wikipedia: “A scientist has index h if h of his/her N papers have at least h citations each, and the other N − h papers have no more than h citations each.” ExampleInput: citations = [3,0,6,1,5] Output: 3 Explanation: [3,0,6,1,5] means the researcher has 5 papers in total and each of them had received 3, 0, 6, 1, 5 citations respectively. Since the researcher has 3 papers with at least 3 citations each and the remaining two with no more than 3 citations each, her h-index is 3. NoteIf there are several possible values for h, the maximum one is taken as the h-index. Code12345678910111213141516171819public int hIndex(int[] citations) &#123; int n = citations.length; int[] stats = new int[n + 1]; // stats[i]表示有多少文章被引用了i次 int sum = 0; for (int i = 0; i &lt; n; i++) &#123; int idx = citations[i] &gt; n ? n : citations[i]; stats[idx]++; &#125; for (int i = n; i &gt;= 0; i--) &#123; sum += stats[i]; if (sum &gt;= i) return i; &#125; return 0;&#125;]]></content>
       <categories>
         <category>Algorithm</category>
         <category>LeetCode</category>
