@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="Given an unsorted array nums, reorder it in-place such that nums[0] &amp;lt;= nums[1] &amp;gt;= nums[2] &amp;lt;= nums[3]…. NotePlease complete the problem in-place. ExampleNo.1Input: [3, 5, 2, 1, 6, 4] Output: [">
+<meta name="description" content="Given an unsorted array nums, reorder it in-place such that nums[0] &amp;lt;= nums[1] &amp;gt;= nums[2] &amp;lt;= nums[3]…. ExampleInput: nums = [3,5,2,1,6,4] Output: One possible answer is [3,5,1,6,2,4] Code1234">
 <meta name="keywords" content="OJ,Algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[LintCode] Problem 508 - Wiggle Sort">
 <meta property="og:url" content="http://yoursite.com/2019/04/10/LintCode-Problem-508-Wiggle-Sort/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="Given an unsorted array nums, reorder it in-place such that nums[0] &amp;lt;= nums[1] &amp;gt;= nums[2] &amp;lt;= nums[3]…. NotePlease complete the problem in-place. ExampleNo.1Input: [3, 5, 2, 1, 6, 4] Output: [">
+<meta property="og:description" content="Given an unsorted array nums, reorder it in-place such that nums[0] &amp;lt;= nums[1] &amp;gt;= nums[2] &amp;lt;= nums[3]…. ExampleInput: nums = [3,5,2,1,6,4] Output: One possible answer is [3,5,1,6,2,4] Code1234">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-04-09T16:10:51.582Z">
+<meta property="og:updated_time" content="2019-08-17T07:32:41.390Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LintCode] Problem 508 - Wiggle Sort">
-<meta name="twitter:description" content="Given an unsorted array nums, reorder it in-place such that nums[0] &amp;lt;= nums[1] &amp;gt;= nums[2] &amp;lt;= nums[3]…. NotePlease complete the problem in-place. ExampleNo.1Input: [3, 5, 2, 1, 6, 4] Output: [">
+<meta name="twitter:description" content="Given an unsorted array nums, reorder it in-place such that nums[0] &amp;lt;= nums[1] &amp;gt;= nums[2] &amp;lt;= nums[3]…. ExampleInput: nums = [3,5,2,1,6,4] Output: One possible answer is [3,5,1,6,2,4] Code1234">
 
 
 
@@ -398,14 +398,9 @@
       
 
       
-        <p>Given an unsorted array nums, reorder it in-place such that</p>
-<p>nums[0] &lt;= nums[1] &gt;= nums[2] &lt;= nums[3]….</p>
-<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>Please complete the problem in-place.</p>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Input: [3, 5, 2, 1, 6, 4]</p>
-<p>Output: [1, 6, 2, 5, 3, 4]</p>
-<p>Explanation: This question may have multiple answers, and [2, 6, 1, 5, 3, 4] is also ok.</p>
-<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Input: [1, 2, 3, 4]</p>
-<p>Output: [2, 1, 4, 3]</p>
+        <p>Given an unsorted array nums, reorder it in-place such that nums[0] &lt;= nums[1] &gt;= nums[2] &lt;= nums[3]….</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>Input: nums = [3,5,2,1,6,4]</p>
+<p>Output: One possible answer is [3,5,1,6,2,4]</p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 假如原来是 nums[i - 2] &lt;= nums[i - 1]，那么 nums[i - 1] 和 nums[i] 交换的条件是，nums[i - 1] &lt;= nums[i]。</span></span><br><span class="line"><span class="comment">// 推导出此时 nums[i] &gt;= nums[i - 2]，因此交换之后，不会让 nums[i] 和 nums[i - 2] 的大小关系出现变化。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">wiggleSort</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length - <span class="number">1</span> ; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> ((i % <span class="number">2</span> == <span class="number">0</span> &amp;&amp; nums[i] &gt; nums[i + <span class="number">1</span>]) || (i % <span class="number">2</span> != <span class="number">0</span> &amp;&amp; nums[i] &lt; nums[i + <span class="number">1</span>]))</span><br><span class="line">            swap(nums, i, i + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp = nums[i];</span><br><span class="line">    nums[i] = nums[j];</span><br><span class="line">    nums[j] = temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -600,7 +595,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">1.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">2.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1"><span class="nav-number">2.1.</span> <span class="nav-text">No.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2"><span class="nav-number">2.2.</span> <span class="nav-text">No.2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">2.</span> <span class="nav-text">Code</span></a></li></ol></div>
             
 
           </div>
