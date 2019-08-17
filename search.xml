@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LintCode] Problem 905 - Nested List Weight Sum II]]></title>
+    <url>%2F2019%2F08%2F18%2FLintCode-Problem-905-Nested-List-Weight-Sum-II%2F</url>
+    <content type="text"><![CDATA[Given a nested list of integers, return the sum of all integers in the list weighted by their depth. Each element is either an integer, or a list – whose elements may also be integers or other lists. Different from the previous question where weight is increasing from root to leaf, now the weight is defined from bottom up. i.e., the leaf level integers have weight 1, and the root level integers have the largest weight. ExampleNo.1Input: nestedList = [[1,1],2,[1,1]] Output: 8 Explanation:four 1’s at depth 1, one 2 at depth 2 No.2Input: nestedList = [1,[4,[6]]] Output: 17 Explanation:one 1 at depth 3, one 4 at depth 2, and one 6 at depth 1; 1*3 + 4*2 + 6*1 = 17 Code12345public interface NestedInteger &#123; public boolean isInteger(); public Integer getInteger(); public List&lt;NestedInteger&gt; getList();&#125; 1234567891011121314151617181920public int depthSumInverse(List&lt;NestedInteger&gt; nestedList) &#123; return helper(nestedList, 0);&#125;private int helper(List&lt;NestedInteger&gt; nestedList, int intSum) &#123; List&lt;NestedInteger&gt; nextList = new ArrayList&lt;&gt;(); int listSum = 0; for (NestedInteger nestedInteger : nestedList) &#123; if (nestedInteger.isInteger()) intSum += nestedInteger.getInteger(); else nextList.addAll(nestedInteger.getList()); &#125; if (!nextList.isEmpty()) listSum = helper(nextList, intSum); return listSum + intSum;&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LintCode</category>
+      </categories>
+      <tags>
+        <tag>OJ</tag>
+        <tag>Algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LintCode] Problem 551 - Nested List Weight Sum]]></title>
+    <url>%2F2019%2F08%2F18%2FLintCode-Problem-551-Nested-List-Weight-Sum%2F</url>
+    <content type="text"><![CDATA[Given a nested list of integers, return the sum of all integers in the list weighted by their depth. Each element is either an integer, or a list – whose elements may also be integers or other lists. ExampleNo.1Input: the list [[1,1],2,[1,1]], Output: 10. Explanation:four 1’s at depth 2, one 2 at depth 1, 4 * 1 * 2 + 1 * 2 * 1 = 10 No.2Input: the list [1,[4,[6]]], Output: 27. Explanation:one 1 at depth 1, one 4 at depth 2, and one 6 at depth 3; 1 + 4 * 2 + 6 * 3 = 27 Code12345public interface NestedInteger &#123; public boolean isInteger(); public Integer getInteger(); public List&lt;NestedInteger&gt; getList();&#125; 1234567891011121314151617181920212223242526public int depthSum(List&lt;NestedInteger&gt; nestedList) &#123; Queue&lt;NestedInteger&gt; queue = new LinkedList&lt;&gt;(); int level = 0; int sum = 0; for (NestedInteger nestedInteger : nestedList) queue.offer(nestedInteger); while (!queue.isEmpty()) &#123; int size = queue.size(); level++; for (int i = 0; i &lt; size; i++) &#123; NestedInteger nestedInteger = queue.poll(); if (nestedInteger.isInteger()) sum += level * nestedInteger.getInteger(); else &#123; for (NestedInteger list : nestedInteger.getList()) queue.offer(list); &#125; &#125; &#125; return sum;&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LintCode</category>
+      </categories>
+      <tags>
+        <tag>OJ</tag>
+        <tag>Algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LintCode] Problem 804 - Number of Distinct Islands II]]></title>
     <url>%2F2019%2F08%2F18%2FLintCode-Problem-804-Number-of-Distinct-Islands-II%2F</url>
     <content type="text"><![CDATA[Given a non-empty 2D array grid of 0’s and 1’s, an island is a group of 1’s (representing land) connected 4-directionally (horizontal or vertical.) You may assume all four edges of the grid are surrounded by water. Count the number of distinct islands. An island is considered to be the same as another if they have the same shape, or have the same shape after rotation (90, 180, or 270 degrees only) or reflection (left/right direction or up/down direction). NoteThe length of each dimension in the given grid does not exceed 50. ExampleNo.1Input: [[1,1,0,0,0],[1,0,0,0,0],[0,0,0,0,1],[0,0,0,1,1]] Output: 1 Explanation:The island is look like this: 123411000100000000100011 Notice that: 12111 and 12 111 are considered same island shapes. Because if we make a 180 degrees clockwise rotation on the first island, then two islands will have the same shapes. No.2Input: [[1,1,1,0,0],[1,0,0,0,1],[0,1,0,0,1],[0,1,1,1,0]] Output: 2 Explanation:The island is look like this: 123411100100010100101110 Here are the two distinct islands: 121111 and 1211 Notice that: 121111 and 121111 are considered same island shapes. Because if we flip the first array in the up/down direction, then they have the same shapes. Code123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475private int[][] dirs = &#123;&#123;1, 0&#125;, &#123;-1, 0&#125;, &#123;0, 1&#125;, &#123;0, -1&#125;&#125;;private int[][] trans = &#123;&#123;1, 1&#125;, &#123;-1, 1&#125;, &#123;1, -1&#125;, &#123;-1, -1&#125;&#125;;private Comparator&lt;int[]&gt; comparator = new Comparator&lt;int[]&gt;()&#123; @Override public int compare(int[] o1, int[] o2) &#123; return o1[0] == o2[0] ? o1[1] - o2[1] : o1[0] - o2[0]; &#125;&#125;;public int numDistinctIslands2(int[][] grid) &#123; int m = grid.length; int n = grid[0].length; Set&lt;String&gt; set = new HashSet&lt;&gt;(); boolean[][] visit = new boolean[m][n]; for (int i = 0; i &lt; m; i++) &#123; for (int j = 0; j &lt; n; j++) &#123; if (grid[i][j] == 1 &amp;&amp; !visit[i][j]) &#123; List&lt;int[]&gt; island = new ArrayList&lt;&gt;(); dfs(island, grid, visit, m, n, i, j); set.add(normalize(island)); &#125; &#125; &#125; return set.size();&#125;private void dfs(List&lt;int[]&gt; island, int[][] grid, boolean[][] visit, int m, int n, int x, int y) &#123; island.add(new int[] &#123;x, y&#125;); visit[x][y] = true; for (int[] dir : dirs) &#123; int newX = x + dir[0]; int newY = y + dir[1]; if (newX &lt; 0 || newY &lt; 0 || newX &gt;= m || newY &gt;= n || grid[newX][newY] == 0 || visit[newX][newY]) continue; dfs(island, grid, visit, m, n, newX, newY); &#125;&#125;private String normalize(List&lt;int[]&gt; island) &#123; List&lt;int[]&gt;[] shapes = new ArrayList[8]; String[] results = new String[8]; for (int i = 0; i &lt; trans.length; i++) &#123; int[] tran = trans[i]; shapes[i] = new ArrayList&lt;&gt;(); shapes[i + 4] = new ArrayList&lt;&gt;(); for (int[] point : island) &#123; shapes[i].add(new int[] &#123;point[0] * tran[0], point[1] * tran[1]&#125;); shapes[i + 4].add(new int[] &#123;point[1] * tran[1], point[0] * tran[0]&#125;); &#125; Collections.sort(shapes[i], comparator); Collections.sort(shapes[i + 4], comparator); &#125; for (int i = 0; i &lt; shapes.length; i++) &#123; StringBuilder sb = new StringBuilder(); int originX = shapes[i].get(0)[0]; int originY = shapes[i].get(0)[1]; for (int[] point : shapes[i]) sb.append(point[0] - originX).append(",").append(point[1] - originY).append(","); results[i] = sb.toString(); &#125; Arrays.sort(results); return results[0];&#125;]]></content>
@@ -4171,19 +4197,6 @@
     <title><![CDATA[[LintCode] Problem 642 - Moving Average from Data Stream]]></title>
     <url>%2F2019%2F03%2F19%2FLintCode-Problem-642-Moving-Average-from-Data-Stream%2F</url>
     <content type="text"><![CDATA[Given a stream of integers and a window size, calculate the moving average of all integers in the sliding window. ExampleMovingAverage m = new MovingAverage(3);m.next(1) = 1 // return 1.00000m.next(10) = (1 + 10) / 2 // return 5.50000m.next(3) = (1 + 10 + 3) / 3 // return 4.66667m.next(5) = (10 + 3 + 5) / 3 // return 6.00000 Code12345678910111213141516171819private Queue&lt;Integer&gt; queue;private double sum;private int size;public MovingAverage(int size) &#123; queue = new LinkedList&lt;&gt;(); sum = 0; this.size = size;&#125;public double next(int val) &#123; sum += val; if (queue.size() == size) sum -= queue.poll(); queue.offer(val); return sum / queue.size();&#125;]]></content>
-      <categories>
-        <category>Algorithm</category>
-        <category>LintCode</category>
-      </categories>
-      <tags>
-        <tag>OJ</tag>
-        <tag>Algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[[LintCode] Problem 551 - Nested List Weight Sum]]></title>
-    <url>%2F2019%2F03%2F17%2FLintCode-Problem-551-Nested-List-Weight-Sum%2F</url>
-    <content type="text"><![CDATA[Given a nested list of integers, return the sum of all integers in the list weighted by their depth. Each element is either an integer, or a list – whose elements may also be integers or other lists. ExampleNo.1Input: the list [[1,1],2,[1,1]], Output: 10. Explanation:four 1’s at depth 2, one 2 at depth 1, 4 * 1 * 2 + 1 * 2 * 1 = 10 No.2Input: the list [1,[4,[6]]], Output: 27. Explanation:one 1 at depth 1, one 4 at depth 2, and one 6 at depth 3; 1 + 4 * 2 + 6 * 3 = 27 Code12345public interface NestedInteger &#123; public boolean isInteger(); public Integer getInteger(); public List&lt;NestedInteger&gt; getList();&#125; 1234567891011121314151617181920212223242526public int depthSum(List&lt;NestedInteger&gt; nestedList) &#123; Queue&lt;NestedInteger&gt; queue = new LinkedList&lt;&gt;(); int level = 0; int sum = 0; for (NestedInteger nestedInteger : nestedList) queue.offer(nestedInteger); while (!queue.isEmpty()) &#123; int size = queue.size(); level++; for (int i = 0; i &lt; size; i++) &#123; NestedInteger nestedInteger = queue.poll(); if (nestedInteger.isInteger()) sum += level * nestedInteger.getInteger(); else &#123; for (NestedInteger list : nestedInteger.getList()) queue.offer(list); &#125; &#125; &#125; return sum;&#125;]]></content>
       <categories>
         <category>Algorithm</category>
         <category>LintCode</category>
