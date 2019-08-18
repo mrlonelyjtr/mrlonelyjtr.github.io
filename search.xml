@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LintCode] Problem 883 - Max Consecutive Ones II]]></title>
+    <url>%2F2019%2F08%2F19%2FLintCode-Problem-883-Max-Consecutive-Ones-II%2F</url>
+    <content type="text"><![CDATA[Given a binary array, find the maximum number of consecutive 1s in this array if you can flip at most one 0. Note The input array will only contain 0 and 1. The length of input array is a positive integer and will not exceed 10,000. ExampleNo.1Input: nums = [1,0,1,1,0] Output: 4 Explanation:Flip the first zero will get the the maximum number of consecutive 1s.After flipping, the maximum number of consecutive 1s is 4. No.2Input: nums = [1,0,1,0,1] Output: 3 Explanation:Flip each zero will get the the maximum number of consecutive 1s.After flipping, the maximum number of consecutive 1s is 3. Code1234567891011121314151617181920212223public int findMaxConsecutiveOnes(int[] nums) &#123; int max = 0; int start = 0; int end = 0; int zero = 0; while (end &lt; nums.length) &#123; if (nums[end] == 0) zero++; while (zero &gt; 1) &#123; if (nums[start] == 0) zero--; start++; &#125; max = Math.max(max, end - start + 1); end++; &#125; return max;&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LintCode</category>
+      </categories>
+      <tags>
+        <tag>OJ</tag>
+        <tag>Algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Problem 485 - Max Consecutive Ones]]></title>
     <url>%2F2019%2F08%2F19%2FLeetCode-Problem-485-Max-Consecutive-Ones%2F</url>
     <content type="text"><![CDATA[Given a binary array, find the maximum number of consecutive 1s in this array. ExampleInput: [1,1,0,1,1,1] Output: 3 Explanation: The first two digits or the last three digits are consecutive 1s. The maximum number of consecutive 1s is 3. Note The input array will only contain 0 and 1. The length of input array is a positive integer and will not exceed 10,000 Code1234567891011public int findMaxConsecutiveOnes(int[] nums) &#123; int max = 0; int count = 0; for (int num : nums) &#123; count = (num == 0) ? 0 : count + 1; max = Math.max(max, count); &#125; return max;&#125;]]></content>
