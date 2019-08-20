@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LeetCode] Problem 1033 - Moving Stones Until Consecutive]]></title>
+    <url>%2F2019%2F08%2F21%2FLeetCode-Problem-1033-Moving-Stones-Until-Consecutive%2F</url>
+    <content type="text"><![CDATA[Three stones are on a number line at positions a, b, and c. Each turn, you pick up a stone at an endpoint (ie., either the lowest or highest position stone), and move it to an unoccupied position between those endpoints. Formally, let’s say the stones are currently at positions x, y, z with x &lt; y &lt; z. You pick up the stone at either position x or position z, and move that stone to an integer position k, with x &lt; k &lt; z and k != y. The game ends when you cannot make any more moves, ie. the stones are in consecutive positions. When the game ends, what is the minimum and maximum number of moves that you could have made? Return the answer as an length 2 array: answer = [minimum_moves, maximum_moves] ExampleNo.1Input: a = 1, b = 2, c = 5 Output: [1,2] Explanation: Move the stone from 5 to 3, or move the stone from 5 to 4 to 3. No.2Input: a = 4, b = 3, c = 2 Output: [0,0] Explanation: We cannot make any moves. No.3Input: a = 3, b = 5, c = 1 Output: [1,2] Explanation: Move the stone from 1 to 4; or move the stone from 1 to 2 to 4. Note 1 &lt;= a &lt;= 100 1 &lt;= b &lt;= 100 1 &lt;= c &lt;= 100 a != b, b != c, c != a Code1234567891011121314public int[] numMovesStones(int a, int b, int c) &#123; int[] num = &#123;a, b, c&#125;; Arrays.sort(num); int max = num[2] - num[0] - 2; int min = 2; if (num[1] - num[0] == 1 &amp;&amp; num[2] - num[1] == 1) min = 0; else if (num[1] - num[0] &lt;= 2 || num[2] - num[1] &lt;= 2) min = 1; return new int[] &#123;min, max&#125;;&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>OJ</tag>
+        <tag>Algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Problem 1140 - Stone Game II]]></title>
     <url>%2F2019%2F08%2F20%2FLeetCode-Problem-1140-Stone-Game-II%2F</url>
     <content type="text"><![CDATA[Alex and Lee continue their games with piles of stones. There are a number of piles arranged in a row, and each pile has a positive integer number of stones piles[i]. The objective of the game is to end with the most stones. Alex and Lee take turns, with Alex starting first. Initially, M = 1. On each player’s turn, that player can take all the stones in the first X remaining piles, where 1 &lt;= X &lt;= 2M. Then, we set M = max(M, X). The game continues until all the stones have been taken. Assuming Alex and Lee play optimally, return the maximum number of stones Alex can get. ExampleInput: piles = [2,7,9,4,4] Output: 10 Explanation: If Alex takes one pile at the beginning, Lee takes two piles, then Alex takes 2 piles again. Alex can get 2 + 4 + 4 = 10 piles in total. If Alex takes two piles at the beginning, then Lee can take all three piles left. In this case, Alex get 2 + 7 = 9 piles in total. So we return 10 since it’s larger. Constraints 1 &lt;= piles.length &lt;= 100 1 &lt;= piles[i] &lt;= 10 ^ 4 Code12345678910111213141516171819202122232425262728293031323334private int[] sum;private int[][] memo;public int stoneGameII(int[] piles) &#123; int n = piles.length; sum = new int[n]; memo = new int[n][n]; for (int i = 0; i &lt; n; i++) sum[i] = (i == 0 ? 0 : sum[i - 1]) + piles[i]; return (sum[n - 1] + helper(piles, n, 0, 1)) / 2;&#125;private int helper(int[] piles, int n, int s, int M) &#123; if (s &gt;= n) return 0; if (memo[s][M] != 0) return memo[s][M]; int max = Integer.MIN_VALUE; for (int x = 1; x &lt;= 2 * M; x++) &#123; if (s + x &gt; n) break; max = Math.max(max, sum[s + x - 1] - (s == 0 ? 0 : sum[s - 1]) - helper(piles, n, s + x, Math.max(x, M))); &#125; memo[s][M] = max; return max;&#125;]]></content>
