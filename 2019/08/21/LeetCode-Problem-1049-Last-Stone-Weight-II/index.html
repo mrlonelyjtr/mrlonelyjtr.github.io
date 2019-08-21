@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
 <meta property="og:description" content="We have a collection of rocks, each rock has a positive integer weight. Each turn, we choose any two rocks and smash them together.  Suppose the stones have weights x and y with x &amp;lt;= y.  The result">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-20T15:42:02.663Z">
+<meta property="og:updated_time" content="2019-08-21T07:17:25.595Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LeetCode] Problem 1049 - Last Stone Weight II">
 <meta name="twitter:description" content="We have a collection of rocks, each rock has a positive integer weight. Each turn, we choose any two rocks and smash them together.  Suppose the stones have weights x and y with x &amp;lt;= y.  The result">
@@ -329,7 +329,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-21T00:28:55Z">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-21T08:28:55+08:00">
                 2019-08-21
               </time>
             
@@ -412,7 +412,7 @@
 <li>1 &lt;= stones.length &lt;= 30</li>
 <li>1 &lt;= stones[i] &lt;= 100</li>
 </ol>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// dp[i][j] = max&#123;dp[i - 1][j], dp[i - 1][j - stone[i]] + stone[i]&#125;</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lastStoneWeightII</span><span class="params">(<span class="keyword">int</span>[] stones)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> stone : stones)</span><br><span class="line">        sum += stone;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> n = sum / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n + <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; stones.length; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> stone = stones[i];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = n; j &gt;= stone; j--)</span><br><span class="line">            dp[j] = Math.max(dp[j], dp[j - stone] + stone);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> sum - <span class="number">2</span> * dp[n];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
