@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LeetCode] Problem 189 - Rotate Array]]></title>
+    <url>%2F2019%2F08%2F22%2FLeetCode-Problem-189-Rotate-Array%2F</url>
+    <content type="text"><![CDATA[Given an array, rotate the array to the right by k steps, where k is non-negative. ExampleNo.1Input: [1,2,3,4,5,6,7] and k = 3 Output: [5,6,7,1,2,3,4] Explanation:rotate 1 steps to the right: [7,1,2,3,4,5,6]rotate 2 steps to the right: [6,7,1,2,3,4,5]rotate 3 steps to the right: [5,6,7,1,2,3,4] No.2Input: [-1,-100,3,99] and k = 2 Output: [3,99,-1,-100] Explanation:rotate 1 steps to the right: [99,-1,-100,3]rotate 2 steps to the right: [3,99,-1,-100] Note Try to come up as many solutions as you can, there are at least 3 different ways to solve this problem. Could you do it in-place with O(1) extra space? Code123456789101112131415161718public void rotate(int[] nums, int k) &#123; int n = nums.length; k %= n; reverse(nums, 0, n - k - 1); reverse(nums, n - k, n - 1); reverse(nums, 0, n - 1);&#125;private void reverse(int[] nums, int i, int j) &#123; while (i &lt; j) &#123; int temp = nums[i]; nums[i] = nums[j]; nums[j] = temp; i++; j--; &#125;&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>OJ</tag>
+        <tag>Algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LintCode] Problem 607 - Two Sum III - Data structure design]]></title>
     <url>%2F2019%2F08%2F22%2FLintCode-Problem-607-Two-Sum-III-Data-structure-design%2F</url>
     <content type="text"><![CDATA[Design and implement a TwoSum class. It should support the following operations: add and find. add - Add the number to an internal data structure.find - Find if there exists any pair of numbers which sum is equal to the value. Example123add(1); add(3); add(5);find(4) // return truefind(7) // return false Code1234567891011121314151617181920private Map&lt;Integer, Integer&gt; map = new HashMap&lt;&gt;();public void add(int number) &#123; map.put(number, map.getOrDefault(number, 0) + 1);&#125;public boolean find(int value) &#123; for (Map.Entry&lt;Integer, Integer&gt; entry : map.entrySet()) &#123; int val = value - entry.getKey(); if (map.containsKey(val)) &#123; if (val * 2 != value) return true; else if (val * 2 == value &amp;&amp; map.get(val) &gt; 1) return true; &#125; &#125; return false;&#125;]]></content>
