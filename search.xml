@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LintCode] Problem 776 - Strobogrammatic Number II]]></title>
+    <url>%2F2019%2F08%2F24%2FLintCode-Problem-776-Strobogrammatic-Number-II%2F</url>
+    <content type="text"><![CDATA[A strobogrammatic number is a number that looks the same when rotated 180 degrees (looked at upside down).Find all strobogrammatic numbers that are of length = n. ExampleNo.1Input: n = 2, Output: [“11”,”69”,”88”,”96”] No.2Input: n = 1, Output: [“0”,”1”,”8”] Code12345678910111213141516171819202122232425public List&lt;String&gt; findStrobogrammatic(int n) &#123; return helper(n, n);&#125;private List&lt;String&gt; helper(int n, int len) &#123; if (n == 0) return new ArrayList&lt;&gt;(Arrays.asList("")); else if (n == 1) return new ArrayList&lt;&gt;(Arrays.asList("0", "1", "8")); List&lt;String&gt; result = new ArrayList&lt;&gt;(); List&lt;String&gt; subList = helper(n - 2, len); for (String sub : subList) &#123; if (n != len) result.add("0" + sub + "0"); result.add("1" + sub + "1"); result.add("6" + sub + "9"); result.add("8" + sub + "8"); result.add("9" + sub + "6"); &#125; return result;&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LintCode</category>
+      </categories>
+      <tags>
+        <tag>OJ</tag>
+        <tag>Algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LintCode] Problem 644 - Strobogrammatic Number]]></title>
     <url>%2F2019%2F08%2F24%2FLintCode-Problem-644-Strobogrammatic-Number%2F</url>
     <content type="text"><![CDATA[A mirror number is a number that looks the same when rotated 180 degrees (looked at upside down).For example, the numbers “69”, “88”, and “818” are all mirror numbers. Write a function to determine if a number is mirror. The number is represented as a string. ExampleNo.1Input : “69” Output : true No.2Input : “68” Output : false Code12345678910111213141516171819202122public boolean isStrobogrammatic(String num) &#123; Map&lt;Character, Character&gt; map = new HashMap&lt;Character, Character&gt;()&#123;&#123; put('0', '0'); put('1', '1'); put('6', '9'); put('8', '8'); put('9', '6'); &#125;&#125;; int i = 0; int j = num.length() - 1; while (i &lt;= j) &#123; if (!map.containsKey(num.charAt(i)) || map.get(num.charAt(i)) != num.charAt(j)) return false; i++; j--; &#125; return true;&#125;]]></content>
