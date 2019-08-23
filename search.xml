@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LeetCode] Problem 257 - Binary Tree Paths]]></title>
+    <url>%2F2019%2F08%2F23%2FLeetCode-Problem-257-Binary-Tree-Paths%2F</url>
+    <content type="text"><![CDATA[Given a binary tree, return all root-to-leaf paths. NoteA leaf is a node with no children. ExampleInput: 12345 1 / \2 3 \ 5 Output: [“1-&gt;2-&gt;5”, “1-&gt;3”] Explanation: All root-to-leaf paths are: 1-&gt;2-&gt;5, 1-&gt;3 Code123456public class TreeNode &#123; int val; TreeNode left; TreeNode right; TreeNode(int x) &#123; val = x; &#125;&#125; 1234567891011121314151617181920212223242526272829public List&lt;String&gt; binaryTreePaths(TreeNode root) &#123; List&lt;String&gt; result = new ArrayList&lt;&gt;(); if (root == null) return result; StringBuilder sb = new StringBuilder(); helper(result, root, sb.append(root.val)); return result;&#125;private void helper(List&lt;String&gt; result, TreeNode root, StringBuilder sb) &#123; if (root.left == null &amp;&amp; root.right == null) &#123; result.add(sb.toString()); return; &#125; int length = sb.length(); if (root.left != null) &#123; helper(result, root.left, sb.append("-&gt;").append(root.left.val)); sb.setLength(length); &#125; if (root.right != null) &#123; helper(result, root.right, sb.append("-&gt;").append(root.right.val)); sb.setLength(length); &#125;&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>OJ</tag>
+        <tag>Algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Problem 242 - Valid Anagram]]></title>
     <url>%2F2019%2F08%2F23%2FLeetCode-Problem-242-Valid-Anagram%2F</url>
     <content type="text"><![CDATA[Given two strings s and t , write a function to determine if t is an anagram of s. ExampleNo.1Input: s = “anagram”, t = “nagaram” Output: true No.2Input: s = “rat”, t = “car” Output: false NoteYou may assume the string contains only lowercase alphabets. Follow upWhat if the inputs contain unicode characters? How would you adapt your solution to such case? Code123456789101112131415161718public boolean isAnagram(String s, String t) &#123; if (s.length() != t.length()) return false; int[] array = new int[26]; for (char ch : s.toCharArray()) array[ch - 'a']++; for (char ch : t.toCharArray()) &#123; array[ch - 'a']--; if (array[ch - 'a'] &lt; 0) return false; &#125; return true;&#125;]]></content>
