@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LeetCode] Problem 258 - Add Digits]]></title>
+    <url>%2F2019%2F08%2F23%2FLeetCode-Problem-258-Add-Digits%2F</url>
+    <content type="text"><![CDATA[Given a non-negative integer num, repeatedly add all its digits until the result has only one digit. ExampleInput: 38 Output: 2 Explanation: The process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one digit, return it. Follow upCould you do it without any loop/recursion in O(1) runtime? Code123public int addDigits(int num) &#123; return num == 0 ? 0 : (num - 1) % 9 + 1;&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>OJ</tag>
+        <tag>Algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Problem 257 - Binary Tree Paths]]></title>
     <url>%2F2019%2F08%2F23%2FLeetCode-Problem-257-Binary-Tree-Paths%2F</url>
     <content type="text"><![CDATA[Given a binary tree, return all root-to-leaf paths. NoteA leaf is a node with no children. ExampleInput: 12345 1 / \2 3 \ 5 Output: [“1-&gt;2-&gt;5”, “1-&gt;3”] Explanation: All root-to-leaf paths are: 1-&gt;2-&gt;5, 1-&gt;3 Code123456public class TreeNode &#123; int val; TreeNode left; TreeNode right; TreeNode(int x) &#123; val = x; &#125;&#125; 1234567891011121314151617181920212223242526272829public List&lt;String&gt; binaryTreePaths(TreeNode root) &#123; List&lt;String&gt; result = new ArrayList&lt;&gt;(); if (root == null) return result; StringBuilder sb = new StringBuilder(); helper(result, root, sb.append(root.val)); return result;&#125;private void helper(List&lt;String&gt; result, TreeNode root, StringBuilder sb) &#123; if (root.left == null &amp;&amp; root.right == null) &#123; result.add(sb.toString()); return; &#125; int length = sb.length(); if (root.left != null) &#123; helper(result, root.left, sb.append("-&gt;").append(root.left.val)); sb.setLength(length); &#125; if (root.right != null) &#123; helper(result, root.right, sb.append("-&gt;").append(root.right.val)); sb.setLength(length); &#125;&#125;]]></content>
