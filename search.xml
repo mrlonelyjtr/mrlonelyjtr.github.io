@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[The English We Speak 1]]></title>
+    <url>%2F2019%2F08%2F24%2FThe-English-We-Speak-1%2F</url>
+    <content type="text"><![CDATA[Proof is in the puddingyou can judge the value or the quality of something only after you have tried it, experienced it or used it. ExamplesA: I don’t believe this new flash washing machine can save water and energy.B: But you haven’t used it yet. The proof is the pudding. A: This second-hand car does look a bit old – can you still drive it?B: Well, why don’t you test drive it? The proof is in the pudding. A: Do you think this will work?B: I don’t know. But let’s wait and see – the proof is in the pudding. Frogmarchto force someone who is unwilling to move forward or to walk somewhere, often by holding their arms tightly. ExamplesThe drunken suspect was handcuffed by the police and frogmarched to the waiting police van. In major sporting events, if you disrupt the game, you risk being frogmarched out of the stadium by security guards.]]></content>
+      <categories>
+        <category>English</category>
+      </categories>
+      <tags>
+        <tag>English</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LintCode] Problem 776 - Strobogrammatic Number II]]></title>
     <url>%2F2019%2F08%2F24%2FLintCode-Problem-776-Strobogrammatic-Number-II%2F</url>
     <content type="text"><![CDATA[A strobogrammatic number is a number that looks the same when rotated 180 degrees (looked at upside down).Find all strobogrammatic numbers that are of length = n. ExampleNo.1Input: n = 2, Output: [“11”,”69”,”88”,”96”] No.2Input: n = 1, Output: [“0”,”1”,”8”] Code12345678910111213141516171819202122232425public List&lt;String&gt; findStrobogrammatic(int n) &#123; return helper(n, n);&#125;private List&lt;String&gt; helper(int n, int len) &#123; if (n == 0) return new ArrayList&lt;&gt;(Arrays.asList("")); else if (n == 1) return new ArrayList&lt;&gt;(Arrays.asList("0", "1", "8")); List&lt;String&gt; result = new ArrayList&lt;&gt;(); List&lt;String&gt; subList = helper(n - 2, len); for (String sub : subList) &#123; if (n != len) result.add("0" + sub + "0"); result.add("1" + sub + "1"); result.add("6" + sub + "9"); result.add("8" + sub + "8"); result.add("9" + sub + "6"); &#125; return result;&#125;]]></content>
