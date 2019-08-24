@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[6 Minute English 1]]></title>
-    <url>%2F2019%2F08%2F24%2F6-Minute-English-1%2F</url>
-    <content type="text"><![CDATA[Dealing with boredomto yawn - to open your mouth wide and take air in and out slowly; usually a sign of boredom or tirednessstimulating - making someone excited and interested in somethingrestless - unable to sit still because you are bored or worriedto cope with - to deal with a situation successfullystuck in a rut - become too fixed in one kind of job or situation in lifeto stave off - to stop or keep away an unpleasant feelingto spur on - to encourage someone to do something The fame gamecelebrity - someone famous, particularly someone in entertainment or sportshow business - the entertainment industry (eg theatre, film, music)talent - natural ability to do something (eg singing, acting)autograph - a famous person’s signaturememorabilia - objects collected by fans because they’re connected with the person they admirecommodity - product which is bought and soldimage - reputation; what other people think about youscandal - action which causes a feeling of shock and disapprovalvandalism - damage to property]]></content>
-      <categories>
-        <category>English</category>
-      </categories>
-      <tags>
-        <tag>English</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[[LintCode] Problem 817 - Range Sum Query 2D - Mutable]]></title>
-    <url>%2F2019%2F08%2F24%2FLintCode-Problem-817-Range-Sum-Query-2D-Mutable%2F</url>
+    <url>%2F2019%2F08%2F25%2FLintCode-Problem-817-Range-Sum-Query-2D-Mutable%2F</url>
     <content type="text"></content>
       <categories>
         <category>Algorithm</category>
@@ -25,9 +14,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[[LeetCode] Problem 304 - Range Sum Query 2D - Immutable]]></title>
-    <url>%2F2019%2F08%2F24%2FLeetCode-Problem-304-Range-Sum-Query-2D-Immutable%2F</url>
-    <content type="text"><![CDATA[Given a 2D matrix matrix, find the sum of the elements inside the rectangle defined by its upper left corner (row1, col1) and lower right corner (row2, col2). The above rectangle (with the red border) is defined by (row1, col1) = (2, 1) and (row2, col2) = (4, 3), which contains sum = 8. ExampleGiven matrix = 1234567[ [3, 0, 1, 4, 2], [5, 6, 3, 2, 1], [1, 2, 0, 1, 5], [4, 1, 0, 1, 7], [1, 0, 3, 0, 5]] sumRegion(2, 1, 4, 3) -&gt; 8sumRegion(1, 1, 2, 2) -&gt; 11sumRegion(1, 2, 2, 4) -&gt; 12 Note You may assume that the matrix does not change. There are many calls to sumRegion function. You may assume that row1 ≤ row2 and col1 ≤ col2. Code1234567891011121314151617private int[][] sum;public NumMatrix(int[][] matrix) &#123; if (matrix == null || matrix.length == 0 || matrix[0].length == 0) return; sum = new int[matrix.length + 1][matrix[0].length + 1]; for (int i = 0; i &lt; matrix.length; i++) &#123; for (int j = 0; j &lt; matrix[0].length; j++) sum[i + 1][j + 1] = sum[i + 1][j] + sum[i][j + 1] - sum[i][j] + matrix[i][j]; &#125;&#125;public int sumRegion(int row1, int col1, int row2, int col2) &#123; return sum[row2 + 1][col2 + 1] - sum[row1][col2 + 1] - sum[row2 + 1][col1] + sum[row1][col1];&#125;]]></content>
+    <title><![CDATA[[LeetCode] Problem 307 - Range Sum Query - Mutable]]></title>
+    <url>%2F2019%2F08%2F25%2FLeetCode-Problem-307-Range-Sum-Query-Mutable%2F</url>
+    <content type="text"></content>
       <categories>
         <category>Algorithm</category>
         <category>LeetCode</category>
@@ -38,9 +27,32 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[[LeetCode] Problem 307 - Range Sum Query - Mutable]]></title>
-    <url>%2F2019%2F08%2F24%2FLeetCode-Problem-307-Range-Sum-Query-Mutable%2F</url>
-    <content type="text"></content>
+    <title><![CDATA[【图解设计模式】Mediator模式]]></title>
+    <url>%2F2019%2F08%2F24%2F%E3%80%90%E5%9B%BE%E8%A7%A3%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%91Mediator%E6%A8%A1%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[组员向仲裁者报告，仲裁者向组员下达指示。组员之间不再相互询问和相互指示。 示例一个GUI应用程序，它展示了一个登录对话框，用户在其中输入正确的用户名和密码后可以登录。 可以选择作为游客访问（Guest）或是作为用户登录（Login） 作为用户登录时，需要输入正确的用户名（Username）和密码（Password） 点击OK按钮可以登录，点击Cancel按钮可以取消登录 类图 时序图 Mediator接口1234public interface Mediator &#123; public abstract void createColleagues(); public abstract void colleagueChanged();&#125; Colleague接口1234public interface Colleague &#123; public abstract void setMediator(Mediator mediator); public abstract void setColleagueEnabled(boolean enabled);&#125; ColleagueButton类12345678910111213141516171819import java.awt.*;public class ColleagueButton extends Button implements Colleague &#123; private Mediator mediator; public ColleagueButton(String caption) &#123; super(caption); &#125; @Override public void setMediator(Mediator mediator) &#123; this.mediator = mediator; &#125; @Override public void setColleagueEnabled(boolean enabled) &#123; setEnabled(enabled); &#125;&#125; ColleagueTextField类123456789101112131415161718192021222324252627import java.awt.*;import java.awt.event.TextEvent;import java.awt.event.TextListener;public class ColleagueTextField extends TextField implements TextListener, Colleague &#123; private Mediator mediator; public ColleagueTextField(String text, int columns) &#123; super(text, columns); &#125; @Override public void setMediator(Mediator mediator) &#123; this.mediator = mediator; &#125; @Override public void setColleagueEnabled(boolean enabled) &#123; setEnabled(enabled); setBackground(enabled ? Color.white : Color.lightGray); &#125; @Override public void textValueChanged(TextEvent e) &#123; mediator.colleagueChanged(); &#125;&#125; ColleagueCheckbox类1234567891011121314151617181920212223242526import java.awt.*;import java.awt.event.ItemEvent;import java.awt.event.ItemListener;public class ColleagueCheckbox extends Checkbox implements ItemListener, Colleague &#123; private Mediator mediator; public ColleagueCheckbox(String caption, CheckboxGroup group, boolean state) &#123; super(caption, group, state); &#125; @Override public void setMediator(Mediator mediator) &#123; this.mediator = mediator; &#125; @Override public void setColleagueEnabled(boolean enabled) &#123; setEnabled(enabled); &#125; @Override public void itemStateChanged(ItemEvent e) &#123; mediator.colleagueChanged(); &#125;&#125; LoginFrame类12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394import java.awt.*;import java.awt.event.ActionEvent;import java.awt.event.ActionListener;public class LoginFrame extends Frame implements ActionListener, Mediator &#123; private ColleagueCheckbox checkGuest; private ColleagueCheckbox checkLogin; private ColleagueTextField textUser; private ColleagueTextField textPass; private ColleagueButton buttonOk; private ColleagueButton buttonCancel; public LoginFrame(String title) &#123; super(title); setBackground(Color.lightGray); setLayout(new GridLayout(4, 2)); createColleagues(); add(checkGuest); add(checkLogin); add(new Label("Username:")); add(textUser); add(new Label("Password:")); add(textPass); add(buttonOk); add(buttonCancel); colleagueChanged(); pack(); show(); &#125; @Override public void createColleagues() &#123; CheckboxGroup g = new CheckboxGroup(); checkGuest = new ColleagueCheckbox("Guest", g, true); checkLogin = new ColleagueCheckbox("Login", g, false); textUser = new ColleagueTextField("", 10); textPass = new ColleagueTextField("", 10); textPass.setEchoChar('*'); buttonOk = new ColleagueButton("OK"); buttonCancel = new ColleagueButton("Cancel"); checkGuest.setMediator(this); checkLogin.setMediator(this); textUser.setMediator(this); textPass.setMediator(this); buttonOk.setMediator(this); buttonCancel.setMediator(this); checkGuest.addItemListener(checkGuest); checkLogin.addItemListener(checkLogin); textUser.addTextListener(textUser); textPass.addTextListener(textPass); buttonOk.addActionListener(this); buttonCancel.addActionListener(this); &#125; @Override public void colleagueChanged() &#123; if (checkGuest.getState()) &#123; textUser.setColleagueEnabled(false); textPass.setColleagueEnabled(false); buttonOk.setColleagueEnabled(true); &#125; else &#123; textUser.setColleagueEnabled(true); userpassChanged(); &#125; &#125; private void userpassChanged() &#123; if (textUser.getText().length() &gt; 0) &#123; textPass.setColleagueEnabled(true); if (textPass.getText().length() &gt; 0) buttonOk.setColleagueEnabled(true); else buttonOk.setColleagueEnabled(false); &#125; else &#123; textPass.setColleagueEnabled(false); buttonOk.setColleagueEnabled(false); &#125; &#125; @Override public void actionPerformed(ActionEvent e) &#123; System.out.println(e.toString()); System.exit(0); &#125;&#125; Main类123456public class Main &#123; public static void main(String[] args) &#123; new LoginFrame("Mediator Sample"); &#125;&#125; 运行结果 登场角色Mediator（仲裁者、中介者）Mediator角色负责定义与Colleague角色进行通信和做出决定的接口（API）。在示例程序中，由Mediator接口扮演此角色。 ConcreteMediator（具体的仲裁者、中介者）ConcreteMediator角色负责实现Mediator角色的接口（API），负责实际做出决定。在示例程序中，由LoginFrame类扮演此角色。 Colleague（同事）Colleague角色负责定义与Mediator角色进行通信的接口（API）。在示例程序中，由Colleague接口扮演此角色。 ConcreteColleague（具体的同事）ConcreteColleague角色负责实现Colleague角色的接口（API）。在示例程序中，由ColleagueButton类、ColleagueTextField类和ColleagueCheckbox类扮演此角色。 类图]]></content>
+      <categories>
+        <category>Design Pattern</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Design Pattern</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[6 Minute English 1]]></title>
+    <url>%2F2019%2F08%2F24%2F6-Minute-English-1%2F</url>
+    <content type="text"><![CDATA[Dealing with boredomto yawn - to open your mouth wide and take air in and out slowly; usually a sign of boredom or tirednessstimulating - making someone excited and interested in somethingrestless - unable to sit still because you are bored or worriedto cope with - to deal with a situation successfullystuck in a rut - become too fixed in one kind of job or situation in lifeto stave off - to stop or keep away an unpleasant feelingto spur on - to encourage someone to do something The fame gamecelebrity - someone famous, particularly someone in entertainment or sportshow business - the entertainment industry (eg theatre, film, music)talent - natural ability to do something (eg singing, acting)autograph - a famous person’s signaturememorabilia - objects collected by fans because they’re connected with the person they admirecommodity - product which is bought and soldimage - reputation; what other people think about youscandal - action which causes a feeling of shock and disapprovalvandalism - damage to property]]></content>
+      <categories>
+        <category>English</category>
+      </categories>
+      <tags>
+        <tag>English</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Problem 304 - Range Sum Query 2D - Immutable]]></title>
+    <url>%2F2019%2F08%2F24%2FLeetCode-Problem-304-Range-Sum-Query-2D-Immutable%2F</url>
+    <content type="text"><![CDATA[Given a 2D matrix matrix, find the sum of the elements inside the rectangle defined by its upper left corner (row1, col1) and lower right corner (row2, col2). The above rectangle (with the red border) is defined by (row1, col1) = (2, 1) and (row2, col2) = (4, 3), which contains sum = 8. ExampleGiven matrix = 1234567[ [3, 0, 1, 4, 2], [5, 6, 3, 2, 1], [1, 2, 0, 1, 5], [4, 1, 0, 1, 7], [1, 0, 3, 0, 5]] sumRegion(2, 1, 4, 3) -&gt; 8sumRegion(1, 1, 2, 2) -&gt; 11sumRegion(1, 2, 2, 4) -&gt; 12 Note You may assume that the matrix does not change. There are many calls to sumRegion function. You may assume that row1 ≤ row2 and col1 ≤ col2. Code1234567891011121314151617private int[][] sum;public NumMatrix(int[][] matrix) &#123; if (matrix == null || matrix.length == 0 || matrix[0].length == 0) return; sum = new int[matrix.length + 1][matrix[0].length + 1]; for (int i = 0; i &lt; matrix.length; i++) &#123; for (int j = 0; j &lt; matrix[0].length; j++) sum[i + 1][j + 1] = sum[i + 1][j] + sum[i][j + 1] - sum[i][j] + matrix[i][j]; &#125;&#125;public int sumRegion(int row1, int col1, int row2, int col2) &#123; return sum[row2 + 1][col2 + 1] - sum[row1][col2 + 1] - sum[row2 + 1][col1] + sum[row1][col1];&#125;]]></content>
       <categories>
         <category>Algorithm</category>
         <category>LeetCode</category>
