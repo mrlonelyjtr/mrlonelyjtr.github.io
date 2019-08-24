@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LintCode] Problem 817 - Range Sum Query 2D - Mutable]]></title>
+    <url>%2F2019%2F08%2F24%2FLintCode-Problem-817-Range-Sum-Query-2D-Mutable%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LintCode</category>
+      </categories>
+      <tags>
+        <tag>OJ</tag>
+        <tag>Algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Problem 304 - Range Sum Query 2D - Immutable]]></title>
+    <url>%2F2019%2F08%2F24%2FLeetCode-Problem-304-Range-Sum-Query-2D-Immutable%2F</url>
+    <content type="text"><![CDATA[Given a 2D matrix matrix, find the sum of the elements inside the rectangle defined by its upper left corner (row1, col1) and lower right corner (row2, col2). The above rectangle (with the red border) is defined by (row1, col1) = (2, 1) and (row2, col2) = (4, 3), which contains sum = 8. ExampleGiven matrix = 1234567[ [3, 0, 1, 4, 2], [5, 6, 3, 2, 1], [1, 2, 0, 1, 5], [4, 1, 0, 1, 7], [1, 0, 3, 0, 5]] sumRegion(2, 1, 4, 3) -&gt; 8sumRegion(1, 1, 2, 2) -&gt; 11sumRegion(1, 2, 2, 4) -&gt; 12 Note You may assume that the matrix does not change. There are many calls to sumRegion function. You may assume that row1 ≤ row2 and col1 ≤ col2. Code1234567891011121314151617private int[][] sum;public NumMatrix(int[][] matrix) &#123; if (matrix == null || matrix.length == 0 || matrix[0].length == 0) return; sum = new int[matrix.length + 1][matrix[0].length + 1]; for (int i = 0; i &lt; matrix.length; i++) &#123; for (int j = 0; j &lt; matrix[0].length; j++) sum[i + 1][j + 1] = sum[i + 1][j] + sum[i][j + 1] - sum[i][j] + matrix[i][j]; &#125;&#125;public int sumRegion(int row1, int col1, int row2, int col2) &#123; return sum[row2 + 1][col2 + 1] - sum[row1][col2 + 1] - sum[row2 + 1][col1] + sum[row1][col1];&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>OJ</tag>
+        <tag>Algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Problem 307 - Range Sum Query - Mutable]]></title>
+    <url>%2F2019%2F08%2F24%2FLeetCode-Problem-307-Range-Sum-Query-Mutable%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>OJ</tag>
+        <tag>Algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Problem 303 - Range Sum Query - Immutable]]></title>
     <url>%2F2019%2F08%2F24%2FLeetCode-Problem-303-Range-Sum-Query-Immutable%2F</url>
     <content type="text"><![CDATA[Given an integer array nums, find the sum of the elements between indices i and j (i ≤ j), inclusive. ExampleGiven nums = [-2, 0, 3, -5, 2, -1] sumRange(0, 2) -&gt; 1sumRange(2, 5) -&gt; -1sumRange(0, 5) -&gt; -3 Note You may assume that the array does not change. There are many calls to sumRange function. Code123456789101112private int[] sum;public NumArray(int[] nums) &#123; sum = new int[nums.length + 1]; for (int i = 0; i &lt; nums.length; i++) sum[i + 1] = sum[i] + nums[i];&#125;public int sumRange(int i, int j) &#123; return sum[j + 1] - sum[i];&#125;]]></content>
