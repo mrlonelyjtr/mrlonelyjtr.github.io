@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[java.util.Observer接口]]></title>
+    <url>%2F2019%2F08%2F25%2Fjava-util-Observer%E6%8E%A5%E5%8F%A3%2F</url>
+    <content type="text"><![CDATA[Java类库中的java.util.Observer接口和java.util.Observable类就是一种Observer模式。 java.util.Observer接口中定义了一下方法。 1public void update(Observable obj, Object arg) 而update方法的参数则接收到了如下内容。 Observable类的实例是被观察的Subject角色 Object类的实例是附加信息 但是java.util.Observer接口和java.util.Observable类并不好用。理由很简单，传递给java.util.Observer接口的Subject角色必须是java.util.Observable类型（或者它的子类型）的。但Java只能单一继承，也就是说如果Subject角色已经是某个类的子类了，那么它将无法继承java.util.Observable类。]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LintCode] Problem 817 - Range Sum Query 2D - Mutable]]></title>
     <url>%2F2019%2F08%2F25%2FLintCode-Problem-817-Range-Sum-Query-2D-Mutable%2F</url>
     <content type="text"></content>
