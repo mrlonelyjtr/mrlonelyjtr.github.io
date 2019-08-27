@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LeetCode] Problem 414 - Third Maximum Number]]></title>
+    <url>%2F2019%2F08%2F27%2FLeetCode-Problem-414-Third-Maximum-Number%2F</url>
+    <content type="text"><![CDATA[Given a non-empty array of integers, return the third maximum number in this array. If it does not exist, return the maximum number. The time complexity must be in O(n). ExampleNo.1Input: [3, 2, 1] Output: 1 Explanation: The third maximum is 1. No.2Input: [1, 2] Output: 2 Explanation: The third maximum does not exist, so the maximum (2) is returned instead. No.3Input: [2, 2, 3, 1] Output: 1 Explanation: Note that the third maximum here means the third maximum distinct number.Both numbers with value 2 are both considered as second maximum. Code1234567891011121314151617181920212223public int thirdMax(int[] nums) &#123; long[] max = new long[3]; Arrays.fill(max, Long.MIN_VALUE); for (int num : nums) &#123; if (num == max[0] || num == max[1] || num == max[2]) continue; if (max[0] == Long.MIN_VALUE || num &gt; max[0]) &#123; max[2] = max[1]; max[1] = max[0]; max[0] = num; &#125; else if (max[1] == Long.MIN_VALUE || num &gt; max[1]) &#123; max[2] = max[1]; max[1] = num; &#125; else if (max[2] == Long.MIN_VALUE || num &gt; max[2]) max[2] = num; &#125; return (int) (max[2] == Long.MIN_VALUE ? max[0] : max[2]);&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Problem 405 - Convert a Number to Hexadecimal]]></title>
+    <url>%2F2019%2F08%2F27%2FLeetCode-Problem-405-Convert-a-Number-to-Hexadecimal%2F</url>
+    <content type="text"><![CDATA[Given an integer, write an algorithm to convert it to hexadecimal. For negative integer, two’s complement method is used. Note All letters in hexadecimal (a-f) must be in lowercase. The hexadecimal string must not contain extra leading 0s. If the number is zero, it is represented by a single zero character ‘0’; otherwise, the first character in the hexadecimal string will not be the zero character. The given number is guaranteed to fit within the range of a 32-bit signed integer. You must not use any method provided by the library which converts/formats the number to hex directly. ExampleNo.1Input:26 Output:“1a” No.2Input:-1 Output:“ffffffff” Code12]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Problem 404 - Sum of Left Leaves]]></title>
     <url>%2F2019%2F08%2F27%2FLeetCode-Problem-404-Sum-of-Left-Leaves%2F</url>
     <content type="text"><![CDATA[Find the sum of all left leaves in a given binary tree. Example12345 3 / \9 20 / \ 15 7 There are two left leaves in the binary tree, with values 9 and 15 respectively. Return 24. Code123456public class TreeNode &#123; int val; TreeNode left; TreeNode right; TreeNode(int x) &#123; val = x; &#125;&#125; 12345678910111213141516public int sumOfLeftLeaves(TreeNode root) &#123; if (root == null) return 0; int sum = 0; if (root.left != null) &#123; if (root.left.left == null &amp;&amp; root.left.right == null) sum += root.left.val; else sum += sumOfLeftLeaves(root.left); &#125; sum += sumOfLeftLeaves(root.right); return sum;&#125;]]></content>
