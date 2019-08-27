@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
 <meta property="og:description" content="Given an integer, write an algorithm to convert it to hexadecimal. For negative integer, two’s complement method is used. Note All letters in hexadecimal (a-f) must be in lowercase. The hexadecimal st">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-26T15:34:41.035Z">
+<meta property="og:updated_time" content="2019-08-27T03:42:28.331Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LeetCode] Problem 405 - Convert a Number to Hexadecimal">
 <meta name="twitter:description" content="Given an integer, write an algorithm to convert it to hexadecimal. For negative integer, two’s complement method is used. Note All letters in hexadecimal (a-f) must be in lowercase. The hexadecimal st">
@@ -329,7 +329,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-27T00:29:58Z">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-27T08:29:58+08:00">
                 2019-08-27
               </time>
             
@@ -409,7 +409,7 @@
 <p>Output:<br>“1a”</p>
 <h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Input:<br>-1</p>
 <p>Output:<br>“ffffffff”</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toHex</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">    StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">    String str = <span class="string">"0123456789abcdef"</span>;</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (num != <span class="number">0</span> &amp;&amp; count &lt; <span class="number">8</span>) &#123;</span><br><span class="line">        <span class="keyword">char</span> ch = str.charAt(num &amp; <span class="number">0xf</span>);</span><br><span class="line">        sb.append(ch);</span><br><span class="line">        num &gt;&gt;= <span class="number">4</span>;</span><br><span class="line">        count++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> sb.length() == <span class="number">0</span> ? <span class="string">"0"</span> : sb.reverse().toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
