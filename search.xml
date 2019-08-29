@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[【图解设计模式】总结]]></title>
+    <url>%2F2019%2F08%2F29%2F%E3%80%90%E5%9B%BE%E8%A7%A3%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%91%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"><![CDATA[Iterator模式一个一个遍历 Adapter模式加个“适配器”以便于复用 Template Method模式将具体处理交给子类 Factory Method模式将实例的生成交给子类 Singleton模式只有一个实例 Prototype模式通过复制生成实例 Builder模式组装复杂的实例 Abstract Factory模式将关联零件组装成产品 Bridge模式将类的功能层次结构与实现层次结构分离 Strategy模式整体地替换算法 Composite模式容器与内容的一致性 Decorator模式装饰边框与被装饰物的一致性 Visitor模式访问数据结构并处理数据 Chain of Responsibility模式推卸责任 Facade模式简单窗口 Mediator模式只有一个仲裁者 Observer模式发送状态变化通知 Memento模式保存对象状态 State模式用类表示状态 Flyweight模式共享对象，避免浪费 Proxy模式只在必要时生成实例 Command模式命令也是类 Interpreter模式语法规则也是类]]></content>
+      <categories>
+        <category>Design Patterns</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Design Pattern</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[【图解设计模式】Proxy模式]]></title>
     <url>%2F2019%2F08%2F29%2F%E3%80%90%E5%9B%BE%E8%A7%A3%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%91Proxy%E6%A8%A1%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[当不一定需要本人亲自进行工作时，就可以寻找代理人去完成工作。当代理人遇到无法自己解决的事情时就会去找本人解决该问题。 示例一个带名字的打印机。 类图 时序图 Printer类123456789101112131415161718192021222324252627282930313233343536373839public class Printer implements Printable &#123; private String name; public Printer(String name) &#123; this.name = name; heavyJob("Printer的实例生成中（"+ name + "）"); &#125; @Override public void setPrinterName(String name) &#123; this.name = name; &#125; @Override public String getPrinterName() &#123; return name; &#125; @Override public void print(String string) &#123; System.out.println("=== " + name + " ==="); System.out.println(string); &#125; private void heavyJob(String msg) &#123; System.out.print(msg); for (int i = 0; i &lt; 5; i++) &#123; try &#123; Thread.sleep(1000); &#125; catch (InterruptedException e) &#123; &#125; System.out.print("."); &#125; System.out.println("结束。"); &#125;&#125; Printable接口12345public interface Printable &#123; public abstract void setPrinterName(String name); public abstract String getPrinterName(); public abstract void print(String string);&#125; PrintableProxy类1234567891011121314151617181920212223242526272829303132public class PrinterProxy implements Printable &#123; private String name; private Printer real; public PrinterProxy(String name) &#123; this.name = name; &#125; @Override public synchronized void setPrinterName(String name) &#123; if (real != null) real.setPrinterName(name); this.name = name; &#125; @Override public String getPrinterName() &#123; return name; &#125; @Override public void print(String string) &#123; realize(); real.print(string); &#125; private synchronized void realize() &#123; if (real == null) real = new Printer(name); &#125;&#125; Main类12345678910public class Main &#123; public static void main(String[] args) &#123; Printable p = new PrinterProxy("Alice"); System.out.println("现在的名字是" + p.getPrinterName() + "。"); p.setPrinterName("Bob"); System.out.println("现在的名字是" + p.getPrinterName() + "。"); p.print("Hello, world."); &#125;&#125; 运行结果12345现在的名字是Alice。现在的名字是Bob。Printer的实例生成中（Bob）.....结束。=== Bob ===Hello, world. 登场角色Subject（主体）Subject角色定义了使Proxy角色和RealSubject角色之间具有一致性的接口。由于存在Subject角色，所以Client角色不必在意它所使用的究竟是Proxy角色还是RealSubject角色。在示例程序中，由Printable接口扮演此角色。 Proxy（代理人）Proxy角色会尽量处理来自Client角色的请求。只有当自己不能处理时，它才会将工作交给RealSubject角色。Proxy角色只有在必要时才会生成RealSubject角色。Proxy角色实现了在Subject角色中定义的接口（API）。在示例程序中，由PrinterProxy类扮演此角色。 RealSubject（实际的主体）“本人”RealSubject角色会在“代理人”Proxy角色无法胜任工作时出场。它与Proxy角色一样，也实现了在Subject角色中定义的接口（API）。在示例程序中，由Printer类扮演此角色。 Client（请求者）使用Proxy模式的角色。在示例程序中，由Main类扮演此角色。 类图]]></content>
