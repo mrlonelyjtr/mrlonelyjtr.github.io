@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[The English We Speak 2]]></title>
+    <url>%2F2019%2F09%2F02%2FThe-English-We-Speak-2%2F</url>
+    <content type="text"><![CDATA[To downsizeto describe cutting a number of jobs and making employees redundant.some people have started applying the term to their own situations. ExamplesThe growth of online sales in the UK has forced many retail businesses to downsize. Some of them have reduced their number of outlets in the high street. Now that I am going to university, my parents have decided to downsize. They are selling the house, moving to a flat and using some of the money to travel the world. Stab in the backto betray someone. ExamplesA lot of young people think you have to stab people in the back to get ahead in business, but you don’t. She told me she was in love with me, but then she stabbed me in the back and went out with Dave. I wouldn’t trust Laura if I were you. She’s nice to your face, but then she stabs you in the back.]]></content>
+      <categories>
+        <category>English</category>
+      </categories>
+      <tags>
+        <tag>English</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LintCode] Problem 648 - Unique Word Abbreviation]]></title>
     <url>%2F2019%2F09%2F02%2FLintCode-Problem-648-Unique-Word-Abbreviation%2F</url>
     <content type="text"><![CDATA[An abbreviation of a word follows the form&lt;first letter&gt;&lt;number&gt;&lt;last letter&gt;. Below are some examples of word abbreviations: 123456789101112a) it --&gt; it (no abbreviation) 1b) d|o|g --&gt; d1g 1 1 1 1---5----0----5--8c) i|nternationalizatio|n --&gt; i18n 1 1---5----0d) l|ocalizatio|n --&gt; l10n Assume you have a dictionary and given a word, find whether its abbreviation is unique in the dictionary. A word’s abbreviation is unique if no other word from the dictionary has the same abbreviation. ExampleNo.1Input:[ “deer”, “door”, “cake”, “card” ]isUnique(“dear”)isUnique(“cart”) Output:falsetrue Explanation:Dictionary’s abbreviation is [“d2r”, “d2r”, “c2e”, “c2d”].“dear” ‘s abbreviation is “d2r” , in dictionary.“cart” ‘s abbreviation is “c2t” , not in dictionary. No.2Input:[ “deer”, “door”, “cake”, “card” ]isUnique(“cane”)isUnique(“make”) Output:falsetrue Explanation:Dictionary’s abbreviation is [“d2r”, “d2r”, “c2e”, “c2d”].“cane” ‘s abbreviation is “c2e” , in dictionary.“make” ‘s abbreviation is “m2e” , not in dictionary. Code123456789101112131415161718Map&lt;String, Set&lt;String&gt;&gt; map = new HashMap&lt;&gt;();public ValidWordAbbr(String[] dictionary) &#123; for (String word : dictionary) &#123; String abbr = getAbbreviation(word); map.putIfAbsent(abbr, new HashSet&lt;&gt;()); map.get(abbr).add(word); &#125;&#125;public boolean isUnique(String word) &#123; String abbr = getAbbreviation(word); return !map.containsKey(abbr) || (map.get(abbr).size() == 1 &amp;&amp; map.get(abbr).contains(word));&#125;private String getAbbreviation(String word) &#123; return word.length() &lt; 3 ? word : word.charAt(0) + String.valueOf(word.length() - 2) + word.charAt(word.length() - 1);&#125;]]></content>
