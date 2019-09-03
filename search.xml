@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LeetCode] Problem 459 - Repeated Substring Pattern]]></title>
+    <url>%2F2019%2F09%2F04%2FLeetCode-Problem-459-Repeated-Substring-Pattern%2F</url>
+    <content type="text"><![CDATA[Given a non-empty string check if it can be constructed by taking a substring of it and appending multiple copies of the substring together. You may assume the given string consists of lowercase English letters only and its length will not exceed 10000. ExampleNo.1Input: “abab” Output: True Explanation: It’s the substring “ab” twice. No.2Input: “aba” Output: False No.3Input: “abcabcabcabc” Output: True Explanation: It’s the substring “abc” four times. (And the substring “abcabc” twice.) Code123456789101112131415161718192021public boolean repeatedSubstringPattern(String s) &#123; int n = s.length(); StringBuilder sb = new StringBuilder(s); for (int i = n / 2; i &gt;= 1; i--) &#123; if (n % i == 0) &#123; String str = sb.substring(0, i); int j = 1; for (; j &lt; n / i; j++) &#123; if (!str.equals(sb.substring(j * i, j * i + i))) break; &#125; if (j == n / i) return true; &#125; &#125; return false;&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Problem 455 - Assign Cookies]]></title>
     <url>%2F2019%2F09%2F04%2FLeetCode-Problem-455-Assign-Cookies%2F</url>
     <content type="text"><![CDATA[Assume you are an awesome parent and want to give your children some cookies. But, you should give each child at most one cookie. Each child i has a greed factor gi, which is the minimum size of a cookie that the child will be content with; and each cookie j has a size sj. If sj &gt;= gi, we can assign the cookie j to the child i, and the child i will be content. Your goal is to maximize the number of your content children and output the maximum number. NoteYou may assume the greed factor is always positive.You cannot assign more than one cookie to one child. ExampleNo.1Input: [1,2,3], [1,1] Output: 1 Explanation: You have 3 children and 2 cookies. The greed factors of 3 children are 1, 2, 3.And even though you have 2 cookies, since their size is both 1, you could only make the child whose greed factor is 1 content.You need to output 1. No.2Input: [1,2], [1,2,3] Output: 2 Explanation: You have 2 children and 3 cookies. The greed factors of 2 children are 1, 2.You have 3 cookies and their sizes are big enough to gratify all of the children,You need to output 2. Code123456789101112public int findContentChildren(int[] g, int[] s) &#123; int i = 0; Arrays.sort(g); Arrays.sort(s); for (int j = 0; i &lt; g.length &amp;&amp; j &lt; s.length; j++) &#123; if (s[j] &gt;= g[i]) i++; &#125; return i;&#125;]]></content>
