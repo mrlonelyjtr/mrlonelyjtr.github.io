@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="OJ,Algorithm,">
+  <meta name="keywords" content="Algorithm,OJ,">
 
 
 
@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="间歇性踌躇满志，持续性混吃等死">
-<meta name="keywords" content="OJ,Algorithm">
+<meta name="description" content="Given a non-empty integer array of size n, find the minimum number of moves required to make all array elements equal, where a move is incrementing n - 1 elements by 1. ExampleInput:[1,2,3] Output:3 E">
+<meta name="keywords" content="Algorithm,OJ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[LeetCode] Problem 307 - Range Sum Query - Mutable">
-<meta property="og:url" content="http://yoursite.com/2019/08/24/LeetCode-Problem-307-Range-Sum-Query-Mutable/index.html">
+<meta property="og:title" content="[LeetCode] Problem 453 - Minimum Moves to Equal Array Elements">
+<meta property="og:url" content="http://yoursite.com/2019/09/03/LeetCode-Problem-453-Minimum-Moves-to-Equal-Array-Elements/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="间歇性踌躇满志，持续性混吃等死">
+<meta property="og:description" content="Given a non-empty integer array of size n, find the minimum number of moves required to make all array elements equal, where a move is incrementing n - 1 elements by 1. ExampleInput:[1,2,3] Output:3 E">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-24T04:14:10.338Z">
+<meta property="og:updated_time" content="2019-09-03T03:21:49.801Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[LeetCode] Problem 307 - Range Sum Query - Mutable">
-<meta name="twitter:description" content="间歇性踌躇满志，持续性混吃等死">
+<meta name="twitter:title" content="[LeetCode] Problem 453 - Minimum Moves to Equal Array Elements">
+<meta name="twitter:description" content="Given a non-empty integer array of size n, find the minimum number of moves required to make all array elements equal, where a move is incrementing n - 1 elements by 1. ExampleInput:[1,2,3] Output:3 E">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/08/24/LeetCode-Problem-307-Range-Sum-Query-Mutable/">
+  <link rel="canonical" href="http://yoursite.com/2019/09/03/LeetCode-Problem-453-Minimum-Moves-to-Equal-Array-Elements/">
 
 
 
 
 
-  <title> [LeetCode] Problem 307 - Range Sum Query - Mutable | mrlonelyjtr's blog </title>
+  <title> [LeetCode] Problem 453 - Minimum Moves to Equal Array Elements | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -293,7 +293,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/24/LeetCode-Problem-307-Range-Sum-Query-Mutable/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/03/LeetCode-Problem-453-Minimum-Moves-to-Equal-Array-Elements/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -314,7 +314,7 @@
             
             
               
-                [LeetCode] Problem 307 - Range Sum Query - Mutable
+                [LeetCode] Problem 453 - Minimum Moves to Equal Array Elements
               
             
           </h1>
@@ -329,8 +329,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-24T20:13:56+08:00">
-                2019-08-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-03T18:30:53+08:00">
+                2019-09-03
               </time>
             
 
@@ -398,7 +398,11 @@
       
 
       
-        
+        <p>Given a non-empty integer array of size n, find the minimum number of moves required to make all array elements equal, where a move is incrementing n - 1 elements by 1.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>Input:<br>[1,2,3]</p>
+<p>Output:<br>3</p>
+<p>Explanation:<br>Only three moves are needed (remember each move increments two elements):<br>[1,2,3]  =&gt;  [2,3,3]  =&gt;  [3,4,3]  =&gt;  [4,4,4]</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. S + (n – 1) * m = x * n</span></span><br><span class="line"><span class="comment">// 2. min + m = x</span></span><br><span class="line"><span class="comment">// m = S – n * min</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minMoves</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> min = Integer.MAX_VALUE;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> num : nums) &#123;</span><br><span class="line">        sum += num;</span><br><span class="line">        min = Math.min(min, num);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> sum - nums.length * min;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -427,9 +431,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/OJ/" rel="tag"># OJ</a>
-          
             <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+          
+            <a href="/tags/OJ/" rel="tag"># OJ</a>
           
         </div>
       
@@ -442,8 +446,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/24/LeetCode-Problem-303-Range-Sum-Query-Immutable/" rel="next" title="[LeetCode] Problem 303 - Range Sum Query - Immutable">
-                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 303 - Range Sum Query - Immutable
+              <a href="/2019/09/03/LeetCode-Problem-447-Number-of-Boomerangs/" rel="next" title="[LeetCode] Problem 447 - Number of Boomerangs">
+                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 447 - Number of Boomerangs
               </a>
             
           </div>
@@ -452,8 +456,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/08/24/LeetCode-Problem-304-Range-Sum-Query-2D-Immutable/" rel="prev" title="[LeetCode] Problem 304 - Range Sum Query 2D - Immutable">
-                [LeetCode] Problem 304 - Range Sum Query 2D - Immutable <i class="fa fa-chevron-right"></i>
+              <a href="/2019/09/03/LeetCode-Problem-462-Minimum-Moves-to-Equal-Array-Elements-II/" rel="prev" title="[LeetCode] Problem 462 - Minimum Moves to Equal Array Elements II">
+                [LeetCode] Problem 462 - Minimum Moves to Equal Array Elements II <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -501,8 +505,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="mrlonelyjtr">
           <p class="site-author-name" itemprop="name">mrlonelyjtr</p>
@@ -515,7 +528,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">607</span>
+                <span class="site-state-item-count">639</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -537,7 +550,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -573,6 +586,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">2.</span> <span class="nav-text">Code</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

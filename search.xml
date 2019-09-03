@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LeetCode] Problem 462 - Minimum Moves to Equal Array Elements II]]></title>
+    <url>%2F2019%2F09%2F03%2FLeetCode-Problem-462-Minimum-Moves-to-Equal-Array-Elements-II%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Problem 453 - Minimum Moves to Equal Array Elements]]></title>
+    <url>%2F2019%2F09%2F03%2FLeetCode-Problem-453-Minimum-Moves-to-Equal-Array-Elements%2F</url>
+    <content type="text"><![CDATA[Given a non-empty integer array of size n, find the minimum number of moves required to make all array elements equal, where a move is incrementing n - 1 elements by 1. ExampleInput:[1,2,3] Output:3 Explanation:Only three moves are needed (remember each move increments two elements):[1,2,3] =&gt; [2,3,3] =&gt; [3,4,3] =&gt; [4,4,4] Code1234567891011121314// 1. S + (n – 1) * m = x * n// 2. min + m = x// m = S – n * minpublic int minMoves(int[] nums) &#123; int sum = 0; int min = Integer.MAX_VALUE; for (int num : nums) &#123; sum += num; min = Math.min(min, num); &#125; return sum - nums.length * min;&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Problem 447 - Number of Boomerangs]]></title>
     <url>%2F2019%2F09%2F03%2FLeetCode-Problem-447-Number-of-Boomerangs%2F</url>
     <content type="text"><![CDATA[Given n points in the plane that are all pairwise distinct, a “boomerang” is a tuple of points (i, j, k) such that the distance between i and j equals the distance between i and k (the order of the tuple matters). Find the number of boomerangs. You may assume that n will be at most 500 and coordinates of points are all in the range [-10000, 10000] (inclusive). ExampleInput:[[0,0],[1,0],[2,0]] Output:2 Explanation:The two boomerangs are [[1,0],[0,0],[2,0]] and [[1,0],[2,0],[0,0]] Code123456789101112131415161718192021222324public int numberOfBoomerangs(int[][] points) &#123; int result = 0; Map&lt;Integer, Integer&gt; map = new HashMap&lt;&gt;(); for (int i = 0; i &lt; points.length; i++) &#123; for (int j = 0; j &lt; points.length; j++) &#123; int distance = getDistance(points[i], points[j]); map.put(distance, map.getOrDefault(distance, 0) + 1); &#125; for (Map.Entry&lt;Integer, Integer&gt; entry : map.entrySet()) result += entry.getValue() * (entry.getValue() - 1); map.clear(); &#125; return result;&#125;private int getDistance(int[] a, int[] b) &#123; int x = a[0] - b[0]; int y = a[1] - b[1]; return x * x + y * y;&#125;]]></content>
