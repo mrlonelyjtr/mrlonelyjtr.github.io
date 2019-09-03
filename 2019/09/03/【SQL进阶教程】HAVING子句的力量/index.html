@@ -1,0 +1,940 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="SQL,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="表的记录是没有顺序的，而且SQL也没有排序的运算符。SQL会将多条记录作为一个集合来处理。 寻找缺失的编号假设现有一张带有“连续编号”列的表，如表SeqTbl所示。查询这张表里是否存在数据丢失。  如果将表整体看作一个集合，就可以像下面这样解决这个问题。 123SELECT &apos;存在缺失的编号&apos; AS gapFROM SeqTblHAVING COUNT(*) &amp;lt;&amp;gt; MAX(seq);">
+<meta name="keywords" content="SQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【SQL进阶教程】HAVING子句的力量">
+<meta property="og:url" content="http://yoursite.com/2019/09/03/【SQL进阶教程】HAVING子句的力量/index.html">
+<meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
+<meta property="og:description" content="表的记录是没有顺序的，而且SQL也没有排序的运算符。SQL会将多条记录作为一个集合来处理。 寻找缺失的编号假设现有一张带有“连续编号”列的表，如表SeqTbl所示。查询这张表里是否存在数据丢失。  如果将表整体看作一个集合，就可以像下面这样解决这个问题。 123SELECT &apos;存在缺失的编号&apos; AS gapFROM SeqTblHAVING COUNT(*) &amp;lt;&amp;gt; MAX(seq);">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/03/nktNZ9.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/03/nkdtl6.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/03/nk0RoQ.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/03/nkRt1g.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/03/nkWBKH.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/03/nkOiFg.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/03/nkOwkD.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/03/nkXS39.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/03/nAelNQ.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/03/nAeo8A.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/03/nAeqDf.png">
+<meta property="og:updated_time" content="2019-09-03T11:36:22.793Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【SQL进阶教程】HAVING子句的力量">
+<meta name="twitter:description" content="表的记录是没有顺序的，而且SQL也没有排序的运算符。SQL会将多条记录作为一个集合来处理。 寻找缺失的编号假设现有一张带有“连续编号”列的表，如表SeqTbl所示。查询这张表里是否存在数据丢失。  如果将表整体看作一个集合，就可以像下面这样解决这个问题。 123SELECT &apos;存在缺失的编号&apos; AS gapFROM SeqTblHAVING COUNT(*) &amp;lt;&amp;gt; MAX(seq);">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/09/03/nktNZ9.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: "",
+      labels: ""
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/09/03/【SQL进阶教程】HAVING子句的力量/">
+
+
+
+
+
+  <title> 【SQL进阶教程】HAVING子句的力量 | mrlonelyjtr's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">mrlonelyjtr's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">写BUG的程序猿</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/03/【SQL进阶教程】HAVING子句的力量/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mrlonelyjtr">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="mrlonelyjtr's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                【SQL进阶教程】HAVING子句的力量
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-03T14:36:12Z">
+                2019-09-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/SQL/" itemprop="url" rel="index">
+                    <span itemprop="name">SQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>表的记录是没有顺序的，而且SQL也没有排序的运算符。SQL会将多条记录作为一个集合来处理。</p>
+<h2 id="寻找缺失的编号"><a href="#寻找缺失的编号" class="headerlink" title="寻找缺失的编号"></a>寻找缺失的编号</h2><p>假设现有一张带有“连续编号”列的表，如表SeqTbl所示。查询这张表里是否存在数据丢失。</p>
+<p><a href="https://imgchr.com/i/nktNZ9" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/03/nktNZ9.jpg" alt="nktNZ9.jpg"></a></p>
+<p>如果将表整体看作一个集合，就可以像下面这样解决这个问题。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="string">'存在缺失的编号'</span> <span class="keyword">AS</span> gap</span><br><span class="line"><span class="keyword">FROM</span> SeqTbl</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(*) &lt;&gt; <span class="keyword">MAX</span>(seq);</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://imgchr.com/i/nkdtl6" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/03/nkdtl6.png" alt="nkdtl6.png"></a></p>
+<p>如果这个查询结果有1行，说明存在缺失的编号；如果1行都没有，说明不存在缺失的编号。</p>
+<p>接下来，再来查询一下缺失编号的最小值。像下面这样写SQL语句。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MIN</span>(seq + <span class="number">1</span>) <span class="keyword">AS</span> gap</span><br><span class="line"><span class="keyword">FROM</span> SeqTbl</span><br><span class="line"><span class="keyword">WHERE</span> (seq + <span class="number">1</span>) <span class="keyword">NOT</span> <span class="keyword">IN</span> (<span class="keyword">SELECT</span> seq <span class="keyword">FROM</span> SeqTbl);</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://imgchr.com/i/nk0RoQ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/03/nk0RoQ.png" alt="nk0RoQ.png"></a></p>
+<p>如果没有缺失的编号，则查询到的结果是最大编号8的下一个编号9。</p>
+<p>然而这两个查询还不够周全，并不能涵盖所有的情况。</p>
+<h2 id="用HAVING子句进行子查询：求众数"><a href="#用HAVING子句进行子查询：求众数" class="headerlink" title="用HAVING子句进行子查询：求众数"></a>用HAVING子句进行子查询：求众数</h2><p><a href="https://imgchr.com/i/nkRt1g" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/03/nkRt1g.jpg" alt="nkRt1g.jpg"></a></p>
+<p>就上面的表Graduates来说，众数就是10000和20000这两个值。接下来思考一下如何用SQL求众数。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 谓词</span></span><br><span class="line"><span class="keyword">SELECT</span> income, <span class="keyword">COUNT</span>(*) <span class="keyword">AS</span> cnt</span><br><span class="line"><span class="keyword">FROM</span> Graduates</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> income</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(*) &gt;= ALL (<span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*) </span><br><span class="line">                        <span class="keyword">FROM</span> Graduates</span><br><span class="line">                        <span class="keyword">GROUP</span> <span class="keyword">BY</span> income);</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://imgchr.com/i/nkWBKH" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/03/nkWBKH.png" alt="nkWBKH.png"></a></p>
+<p>可以用极值函数来代替。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 极值函数</span></span><br><span class="line"><span class="keyword">SELECT</span> income, <span class="keyword">COUNT</span>(*) <span class="keyword">AS</span> cnt</span><br><span class="line"><span class="keyword">FROM</span> Graduates</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> income</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(*) &gt;= (<span class="keyword">SELECT</span> <span class="keyword">MAX</span>(cnt)</span><br><span class="line">                    <span class="keyword">FROM</span> (<span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*) <span class="keyword">AS</span> cnt</span><br><span class="line">                          <span class="keyword">FROM</span> Graduates</span><br><span class="line">                          <span class="keyword">GROUP</span> <span class="keyword">BY</span> income) TMP);</span><br></pre></td></tr></table></figure>
+
+<h2 id="用HAVING子句进行自连接：求中位数"><a href="#用HAVING子句进行自连接：求中位数" class="headerlink" title="用HAVING子句进行自连接：求中位数"></a>用HAVING子句进行自连接：求中位数</h2><p>前面的表Graduates里有10行数据，所以取“史密斯，20000”和“劳伦斯，15000”的平均值17500作为中位数。来思考一下如何来查询位于集合正中间的元素。<br>做法是，将集合里的元素按照大小分为上半部分和下半部分两个子集，同时让这2个子集共同拥有集合正中间的元素。这样，共同部分的元素的平均值就是中位数。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">AVG</span>(<span class="keyword">DISTINCT</span> income)</span><br><span class="line"><span class="keyword">FROM</span> (<span class="keyword">SELECT</span> T1.income</span><br><span class="line">      <span class="keyword">FROM</span> Graduates T1, Graduates T2</span><br><span class="line">      <span class="keyword">GROUP</span> <span class="keyword">BY</span> T1.income</span><br><span class="line">      <span class="keyword">HAVING</span> <span class="keyword">SUM</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> T1.income &lt;= T2.income <span class="keyword">THEN</span> <span class="number">1</span> <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>) &gt;= <span class="keyword">COUNT</span>(*) / <span class="number">2</span></span><br><span class="line">             <span class="keyword">AND</span> <span class="keyword">SUM</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> T1.income &gt;= T2.income <span class="keyword">THEN</span> <span class="number">1</span> <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>) &gt;= <span class="keyword">COUNT</span>(*) / <span class="number">2</span>) TMP;</span><br></pre></td></tr></table></figure>
+
+<h2 id="查询不包含NULL的集合"><a href="#查询不包含NULL的集合" class="headerlink" title="查询不包含NULL的集合"></a>查询不包含NULL的集合</h2><p>这里有一张存储了学生提交报告的日期的表Students，如下所示。</p>
+<p><a href="https://imgchr.com/i/nkOiFg" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/03/nkOiFg.jpg" alt="nkOiFg.jpg"></a></p>
+<p>现在需要从这张表里找出哪些学院的学生全部都提交了报告。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- COUNT函数</span></span><br><span class="line"><span class="keyword">SELECT</span> dpt</span><br><span class="line"><span class="keyword">FROM</span> Students</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> dpt</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(*) = <span class="keyword">COUNT</span>(sbmt_date);</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://imgchr.com/i/nkOwkD" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/03/nkOwkD.png" alt="nkOwkD.png"></a></p>
+<p>当然使用CASE表达式也可以实现同样的功能。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- CASE表达式</span></span><br><span class="line"><span class="keyword">SELECT</span> dpt</span><br><span class="line"><span class="keyword">FROM</span> Students</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> dpt</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(*) = <span class="keyword">SUM</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> sbmt_date <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">THEN</span> <span class="number">1</span> <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="用关系除法运算进行购物篮分析"><a href="#用关系除法运算进行购物篮分析" class="headerlink" title="用关系除法运算进行购物篮分析"></a>用关系除法运算进行购物篮分析</h2><p>假设有这样两张表：全国连锁折扣店的商品表Items，以及各个店铺的库存管理表ShopItems。</p>
+<p><a href="https://imgchr.com/i/nkXS39" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/03/nkXS39.jpg" alt="nkXS39.jpg"></a></p>
+<p>要查询的是囊括了表Items中所有商品的店铺。SQL语句可以像下面这样写。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> SI.shop</span><br><span class="line"><span class="keyword">FROM</span> ShopItems SI, Items I</span><br><span class="line"><span class="keyword">WHERE</span> SI.item = I.item</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> SI.shop</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(SI.item) = (<span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(item) <span class="keyword">FROM</span> Items);</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://imgchr.com/i/nAelNQ" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/03/nAelNQ.png" alt="nAelNQ.png"></a></p>
+<p>接下来把条件变一下，只选择没有剩余商品的店铺。解决这个问题需要使用外连接。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> SI.shop</span><br><span class="line"><span class="keyword">FROM</span> ShopItems SI</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> Items I <span class="keyword">ON</span> SI.item = I.item</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> SI.shop</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(SI.item) = (<span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(item) <span class="keyword">FROM</span> Items)</span><br><span class="line">       <span class="keyword">AND</span> <span class="keyword">COUNT</span>(I.item) = (<span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(item) <span class="keyword">FROM</span> Items);</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://imgchr.com/i/nAeo8A" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/03/nAeo8A.png" alt="nAeo8A.png"></a></p>
+<p><a href="https://imgchr.com/i/nAeqDf" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/03/nAeqDf.png" alt="nAeqDf.png"></a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SQL/" rel="tag"># SQL</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/03/LeetCode-Problem-462-Minimum-Moves-to-Equal-Array-Elements-II/" rel="next" title="[LeetCode] Problem 462 - Minimum Moves to Equal Array Elements II">
+                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 462 - Minimum Moves to Equal Array Elements II
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="mrlonelyjtr">
+          <p class="site-author-name" itemprop="name">mrlonelyjtr</p>
+           
+              <p class="site-description motion-element" itemprop="description">间歇性踌躇满志，持续性混吃等死</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">640</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/mrlonelyjtr" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#寻找缺失的编号"><span class="nav-number">1.</span> <span class="nav-text">寻找缺失的编号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用HAVING子句进行子查询：求众数"><span class="nav-number">2.</span> <span class="nav-text">用HAVING子句进行子查询：求众数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用HAVING子句进行自连接：求中位数"><span class="nav-number">3.</span> <span class="nav-text">用HAVING子句进行自连接：求中位数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询不包含NULL的集合"><span class="nav-number">4.</span> <span class="nav-text">查询不包含NULL的集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用关系除法运算进行购物篮分析"><span class="nav-number">5.</span> <span class="nav-text">用关系除法运算进行购物篮分析</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">mrlonelyjtr</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
