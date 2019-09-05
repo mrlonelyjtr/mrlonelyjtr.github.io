@@ -1,0 +1,965 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="SQL,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="增长、减少、维持现状假设有下面这样一张记录了某个公司每年的营业额的表Sales。  根据这张表里的数据，使用SQL输出与上一年相比营业额是增加了还是减少了，抑或是没有变化。可以先求出“不变”这种情况。 1234567-- 关联子查询SELECT year, saleFROM Sales S1WHERE sale = (SELECT sale              FROM Sales S2">
+<meta name="keywords" content="SQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【SQL进阶教程】用关联子查询比较行与行">
+<meta property="og:url" content="http://yoursite.com/2019/09/05/【SQL进阶教程】用关联子查询比较行与行/index.html">
+<meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
+<meta property="og:description" content="增长、减少、维持现状假设有下面这样一张记录了某个公司每年的营业额的表Sales。  根据这张表里的数据，使用SQL输出与上一年相比营业额是增加了还是减少了，抑或是没有变化。可以先求出“不变”这种情况。 1234567-- 关联子查询SELECT year, saleFROM Sales S1WHERE sale = (SELECT sale              FROM Sales S2">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/05/nmM5Zj.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/05/nmwevd.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/05/nmI7rt.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/05/nnSjv6.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/05/nnCob8.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/05/nnP6s0.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/05/nn3dGn.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/05/nn49nP.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/05/nn5vLt.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/05/nnImwV.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/05/nnHhEq.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/05/nnHjV1.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/05/nnqSwn.png">
+<meta property="og:updated_time" content="2019-09-05T12:47:15.357Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【SQL进阶教程】用关联子查询比较行与行">
+<meta name="twitter:description" content="增长、减少、维持现状假设有下面这样一张记录了某个公司每年的营业额的表Sales。  根据这张表里的数据，使用SQL输出与上一年相比营业额是增加了还是减少了，抑或是没有变化。可以先求出“不变”这种情况。 1234567-- 关联子查询SELECT year, saleFROM Sales S1WHERE sale = (SELECT sale              FROM Sales S2">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/09/05/nmM5Zj.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: "",
+      labels: ""
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/09/05/【SQL进阶教程】用关联子查询比较行与行/">
+
+
+
+
+
+  <title> 【SQL进阶教程】用关联子查询比较行与行 | mrlonelyjtr's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">mrlonelyjtr's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">写BUG的程序猿</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/05/【SQL进阶教程】用关联子查询比较行与行/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mrlonelyjtr">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="mrlonelyjtr's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                【SQL进阶教程】用关联子查询比较行与行
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-05T11:09:49Z">
+                2019-09-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/SQL/" itemprop="url" rel="index">
+                    <span itemprop="name">SQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="增长、减少、维持现状"><a href="#增长、减少、维持现状" class="headerlink" title="增长、减少、维持现状"></a>增长、减少、维持现状</h2><p>假设有下面这样一张记录了某个公司每年的营业额的表Sales。</p>
+<p><a href="https://imgchr.com/i/nmM5Zj" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/05/nmM5Zj.jpg" alt="nmM5Zj.jpg"></a></p>
+<p>根据这张表里的数据，使用SQL输出与上一年相比营业额是增加了还是减少了，抑或是没有变化。可以先求出“不变”这种情况。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 关联子查询</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">year</span>, sale</span><br><span class="line"><span class="keyword">FROM</span> Sales S1</span><br><span class="line"><span class="keyword">WHERE</span> sale = (<span class="keyword">SELECT</span> sale</span><br><span class="line">              <span class="keyword">FROM</span> Sales S2</span><br><span class="line">              <span class="keyword">WHERE</span> S1.year - <span class="number">1</span> = S2.year)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">year</span>;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://imgchr.com/i/nmwevd" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/05/nmwevd.png" alt="nmwevd.png"></a></p>
+<p>关联子查询和自连接在很多时候都是等价的，所以也可以像下面这样使用自连接来实现。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 自连接</span></span><br><span class="line"><span class="keyword">SELECT</span> S1.year, S1.sale</span><br><span class="line"><span class="keyword">FROM</span> Sales S1, Sales S2</span><br><span class="line"><span class="keyword">WHERE</span> S1.year - <span class="number">1</span> = S2.year</span><br><span class="line">      <span class="keyword">AND</span> S1.sale = S2.sale</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">year</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="用列表展示与上一年的比较结果"><a href="#用列表展示与上一年的比较结果" class="headerlink" title="用列表展示与上一年的比较结果"></a>用列表展示与上一年的比较结果</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 关联子查询</span></span><br><span class="line"><span class="keyword">SELECT</span> S1.year, S1.sale,</span><br><span class="line">       <span class="keyword">CASE</span> <span class="keyword">WHEN</span> sale = (<span class="keyword">SELECT</span> sale </span><br><span class="line">                         <span class="keyword">FROM</span> Sales S2</span><br><span class="line">                         <span class="keyword">WHERE</span> S2.year = S1.year - <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">THEN</span> <span class="string">'→'</span></span><br><span class="line">            <span class="keyword">WHEN</span> sale &gt; (<span class="keyword">SELECT</span> sale </span><br><span class="line">                         <span class="keyword">FROM</span> Sales S2</span><br><span class="line">                         <span class="keyword">WHERE</span> S2.year = S1.year - <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">THEN</span> <span class="string">'↑'</span></span><br><span class="line">            <span class="keyword">WHEN</span> sale &lt; (<span class="keyword">SELECT</span> sale </span><br><span class="line">                         <span class="keyword">FROM</span> Sales S2</span><br><span class="line">                         <span class="keyword">WHERE</span> S2.year = S1.year - <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">THEN</span> <span class="string">'↓'</span></span><br><span class="line">       <span class="keyword">ELSE</span> <span class="string">'-'</span> <span class="keyword">END</span> <span class="keyword">AS</span> <span class="keyword">var</span></span><br><span class="line"><span class="keyword">FROM</span> Sales S1</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">year</span>;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://imgchr.com/i/nmI7rt" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/05/nmI7rt.png" alt="nmI7rt.png"></a></p>
+<p>同样，这里也可以改写一下SQL语句，使用自连接来实现，如下所示。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 自连接查询</span></span><br><span class="line"><span class="keyword">SELECT</span> S1.year, S1.sale,</span><br><span class="line">       <span class="keyword">CASE</span> <span class="keyword">WHEN</span> S1.sale = S2.sale <span class="keyword">THEN</span> <span class="string">'→'</span></span><br><span class="line">            <span class="keyword">WHEN</span> S1.sale &gt; S2.sale <span class="keyword">THEN</span> <span class="string">'↑'</span></span><br><span class="line">            <span class="keyword">WHEN</span> S1.sale &lt; S2.sale <span class="keyword">THEN</span> <span class="string">'↓'</span></span><br><span class="line">       <span class="keyword">ELSE</span> <span class="string">'-'</span> <span class="keyword">END</span> <span class="keyword">AS</span> <span class="keyword">var</span></span><br><span class="line"><span class="keyword">FROM</span> Sales S1, Sales S2</span><br><span class="line"><span class="keyword">WHERE</span> S2.year = S1.year - <span class="number">1</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">year</span>;</span><br></pre></td></tr></table></figure>
+
+<p>采用这种实现方法时，由于这里没有1990年之前的数据，所以1990年会被排除掉，执行结果会少一行。</p>
+<h2 id="时间轴有间断时：和过去最临近的时间进行比较"><a href="#时间轴有间断时：和过去最临近的时间进行比较" class="headerlink" title="时间轴有间断时：和过去最临近的时间进行比较"></a>时间轴有间断时：和过去最临近的时间进行比较</h2><p>比如丢失了过去个别年份的数据，如表Sales2所示。</p>
+<p><a href="https://imgchr.com/i/nnSjv6" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/05/nnSjv6.png" alt="nnSjv6.png"></a></p>
+<p>对某一年来说，“过去最临近的年份”需要满足下面两个条件。</p>
+<ol>
+<li>与该年份相比是过去的年份。</li>
+<li>在满足条件1的年份中，年份最早的一个。</li>
+</ol>
+<p>如果按这两个条件改写SQL语句，那么应该像下面这样写。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">year</span>, sale</span><br><span class="line"><span class="keyword">FROM</span> Sales2 S1</span><br><span class="line"><span class="keyword">WHERE</span> sale = (<span class="keyword">SELECT</span> sale</span><br><span class="line">              <span class="keyword">FROM</span> Sales2 S2</span><br><span class="line">              <span class="keyword">WHERE</span> S2.year = (<span class="keyword">SELECT</span> <span class="keyword">MAX</span>(<span class="keyword">year</span>)</span><br><span class="line">                               <span class="keyword">FROM</span> Sales2 S3</span><br><span class="line">                               <span class="keyword">WHERE</span> S1.year &gt; S3.year))</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">year</span>;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://imgchr.com/i/nnCob8" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/05/nnCob8.png" alt="nnCob8.png"></a></p>
+<p>如果使用自连接，可以减少一层子查询的嵌套。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> S1.year <span class="keyword">AS</span> <span class="keyword">year</span>, </span><br><span class="line">       S1.sale <span class="keyword">AS</span> sale</span><br><span class="line"><span class="keyword">FROM</span> Sales2 S1, Sales2 S2</span><br><span class="line"><span class="keyword">WHERE</span> S1.sale = S2.sale</span><br><span class="line">      <span class="keyword">AND</span> S2.year = (<span class="keyword">SELECT</span> <span class="keyword">MAX</span>(<span class="keyword">year</span>)</span><br><span class="line">                     <span class="keyword">FROM</span> Sales2 S3</span><br><span class="line">                     <span class="keyword">WHERE</span> S1.year &gt; S3.year)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">year</span>;</span><br></pre></td></tr></table></figure>
+
+<p>通过这个方法，可以查询每一年与过去最临近的年份之间的营业额之差。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> S2.year <span class="keyword">AS</span> pre_year,</span><br><span class="line">       S1.year <span class="keyword">AS</span> now_year, </span><br><span class="line">       S2.sale <span class="keyword">AS</span> pre_sale,</span><br><span class="line">       S1.sale <span class="keyword">AS</span> now_sale,</span><br><span class="line">       S1.sale - S2.sale <span class="keyword">AS</span> diff</span><br><span class="line"><span class="keyword">FROM</span> Sales2 S1, Sales2 S2</span><br><span class="line"><span class="keyword">WHERE</span> S2.year = (<span class="keyword">SELECT</span> <span class="keyword">MAX</span>(<span class="keyword">year</span>)</span><br><span class="line">                 <span class="keyword">FROM</span> Sales2 S3</span><br><span class="line">                 <span class="keyword">WHERE</span> S1.year &gt; S3.year)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">year</span>;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://imgchr.com/i/nnP6s0" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/05/nnP6s0.png" alt="nnP6s0.png"></a></p>
+<p>如果想让结果里出现1990年的数据，可以使用“自外连接”来实现。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> S2.year <span class="keyword">AS</span> pre_year,</span><br><span class="line">       S1.year <span class="keyword">AS</span> now_year, </span><br><span class="line">       S2.sale <span class="keyword">AS</span> pre_sale,</span><br><span class="line">       S1.sale <span class="keyword">AS</span> now_sale,</span><br><span class="line">       S1.sale - S2.sale <span class="keyword">AS</span> diff</span><br><span class="line"><span class="keyword">FROM</span> Sales2 S1</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> Sales2 S2 </span><br><span class="line">     <span class="keyword">ON</span> S2.year = (<span class="keyword">SELECT</span> <span class="keyword">MAX</span>(<span class="keyword">year</span>)</span><br><span class="line">                   <span class="keyword">FROM</span> Sales2 S3</span><br><span class="line">                   <span class="keyword">WHERE</span> S1.year &gt; S3.year)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">year</span>;</span><br></pre></td></tr></table></figure>
+
+<p>因为使用极值函数时会发生排序，所以这个方法在性能方面稍微逊色（如果极值函数的参数是主键，有时也是可以使用索引的）。</p>
+<h2 id="移动累计值和移动平均值"><a href="#移动累计值和移动平均值" class="headerlink" title="移动累计值和移动平均值"></a>移动累计值和移动平均值</h2><p>例如下面有一张银行账户存取款历史记录表Accounts，现在思考一下如何求出累计值。</p>
+<p><a href="https://imgchr.com/i/nn3dGn" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/05/nn3dGn.jpg" alt="nn3dGn.jpg"></a></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 窗口函数</span></span><br><span class="line"><span class="keyword">SELECT</span> prc_date, prc_amt,</span><br><span class="line">       <span class="keyword">SUM</span>(prc_amt) <span class="keyword">OVER</span> (<span class="keyword">ORDER</span> <span class="keyword">BY</span> prc_date) <span class="keyword">AS</span> onhand_amt</span><br><span class="line"><span class="keyword">FROM</span> Accounts;</span><br></pre></td></tr></table></figure>
+
+<p>使用窗口函数来实现的代码非常简洁，而且从性能方面来看，表的扫描和数据排序也都只进行了一次。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 冯诺依曼型递归集合</span></span><br><span class="line"><span class="keyword">SELECT</span> prc_date, A1.prc_amt,</span><br><span class="line">       (<span class="keyword">SELECT</span> <span class="keyword">SUM</span>(prc_amt)</span><br><span class="line">        <span class="keyword">FROM</span> Accounts A2</span><br><span class="line">        <span class="keyword">WHERE</span> A1.prc_date &gt;= A2.prc_date) <span class="keyword">AS</span> onhand_amt</span><br><span class="line"><span class="keyword">FROM</span> Accounts A1</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> prc_date;</span><br></pre></td></tr></table></figure>
+
+<p>冯诺依曼型递归集合也是可以用来求累计值的。</p>
+<p>接下来，考虑一下如何以3次处理为单位求累计值，即移动累计值。</p>
+<p><a href="https://imgchr.com/i/nn49nP" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/05/nn49nP.png" alt="nn49nP.png"></a></p>
+<p>如果使用窗口函数，可以像下面这样通过指定ROWS关键字来指定数据行数。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> prc_date, prc_amt,</span><br><span class="line">       <span class="keyword">SUM</span>(prc_amt) <span class="keyword">OVER</span> (<span class="keyword">ORDER</span> <span class="keyword">BY</span> prc_date <span class="keyword">ROWS</span> <span class="number">2</span> <span class="keyword">PRECEDING</span>) <span class="keyword">AS</span> onhand_amt</span><br><span class="line"><span class="keyword">FROM</span> Accounts;</span><br></pre></td></tr></table></figure>
+
+<p>如果使用关联子查询，还可以像下面这样用标量子查询来计算行数。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> prc_date, prc_amt,</span><br><span class="line">       (<span class="keyword">SELECT</span> <span class="keyword">SUM</span>(prc_amt)</span><br><span class="line">        <span class="keyword">FROM</span> Accounts A2</span><br><span class="line">        <span class="keyword">WHERE</span> A1.prc_date &gt;= A2.prc_date</span><br><span class="line">              <span class="keyword">AND</span> (<span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*)</span><br><span class="line">                   <span class="keyword">FROM</span> Accounts A3</span><br><span class="line">                   <span class="keyword">WHERE</span> A3.prc_date <span class="keyword">BETWEEN</span> A2.prc_date <span class="keyword">AND</span> A1.prc_date) &lt;= <span class="number">3</span>) <span class="keyword">AS</span> mvg_sum</span><br><span class="line"><span class="keyword">FROM</span> Accounts A1</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> prc_date;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://imgchr.com/i/nn5vLt" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/05/nn5vLt.png" alt="nn5vLt.png"></a></p>
+<p>在处理前2行时，即使数据不满3行，这条SQL语句还是计算出了相应的累计值。其实，可以将这样的情况作为无效来处理。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> prc_date, prc_amt,</span><br><span class="line">       (<span class="keyword">SELECT</span> <span class="keyword">SUM</span>(prc_amt)</span><br><span class="line">        <span class="keyword">FROM</span> Accounts A2</span><br><span class="line">        <span class="keyword">WHERE</span> A1.prc_date &gt;= A2.prc_date</span><br><span class="line">              <span class="keyword">AND</span> (<span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*)</span><br><span class="line">                   <span class="keyword">FROM</span> Accounts A3</span><br><span class="line">                   <span class="keyword">WHERE</span> A3.prc_date <span class="keyword">BETWEEN</span> A2.prc_date <span class="keyword">AND</span> A1.prc_date) &lt;= <span class="number">3</span></span><br><span class="line">                   <span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(*) = <span class="number">3</span>) <span class="keyword">AS</span> mvg_sum</span><br><span class="line"><span class="keyword">FROM</span> Accounts A1</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> prc_date;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://imgchr.com/i/nnImwV" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/05/nnImwV.png" alt="nnImwV.png"></a></p>
+<h2 id="查询重叠的时间区间"><a href="#查询重叠的时间区间" class="headerlink" title="查询重叠的时间区间"></a>查询重叠的时间区间</h2><p>假设有下面这样一张表Reservations，记录了酒店或者旅馆的预约情况。</p>
+<p><a href="https://imgchr.com/i/nnHhEq" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/05/nnHhEq.jpg" alt="nnHhEq.jpg"></a></p>
+<p>那么，正常情况下，每天只能有一组客人在该房间住宿。从表中数据可以看出，这里存在重叠的预定日期。<br>下面，给重叠的住宿日期分类，可知一共有下面三种类型。</p>
+<p><a href="https://imgchr.com/i/nnHjV1" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/05/nnHjV1.png" alt="nnHjV1.png"></a></p>
+<p>充要条件是满足类型（1）和类型（2）中至少一个条件。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> reserver, start_date, end_date</span><br><span class="line"><span class="keyword">FROM</span> Reservations R1</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">EXISTS</span> (<span class="keyword">SELECT</span> * </span><br><span class="line">              <span class="keyword">FROM</span> Reservations R2</span><br><span class="line">              <span class="keyword">WHERE</span> R1.reserver &lt;&gt; R2.reserver</span><br><span class="line">                    <span class="keyword">AND</span> (R1.start_date <span class="keyword">BETWEEN</span> R2.start_date <span class="keyword">AND</span> R2.end_date</span><br><span class="line">                         <span class="keyword">OR</span> R1.end_date <span class="keyword">BETWEEN</span> R2.start_date <span class="keyword">AND</span> R2.end_date));</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://imgchr.com/i/nnqSwn" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/05/nnqSwn.png" alt="nnqSwn.png"></a></p>
+<p>如果山本的入住日期不是11月3号，而是推迟了一天，即11月4号，那么像内田这种自己的住宿期间完全包含了他人的住宿期间的情况，会被这条SQL语句排除掉。<br>如果想把这样的住宿期间也输出，需要追加条件。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> reserver, start_date, end_date</span><br><span class="line"><span class="keyword">FROM</span> Reservations R1</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">EXISTS</span> (<span class="keyword">SELECT</span> * </span><br><span class="line">              <span class="keyword">FROM</span> Reservations R2</span><br><span class="line">              <span class="keyword">WHERE</span> R1.reserver &lt;&gt; R2.reserver</span><br><span class="line">                    <span class="keyword">AND</span> ((R1.start_date <span class="keyword">BETWEEN</span> R2.start_date <span class="keyword">AND</span> R2.end_date</span><br><span class="line">                                <span class="keyword">OR</span> R1.end_date <span class="keyword">BETWEEN</span> R2.start_date <span class="keyword">AND</span> R2.end_date)</span><br><span class="line">                          <span class="keyword">OR</span> (R2.start_date <span class="keyword">BETWEEN</span> R1.start_date <span class="keyword">AND</span> R1.end_date</span><br><span class="line">                                <span class="keyword">AND</span> R2.end_date <span class="keyword">BETWEEN</span> R1.start_date <span class="keyword">AND</span> R1.end_date)));</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SQL/" rel="tag"># SQL</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/04/【SQL进阶教程】外连接的用法/" rel="next" title="【SQL进阶教程】外连接的用法">
+                <i class="fa fa-chevron-left"></i> 【SQL进阶教程】外连接的用法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="mrlonelyjtr">
+          <p class="site-author-name" itemprop="name">mrlonelyjtr</p>
+           
+              <p class="site-description motion-element" itemprop="description">间歇性踌躇满志，持续性混吃等死</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">644</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/mrlonelyjtr" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#增长、减少、维持现状"><span class="nav-number">1.</span> <span class="nav-text">增长、减少、维持现状</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用列表展示与上一年的比较结果"><span class="nav-number">2.</span> <span class="nav-text">用列表展示与上一年的比较结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时间轴有间断时：和过去最临近的时间进行比较"><span class="nav-number">3.</span> <span class="nav-text">时间轴有间断时：和过去最临近的时间进行比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动累计值和移动平均值"><span class="nav-number">4.</span> <span class="nav-text">移动累计值和移动平均值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询重叠的时间区间"><span class="nav-number">5.</span> <span class="nav-text">查询重叠的时间区间</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">mrlonelyjtr</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
