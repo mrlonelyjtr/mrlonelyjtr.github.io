@@ -87,13 +87,13 @@
 
 
 
-<meta name="description" content="增长、减少、维持现状假设有下面这样一张记录了某个公司每年的营业额的表Sales。  根据这张表里的数据，使用SQL输出与上一年相比营业额是增加了还是减少了，抑或是没有变化。可以先求出“不变”这种情况。 1234567-- 关联子查询SELECT year, saleFROM Sales S1WHERE sale = (SELECT sale              FROM Sales S2">
+<meta name="description" content="关联子查询是一种非常强大的运算，也有一些它的缺点。第一个缺点是代码的可读性不好。第二个缺点是性能不好。特别是在SELECT子句里使用标量子查询时，性能可能会变差。 增长、减少、维持现状假设有下面这样一张记录了某个公司每年的营业额的表Sales。  根据这张表里的数据，使用SQL输出与上一年相比营业额是增加了还是减少了，抑或是没有变化。可以先求出“不变”这种情况。 1234567-- 关联子查询SE">
 <meta name="keywords" content="SQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【SQL进阶教程】用关联子查询比较行与行">
 <meta property="og:url" content="http://yoursite.com/2019/09/05/【SQL进阶教程】用关联子查询比较行与行/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="增长、减少、维持现状假设有下面这样一张记录了某个公司每年的营业额的表Sales。  根据这张表里的数据，使用SQL输出与上一年相比营业额是增加了还是减少了，抑或是没有变化。可以先求出“不变”这种情况。 1234567-- 关联子查询SELECT year, saleFROM Sales S1WHERE sale = (SELECT sale              FROM Sales S2">
+<meta property="og:description" content="关联子查询是一种非常强大的运算，也有一些它的缺点。第一个缺点是代码的可读性不好。第二个缺点是性能不好。特别是在SELECT子句里使用标量子查询时，性能可能会变差。 增长、减少、维持现状假设有下面这样一张记录了某个公司每年的营业额的表Sales。  根据这张表里的数据，使用SQL输出与上一年相比营业额是增加了还是减少了，抑或是没有变化。可以先求出“不变”这种情况。 1234567-- 关联子查询SE">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://s2.ax1x.com/2019/09/05/nmM5Zj.jpg">
 <meta property="og:image" content="https://s2.ax1x.com/2019/09/05/nmwevd.png">
@@ -108,10 +108,10 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/09/05/nnHhEq.jpg">
 <meta property="og:image" content="https://s2.ax1x.com/2019/09/05/nnHjV1.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/09/05/nnqSwn.png">
-<meta property="og:updated_time" content="2019-09-05T12:47:15.357Z">
+<meta property="og:updated_time" content="2019-09-05T13:02:19.751Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【SQL进阶教程】用关联子查询比较行与行">
-<meta name="twitter:description" content="增长、减少、维持现状假设有下面这样一张记录了某个公司每年的营业额的表Sales。  根据这张表里的数据，使用SQL输出与上一年相比营业额是增加了还是减少了，抑或是没有变化。可以先求出“不变”这种情况。 1234567-- 关联子查询SELECT year, saleFROM Sales S1WHERE sale = (SELECT sale              FROM Sales S2">
+<meta name="twitter:description" content="关联子查询是一种非常强大的运算，也有一些它的缺点。第一个缺点是代码的可读性不好。第二个缺点是性能不好。特别是在SELECT子句里使用标量子查询时，性能可能会变差。 增长、减少、维持现状假设有下面这样一张记录了某个公司每年的营业额的表Sales。  根据这张表里的数据，使用SQL输出与上一年相比营业额是增加了还是减少了，抑或是没有变化。可以先求出“不变”这种情况。 1234567-- 关联子查询SE">
 <meta name="twitter:image" content="https://s2.ax1x.com/2019/09/05/nmM5Zj.jpg">
 
 
@@ -343,7 +343,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-05T11:09:49Z">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-05T19:09:49+08:00">
                 2019-09-05
               </time>
             
@@ -401,7 +401,8 @@
       
 
       
-        <h2 id="增长、减少、维持现状"><a href="#增长、减少、维持现状" class="headerlink" title="增长、减少、维持现状"></a>增长、减少、维持现状</h2><p>假设有下面这样一张记录了某个公司每年的营业额的表Sales。</p>
+        <p>关联子查询是一种非常强大的运算，也有一些它的缺点。第一个缺点是代码的可读性不好。第二个缺点是性能不好。特别是在SELECT子句里使用标量子查询时，性能可能会变差。</p>
+<h2 id="增长、减少、维持现状"><a href="#增长、减少、维持现状" class="headerlink" title="增长、减少、维持现状"></a>增长、减少、维持现状</h2><p>假设有下面这样一张记录了某个公司每年的营业额的表Sales。</p>
 <p><a href="https://imgchr.com/i/nmM5Zj" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/05/nmM5Zj.jpg" alt="nmM5Zj.jpg"></a></p>
 <p>根据这张表里的数据，使用SQL输出与上一年相比营业额是增加了还是减少了，抑或是没有变化。可以先求出“不变”这种情况。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 关联子查询</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">year</span>, sale</span><br><span class="line"><span class="keyword">FROM</span> Sales S1</span><br><span class="line"><span class="keyword">WHERE</span> sale = (<span class="keyword">SELECT</span> sale</span><br><span class="line">              <span class="keyword">FROM</span> Sales S2</span><br><span class="line">              <span class="keyword">WHERE</span> S1.year - <span class="number">1</span> = S2.year)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">year</span>;</span><br></pre></td></tr></table></figure>
