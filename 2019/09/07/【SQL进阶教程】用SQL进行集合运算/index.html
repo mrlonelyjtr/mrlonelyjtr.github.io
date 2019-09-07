@@ -1,0 +1,942 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="SQL,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="集合运算的几个注意事项顾名思义，集合运算符的参数是集合，从数据库实现层面上来说就是表或者视图。  SQL能操作具有重复行的集合，可以通过可选项ALL来支持   集合运算符为了排除掉重复行，默认地会发生排序，而加上可选项ALL之后，就不会再排序，所以性能会有提升。   集合运算符有优先级   INTERSECT比UNION和EXCEPT优先级更高。   各个DBMS提供商在集合运算的实现程度上参差不">
+<meta name="keywords" content="SQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【SQL进阶教程】用SQL进行集合运算">
+<meta property="og:url" content="http://yoursite.com/2019/09/07/【SQL进阶教程】用SQL进行集合运算/index.html">
+<meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
+<meta property="og:description" content="集合运算的几个注意事项顾名思义，集合运算符的参数是集合，从数据库实现层面上来说就是表或者视图。  SQL能操作具有重复行的集合，可以通过可选项ALL来支持   集合运算符为了排除掉重复行，默认地会发生排序，而加上可选项ALL之后，就不会再排序，所以性能会有提升。   集合运算符有优先级   INTERSECT比UNION和EXCEPT优先级更高。   各个DBMS提供商在集合运算的实现程度上参差不">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/07/nl0opq.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/07/nl6W7T.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/07/n1Cy8O.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/07/n1KT78.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/07/n1Mrgs.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/07/n1MgbV.png">
+<meta property="og:updated_time" content="2019-09-07T12:09:34.596Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【SQL进阶教程】用SQL进行集合运算">
+<meta name="twitter:description" content="集合运算的几个注意事项顾名思义，集合运算符的参数是集合，从数据库实现层面上来说就是表或者视图。  SQL能操作具有重复行的集合，可以通过可选项ALL来支持   集合运算符为了排除掉重复行，默认地会发生排序，而加上可选项ALL之后，就不会再排序，所以性能会有提升。   集合运算符有优先级   INTERSECT比UNION和EXCEPT优先级更高。   各个DBMS提供商在集合运算的实现程度上参差不">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/09/07/nl0opq.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: "",
+      labels: ""
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/09/07/【SQL进阶教程】用SQL进行集合运算/">
+
+
+
+
+
+  <title> 【SQL进阶教程】用SQL进行集合运算 | mrlonelyjtr's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">mrlonelyjtr's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">写BUG的程序猿</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/07/【SQL进阶教程】用SQL进行集合运算/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mrlonelyjtr">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="mrlonelyjtr's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                【SQL进阶教程】用SQL进行集合运算
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-07T18:55:35+08:00">
+                2019-09-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/SQL/" itemprop="url" rel="index">
+                    <span itemprop="name">SQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="集合运算的几个注意事项"><a href="#集合运算的几个注意事项" class="headerlink" title="集合运算的几个注意事项"></a>集合运算的几个注意事项</h2><p>顾名思义，集合运算符的参数是集合，从数据库实现层面上来说就是表或者视图。</p>
+<ol>
+<li>SQL能操作具有重复行的集合，可以通过可选项ALL来支持</li>
+</ol>
+<ul>
+<li>集合运算符为了排除掉重复行，默认地会发生排序，而加上可选项ALL之后，就不会再排序，所以性能会有提升。</li>
+</ul>
+<ol start="2">
+<li>集合运算符有优先级</li>
+</ol>
+<ul>
+<li>INTERSECT比UNION和EXCEPT优先级更高。</li>
+</ul>
+<ol start="3">
+<li>各个DBMS提供商在集合运算的实现程度上参差不齐</li>
+<li>除法运算没有标准定义</li>
+</ol>
+<h2 id="比较表和表：检查集合相等性之基础篇"><a href="#比较表和表：检查集合相等性之基础篇" class="headerlink" title="比较表和表：检查集合相等性之基础篇"></a>比较表和表：检查集合相等性之基础篇</h2><p>在迁移数据库的时候，或者需要比较备份数据和最新数据的时候，需要调查两张表是否是相等的，即“是同一个集合”的意思。例如，下面的表tbl_A和tbl_B。</p>
+<p><a href="https://imgchr.com/i/nl0opq" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/07/nl0opq.jpg" alt="nl0opq.jpg"></a></p>
+<p>这两张表的行数是3。如果下面这条SQL语句的执行结果是3，则说明两张表是相等的。相反，如果结果大于3，则说明两张表不相等。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*) <span class="keyword">AS</span> row_cnt</span><br><span class="line"><span class="keyword">FROM</span> (<span class="keyword">SELECT</span> * <span class="keyword">FROM</span> tbl_A</span><br><span class="line">      <span class="keyword">UNION</span></span><br><span class="line">      <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> tbl_B) TMP;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://imgchr.com/i/nl6W7T" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/07/nl6W7T.png" alt="nl6W7T.png"></a></p>
+<p>前面的SQL语句可以用于包含NULL数据的表，而且不需要指定列数、列名和数据类型等就能使用。</p>
+<h2 id="比较表和表：检查集合相等性之进阶篇"><a href="#比较表和表：检查集合相等性之进阶篇" class="headerlink" title="比较表和表：检查集合相等性之进阶篇"></a>比较表和表：检查集合相等性之进阶篇</h2><p>在前面的解法中，在比较两张表之前，需要先查一下两张表里数据的行数。改进一下这条SQL语句，利用两个集合的并集和差集来判定其相等性。如果用SQL语言描述，那就是“如果A UNION B = A INTERSECT B，则集合A和集合B相等。”<br>因此，只需要判定(A UNION B) EXCEPT (A INTERSECT B)的结果集是不是空集就可以了。如果A=B，则这个结果集是空集，否则，这个结果集里肯定有数据。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">COUNT</span>(*) = <span class="number">0</span> <span class="keyword">THEN</span> <span class="string">'相等'</span> <span class="keyword">ELSE</span> <span class="string">'不相等'</span> <span class="keyword">END</span> <span class="keyword">AS</span> <span class="keyword">result</span></span><br><span class="line"><span class="keyword">FROM</span> ((<span class="keyword">SELECT</span> * <span class="keyword">FROM</span> tbl_A</span><br><span class="line">       <span class="keyword">UNION</span> </span><br><span class="line">       <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> tbl_B)</span><br><span class="line">       <span class="keyword">EXCEPT</span></span><br><span class="line">      (<span class="keyword">SELECT</span> * <span class="keyword">FROM</span> tbl_A</span><br><span class="line">       <span class="keyword">INTERSECT</span> </span><br><span class="line">       <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> tbl_B)) TMP;</span><br></pre></td></tr></table></figure>
+
+<p>这条SQL语句与上一部分的SQL语句具有相同的优点，也不需要知道列名和列数，还可以用于包含NULL的表，而且，这个改进版连事先查询两张表的行数这种准备工作也不需要了。但是，虽然功能改进了，却也带来了一些缺陷。由于这里需要进行4次排序（3次集合运算加上1次DISTINCT），所以性能会有所下降。</p>
+<h2 id="用差集实现关系除法运算"><a href="#用差集实现关系除法运算" class="headerlink" title="用差集实现关系除法运算"></a>用差集实现关系除法运算</h2><p>关于示例数据，选用的是下面这两张员工技术信息管理表。</p>
+<p><a href="https://imgchr.com/i/n1Cy8O" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/07/n1Cy8O.jpg" alt="n1Cy8O.jpg"></a></p>
+<p>这里的问题是，从表EmpSkills中找出精通表Skills中所有技术的员工。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> emp</span><br><span class="line"><span class="keyword">FROM</span> EmpSkills ES1</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> (<span class="keyword">SELECT</span> skill</span><br><span class="line">                  <span class="keyword">FROM</span> Skills</span><br><span class="line">                  <span class="keyword">EXCEPT</span> </span><br><span class="line">                  <span class="keyword">SELECT</span> skill</span><br><span class="line">                  <span class="keyword">FROM</span> EmpSkills ES2</span><br><span class="line">                  <span class="keyword">WHERE</span> ES1.emp = ES2.emp);</span><br></pre></td></tr></table></figure>
+
+<p>从需求的技术的集合中减去每个员工自己的技术的集合，如果结果是空集，则说明该员工具备所有的需求的技术，否则说明该员工不具备某些需求的技术。</p>
+<h2 id="寻找相等的子集"><a href="#寻找相等的子集" class="headerlink" title="寻找相等的子集"></a>寻找相等的子集</h2><p>使用表示“供应商-零件”关系的表作为示例数据。</p>
+<p><a href="https://imgchr.com/i/n1KT78" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/07/n1KT78.png" alt="n1KT78.png"></a></p>
+<p>需要求的是，经营的零件在种类数和种类上都完全相同的供应商组合。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line"><span class="keyword">FROM</span> SupParts SP1, SupParts SP2</span><br><span class="line"><span class="keyword">WHERE</span> SP1.sup &lt; SP2.sup</span><br><span class="line">      <span class="keyword">AND</span> SP1.part = SP2.part</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> SP1.sup, SP2.sup</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(*) = (<span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*)</span><br><span class="line">                   <span class="keyword">FROM</span> SupParts SP3</span><br><span class="line">                   <span class="keyword">WHERE</span> SP1.sup = SP3.sup)</span><br><span class="line">       <span class="keyword">AND</span> <span class="keyword">COUNT</span>(*) = (<span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*)</span><br><span class="line">                       <span class="keyword">FROM</span> SupParts SP4</span><br><span class="line">                       <span class="keyword">WHERE</span> SP2.sup = SP4.sup);</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://imgchr.com/i/n1Mrgs" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/07/n1Mrgs.png" alt="n1Mrgs.png"></a></p>
+<h2 id="用于删除重复行的高效SQL"><a href="#用于删除重复行的高效SQL" class="headerlink" title="用于删除重复行的高效SQL"></a>用于删除重复行的高效SQL</h2><p>看一下没有主键的恐怖的表。</p>
+<p><a href="https://imgchr.com/i/n1MgbV" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/07/n1MgbV.png" alt="n1MgbV.png"></a></p>
+<p>使用关联子查询，代码非常简单。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> Products</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">rowid</span> &lt; (<span class="keyword">SELECT</span> <span class="keyword">MAX</span>(P2.rowid)</span><br><span class="line">               <span class="keyword">FROM</span> Products P2</span><br><span class="line">               <span class="keyword">WHERE</span> P2.name = Products.name</span><br><span class="line">                     <span class="keyword">AND</span> P2.price = Products.price);</span><br></pre></td></tr></table></figure>
+
+<p>这种做法不算太差，只是关联子查询的性能问题是难点（光是DELETE处理就比较耗时了）。因此，这里思考一下如何不用关联子查询也能实现同样的功能。<br>“使用极值函数让每组只留下一个rowid“这一点与之前的做法一样。不同的是，这次需要把留下的集合从表Products这个集合中减掉。SQL语句如下所示。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 通过EXCEPT求补集</span></span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> Products</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">rowid</span> <span class="keyword">IN</span> (<span class="keyword">SELECT</span> <span class="keyword">rowid</span></span><br><span class="line">               <span class="keyword">FROM</span> Products</span><br><span class="line">               <span class="keyword">EXCEPT</span></span><br><span class="line">               <span class="keyword">SELECT</span> <span class="keyword">MAX</span>(<span class="keyword">rowid</span>)</span><br><span class="line">               <span class="keyword">FROM</span> Products</span><br><span class="line">               <span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">name</span>, price);</span><br></pre></td></tr></table></figure>
+
+<p>此外，把EXCEPT改写成NOT IN也是可以实现的。代码如下所示。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> Products</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">rowid</span> <span class="keyword">NOT</span> <span class="keyword">IN</span> (<span class="keyword">SELECT</span> <span class="keyword">MAX</span>(<span class="keyword">rowid</span>)</span><br><span class="line">                    <span class="keyword">FROM</span> Products</span><br><span class="line">                    <span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">name</span>, price);</span><br></pre></td></tr></table></figure>
+
+<p>这两种方法的性能优劣主要取决于表的规模，以及删除的行数与留下的行数之间的比率。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SQL/" rel="tag"># SQL</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/07/LeetCode-Problem-492-Construct-the-Rectangle/" rel="next" title="[LeetCode] Problem 492 - Construct the Rectangle">
+                <i class="fa fa-chevron-left"></i> [LeetCode] Problem 492 - Construct the Rectangle
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="mrlonelyjtr">
+          <p class="site-author-name" itemprop="name">mrlonelyjtr</p>
+           
+              <p class="site-description motion-element" itemprop="description">间歇性踌躇满志，持续性混吃等死</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">648</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/mrlonelyjtr" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#集合运算的几个注意事项"><span class="nav-number">1.</span> <span class="nav-text">集合运算的几个注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比较表和表：检查集合相等性之基础篇"><span class="nav-number">2.</span> <span class="nav-text">比较表和表：检查集合相等性之基础篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比较表和表：检查集合相等性之进阶篇"><span class="nav-number">3.</span> <span class="nav-text">比较表和表：检查集合相等性之进阶篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用差集实现关系除法运算"><span class="nav-number">4.</span> <span class="nav-text">用差集实现关系除法运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#寻找相等的子集"><span class="nav-number">5.</span> <span class="nav-text">寻找相等的子集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用于删除重复行的高效SQL"><span class="nav-number">6.</span> <span class="nav-text">用于删除重复行的高效SQL</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">mrlonelyjtr</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
