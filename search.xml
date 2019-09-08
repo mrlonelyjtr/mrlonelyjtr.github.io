@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LeetCode] Problem 520 - Detect Capital]]></title>
+    <url>%2F2019%2F09%2F08%2FLeetCode-Problem-520-Detect-Capital%2F</url>
+    <content type="text"><![CDATA[Given a word, you need to judge whether the usage of capitals in it is right or not. We define the usage of capitals in a word to be right when one of the following cases holds: All letters in this word are capitals, like “USA”. All letters in this word are not capitals, like “leetcode”. Only the first letter in this word is capital, like “Google”. Otherwise, we define that this word doesn’t use capitals in a right way. ExampleNo.1Input: “USA” Output: True No.2Input: “FlaG” Output: False NoteThe input will be a non-empty word consisting of uppercase and lowercase latin letters. Code1234567891011public boolean detectCapitalUse(String word) &#123; int n = word.length(); int count = 0; for (char ch : word.toCharArray()) &#123; if (Character.isUpperCase(ch)) count++; &#125; return count == n || count == 0 || (count == 1 &amp;&amp; Character.isUpperCase(word.charAt(0)));&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Problem 506 - Relative Ranks]]></title>
+    <url>%2F2019%2F09%2F08%2FLeetCode-Problem-506-Relative-Ranks%2F</url>
+    <content type="text"><![CDATA[Given scores of N athletes, find their relative ranks and the people with the top three highest scores, who will be awarded medals: “Gold Medal”, “Silver Medal” and “Bronze Medal”. ExampleInput: [5, 4, 3, 2, 1] Output: [“Gold Medal”, “Silver Medal”, “Bronze Medal”, “4”, “5”] Explanation: The first three athletes got the top three highest scores, so they got “Gold Medal”, “Silver Medal” and “Bronze Medal”.For the left two athletes, you just need to output their relative ranks according to their scores. Note N is a positive integer and won’t exceed 10,000. All the scores of athletes are guaranteed to be unique. Code12]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Problem 504 - Base 7]]></title>
     <url>%2F2019%2F09%2F08%2FLeetCode-Problem-504-Base-7%2F</url>
     <content type="text"><![CDATA[Given an integer, return its base 7 string representation. ExampleNo.1Input: 100 Output: “202” No.2Input: -7 Output: “-10” NoteThe input will be in range of [-1e7, 1e7]. Code12345678910111213141516public String convertToBase7(int num) &#123; if (num == 0) return "0"; StringBuilder sb = new StringBuilder(); boolean positive = num &gt;= 0; num = Math.abs(num); while (num &gt; 0) &#123; sb.append(num % 7); num /= 7; &#125; String result = sb.reverse().toString(); return positive ? result : "-" + result;&#125;]]></content>
