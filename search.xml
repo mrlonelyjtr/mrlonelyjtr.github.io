@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LeetCode] Problem 504 - Base 7]]></title>
+    <url>%2F2019%2F09%2F08%2FLeetCode-Problem-504-Base-7%2F</url>
+    <content type="text"><![CDATA[Given an integer, return its base 7 string representation. ExampleNo.1Input: 100 Output: “202” No.2Input: -7 Output: “-10” NoteThe input will be in range of [-1e7, 1e7]. Code12345678910111213141516public String convertToBase7(int num) &#123; if (num == 0) return "0"; StringBuilder sb = new StringBuilder(); boolean positive = num &gt;= 0; num = Math.abs(num); while (num &gt; 0) &#123; sb.append(num % 7); num /= 7; &#125; String result = sb.reverse().toString(); return positive ? result : "-" + result;&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[【SQL进阶教程】用SQL进行集合运算]]></title>
     <url>%2F2019%2F09%2F07%2F%E3%80%90SQL%E8%BF%9B%E9%98%B6%E6%95%99%E7%A8%8B%E3%80%91%E7%94%A8SQL%E8%BF%9B%E8%A1%8C%E9%9B%86%E5%90%88%E8%BF%90%E7%AE%97%2F</url>
     <content type="text"><![CDATA[集合运算的几个注意事项顾名思义，集合运算符的参数是集合，从数据库实现层面上来说就是表或者视图。 SQL能操作具有重复行的集合，可以通过可选项ALL来支持 集合运算符为了排除掉重复行，默认地会发生排序，而加上可选项ALL之后，就不会再排序，所以性能会有提升。 集合运算符有优先级 INTERSECT比UNION和EXCEPT优先级更高。 各个DBMS提供商在集合运算的实现程度上参差不齐 除法运算没有标准定义 比较表和表：检查集合相等性之基础篇在迁移数据库的时候，或者需要比较备份数据和最新数据的时候，需要调查两张表是否是相等的，即“是同一个集合”的意思。例如，下面的表tbl_A和tbl_B。 这两张表的行数是3。如果下面这条SQL语句的执行结果是3，则说明两张表是相等的。相反，如果结果大于3，则说明两张表不相等。 1234SELECT COUNT(*) AS row_cntFROM (SELECT * FROM tbl_A UNION SELECT * FROM tbl_B) TMP; 前面的SQL语句可以用于包含NULL数据的表，而且不需要指定列数、列名和数据类型等就能使用。 比较表和表：检查集合相等性之进阶篇在前面的解法中，在比较两张表之前，需要先查一下两张表里数据的行数。改进一下这条SQL语句，利用两个集合的并集和差集来判定其相等性。如果用SQL语言描述，那就是“如果A UNION B = A INTERSECT B，则集合A和集合B相等。”因此，只需要判定(A UNION B) EXCEPT (A INTERSECT B)的结果集是不是空集就可以了。如果A=B，则这个结果集是空集，否则，这个结果集里肯定有数据。 12345678SELECT CASE WHEN COUNT(*) = 0 THEN '相等' ELSE '不相等' END AS resultFROM ((SELECT * FROM tbl_A UNION SELECT * FROM tbl_B) EXCEPT (SELECT * FROM tbl_A INTERSECT SELECT * FROM tbl_B)) TMP; 这条SQL语句与上一部分的SQL语句具有相同的优点，也不需要知道列名和列数，还可以用于包含NULL的表，而且，这个改进版连事先查询两张表的行数这种准备工作也不需要了。但是，虽然功能改进了，却也带来了一些缺陷。由于这里需要进行4次排序（3次集合运算加上1次DISTINCT），所以性能会有所下降。 用差集实现关系除法运算关于示例数据，选用的是下面这两张员工技术信息管理表。 这里的问题是，从表EmpSkills中找出精通表Skills中所有技术的员工。 12345678SELECT DISTINCT empFROM EmpSkills ES1WHERE NOT EXISTS (SELECT skill FROM Skills EXCEPT SELECT skill FROM EmpSkills ES2 WHERE ES1.emp = ES2.emp); 从需求的技术的集合中减去每个员工自己的技术的集合，如果结果是空集，则说明该员工具备所有的需求的技术，否则说明该员工不具备某些需求的技术。 寻找相等的子集使用表示“供应商-零件”关系的表作为示例数据。 需要求的是，经营的零件在种类数和种类上都完全相同的供应商组合。 1234567891011SELECT FROM SupParts SP1, SupParts SP2WHERE SP1.sup &lt; SP2.sup AND SP1.part = SP2.partGROUP BY SP1.sup, SP2.supHAVING COUNT(*) = (SELECT COUNT(*) FROM SupParts SP3 WHERE SP1.sup = SP3.sup) AND COUNT(*) = (SELECT COUNT(*) FROM SupParts SP4 WHERE SP2.sup = SP4.sup); 用于删除重复行的高效SQL看一下没有主键的恐怖的表。 使用关联子查询，代码非常简单。 12345DELETE FROM ProductsWHERE rowid &lt; (SELECT MAX(P2.rowid) FROM Products P2 WHERE P2.name = Products.name AND P2.price = Products.price); 这种做法不算太差，只是关联子查询的性能问题是难点（光是DELETE处理就比较耗时了）。因此，这里思考一下如何不用关联子查询也能实现同样的功能。“使用极值函数让每组只留下一个rowid“这一点与之前的做法一样。不同的是，这次需要把留下的集合从表Products这个集合中减掉。SQL语句如下所示。 12345678-- 通过EXCEPT求补集DELETE FROM ProductsWHERE rowid IN (SELECT rowid FROM Products EXCEPT SELECT MAX(rowid) FROM Products GROUP BY name, price); 此外，把EXCEPT改写成NOT IN也是可以实现的。代码如下所示。 12345-- 通过NOT IN求补集DELETE FROM ProductsWHERE rowid NOT IN (SELECT MAX(rowid) FROM Products GROUP BY name, price); 这两种方法的性能优劣主要取决于表的规模，以及删除的行数与留下的行数之间的比率。]]></content>
