@@ -1,0 +1,963 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="SQL,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="生成连续编号思考一下如何使用SQL生成连续编号。例如生成0～99这100个连续编号。首先生成一张存储了各个数位上数字的表“数字表”。  这样，就可以通过对两个Digits集合求笛卡尔积而得出0～99的数字。 1234SELECT D1.digit + (D2.digit * 10) AS seqFROM Digits D1CROSS JOIN Digits D2ORDER BY seq;   同样">
+<meta name="keywords" content="SQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【SQL进阶教程】用SQL处理数列">
+<meta property="og:url" content="http://yoursite.com/2019/09/10/【SQL进阶教程】用SQL处理数列/index.html">
+<meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
+<meta property="og:description" content="生成连续编号思考一下如何使用SQL生成连续编号。例如生成0～99这100个连续编号。首先生成一张存储了各个数位上数字的表“数字表”。  这样，就可以通过对两个Digits集合求笛卡尔积而得出0～99的数字。 1234SELECT D1.digit + (D2.digit * 10) AS seqFROM Digits D1CROSS JOIN Digits D2ORDER BY seq;   同样">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/10/nUm90A.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/10/nUmJcF.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/10/nUUbKs.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/10/nUd41g.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/10/nUc9kd.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/10/nUhS78.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/10/nUxEvV.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/10/nUxIx0.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/10/napaaF.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/10/napzzn.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/10/naeC9K.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/10/naZtSO.png">
+<meta property="og:updated_time" content="2019-09-10T14:15:28.454Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【SQL进阶教程】用SQL处理数列">
+<meta name="twitter:description" content="生成连续编号思考一下如何使用SQL生成连续编号。例如生成0～99这100个连续编号。首先生成一张存储了各个数位上数字的表“数字表”。  这样，就可以通过对两个Digits集合求笛卡尔积而得出0～99的数字。 1234SELECT D1.digit + (D2.digit * 10) AS seqFROM Digits D1CROSS JOIN Digits D2ORDER BY seq;   同样">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/09/10/nUm90A.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: "",
+      labels: ""
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/09/10/【SQL进阶教程】用SQL处理数列/">
+
+
+
+
+
+  <title> 【SQL进阶教程】用SQL处理数列 | mrlonelyjtr's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">mrlonelyjtr's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">写BUG的程序猿</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/10/【SQL进阶教程】用SQL处理数列/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mrlonelyjtr">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="mrlonelyjtr's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                【SQL进阶教程】用SQL处理数列
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-10T11:58:50Z">
+                2019-09-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/SQL/" itemprop="url" rel="index">
+                    <span itemprop="name">SQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="生成连续编号"><a href="#生成连续编号" class="headerlink" title="生成连续编号"></a>生成连续编号</h2><p>思考一下如何使用SQL生成连续编号。例如生成0～99这100个连续编号。<br>首先生成一张存储了各个数位上数字的表“数字表”。</p>
+<p><a href="https://imgchr.com/i/nUm90A" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/10/nUm90A.jpg" alt="nUm90A.jpg"></a></p>
+<p>这样，就可以通过对两个Digits集合求笛卡尔积而得出0～99的数字。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> D1.digit + (D2.digit * <span class="number">10</span>) <span class="keyword">AS</span> seq</span><br><span class="line"><span class="keyword">FROM</span> Digits D1</span><br><span class="line"><span class="keyword">CROSS</span> <span class="keyword">JOIN</span> Digits D2</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> seq;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://imgchr.com/i/nUmJcF" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/10/nUmJcF.png" alt="nUmJcF.png"></a></p>
+<p>同样地，通过追加D3、D4等集合，不论多少位的数都可以生成。而且，如果只想生成从1开始，或者到542结束的数，只需要在WHERE子句中加入过滤条件就可以了。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> D1.digit + (D2.digit * <span class="number">10</span>) + (D3.digit * <span class="number">100</span>) <span class="keyword">AS</span> seq</span><br><span class="line"><span class="keyword">FROM</span> Digits D1</span><br><span class="line"><span class="keyword">CROSS</span> <span class="keyword">JOIN</span> Digits D2</span><br><span class="line"><span class="keyword">CROSS</span> <span class="keyword">JOIN</span> Digits D3</span><br><span class="line"><span class="keyword">WHERE</span> D1.digit + (D2.digit * <span class="number">10</span>) + (D3.digit * <span class="number">100</span>) <span class="keyword">BETWEEN</span> <span class="number">1</span> <span class="keyword">AND</span> <span class="number">542</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> seq;</span><br></pre></td></tr></table></figure>
+
+<p>通过将这个查询的结果存储在视图里，就可以在需要连续编号时通过简单的SELECT来获取需要的编号。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">VIEW</span> <span class="keyword">Sequence</span>(seq)</span><br><span class="line"><span class="keyword">AS</span></span><br><span class="line"><span class="keyword">SELECT</span> D1.digit + (D2.digit * <span class="number">10</span>) + (D3.digit * <span class="number">100</span>)</span><br><span class="line"><span class="keyword">FROM</span> Digits D1</span><br><span class="line"><span class="keyword">CROSS</span> <span class="keyword">JOIN</span> Digits D2</span><br><span class="line"><span class="keyword">CROSS</span> <span class="keyword">JOIN</span> Digits D3;</span><br></pre></td></tr></table></figure>
+
+<h2 id="求全部的缺失编号"><a href="#求全部的缺失编号" class="headerlink" title="求全部的缺失编号"></a>求全部的缺失编号</h2><p>查找连续编号中的缺失编号。想要知道如何求出全部的缺失编号。<br>作为示例，假设存在下面这样一张编号有缺失的表。</p>
+<p><a href="https://imgchr.com/i/nUUbKs" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/10/nUUbKs.jpg" alt="nUUbKs.jpg"></a></p>
+<p>因为表中最小的值是1，最大的值是12，所以可以根据这个范围从序列视图中获取数。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- EXCEPT</span></span><br><span class="line"><span class="keyword">SELECT</span> seq</span><br><span class="line"><span class="keyword">FROM</span> <span class="keyword">Sequence</span></span><br><span class="line"><span class="keyword">WHERE</span> seq <span class="keyword">BETWEEN</span> <span class="number">1</span> <span class="keyword">AND</span> <span class="number">12</span></span><br><span class="line"><span class="keyword">EXCEPT</span></span><br><span class="line"><span class="keyword">SELECT</span> seq</span><br><span class="line"><span class="keyword">FROM</span> SeqTbl;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- IN</span></span><br><span class="line"><span class="keyword">SELECT</span> seq</span><br><span class="line"><span class="keyword">FROM</span> <span class="keyword">Sequence</span></span><br><span class="line"><span class="keyword">WHERE</span> seq <span class="keyword">BETWEEN</span> <span class="number">1</span> <span class="keyword">AND</span> <span class="number">12</span></span><br><span class="line">      <span class="keyword">AND</span> seq <span class="keyword">NOT</span> <span class="keyword">IN</span> (<span class="keyword">SELECT</span> seq <span class="keyword">FROM</span> SeqTbl);</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://imgchr.com/i/nUd41g" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/10/nUd41g.png" alt="nUd41g.png"></a></p>
+<p>可能像下面这么做性能会有所下降，但是通过扩展BETWEEN谓词的参数，可以动态地指定目标表的最大值和最小值。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> seq</span><br><span class="line"><span class="keyword">FROM</span> <span class="keyword">Sequence</span></span><br><span class="line"><span class="keyword">WHERE</span> seq <span class="keyword">BETWEEN</span> (<span class="keyword">SELECT</span> <span class="keyword">MIN</span>(seq) <span class="keyword">FROM</span> SeqTbl) </span><br><span class="line">              <span class="keyword">AND</span> (<span class="keyword">SELECT</span> <span class="keyword">MAX</span>(seq) <span class="keyword">FROM</span> SeqTbl) </span><br><span class="line"><span class="keyword">EXCEPT</span></span><br><span class="line"><span class="keyword">SELECT</span> seq</span><br><span class="line"><span class="keyword">FROM</span> SeqTbl;</span><br></pre></td></tr></table></figure>
+
+<p>这种写法在查询上限和下限未必固定的表时非常方便。如果在“seq”列上建立索引，那么极值函数的运行可以变得更快速。</p>
+<h2 id="三个人能坐得下吗"><a href="#三个人能坐得下吗" class="headerlink" title="三个人能坐得下吗"></a>三个人能坐得下吗</h2><p>假设存在下面这样一张存储了火车座位预定情况的表。</p>
+<p><a href="https://imgchr.com/i/nUc9kd" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/10/nUc9kd.jpg" alt="nUc9kd.jpg"></a></p>
+<p>问题是，从1～15的座位编号中，找出连续3个空位的全部组合。假设所有的座位排成了一条直线。<br>希望得到的结果是下面四种。</p>
+<ul>
+<li>3～5</li>
+<li>7～9</li>
+<li>8～10</li>
+<li>9～11</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> S1.seat <span class="keyword">AS</span> start_seat, <span class="string">'~'</span>, S2.seat <span class="keyword">AS</span> end_seat</span><br><span class="line"><span class="keyword">FROM</span> Seat S1, Seat S2</span><br><span class="line"><span class="keyword">WHERE</span> S2.seat = S1.seat + (:head_cnt - <span class="number">1</span>)</span><br><span class="line">      <span class="keyword">AND</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> (<span class="keyword">SELECT</span> * </span><br><span class="line">                      <span class="keyword">FROM</span> Seat S3</span><br><span class="line">                      <span class="keyword">WHERE</span> S3.seat <span class="keyword">BETWEEN</span> S1.seat <span class="keyword">AND</span> S2.seat</span><br><span class="line">                            <span class="keyword">AND</span> S3.status &lt;&gt; <span class="string">'未预订'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>其中，“:head_cnt”是表示需要的空位个数的参数。</p>
+<p>接下来，看一下升级版，即发生换排的情况。假设这列火车每一排有5个座位。</p>
+<p><a href="https://imgchr.com/i/nUhS78" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/10/nUhS78.jpg" alt="nUhS78.jpg"></a></p>
+<p>要想解决换排的问题，除了要求序列内的所有座位全部都是空位，还需要加入“全部都在一排”这样一个条件。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> S1.seat <span class="keyword">AS</span> start_seat, <span class="string">'~'</span>, S2.seat <span class="keyword">AS</span> end_seat</span><br><span class="line"><span class="keyword">FROM</span> Seat2 S1, Seat2 S2</span><br><span class="line"><span class="keyword">WHERE</span> S2.seat = S1.seat + (:head_cnt - <span class="number">1</span>)</span><br><span class="line">      <span class="keyword">AND</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> (<span class="keyword">SELECT</span> * </span><br><span class="line">                      <span class="keyword">FROM</span> Seat2 S3</span><br><span class="line">                      <span class="keyword">WHERE</span> S3.seat <span class="keyword">BETWEEN</span> S1.seat <span class="keyword">AND</span> S2.seat</span><br><span class="line">                            <span class="keyword">AND</span> (S3.status &lt;&gt; <span class="string">'未预订'</span></span><br><span class="line">                                 <span class="keyword">OR</span> S3.row_id &lt;&gt; S1.row_id));</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://imgchr.com/i/nUxEvV" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/10/nUxEvV.png" alt="nUxEvV.png"></a></p>
+<h2 id="最多能坐下多少人"><a href="#最多能坐下多少人" class="headerlink" title="最多能坐下多少人"></a>最多能坐下多少人</h2><p>这次要查询的是“按现在的空位状况，最多能坐下多少人”。换句话说，要求的是最长的序列。使用下面这张表Seats3。</p>
+<p><a href="https://imgchr.com/i/nUxIx0" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/10/nUxIx0.jpg" alt="nUxIx0.jpg"></a></p>
+<p>就这张表而言，长度为4的序列“2～5”就是答案。<br>针对表Seats3中的数据，要想保证从座位A到另一个座位B是一个序列，则下面的3个条件必须全部都满足。</p>
+<ul>
+<li>条件1:起点到终点之间的所有座位状态都是“未预订”。</li>
+<li>条件2:起点之前的座位状态不是“未预订”。</li>
+<li>条件3:终点之后的座位状态不是“未预订”。</li>
+</ul>
+<p>可以先生成一张存储了所有可能序列的视图。有了这个视图之后，只需从中查找出最长的序列就可以了。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">VIEW</span> Sequences(start_seat, end_seat, seat_cnt)</span><br><span class="line"><span class="keyword">AS</span></span><br><span class="line"><span class="keyword">SELECT</span> S1.seat <span class="keyword">AS</span> start_seat,</span><br><span class="line">       S2.seat <span class="keyword">AS</span> end_seat,</span><br><span class="line">       S2.seat - S1.seat + <span class="number">1</span> <span class="keyword">AS</span> seat_cnt</span><br><span class="line"><span class="keyword">FROM</span> Seat3 S1, Seat3 S2</span><br><span class="line"><span class="keyword">WHERE</span> S1.seat &lt;= S2.seat</span><br><span class="line">      <span class="keyword">AND</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> (<span class="keyword">SELECT</span> * </span><br><span class="line">                      <span class="keyword">FROM</span> Seat3 S3</span><br><span class="line">                      <span class="keyword">WHERE</span> (S3.seat <span class="keyword">BETWEEN</span> S1.seat <span class="keyword">AND</span> S2.seat</span><br><span class="line">                             <span class="keyword">AND</span> S3.status &lt;&gt; <span class="string">'未预订'</span>)</span><br><span class="line">                            <span class="keyword">OR</span> (S3.seat = S2.seat + <span class="number">1</span> </span><br><span class="line">                                <span class="keyword">AND</span> S3.status = <span class="string">'未预订'</span>)</span><br><span class="line">                            <span class="keyword">OR</span> (S3.seat = S1.seat - <span class="number">1</span> </span><br><span class="line">                                <span class="keyword">AND</span> S3.status = <span class="string">'未预订'</span>));</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://imgchr.com/i/napaaF" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/10/napaaF.png" alt="napaaF.png"></a></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> start_seat, <span class="string">'~'</span>, end_seat, seat_cnt</span><br><span class="line"><span class="keyword">FROM</span> Sequences</span><br><span class="line"><span class="keyword">WHERE</span> seat_cnt = (<span class="keyword">SELECT</span> <span class="keyword">MAX</span>(seat_cnt) <span class="keyword">FROM</span> Sequences);</span><br></pre></td></tr></table></figure>
+
+<h2 id="单调递增和单调递减"><a href="#单调递增和单调递减" class="headerlink" title="单调递增和单调递减"></a>单调递增和单调递减</h2><p>假设存在下面这样一张反映了某公司股价动态的表。</p>
+<p><a href="https://imgchr.com/i/napzzn" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/10/napzzn.jpg" alt="napzzn.jpg"></a></p>
+<p>这里，求一下股价单调递增的时间区间。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> S1.deal_date <span class="keyword">AS</span> start_date,</span><br><span class="line">       S2.deal_date <span class="keyword">AS</span> end_date</span><br><span class="line"><span class="keyword">FROM</span> MyStock S1, MyStock S2</span><br><span class="line"><span class="keyword">WHERE</span> S1.deal_date &lt; S2.deal_date</span><br><span class="line">      <span class="keyword">AND</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> (<span class="keyword">SELECT</span> * </span><br><span class="line">                      <span class="keyword">FROM</span> MyStock S3, MyStock S4</span><br><span class="line">                      <span class="keyword">WHERE</span> S3.deal_date <span class="keyword">BETWEEN</span> S1.deal_date <span class="keyword">AND</span> S2.deal_date</span><br><span class="line">                            <span class="keyword">AND</span> S4.deal_date <span class="keyword">BETWEEN</span> S1.deal_date <span class="keyword">AND</span> S2.deal_date</span><br><span class="line">                            <span class="keyword">AND</span> S3.deal_date &lt; S4.deal_date</span><br><span class="line">                            <span class="keyword">AND</span> S3.price &gt;= S4.price);</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://imgchr.com/i/naeC9K" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/10/naeC9K.png" alt="naeC9K.png"></a></p>
+<p>要把不需要的子集排除掉。使用极值函数很容易就能实现。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MIN</span>(start_date) <span class="keyword">AS</span> start_date, end_date</span><br><span class="line"><span class="keyword">FROM</span>   (<span class="keyword">SELECT</span> S1.deal_date <span class="keyword">AS</span> start_date,</span><br><span class="line">               <span class="keyword">MAX</span>(S2.deal_date) <span class="keyword">AS</span> end_date</span><br><span class="line">        <span class="keyword">FROM</span> MyStock S1, MyStock S2</span><br><span class="line">        <span class="keyword">WHERE</span> S1.deal_date &lt; S2.deal_date</span><br><span class="line">              <span class="keyword">AND</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> (<span class="keyword">SELECT</span> * </span><br><span class="line">                              <span class="keyword">FROM</span> MyStock S3, MyStock S4</span><br><span class="line">                              <span class="keyword">WHERE</span> S3.deal_date <span class="keyword">BETWEEN</span> S1.deal_date <span class="keyword">AND</span> S2.deal_date</span><br><span class="line">                                    <span class="keyword">AND</span> S4.deal_date <span class="keyword">BETWEEN</span> S1.deal_date <span class="keyword">AND</span> S2.deal_date</span><br><span class="line">                                    <span class="keyword">AND</span> S3.deal_date &lt; S4.deal_date</span><br><span class="line">                                    <span class="keyword">AND</span> S3.price &gt;= S4.price)</span><br><span class="line">        <span class="keyword">GROUP</span> <span class="keyword">BY</span> S1.deal_date) TMP</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> end_date;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://imgchr.com/i/naZtSO" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/10/naZtSO.png" alt="naZtSO.png"></a></p>
+<p>这段代码的关键在于最大限度地延伸起点和终点。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SQL/" rel="tag"># SQL</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/09/【SQL进阶教程】EXISTS谓词的用法/" rel="next" title="【SQL进阶教程】EXISTS谓词的用法">
+                <i class="fa fa-chevron-left"></i> 【SQL进阶教程】EXISTS谓词的用法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="mrlonelyjtr">
+          <p class="site-author-name" itemprop="name">mrlonelyjtr</p>
+           
+              <p class="site-description motion-element" itemprop="description">间歇性踌躇满志，持续性混吃等死</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">653</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/mrlonelyjtr" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#生成连续编号"><span class="nav-number">1.</span> <span class="nav-text">生成连续编号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#求全部的缺失编号"><span class="nav-number">2.</span> <span class="nav-text">求全部的缺失编号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三个人能坐得下吗"><span class="nav-number">3.</span> <span class="nav-text">三个人能坐得下吗</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最多能坐下多少人"><span class="nav-number">4.</span> <span class="nav-text">最多能坐下多少人</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单调递增和单调递减"><span class="nav-number">5.</span> <span class="nav-text">单调递增和单调递减</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">mrlonelyjtr</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
