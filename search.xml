@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LeetCode] Problem 521 - Longest Uncommon Subsequence I]]></title>
+    <url>%2F2019%2F09%2F12%2FLeetCode-Problem-521-Longest-Uncommon-Subsequence-I%2F</url>
+    <content type="text"><![CDATA[Given a group of two strings, you need to find the longest uncommon subsequence of this group of two strings. The longest uncommon subsequence is defined as the longest subsequence of one of these strings and this subsequence should not be any subsequence of the other strings. A subsequence is a sequence that can be derived from one sequence by deleting some characters without changing the order of the remaining elements. Trivially, any string is a subsequence of itself and an empty string is a subsequence of any string. The input will be two strings, and the output needs to be the length of the longest uncommon subsequence. If the longest uncommon subsequence doesn’t exist, return -1. ExampleInput: “aba”, “cdc” Output: 3 Explanation: The longest uncommon subsequence is “aba” (or “cdc”),because “aba” is a subsequence of “aba”,but not a subsequence of any other strings in the group of two strings. Note Both strings’ lengths will not exceed 100. Only letters from a ~ z will appear in input strings. Code123public int findLUSlength(String a, String b) &#123; return a.equals(b) ? -1 : Math.max(a.length(), b.length());&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[The English We Speak 3]]></title>
     <url>%2F2019%2F09%2F12%2FThe-English-We-Speak-3%2F</url>
     <content type="text"></content>
