@@ -87,18 +87,27 @@
 
 
 
-<meta name="description" content="间歇性踌躇满志，持续性混吃等死">
+<meta name="description" content="不管是减少排序还是使用索引，抑或是避免中间表的使用，都是为了减少对硬盘的访问。 使用高效的查询在SQL中，很多时候不同代码能够得出相同结果。从理论上来说，得到相同结果的不同代码应该有相同的性能，但遗憾的是，查询优化器生成的执行计划很大程度上要受到代码外部结构的影响。 参数是子查询时，使用EXISTS代替IN如果IN的参数是“1，2，3”这样的数值列表，一般还不需要特别注意。但是如果参数是子查询时，">
 <meta name="keywords" content="SQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【SQL进阶教程】让SQL飞起来">
 <meta property="og:url" content="http://yoursite.com/2019/09/15/【SQL进阶教程】让SQL飞起来/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="间歇性踌躇满志，持续性混吃等死">
+<meta property="og:description" content="不管是减少排序还是使用索引，抑或是避免中间表的使用，都是为了减少对硬盘的访问。 使用高效的查询在SQL中，很多时候不同代码能够得出相同结果。从理论上来说，得到相同结果的不同代码应该有相同的性能，但遗憾的是，查询优化器生成的执行计划很大程度上要受到代码外部结构的影响。 参数是子查询时，使用EXISTS代替IN如果IN的参数是“1，2，3”这样的数值列表，一般还不需要特别注意。但是如果参数是子查询时，">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-14T12:20:55.477Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/15/ncOaF0.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/15/ncXFkq.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/15/n2YkkD.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/15/n2tsVf.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/15/n2tjMR.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/15/n2Nzlj.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/15/n2dme1.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/15/n2zeGn.png">
+<meta property="og:updated_time" content="2019-09-15T15:39:08.973Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【SQL进阶教程】让SQL飞起来">
-<meta name="twitter:description" content="间歇性踌躇满志，持续性混吃等死">
+<meta name="twitter:description" content="不管是减少排序还是使用索引，抑或是避免中间表的使用，都是为了减少对硬盘的访问。 使用高效的查询在SQL中，很多时候不同代码能够得出相同结果。从理论上来说，得到相同结果的不同代码应该有相同的性能，但遗憾的是，查询优化器生成的执行计划很大程度上要受到代码外部结构的影响。 参数是子查询时，使用EXISTS代替IN如果IN的参数是“1，2，3”这样的数值列表，一般还不需要特别注意。但是如果参数是子查询时，">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/09/15/ncOaF0.jpg">
 
 
 
@@ -329,7 +338,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-15T14:15:13Z">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-15T22:15:13+08:00">
                 2019-09-15
               </time>
             
@@ -387,7 +396,124 @@
       
 
       
-        
+        <p>不管是减少排序还是使用索引，抑或是避免中间表的使用，都是为了减少对硬盘的访问。</p>
+<h2 id="使用高效的查询"><a href="#使用高效的查询" class="headerlink" title="使用高效的查询"></a>使用高效的查询</h2><p>在SQL中，很多时候不同代码能够得出相同结果。从理论上来说，得到相同结果的不同代码应该有相同的性能，但遗憾的是，查询优化器生成的执行计划很大程度上要受到代码外部结构的影响。</p>
+<h3 id="参数是子查询时，使用EXISTS代替IN"><a href="#参数是子查询时，使用EXISTS代替IN" class="headerlink" title="参数是子查询时，使用EXISTS代替IN"></a>参数是子查询时，使用EXISTS代替IN</h3><p>如果IN的参数是“1，2，3”这样的数值列表，一般还不需要特别注意。但是如果参数是子查询时，那么就需要注意了。<br>在大多数时候，[NOT] IN和[NOT] EXISTS返回的结果是相同的。但是两者用于子查询时，EXISTS的速度会更快一些。</p>
+<p>先看个例子。这里使用两张用于管理员学习过的培训课程的表作为测试数据。</p>
+<p><a href="https://imgchr.com/i/ncOaF0" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/15/ncOaF0.jpg" alt="ncOaF0.jpg"></a></p>
+<p>试着从Class_A表中查出同时存在于Class_B表中的员工。下面两条SQL语句返回的结果是一样的，但是使用EXISTS的SQL语句更快一些。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> Class_A</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">id</span> <span class="keyword">IN</span> (<span class="keyword">SELECT</span> <span class="keyword">id</span> </span><br><span class="line">             <span class="keyword">FROM</span> Class_B);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> Class_A A</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">EXISTS</span> (<span class="keyword">SELECT</span> *</span><br><span class="line">              <span class="keyword">FROM</span> Class_B B</span><br><span class="line">              <span class="keyword">WHERE</span> A.id = B.id);</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://imgchr.com/i/ncXFkq" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/15/ncXFkq.png" alt="ncXFkq.png"></a></p>
+<p>使用EXISTS时更快的原因有以下两个。</p>
+<ul>
+<li>如果连接列（id）上建立了索引，那么查询Class_B时不用查实际的表，只需查索引就可以了。</li>
+<li>如果使用EXISTS，那么只要查到一行数据满足条件就会终止查询，不用像使用IN时一样扫面全表。在这一点上NOT EXISTS也一样。</li>
+</ul>
+<p>当IN的参数是子查询时，数据库首先会执行子查询，然后将结果存储在一张临时的工作表里（内联视图），然后扫描整个视图。很多情况下，这种做法都非常耗费资源。使用EXISTS的话，数据库不会生成临时的工作表。<br>但是从代码的可读性上来看，IN要比EXISTS好。使用IN时的代码看起来更加一目了然，易于理解。因此，如果确信使用IN也能快速获取结果，就没有必要非得改成EXISTS了。</p>
+<h3 id="参数是子查询时，使用连接代替IN"><a href="#参数是子查询时，使用连接代替IN" class="headerlink" title="参数是子查询时，使用连接代替IN"></a>参数是子查询时，使用连接代替IN</h3><p>要想改善IN的性能，除了使用EXISTS，还可以使用连接。前面的查询语句就可以像下面这样“扁平化”。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> A.id, A.name</span><br><span class="line"><span class="keyword">FROM</span> Class_A A</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> Class_B B <span class="keyword">ON</span> A.id = B.id;</span><br></pre></td></tr></table></figure>
+
+<p>这种写法至少能用到一张表的“id”列上的索引。而且，因为没有了子查询，所以数据库也不会生成中间表。很难说与EXISTS相比哪个更好，但是如果没有索引，那么与连接相比，可能EXISTS会略胜一筹。</p>
+<h2 id="避免排序"><a href="#避免排序" class="headerlink" title="避免排序"></a>避免排序</h2><p>在数据库内部频繁地进行着暗中的排序。会进行排序的代表性的运算有下面这些。</p>
+<ul>
+<li>GROUP BY子句</li>
+<li>ORDER BY子句</li>
+<li>聚合函数（SUM、COUNT、AVG、MAX、MIN）</li>
+<li>DISTINCT</li>
+<li>集合运算符（UNION、INTERSECT、EXCEPT）</li>
+<li>窗口函数（RANK、ROW_NUMBER等）</li>
+</ul>
+<h3 id="灵活使用集合运算符的ALL可选项"><a href="#灵活使用集合运算符的ALL可选项" class="headerlink" title="灵活使用集合运算符的ALL可选项"></a>灵活使用集合运算符的ALL可选项</h3><p>SQL中有UNION、INTERSECT、EXCEPT三个集合运算符。在默认的使用方式下，这些运算符会为了排除掉重复数据而进行排序。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> Class_A</span><br><span class="line"><span class="keyword">UNION</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> Class_B;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://imgchr.com/i/n2YkkD" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/15/n2YkkD.png" alt="n2YkkD.png"></a></p>
+<p>如果不在乎结果中是否有重复数据，或者事先知道不会有重复数据，请使用UNION ALL代替UNION。这样就不会进行排序了。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> Class_A</span><br><span class="line"><span class="keyword">UNION</span> ALL</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> Class_B;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://imgchr.com/i/n2tsVf" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/15/n2tsVf.png" alt="n2tsVf.png"></a></p>
+<h3 id="使用EXISTS代替DISTINCT"><a href="#使用EXISTS代替DISTINCT" class="headerlink" title="使用EXISTS代替DISTINCT"></a>使用EXISTS代替DISTINCT</h3><p>为了排除重复数据，DISTINCT也会进行排序。如果需要对两张表的连接结果进行去重，可以考虑使用EXISTS代替DISTINCT，以避免排序。</p>
+<p><a href="https://imgchr.com/i/n2tjMR" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/15/n2tjMR.jpg" alt="n2tjMR.jpg"></a></p>
+<p>思考以下如何从上面的商品表Items中找出同时存在于销售记录表SalesHistory中的商品。简而言之，就是找出有销售记录的商品。</p>
+<p>使用IN是一种做法。但是前面说过，当IN的参数是子查询时，使用连接要比使用IN更好。因此使用“item_no”列对两张表进行连接。<br>因为是一对多的连接，所以“item_no”列中会出现重复数据。为了排除重复数据，需要使用DISTINCT。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> I.item_no</span><br><span class="line"><span class="keyword">FROM</span> Items I</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> SalesHistory SH <span class="keyword">ON</span> I.item_no = SH.item_no;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://imgchr.com/i/n2Nzlj" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/15/n2Nzlj.png" alt="n2Nzlj.png"></a></p>
+<p>但是，其实更好的做法是使用EXISTS。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> item_no</span><br><span class="line"><span class="keyword">FROM</span> Items I</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">EXISTS</span> (<span class="keyword">SELECT</span> *</span><br><span class="line">              <span class="keyword">FROM</span> SalesHistory SH</span><br><span class="line">              <span class="keyword">WHERE</span> I.item_no = SH.item_no);</span><br></pre></td></tr></table></figure>
+
+<p>这条语句在执行过程中不会进行排序。而且使用EXISTS和使用连接一样高效。</p>
+<h3 id="在极值函数中使用索引（MAX-MIN）"><a href="#在极值函数中使用索引（MAX-MIN）" class="headerlink" title="在极值函数中使用索引（MAX/MIN）"></a>在极值函数中使用索引（MAX/MIN）</h3><p>SQL语言里有MAX和MIN两个极值函数。使用这两个函数时都会进行排序。但是如果参数字段上建有索引，则只需要扫面索引，不需要扫描整张表。以刚才的表Items为例来说，SQL语句可以像下面这样写。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MAX</span>(item_no)</span><br><span class="line"><span class="keyword">FROM</span> Items;</span><br></pre></td></tr></table></figure>
+
+<p>因为item_no是表Items的唯一索引，所以效果更好。对于联合索引，只要查询条件是联合索引的第一个字段，索引就是有效的，所以也可以对表SalesHistory的sale_date字段使用极值函数。<br>这种方法并不是去掉了排序这一过程，而是优化了排序前的查找速度，从而减弱排序对整体性能的影响。</p>
+<h3 id="能写在WHERE子句里的条件不要写在HAVING子句里"><a href="#能写在WHERE子句里的条件不要写在HAVING子句里" class="headerlink" title="能写在WHERE子句里的条件不要写在HAVING子句里"></a>能写在WHERE子句里的条件不要写在HAVING子句里</h3><p>例如，下面两条SQL语句返回的结果是一样的。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- HAVING</span></span><br><span class="line"><span class="keyword">SELECT</span> sale_date, <span class="keyword">SUM</span>(quantity)</span><br><span class="line"><span class="keyword">FROM</span> SalesHistory</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> sale_date</span><br><span class="line"><span class="keyword">HAVING</span> sale_date = <span class="string">'2007-10-01'</span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- WHERE</span></span><br><span class="line"><span class="keyword">SELECT</span> sale_date, <span class="keyword">SUM</span>(quantity)</span><br><span class="line"><span class="keyword">FROM</span> SalesHistory</span><br><span class="line"><span class="keyword">WHERE</span> sale_date = <span class="string">'2007-10-01'</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> sale_date;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://imgchr.com/i/n2dme1" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/15/n2dme1.png" alt="n2dme1.png"></a></p>
+<p>但是从性能上来看，第二条语句写法效率更高。原因通常有两个。第一个是在使用GROUP BY子句聚合时会进行排序，如果事先通过WHERE子句筛选出一部分行，就能够减轻排序的负担。第二个是在WHERE子句的条件里可以使用索引。HAVING子句是针对聚合后生成的视图进行筛选的，但是很多时候聚合后的视图都没有继承原表的索引结构。</p>
+<h3 id="在GROUP-BY子句和ORDER-BY子句中使用索引"><a href="#在GROUP-BY子句和ORDER-BY子句中使用索引" class="headerlink" title="在GROUP BY子句和ORDER BY子句中使用索引"></a>在GROUP BY子句和ORDER BY子句中使用索引</h3><p>一般来说，GROUP BY子句和ORDER BY子句都会进行排序，来对行进行排列和替换。不过，通常指定带索引的列作为GROUP BY和ORDER BY的列，可以实现高速查询。</p>
+<h2 id="真的用到索引了吗"><a href="#真的用到索引了吗" class="headerlink" title="真的用到索引了吗"></a>真的用到索引了吗</h2><p>一般情况下，都会对数据量相对较大的表建立索引。而且最流行的B树索引还进行了一些优化，以使用二分查找来提升查询的速度。</p>
+<p>假设在一个叫作col_1的列上建立了索引，然后来看一看下面这些SQL语句。这些SQL语句本来是想使用索引，但实际上执行时却进行了全表扫描。</p>
+<h3 id="在索引字段上进行运算"><a href="#在索引字段上进行运算" class="headerlink" title="在索引字段上进行运算"></a>在索引字段上进行运算</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> SomeTable</span><br><span class="line"><span class="keyword">WHERE</span> col_1 * <span class="number">1.1</span> &gt; <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
+
+<p>实际上，数据库引擎连这种程度的转换也不会做。把运算的表达式放到查询条件的右侧，就能用到索引了，像下面这样写就OK了。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WHERE col_1 &gt; 100 / 1.1</span><br></pre></td></tr></table></figure>
+
+<p>同样，在查询条件的左侧使用函数时，也不能用到索引。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> SomeTable</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">SUBSTR</span>(col_1, <span class="number">1</span>, <span class="number">1</span>) = <span class="string">'a'</span>;</span><br></pre></td></tr></table></figure>
+
+<p>使用索引时，条件表达式的左侧应该是原始字段。</p>
+<h3 id="使用IS-NULL谓词"><a href="#使用IS-NULL谓词" class="headerlink" title="使用IS NULL谓词"></a>使用IS NULL谓词</h3><p>通常，索引字段是不存在NULL的，所以指定IS NULL和IS NOT NULL的话会使得索引无法使用，进而导致查询性能低下。<br>关于索引字段不存在NULL的原因，简单来说是NULL并不是值。非值不会被包含在值的集合中。</p>
+<h3 id="使用否定形式"><a href="#使用否定形式" class="headerlink" title="使用否定形式"></a>使用否定形式</h3><p>下面这几种否定形式不能用到索引。</p>
+<ul>
+<li>&lt;&gt;</li>
+<li>!=</li>
+<li>NOT IN</li>
+</ul>
+<h3 id="使用OR"><a href="#使用OR" class="headerlink" title="使用OR"></a>使用OR</h3><p>在col_1和col_2上分别建立了不同的索引，或者建立了(col_1, col_2)这样的联合索引时，如果使用OR连接条件，那么要么用不到索引，要么用到了但是效率比AND要差很多。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> SomeTable</span><br><span class="line"><span class="keyword">WHERE</span> col_1 &gt; <span class="number">100</span></span><br><span class="line">      <span class="keyword">OR</span> col_2 = <span class="string">'abc'</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用联合索引时，列的顺序错误"><a href="#使用联合索引时，列的顺序错误" class="headerlink" title="使用联合索引时，列的顺序错误"></a>使用联合索引时，列的顺序错误</h3><p>假设存在这样顺序的一个联合索引”col_1, col_2, col_3“。<br>这时，指定条件的顺序就很重要。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- O</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> SomeTable <span class="keyword">WHERE</span> col_1 = <span class="number">10</span> <span class="keyword">AND</span> col_2 = <span class="number">100</span> <span class="keyword">AND</span> col_3 = <span class="number">500</span>;</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> SomeTable <span class="keyword">WHERE</span> col_1 = <span class="number">10</span> <span class="keyword">AND</span> col_2 = <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- X</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> SomeTable <span class="keyword">WHERE</span> col_1 = <span class="number">10</span> <span class="keyword">AND</span> col_3 = <span class="number">500</span>;</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> SomeTable <span class="keyword">WHERE</span> col_2 = <span class="number">100</span> <span class="keyword">AND</span> col_3 = <span class="number">500</span>;</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> SomeTable <span class="keyword">WHERE</span> col_2 = <span class="number">100</span> <span class="keyword">AND</span> col_1 = <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+
+<p>联合索引中的第一列(col_1)必须写在查询条件的开头，而且索引中列的顺序不能颠倒。<br>如果无法保证查询条件里列的顺序与索引一致，可以考虑将联合索引拆分为多个索引。</p>
+<h3 id="使用LIKE谓词进行后方一致或中间一致的匹配"><a href="#使用LIKE谓词进行后方一致或中间一致的匹配" class="headerlink" title="使用LIKE谓词进行后方一致或中间一致的匹配"></a>使用LIKE谓词进行后方一致或中间一致的匹配</h3><p>使用LIKE谓词时，只有前方一致的匹配才能用到索引。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- X</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> SomeTable <span class="keyword">WHERE</span> col_1 <span class="keyword">LIKE</span> <span class="string">'%a'</span>;</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> SomeTable <span class="keyword">WHERE</span> col_1 <span class="keyword">LIKE</span> <span class="string">'%a%'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- O</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> SomeTable <span class="keyword">WHERE</span> col_1 <span class="keyword">LIKE</span> <span class="string">'a%'</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="进行默认的类型转换"><a href="#进行默认的类型转换" class="headerlink" title="进行默认的类型转换"></a>进行默认的类型转换</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- X</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> SomeTable <span class="keyword">WHERE</span> col_1 = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- O</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> SomeTable <span class="keyword">WHERE</span> col_1 = <span class="string">'10'</span>;</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> SomeTable <span class="keyword">WHERE</span> col_1 = <span class="keyword">CAST</span>(<span class="number">10</span>, <span class="keyword">AS</span> <span class="built_in">CHAR</span>(<span class="number">2</span>));</span><br></pre></td></tr></table></figure>
+
+<p>默认的类型转换不仅会增加额外的性能开销，还会导致索引不可用，可以说是有百害而无一利。</p>
+<h2 id="减少中间表"><a href="#减少中间表" class="headerlink" title="减少中间表"></a>减少中间表</h2><p>在SQL中，子查询的结果会被看成一张新表。频繁使用中间表会带来两个问题，一是展开数据需要耗费内存资源，二是原始表中的索引不容易使用到（特别是聚合时）。</p>
+<h3 id="灵活使用HAVING子句"><a href="#灵活使用HAVING子句" class="headerlink" title="灵活使用HAVING子句"></a>灵活使用HAVING子句</h3><p>对聚合结果指定筛选条件时，使用HAVING子句是基本原则。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> (<span class="keyword">SELECT</span> sale_date, <span class="keyword">MAX</span>(quantity) <span class="keyword">AS</span> max_qty</span><br><span class="line">      <span class="keyword">FROM</span> SalesHistory</span><br><span class="line">      <span class="keyword">GROUP</span> <span class="keyword">BY</span> sale_date) TMP</span><br><span class="line"><span class="keyword">WHERE</span> max_qty &gt;= <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://imgchr.com/i/n2zeGn" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2019/09/15/n2zeGn.png" alt="n2zeGn.png"></a></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> sale_date, <span class="keyword">MAX</span>(quantity)</span><br><span class="line"><span class="keyword">FROM</span> SalesHistory</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> sale_date</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">MAX</span>(quantity) &gt;= <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+
+<p>HAVING子句和聚合操作是同时执行的，所以比起生成中间表后再执行的WHERE子句，效率会更高一些，而且代码看起来也更简洁。</p>
+<h3 id="需要对多个字段使用IN谓词时，将它们汇总到一处"><a href="#需要对多个字段使用IN谓词时，将它们汇总到一处" class="headerlink" title="需要对多个字段使用IN谓词时，将它们汇总到一处"></a>需要对多个字段使用IN谓词时，将它们汇总到一处</h3><p>加入了行与行比较的功能。这样一来，比较谓词=、&lt;、&gt;和IN谓词的参数就不能是标量值，而应是值列表了。<br>来看一下下面这个SQL语句。这里对多个字段使用了IN谓词，“id”列是主键。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span>, state, city</span><br><span class="line"><span class="keyword">FROM</span> Addresses1 A1</span><br><span class="line"><span class="keyword">WHERE</span> state <span class="keyword">IN</span> (<span class="keyword">SELECT</span> state</span><br><span class="line">                <span class="keyword">FROM</span> Addresses2 A2</span><br><span class="line">                <span class="keyword">WHERE</span> A1.id = A2.id)</span><br><span class="line">      <span class="keyword">AND</span> city <span class="keyword">IN</span> (<span class="keyword">SELECT</span> city</span><br><span class="line">                   <span class="keyword">FROM</span> Addresses2 A2</span><br><span class="line">                   <span class="keyword">WHERE</span> A1.id = A2.id);</span><br></pre></td></tr></table></figure>
+
+<p>这段代码中用到了两个子查询。但是，如果像下面这样把字段连接在一起，那么就能把逻辑写在一处了。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> Addresses1 A1</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">id</span> || state || city <span class="keyword">IN</span> (<span class="keyword">SELECT</span> <span class="keyword">id</span> || state || city</span><br><span class="line">                              <span class="keyword">FROM</span> Addresses2 A2);</span><br></pre></td></tr></table></figure>
+
+<p>这样一来，子查询不用考虑关联性，而且只执行一次就可以。此外，如果所用的数据库实现了行与行的比较，那么也可以像下面这样，在IN中写多个字段的组合。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> Addresses1 A1</span><br><span class="line"><span class="keyword">WHERE</span> (<span class="keyword">id</span>, state, city) <span class="keyword">IN</span> (<span class="keyword">SELECT</span> <span class="keyword">id</span>, state, city</span><br><span class="line">                              <span class="keyword">FROM</span> Addresses2 A2);</span><br></pre></td></tr></table></figure>
+
+<p>这种方法与前面的连接字段的方法相比有两个优点。一是不用担心连接字段时出现的类型转换问题，二是这种方法不会对字段进行加工，因此可以使用索引。</p>
+<h3 id="先进行连接再进行聚合"><a href="#先进行连接再进行聚合" class="headerlink" title="先进行连接再进行聚合"></a>先进行连接再进行聚合</h3><p>连接和聚合同时使用时，先进行连接操作可以避免产生中间表。原因是，从集合运算的角度来看，连接做的是“乘法运算”。连接表双方是一对一、一对多的关系时，连接运算后数据的行数不会增加。</p>
+<h3 id="合理地使用视图"><a href="#合理地使用视图" class="headerlink" title="合理地使用视图"></a>合理地使用视图</h3><p>视图是非常方便的工具。但是，如果没有经过深入思考就定义复杂的视图，可能会带来巨大的性能问题。特别是视图的定义语句中包含以下运算的时候，SQL会非常低效，执行速度也会变得非常慢。</p>
+<ul>
+<li>聚合函数（AVG、COUNT、SUM、MIN、MAX）</li>
+<li>集合运算符（UNION、INTERSECT、EXCEPT等）</li>
+</ul>
+<p>一般来说，要格外注意避免在视图中进行聚合操作，需要特别注意。</p>
+
       
     </div>
 
@@ -484,8 +610,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="mrlonelyjtr">
           <p class="site-author-name" itemprop="name">mrlonelyjtr</p>
@@ -556,6 +691,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用高效的查询"><span class="nav-number">1.</span> <span class="nav-text">使用高效的查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参数是子查询时，使用EXISTS代替IN"><span class="nav-number">1.1.</span> <span class="nav-text">参数是子查询时，使用EXISTS代替IN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数是子查询时，使用连接代替IN"><span class="nav-number">1.2.</span> <span class="nav-text">参数是子查询时，使用连接代替IN</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#避免排序"><span class="nav-number">2.</span> <span class="nav-text">避免排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#灵活使用集合运算符的ALL可选项"><span class="nav-number">2.1.</span> <span class="nav-text">灵活使用集合运算符的ALL可选项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用EXISTS代替DISTINCT"><span class="nav-number">2.2.</span> <span class="nav-text">使用EXISTS代替DISTINCT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在极值函数中使用索引（MAX-MIN）"><span class="nav-number">2.3.</span> <span class="nav-text">在极值函数中使用索引（MAX/MIN）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#能写在WHERE子句里的条件不要写在HAVING子句里"><span class="nav-number">2.4.</span> <span class="nav-text">能写在WHERE子句里的条件不要写在HAVING子句里</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在GROUP-BY子句和ORDER-BY子句中使用索引"><span class="nav-number">2.5.</span> <span class="nav-text">在GROUP BY子句和ORDER BY子句中使用索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#真的用到索引了吗"><span class="nav-number">3.</span> <span class="nav-text">真的用到索引了吗</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在索引字段上进行运算"><span class="nav-number">3.1.</span> <span class="nav-text">在索引字段上进行运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用IS-NULL谓词"><span class="nav-number">3.2.</span> <span class="nav-text">使用IS NULL谓词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用否定形式"><span class="nav-number">3.3.</span> <span class="nav-text">使用否定形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用OR"><span class="nav-number">3.4.</span> <span class="nav-text">使用OR</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用联合索引时，列的顺序错误"><span class="nav-number">3.5.</span> <span class="nav-text">使用联合索引时，列的顺序错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用LIKE谓词进行后方一致或中间一致的匹配"><span class="nav-number">3.6.</span> <span class="nav-text">使用LIKE谓词进行后方一致或中间一致的匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进行默认的类型转换"><span class="nav-number">3.7.</span> <span class="nav-text">进行默认的类型转换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#减少中间表"><span class="nav-number">4.</span> <span class="nav-text">减少中间表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#灵活使用HAVING子句"><span class="nav-number">4.1.</span> <span class="nav-text">灵活使用HAVING子句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#需要对多个字段使用IN谓词时，将它们汇总到一处"><span class="nav-number">4.2.</span> <span class="nav-text">需要对多个字段使用IN谓词时，将它们汇总到一处</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#先进行连接再进行聚合"><span class="nav-number">4.3.</span> <span class="nav-text">先进行连接再进行聚合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合理地使用视图"><span class="nav-number">4.4.</span> <span class="nav-text">合理地使用视图</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
