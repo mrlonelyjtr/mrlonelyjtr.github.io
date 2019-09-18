@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
 <meta property="og:description" content="We define a harmounious array as an array where the difference between its maximum value and its minimum value is exactly 1. Now, given an integer array, you need to find the length of its longest har">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-18T06:07:26.206Z">
+<meta property="og:updated_time" content="2019-09-18T14:38:04.893Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LeetCode] Problem 594 - Longest Harmonious Subsequence">
 <meta name="twitter:description" content="We define a harmounious array as an array where the difference between its maximum value and its minimum value is exactly 1. Now, given an integer array, you need to find the length of its longest har">
@@ -329,7 +329,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-18T14:06:25Z">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-18T22:06:25+08:00">
                 2019-09-18
               </time>
             
@@ -404,7 +404,7 @@
 <p>Output: 5</p>
 <p>Explanation: The longest harmonious subsequence is [3,2,2,2,3].</p>
 <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>The length of the input array will not exceed 20,000.</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findLHS</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">    Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> num : nums)</span><br><span class="line">        map.put(num, map.getOrDefault(num, <span class="number">0</span>) + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (Map.Entry&lt;Integer, Integer&gt; entry : map.entrySet()) &#123;</span><br><span class="line">        <span class="keyword">int</span> key = entry.getKey();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (map.containsKey(key + <span class="number">1</span>))</span><br><span class="line">            result = Math.max(result, entry.getValue() + map.get(key + <span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
