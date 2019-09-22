@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LintCode] Problem 880 - Construct Binary Tree from String]]></title>
+    <url>%2F2019%2F09%2F23%2FLintCode-Problem-880-Construct-Binary-Tree-from-String%2F</url>
+    <content type="text"><![CDATA[You need to construct a binary tree from a string consisting of parenthesis and integers. The whole input represents a binary tree. It contains an integer followed by zero, one or two pairs of parenthesis. The integer represents the root’s value and a pair of parenthesis contains a child binary tree with the same structure. You always start to construct the left child node of the parent first if it exists. Note There will only be ‘(‘, ‘)’, ‘-‘ and ‘0’ ~ ‘9’ in the input string. An empty tree is represented by “” instead of “()”. ExampleNo.1Input: “-4(2(3)(1))(6(5))” Output: {-4,2,6,3,1,5} Explanation:The output is look like this: 12345 -4 / \ 2 6 / \ / 3 1 5 No.2Input: “1(-1)” Output: {1,-1} Explanation:The output is look like this: 123 1 /-1 Code123456public class TreeNode &#123; int val; TreeNode left; TreeNode right; TreeNode(int x) &#123; val = x; &#125;&#125; 1234567891011121314151617181920212223242526272829public TreeNode str2tree(String s) &#123; if (s.length() &lt;= 0) return null; int idx = s.indexOf("("); if (idx == -1) return new TreeNode(Integer.valueOf(s)); int val = Integer.parseInt(s.substring(0, idx)); TreeNode root = new TreeNode(val); int count = 0; int openIdx = idx; for (int i = idx; i &lt; s.length(); i++) &#123; if (s.charAt(i) == '(') count++; else if (s.charAt(i) == ')') count--; if (count == 0 &amp;&amp; openIdx == idx) &#123; root.left = str2tree(s.substring(idx + 1, i)); openIdx = i + 1; &#125; else if (count == 0) root.right = str2tree(s.substring(openIdx + 1, i)); &#125; return root;&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LintCode</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Problem 606 - Construct String from Binary Tree]]></title>
     <url>%2F2019%2F09%2F22%2FLeetCode-Problem-606-Construct-String-from-Binary-Tree%2F</url>
     <content type="text"><![CDATA[You need to construct a string consists of parenthesis and integers from a binary tree with the preorder traversing way. The null node needs to be represented by empty parenthesis pair “()”. And you need to omit all the empty parenthesis pairs that don’t affect the one-to-one mapping relationship between the string and the original binary tree. ExampleNo.1Input: Binary tree: [1,2,3,4] 12345 1 / \ 2 3 / 4 Output: “1(2(4))(3)” Explanation: Originallay it needs to be “1(2(4)())(3()())”,but you need to omit all the unnecessary empty parenthesis pairs.And it will be “1(2(4))(3)”. No.2Input: Binary tree: [1,2,3,null,4] 12345 1 / \2 3 \ 4 Output: “1(2()(4))(3)” Explanation: Almost the same as the first example,except we can’t omit the first parenthesis pair to break the one-to-one mapping relationship between the input and the output. Code123456public class TreeNode &#123; int val; TreeNode left; TreeNode right; TreeNode(int x) &#123; val = x; &#125;&#125; 1234567891011121314151617181920212223242526public String tree2str(TreeNode t) &#123; StringBuilder sb = new StringBuilder(); helper(t, sb); return sb.toString();&#125;private void helper(TreeNode t, StringBuilder sb) &#123; if (t == null) return; if (t.left == null &amp;&amp; t.right == null) &#123; sb.append(t.val); return; &#125; sb.append(t.val); sb.append("("); helper(t.left, sb); sb.append(")"); if (t.right != null) &#123; sb.append("("); helper(t.right, sb); sb.append(")"); &#125;&#125;]]></content>
