@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LeetCode] Problem 686 - Repeated String Match]]></title>
+    <url>%2F2019%2F09%2F27%2FLeetCode-Problem-686-Repeated-String-Match%2F</url>
+    <content type="text"><![CDATA[Given two strings A and B, find the minimum number of times A has to be repeated such that B is a substring of it. If no such solution, return -1. For example, with A = “abcd” and B = “cdabcdab”. Return 3, because by repeating A three times (“abcdabcdabcd”), B is a substring of it; and B is not a substring of A repeated two times (“abcdabcd”). NoteThe length of A and B will be between 1 and 10000. Code12]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Problem 661 - Image Smoother]]></title>
+    <url>%2F2019%2F09%2F27%2FLeetCode-Problem-661-Image-Smoother%2F</url>
+    <content type="text"><![CDATA[Given a 2D integer matrix M representing the gray scale of an image, you need to design a smoother to make the gray scale of each cell becomes the average gray scale (rounding down) of all the 8 surrounding cells and itself. If a cell has less than 8 surrounding cells, then use as many as you can. ExampleInput: 123[[1,1,1], [1,0,1], [1,1,1]] Output: 123[[0, 0, 0], [0, 0, 0], [0, 0, 0]] Explanation:For the point (0,0), (0,2), (2,0), (2,2): floor(3/4) = floor(0.75) = 0For the point (0,1), (1,0), (1,2), (2,1): floor(5/6) = floor(0.83333333) = 0For the point (1,1): floor(8/9) = floor(0.88888889) = 0 Note The value in the given matrix is in the range of [0, 255]. The length and width of the given matrix are in the range of [1, 150]. Code123456789101112131415161718192021222324252627282930313233private int[][] dirs = &#123;&#123;-1, -1&#125;, &#123;0, -1&#125;, &#123;1, -1&#125;, &#123;-1, 0&#125;, &#123;0, 0&#125;, &#123;1, 0&#125;, &#123;-1, 1&#125;, &#123;0, 1&#125;, &#123;1, 1&#125;&#125;;public int[][] imageSmoother(int[][] M) &#123; int m = M.length; int n = M[0].length; int[][] result = new int[m][n]; for (int i = 0; i &lt; m; i++) &#123; for (int j = 0; j &lt; n; j++) result[i][j] = smooth(M, m, n, i, j); &#125; return result;&#125;private int smooth(int[][] M, int m, int n, int i, int j) &#123; int count = 0; int sum = 0; for (int[] dir : dirs) &#123; int x = i + dir[0]; int y = j + dir[1]; if (x &lt; 0 || y &lt; 0 || x &gt;= m || y &gt;= n) continue; count++; sum += M[x][y]; &#125; return sum / count;&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Problem 645 - Set Mismatch]]></title>
     <url>%2F2019%2F09%2F27%2FLeetCode-Problem-645-Set-Mismatch%2F</url>
     <content type="text"><![CDATA[The set S originally contains numbers from 1 to n. But unfortunately, due to the data error, one of the numbers in the set got duplicated to another number in the set, which results in repetition of one number and loss of another number. Given an array nums representing the data status of this set after the error. Your task is to firstly find the number occurs twice and then find the number that is missing. Return them in the form of an array. ExampleInput: nums = [1,2,2,4] Output: [2,3] Note The given array size will in the range [2, 10000]. The given array’s numbers won’t have any order. Code123456789101112131415161718192021public int[] findErrorNums(int[] nums) &#123; int[] result = new int[2]; for (int i = 0; i &lt; nums.length; i++) &#123; int idx = Math.abs(nums[i]) - 1; if (nums[idx] &lt; 0) result[0] = idx + 1; else nums[idx] *= -1; &#125; for (int i = 0; i &lt; nums.length; i++) &#123; if (nums[i] &gt; 0) &#123; result[1] = i + 1; break; &#125; &#125; return result;&#125;]]></content>
