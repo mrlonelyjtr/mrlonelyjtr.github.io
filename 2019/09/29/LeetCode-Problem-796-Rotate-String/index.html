@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
 <meta property="og:description" content="We are given two strings, A and B. A shift on A consists of taking string A and moving the leftmost character to the rightmost position. For example, if A = ‘abcde’, then it will be ‘bcdea’ after one">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-27T13:36:37.439Z">
+<meta property="og:updated_time" content="2019-09-27T16:12:05.665Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LeetCode] Problem 796 - Rotate String">
 <meta name="twitter:description" content="We are given two strings, A and B. A shift on A consists of taking string A and moving the leftmost character to the rightmost position. For example, if A = ‘abcde’, then it will be ‘bcdea’ after one">
@@ -407,7 +407,7 @@
 <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><ul>
 <li>A and B will have length at most 100.</li>
 </ul>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">rotateString</span><span class="params">(String A, String B)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (A.length() != B.length())</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (A + A).indexOf(B) &gt;= <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
