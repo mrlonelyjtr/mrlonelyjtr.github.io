@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LintCode] Problem 859 - Max Stack]]></title>
+    <url>%2F2019%2F09%2F28%2FLintCode-Problem-859-Max-Stack%2F</url>
+    <content type="text"><![CDATA[Design a max stack that supports push, pop, top, peekMax and popMax. push(x) – Push element x onto stack. pop() – Remove the element on top of the stack and return it. top() – Get the element on the top. peekMax() – Retrieve the maximum element in the stack. popMax() – Retrieve the maximum element in the stack, and remove it. If you find more than one maximum elements, only remove the top-most one. Note -1e7 &lt;= x &lt;= 1e7 Number of operations won’t exceed 10000. The last four operations won’t be called when stack is empty. ExampleInput:push(5)push(1)push(5)top()popMax()top()peekMax()pop()top() Output:551515 Code123456789101112131415161718192021222324252627282930313233343536373839404142434445464748class MaxStack &#123; private Stack&lt;Integer&gt; stack; private Stack&lt;Integer&gt; max; public MaxStack() &#123; stack = new Stack&lt;&gt;(); max = new Stack&lt;&gt;(); &#125; public void push(int x) &#123; stack.push(x); if (max.isEmpty() || max.peek() &lt;= x) max.push(x); &#125; public int pop() &#123; int x = stack.pop(); if (max.peek() == x) max.pop(); return x; &#125; public int top() &#123; return stack.peek(); &#125; public int peekMax() &#123; return max.peek(); &#125; public int popMax() &#123; int x = max.pop(); Stack&lt;Integer&gt; temp = new Stack&lt;&gt;(); while (stack.peek() != x) temp.push(stack.pop()); stack.pop(); while (!temp.isEmpty()) stack.push(temp.pop()); return x; &#125;&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LintCode</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Problem 686 - Repeated String Match]]></title>
     <url>%2F2019%2F09%2F27%2FLeetCode-Problem-686-Repeated-String-Match%2F</url>
     <content type="text"><![CDATA[Given two strings A and B, find the minimum number of times A has to be repeated such that B is a substring of it. If no such solution, return -1. For example, with A = “abcd” and B = “cdabcdab”. Return 3, because by repeating A three times (“abcdabcdabcd”), B is a substring of it; and B is not a substring of A repeated two times (“abcdabcd”). NoteThe length of A and B will be between 1 and 10000. Code12]]></content>
