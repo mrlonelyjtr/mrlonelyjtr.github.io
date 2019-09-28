@@ -55,7 +55,7 @@
   <entry>
     <title><![CDATA[[LeetCode] Problem 665 - Non-decreasing Array]]></title>
     <url>%2F2019%2F09%2F29%2FLeetCode-Problem-665-Non-decreasing-Array%2F</url>
-    <content type="text"><![CDATA[Given an array with n integers, your task is to check if it could become non-decreasing by modifying at most 1 element. We define an array is non-decreasing if array[i] &lt;= array[i + 1] holds for every i (1 &lt;= i &lt; n). ExampleNo.1Input: [4,2,3] Output: True Explanation: You could modify the first 4 to 1 to get a non-decreasing array. No.2Input: [4,2,1] Output: False Explanation: You can’t get a non-decreasing array by modify at most one element. NoteThe n belongs to [1, 10,000]. Code12]]></content>
+    <content type="text"><![CDATA[Given an array with n integers, your task is to check if it could become non-decreasing by modifying at most 1 element. We define an array is non-decreasing if array[i] &lt;= array[i + 1] holds for every i (1 &lt;= i &lt; n). ExampleNo.1Input: [4,2,3] Output: True Explanation: You could modify the first 4 to 1 to get a non-decreasing array. No.2Input: [4,2,1] Output: False Explanation: You can’t get a non-decreasing array by modify at most one element. NoteThe n belongs to [1, 10,000]. Code1234567891011121314151617public boolean checkPossibility(int[] nums) &#123; int count = 1; for (int i = 1; i &lt; nums.length; i++) &#123; if (nums[i] &lt; nums[i - 1]) &#123; if (i &gt;= 2 &amp;&amp; nums[i] &lt; nums[i - 2]) nums[i] = nums[i - 1]; else nums[i - 1] = nums[i]; if (--count &lt; 0) return false; &#125; &#125; return true;&#125;]]></content>
       <categories>
         <category>Algorithm</category>
         <category>LeetCode</category>
