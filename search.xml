@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LeetCode] Problem 524 - Longest Word in Dictionary through Deleting]]></title>
+    <url>%2F2019%2F10%2F03%2FLeetCode-Problem-524-Longest-Word-in-Dictionary-through-Deleting%2F</url>
+    <content type="text"><![CDATA[Given a string and a string dictionary, find the longest string in the dictionary that can be formed by deleting some characters of the given string. If there are more than one possible results, return the longest word with the smallest lexicographical order. If there is no possible result, return the empty string. ExampleNo.1Input:s = “abpcplea”, d = [“ale”,”apple”,”monkey”,”plea”] Output:“apple” No.2Input:s = “abpcplea”, d = [“a”,”b”,”c”] Output:“a” Note All the strings in the input will only contain lower-case letters. The size of the dictionary won’t exceed 1,000. The length of all the strings in the input won’t exceed 1,000. Code12345678910111213141516171819202122232425262728public String findLongestWord(String s, List&lt;String&gt; d) &#123; String result = ""; char[] array = s.toCharArray(); for (String word : d) &#123; if (word.length() &lt; result.length() || (word.length() == result.length() &amp;&amp; word.compareTo(result) &gt; 0)) continue; if (isValid(array, word.toCharArray())) result = word; &#125; return result;&#125;private boolean isValid(char[] s, char[] w) &#123; int i = 0; int j = 0; while (i &lt; s.length &amp;&amp; j &lt; w.length) &#123; if (s[i] == w[j]) j++; i++; &#125; return j == w.length;&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Problem 720 - Longest Word in Dictionary]]></title>
     <url>%2F2019%2F10%2F03%2FLeetCode-Problem-720-Longest-Word-in-Dictionary%2F</url>
     <content type="text"><![CDATA[Given a list of strings words representing an English Dictionary, find the longest word in words that can be built one character at a time by other words in words. If there is more than one possible answer, return the longest word with the smallest lexicographical order. If there is no answer, return the empty string. ExampleNo.1Input:words = [“w”,”wo”,”wor”,”worl”, “world”] Output: “world” Explanation:The word “world” can be built one character at a time by “w”, “wo”, “wor”, and “worl”. No.2Input:words = [“a”, “banana”, “app”, “appl”, “ap”, “apply”, “apple”] Output: “apple” Explanation:Both “apply” and “apple” can be built from other words in the dictionary. However, “apple” is lexicographically smaller than “apply”. Note All the strings in the input will only contain lowercase letters. The length of words will be in the range [1, 1000]. The length of words[i] will be in the range [1, 30]. Code123456789101112131415161718192021222324252627282930public String longestWord(String[] words) &#123; String result = ""; Set&lt;String&gt; set = new HashSet&lt;&gt;(); for (String word : words) set.add(word); for (String word : words) &#123; if (word.length() &lt; result.length() || (word.length() == result.length() &amp;&amp; word.compareTo(result) &gt; 0)) continue; StringBuilder sb = new StringBuilder(); boolean valid = true; for (int i = 0; i &lt; word.length() - 1; i++) &#123; sb.append(word.charAt(i)); if (!set.contains(sb.toString())) &#123; valid = false; break; &#125; &#125; if (valid) result = word; &#125; return result;&#125;]]></content>
