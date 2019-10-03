@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LeetCode] Problem 724 - Find Pivot Index]]></title>
+    <url>%2F2019%2F10%2F03%2FLeetCode-Problem-724-Find-Pivot-Index%2F</url>
+    <content type="text"><![CDATA[Given an array of integers nums, write a method that returns the “pivot” index of this array. We define the pivot index as the index where the sum of the numbers to the left of the index is equal to the sum of the numbers to the right of the index. If no such index exists, we should return -1. If there are multiple pivot indexes, you should return the left-most pivot index. ExampleNo.1Input:nums = [1, 7, 3, 6, 5, 6] Output: 3 Explanation:The sum of the numbers to the left of index 3 (nums[3] = 6) is equal to the sum of numbers to the right of index 3.Also, 3 is the first index where this occurs. No.2Input:nums = [1, 2, 3] Output: -1 Explanation:There is no index that satisfies the conditions in the problem statement. Note The length of nums will be in the range [0, 10000]. Each element nums[i] will be an integer in the range [-1000, 1000]. Code12345678910111213141516public int pivotIndex(int[] nums) &#123; int sum = 0; int currentSum = 0; for (int num : nums) sum += num; for (int i = 0; i &lt; nums.length; i++) &#123; if (sum - nums[i] == 2 * currentSum) return i; currentSum += nums[i]; &#125; return -1;&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[The English We Speak 5]]></title>
+    <url>%2F2019%2F10%2F03%2FThe-English-We-Speak-5%2F</url>
+    <content type="text"><![CDATA[A leopard can’t change its spotshe won’t change. He will always be the same person and his bad habits are here to stay. ExamplesI told Karen she had to study more if she wants to pass her exams but a leopard can’t change its spots – she won’t do it. Freddie promised he wouldn’t get into trouble at school but I don’t believe him – a leopard can’t change its spots. Full of the joys of springsomeone is happy. ExamplesEmily’s full of the joys of spring today – her boyfriend has just asked her to marry him! Raj seems full of the joys of spring today – he must have some good news about his exam results. I’m full of the joys of spring today – I’ve just won £1,000 in the lottery – now, what shall I spend it on?]]></content>
+      <categories>
+        <category>English</category>
+      </categories>
+      <tags>
+        <tag>English</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Problem 524 - Longest Word in Dictionary through Deleting]]></title>
     <url>%2F2019%2F10%2F03%2FLeetCode-Problem-524-Longest-Word-in-Dictionary-through-Deleting%2F</url>
     <content type="text"><![CDATA[Given a string and a string dictionary, find the longest string in the dictionary that can be formed by deleting some characters of the given string. If there are more than one possible results, return the longest word with the smallest lexicographical order. If there is no possible result, return the empty string. ExampleNo.1Input:s = “abpcplea”, d = [“ale”,”apple”,”monkey”,”plea”] Output:“apple” No.2Input:s = “abpcplea”, d = [“a”,”b”,”c”] Output:“a” Note All the strings in the input will only contain lower-case letters. The size of the dictionary won’t exceed 1,000. The length of all the strings in the input won’t exceed 1,000. Code12345678910111213141516171819202122232425262728public String findLongestWord(String s, List&lt;String&gt; d) &#123; String result = ""; char[] array = s.toCharArray(); for (String word : d) &#123; if (word.length() &lt; result.length() || (word.length() == result.length() &amp;&amp; word.compareTo(result) &gt; 0)) continue; if (isValid(array, word.toCharArray())) result = word; &#125; return result;&#125;private boolean isValid(char[] s, char[] w) &#123; int i = 0; int j = 0; while (i &lt; s.length &amp;&amp; j &lt; w.length) &#123; if (s[i] == w[j]) j++; i++; &#125; return j == w.length;&#125;]]></content>
