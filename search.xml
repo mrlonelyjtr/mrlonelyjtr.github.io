@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LintCode] Problem 1127 - Add Bold Tag in String]]></title>
+    <url>%2F2019%2F10%2F05%2FLintCode-Problem-1127-Add-Bold-Tag-in-String%2F</url>
+    <content type="text"><![CDATA[Given a string s and a list of strings dict, you need to add a closed pair of bold tag and to wrap the substrings in s that exist in dict. If two such substrings overlap, you need to wrap them together by only one pair of closed bold tag. Also, if two substrings wrapped by bold tags are consecutive, you need to combine them. NoteThe given dict won’t contain duplicates, and its length won’t exceed 100.All the strings in input have length in range [1, 1000]. ExampleNo.1Input:s = “abcxyz123”dict = [“abc”,”123”] Output:“&lt;b&gt;abc&lt;/b&gt;xyz&lt;b&gt;123&lt;/b&gt;“ No.2Input:s = “aaabbcc”dict = [“aaa”,”aab”,”bc”] Output:“&lt;b&gt;aaabbc&lt;/b&gt;c” Code123456789101112131415161718192021222324252627282930313233public String addBoldTag(String s, String[] dict) &#123; StringBuilder sb = new StringBuilder(); int n = s.length(); int[] array = new int[n + 1]; int sum = 0; int preSum = 0; for (String word : dict) &#123; int idx = 0; while ((idx = s.indexOf(word, idx)) &gt;= 0) &#123; array[idx]++; array[idx + word.length()]--; idx++; &#125; &#125; for (int i = 0; i &lt;= n; i++) &#123; sum += array[i]; if (sum &gt; 0 &amp;&amp; preSum == 0) sb.append("&lt;b&gt;"); else if (sum == 0 &amp;&amp; preSum &gt; 0) sb.append("&lt;/b&gt;"); if (i &lt; n) sb.append(s.charAt(i)); preSum = sum; &#125; return sb.toString();&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LintCode</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LintCode] Problem 812 - Bold Words in String]]></title>
     <url>%2F2019%2F10%2F05%2FLintCode-Problem-812-Bold-Words-in-String%2F</url>
     <content type="text"><![CDATA[Given a set of keywords words and a string S, make all appearances of all keywords in S bold. Any letters between &lt;b&gt; and &lt;/b&gt; tags become bold.The returned string should use the least number of tags possible, and of course the tags should form a valid combination. Note words has length in range [0, 50]. words[i] has length in range [1, 10]. S has length in range [0, 500]. All characters in words[i] and S are lowercase letters. ExampleNo.1Input:[“ab”, “bc”]“aabcd” Output:“a&lt;b&gt;abc&lt;/b&gt;d” Explanation:Note that returning “a&lt;b&gt;a&lt;b&gt;b&lt;/b&gt;c&lt;/b&gt;d” would use more tags, so it is incorrect. No.2Input:[“bcccaeb”,”b”,”eedcbda”,”aeebebebd”,”ccd”,”eabbbdcde”,”deaaea”,”aea”,”accebbb”,”d”]“ceaaabbbedabbecbcced” Output:“ceaaa&lt;b&gt;bbb&lt;/b&gt;e&lt;b&gt;d&lt;/b&gt;a&lt;b&gt;bb&lt;/b&gt;ec&lt;b&gt;b&lt;/b&gt;cce&lt;b&gt;d&lt;/b&gt;“ Code123456789101112131415161718192021222324252627282930313233public String boldWords(String[] words, String S) &#123; StringBuilder sb = new StringBuilder(); int n = S.length(); int[] array = new int[n + 1]; int sum = 0; int preSum = 0; for (String word : words) &#123; int idx = 0; while ((idx = S.indexOf(word, idx)) &gt;= 0) &#123; array[idx]++; array[idx + word.length()]--; idx++; &#125; &#125; for (int i = 0; i &lt;= n; i++) &#123; sum += array[i]; if (sum &gt; 0 &amp;&amp; preSum == 0) sb.append("&lt;b&gt;"); else if (sum == 0 &amp;&amp; preSum &gt; 0) sb.append("&lt;/b&gt;"); if (i &lt; n) sb.append(S.charAt(i)); preSum = sum; &#125; return sb.toString();&#125;]]></content>
