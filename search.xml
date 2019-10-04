@@ -1,6 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LintCode] Problem 812 - Bold Words in String]]></title>
+    <url>%2F2019%2F10%2F05%2FLintCode-Problem-812-Bold-Words-in-String%2F</url>
+    <content type="text"><![CDATA[Given a set of keywords words and a string S, make all appearances of all keywords in S bold. Any letters between &lt;b&gt; and &lt;/b&gt; tags become bold.The returned string should use the least number of tags possible, and of course the tags should form a valid combination. Note words has length in range [0, 50]. words[i] has length in range [1, 10]. S has length in range [0, 500]. All characters in words[i] and S are lowercase letters. ExampleNo.1Input:[“ab”, “bc”]“aabcd” Output:“a&lt;b&gt;abc&lt;/b&gt;d” Explanation:Note that returning “a&lt;b&gt;a&lt;b&gt;b&lt;/b&gt;c&lt;/b&gt;d” would use more tags, so it is incorrect. No.2Input:[“bcccaeb”,”b”,”eedcbda”,”aeebebebd”,”ccd”,”eabbbdcde”,”deaaea”,”aea”,”accebbb”,”d”]“ceaaabbbedabbecbcced” Output:“ceaaa&lt;b&gt;bbb&lt;/b&gt;e&lt;b&gt;d&lt;/b&gt;a&lt;b&gt;bb&lt;/b&gt;ec&lt;b&gt;b&lt;/b&gt;cce&lt;b&gt;d&lt;/b&gt;“ Code123456789101112131415161718192021222324252627282930313233public String boldWords(String[] words, String S) &#123; StringBuilder sb = new StringBuilder(); int n = S.length(); int[] array = new int[n + 1]; int sum = 0; int preSum = 0; for (String word : words) &#123; int idx = 0; while ((idx = S.indexOf(word, idx)) &gt;= 0) &#123; array[idx]++; array[idx + word.length()]--; idx++; &#125; &#125; for (int i = 0; i &lt;= n; i++) &#123; sum += array[i]; if (sum &gt; 0 &amp;&amp; preSum == 0) sb.append("&lt;b&gt;"); else if (sum == 0 &amp;&amp; preSum &gt; 0) sb.append("&lt;/b&gt;"); if (i &lt; n) sb.append(S.charAt(i)); preSum = sum; &#125; return sb.toString();&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LintCode</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Problem 754 - Reach a Number]]></title>
+    <url>%2F2019%2F10%2F04%2FLeetCode-Problem-754-Reach-a-Number%2F</url>
+    <content type="text"><![CDATA[You are standing at position 0 on an infinite number line. There is a goal at position target. On each move, you can either go left or right. During the n-th move (starting from 1), you take n steps. Return the minimum number of steps required to reach the destination. ExampleNo.1Input: target = 3 Output: 2 Explanation:On the first move we step from 0 to 1.On the second step we step from 1 to 3. No.2Input: target = 2 Output: 3 Explanation:On the first move we step from 0 to 1.On the second move we step from 1 to -1.On the third move we step from -1 to 2. Note target will be a non-zero integer in the range [-10^9, 10^9]. Code 123456789101112131415public int reachNumber(int target) &#123; target = Math.abs(target); int sum = 0; int k = 0; while (sum &lt; target) &#123; k++; sum += k; &#125; if ((sum - target) % 2 == 0) return k; else return k + 1 + (k % 2);&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Problem 762 - Prime Number of Set Bits in Binary Representation]]></title>
+    <url>%2F2019%2F10%2F04%2FLeetCode-Problem-762-Prime-Number-of-Set-Bits-in-Binary-Representation%2F</url>
+    <content type="text"><![CDATA[Given two integers L and R, find the count of numbers in the range [L, R] (inclusive) having a prime number of set bits in their binary representation. (Recall that the number of set bits an integer has is the number of 1s present when written in binary. For example, 21 written in binary is 10101 which has 3 set bits. Also, 1 is not a prime.) ExampleNo.1Input: L = 6, R = 10 Output: 4 Explanation:6 -&gt; 110 (2 set bits, 2 is prime)7 -&gt; 111 (3 set bits, 3 is prime)9 -&gt; 1001 (2 set bits , 2 is prime)10-&gt;1010 (2 set bits , 2 is prime) No.2Input: L = 10, R = 15 Output: 5 Explanation:10 -&gt; 1010 (2 set bits, 2 is prime)11 -&gt; 1011 (3 set bits, 3 is prime)12 -&gt; 1100 (2 set bits, 2 is prime)13 -&gt; 1101 (3 set bits, 3 is prime)14 -&gt; 1110 (3 set bits, 3 is prime)15 -&gt; 1111 (4 set bits, 4 is not prime) Note L, R will be integers L &lt;= R in the range [1, 10^6]. R - L will be at most 10000. Code1234567891011121314151617public int countPrimeSetBits(int L, int R) &#123; int result = 0; for (int i = L; i &lt;= R; i++) &#123; int count = Integer.bitCount(i); if (isPrime(count)) result++; &#125; return result;&#125;private boolean isPrime(int n) &#123; int prime = 665772; // 2, 3, 5, 7, 11, 13, 17, 19 return (prime &amp; (1 &lt;&lt; n)) != 0;&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Problem 747 - Largest Number At Least Twice of Others]]></title>
+    <url>%2F2019%2F10%2F04%2FLeetCode-Problem-747-Largest-Number-At-Least-Twice-of-Others%2F</url>
+    <content type="text"><![CDATA[In a given integer array nums, there is always exactly one largest element. Find whether the largest element in the array is at least twice as much as every other number in the array. If it is, return the index of the largest element, otherwise return -1. ExampleNo.1Input: nums = [3, 6, 1, 0] Output: 1 Explanation: 6 is the largest integer, and for every other number in the array x,6 is more than twice as big as x. The index of value 6 is 1, so we return 1. No.2Input: nums = [1, 2, 3, 4] Output: -1 Explanation: 4 isn’t at least as big as twice the value of 3, so we return -1. Note nums will have a length in the range [1, 50]. Every nums[i] will be an integer in the range [0, 99]. Code1234567891011121314151617public int dominantIndex(int[] nums) &#123; int result = 0; int max1 = Integer.MIN_VALUE; int max2 = Integer.MIN_VALUE; for (int i = 0; i &lt; nums.length; i++) &#123; if (nums[i] &gt;= max1) &#123; max2 = max1; max1 = nums[i]; result = i; &#125; else if (nums[i] &gt; max2) max2 = nums[i]; &#125; return max1 &gt;= 2 * max2 ? result : -1;&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[LeetCode] Problem 746 - Min Cost Climbing Stairs]]></title>
+    <url>%2F2019%2F10%2F04%2FLeetCode-Problem-746-Min-Cost-Climbing-Stairs%2F</url>
+    <content type="text"><![CDATA[On a staircase, the i-th step has some non-negative cost cost[i] assigned (0 indexed). Once you pay the cost, you can either climb one or two steps. You need to find minimum cost to reach the top of the floor, and you can either start from the step with index 0, or the step with index 1. ExampleNo.1Input: cost = [10, 15, 20] Output: 15 Explanation: Cheapest is start on cost[1], pay that cost and go to the top. No.2Input: cost = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1] Output: 6 Explanation: Cheapest is start on cost[0], and only step on 1s, skipping cost[3]. Note cost will have a length in the range [2, 1000]. Every cost[i] will be an integer in the range [0, 999]. Code1234567891011121314// dp[i] = min&#123;dp[i - 2], dp[i - 1]&#125; + cost[i]public int minCostClimbingStairs(int[] cost) &#123; int result = Integer.MAX_VALUE; int a = 0; int b = 0; for (int i = 0; i &lt; cost.length; i++) &#123; result = Math.min(a, b) + cost[i]; a = b; b = result; &#125; return Math.min(a, b);&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[LeetCode] Problem 724 - Find Pivot Index]]></title>
     <url>%2F2019%2F10%2F03%2FLeetCode-Problem-724-Find-Pivot-Index%2F</url>
     <content type="text"><![CDATA[Given an array of integers nums, write a method that returns the “pivot” index of this array. We define the pivot index as the index where the sum of the numbers to the left of the index is equal to the sum of the numbers to the right of the index. If no such index exists, we should return -1. If there are multiple pivot indexes, you should return the left-most pivot index. ExampleNo.1Input:nums = [1, 7, 3, 6, 5, 6] Output: 3 Explanation:The sum of the numbers to the left of index 3 (nums[3] = 6) is equal to the sum of numbers to the right of index 3.Also, 3 is the first index where this occurs. No.2Input:nums = [1, 2, 3] Output: -1 Explanation:There is no index that satisfies the conditions in the problem statement. Note The length of nums will be in the range [0, 10000]. Each element nums[i] will be an integer in the range [-1000, 1000]. Code12345678910111213141516public int pivotIndex(int[] nums) &#123; int sum = 0; int currentSum = 0; for (int num : nums) sum += num; for (int i = 0; i &lt; nums.length; i++) &#123; if (sum - nums[i] == 2 * currentSum) return i; currentSum += nums[i]; &#125; return -1;&#125;]]></content>
@@ -16,7 +81,7 @@
   <entry>
     <title><![CDATA[The English We Speak 5]]></title>
     <url>%2F2019%2F10%2F03%2FThe-English-We-Speak-5%2F</url>
-    <content type="text"><![CDATA[A leopard can’t change its spotshe won’t change. He will always be the same person and his bad habits are here to stay. ExamplesI told Karen she had to study more if she wants to pass her exams but a leopard can’t change its spots – she won’t do it. Freddie promised he wouldn’t get into trouble at school but I don’t believe him – a leopard can’t change its spots. Full of the joys of springsomeone is happy. ExamplesEmily’s full of the joys of spring today – her boyfriend has just asked her to marry him! Raj seems full of the joys of spring today – he must have some good news about his exam results. I’m full of the joys of spring today – I’ve just won £1,000 in the lottery – now, what shall I spend it on?]]></content>
+    <content type="text"><![CDATA[A leopard can’t change its spotshe won’t change. He will always be the same person and his bad habits are here to stay. ExamplesI told Karen she had to study more if she wants to pass her exams but a leopard can’t change its spots – she won’t do it. Freddie promised he wouldn’t get into trouble at school but I don’t believe him – a leopard can’t change its spots. Full of the joys of springsomeone is happy. ExamplesEmily’s full of the joys of spring today – her boyfriend has just asked her to marry him! Raj seems full of the joys of spring today – he must have some good news about his exam results. I’m full of the joys of spring today – I’ve just won £1,000 in the lottery – now, what shall I spend it on? You’ve sold it to me‘you’ve convinced me’. ExamplesA: I lost five pounds after just a week on this new diet. It’s definitely worth a try.B: You’ve sold it to me. I need to get in shape for my school reunion. A: Your phone looks amazing.B: It’s brilliant, does everything, fab photos and great apps. AND it only cost me 10 pounds.A: 10 pounds. You’ve sold it to me. Where can I get one today? Crash courseWhen you are on a crash course, you learn about something in a very short period of time. ExamplesPeter applied to train as a teacher, but he had to complete a compulsory crash course in maths first. Alison did a crash course in French before her trip to Paris. I booked Nathan on a video editing crash course, so we’ve got at least one person who can operate the camera. Julie took a crash course in cooking to prepare for her wedding.]]></content>
       <categories>
         <category>English</category>
       </categories>
