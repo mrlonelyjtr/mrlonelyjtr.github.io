@@ -1,0 +1,919 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Message Queue,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="AMQP消息路由必须有三部分：交换器、队列和绑定。生产者把消息发布到交换器上；消息最终到达队列，并被消费者接收；绑定决定了消息如何从路由器路由到特定的队列。  从底部开始构造：队列消费者通过以下两种方式从特定的队列中接受消息：（1）通过AMQP的basic.consume命令订阅。这样做会将信道置为接收模式，直到取消对队列的订阅为止。订阅了消息后，消费者在消费（或者拒绝）最近接收的那条消息后，就能">
+<meta name="keywords" content="Message Queue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【RabbitMQ实战】AMQP元素——交换器、队列和绑定">
+<meta property="og:url" content="http://yoursite.com/2020/03/11/【RabbitMQ实战】AMQP元素——交换器、队列和绑定/index.html">
+<meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
+<meta property="og:description" content="AMQP消息路由必须有三部分：交换器、队列和绑定。生产者把消息发布到交换器上；消息最终到达队列，并被消费者接收；绑定决定了消息如何从路由器路由到特定的队列。  从底部开始构造：队列消费者通过以下两种方式从特定的队列中接受消息：（1）通过AMQP的basic.consume命令订阅。这样做会将信道置为接收模式，直到取消对队列的订阅为止。订阅了消息后，消费者在消费（或者拒绝）最近接收的那条消息后，就能">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/26/3aGn8x.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/18/8DcaKe.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/19/86pZ3n.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/19/86CLAU.png">
+<meta property="og:updated_time" content="2020-03-19T15:31:24.054Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【RabbitMQ实战】AMQP元素——交换器、队列和绑定">
+<meta name="twitter:description" content="AMQP消息路由必须有三部分：交换器、队列和绑定。生产者把消息发布到交换器上；消息最终到达队列，并被消费者接收；绑定决定了消息如何从路由器路由到特定的队列。  从底部开始构造：队列消费者通过以下两种方式从特定的队列中接受消息：（1）通过AMQP的basic.consume命令订阅。这样做会将信道置为接收模式，直到取消对队列的订阅为止。订阅了消息后，消费者在消费（或者拒绝）最近接收的那条消息后，就能">
+<meta name="twitter:image" content="https://s2.ax1x.com/2020/02/26/3aGn8x.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: "",
+      labels: ""
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/03/11/【RabbitMQ实战】AMQP元素——交换器、队列和绑定/">
+
+
+
+
+
+  <title> 【RabbitMQ实战】AMQP元素——交换器、队列和绑定 | mrlonelyjtr's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">mrlonelyjtr's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">写BUG的程序猿</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/11/【RabbitMQ实战】AMQP元素——交换器、队列和绑定/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mrlonelyjtr">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="mrlonelyjtr's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                【RabbitMQ实战】AMQP元素——交换器、队列和绑定
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-11T07:46:38+08:00">
+                2020-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Message-Queue/" itemprop="url" rel="index">
+                    <span itemprop="name">Message Queue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>AMQP消息路由必须有三部分：交换器、队列和绑定。生产者把消息发布到交换器上；消息最终到达队列，并被消费者接收；绑定决定了消息如何从路由器路由到特定的队列。</p>
+<p><a href="https://imgchr.com/i/3aGn8x" target="_blank" rel="noopener"><img src="https://s2.ax1x.com/2020/02/26/3aGn8x.png" alt="3aGn8x.png"></a></p>
+<h2 id="从底部开始构造：队列"><a href="#从底部开始构造：队列" class="headerlink" title="从底部开始构造：队列"></a>从底部开始构造：队列</h2><p>消费者通过以下两种方式从特定的队列中接受消息：<br>（1）通过AMQP的basic.consume命令订阅。这样做会将信道置为接收模式，直到取消对队列的订阅为止。订阅了消息后，消费者在消费（或者拒绝）最近接收的那条消息后，就能从队列中（可用的）自动接收下一条消息。如果消费者处理队列消息，并且/或者需要在消息一到达队列时就自动接收的话，应该使用basic.consume。<br>（2）某些时候，只想从队列获得单条消息而不是持续订阅。向队列请求单条消息是通过AMQP的basic.get命令实现的。这样做可以让消费者接收队列中的下一条消息。如果要获得更多消息的话，需要再次发送basic.get命令。不应该将basic.get放在一个循环里来代替basic.consume。因为这样做会影响Rabbit的性能。大致上讲，basic.get命令会订阅消息，获得单条消息，然后取消订阅。消费者理应始终使用basic.consume来实现高吞吐量。</p>
+<p>如果至少有一个消费者订阅了队列的话，消息会立即发送给这些订阅的消费者。但是如果消息到达了无人订阅的队列呢？在这种情况下，消息会在队列中等待。一旦有消费者订阅到该队列，那么队列上的消息就会发送给消费者。</p>
+<p>当Rabbit队列拥有多个消费者时，队列收到的消息将以循环（round-robin）的方式发送给消费者。每条消息只会发送给一个订阅的消费者。</p>
+<p>消费者接收到的每一条消息都必须进行确认。消费者必须通过AMQP的basic.ack命令显示地向RabbitMQ发送一个确认，或者在订阅到队列的时候就将auto_ack参数设置为true。当设置了auto_ack时，一旦消费者接收消息，RabbitMQ会自动视其确认了消息。需要记住的是，消费者对消息的确认和告诉生产者消息已经被接收了这两件事毫不相关。因此，消费者通过确认命令告诉RabbitMQ它已经正确地接收了消息，同时RabbitMQ才能安全地把消息从队列中删除。</p>
+<p>如果消费者收到一条消息，然后确认之前从Rabbit断开连接（或者从队列上取消订阅），RabbitMQ会认为这条消息没有分发，然后重新分发给下一个订阅的消费者。如果应用程序崩溃了，这样做可以确保消息会被发送给另一个消费者进行处理。</p>
+<p>另一方面，如果应用程序有bug而忘记确认消息的话，Rabbit将不会给该消费者发送更多消息了。这是因为在上一条消息被确认之前，Rabbit会认为这个消费者并没有准备好接收下一条消息。如果处理消息内容非常耗时，则应用程序可以延迟确认该消息，直到消息处理完成。这样可以防止Rabbit持续不断的消息涌向应用程序而导致过载。</p>
+<p>在收到消息后，如果想要明确拒绝而不是确认收到该消息的话，该如何呢？只要消息尚未确认，则有以下两个选择：<br>（1） 把消费者从RabbitMQ服务器断开连接。这会导致RabbitMQ自动重新把消息入队并发送给另一个消费者。这样做的好处是所有的RabbitMQ版本都支持。缺点是，这样连接/断开连接的方式会额外增加RabbitMQ的负担（如果消费者在处理每条消息时都遇到错误的话，会导致潜在的重大负荷）。<br>（2）如果正使用RabbitMQ 2.0.0或者更新的版本，那就使用AMQP的basic.reject命令。顾名思义：basic.reject允许消费者拒绝RabbitMQ发送的消息。如果把reject命令的requeue参数设置成true的话，RabbitMQ会将消息重新发送给下一个订阅的消费者。如果设置成false的话，RabbitMQ立即会把消息从队列中移除，而不会把它发送给新的消费者。也可以通过对消息确认的方式来简单地忽略该消息（这种忽略消息的方式的优势在于所有版本的RabbitMQ都支持）。如果检测到一条格式错误的消息而任何一个消费者都无法处理的时候，这样做就十分有用。</p>
+<p>在将来的RabbitMQ版本中会支持一个特殊的“死信”（dead letter）队列，用来存放那些被拒绝而不重入队列的消息。死信队列让通过检测拒绝/未送达的消息来发现问题。如果应用程序想自动从死信队列功能中获益的话，需要使用reject命令并将requeue参数设置成false。</p>
+<p>消费者和生产者都能使用AMQP的queue.declare命令来创建队列。但是如果消费者在同一条信道上订阅了另一个队列的话，就无法再声明队列了。必须首先取消订阅，将信道置为“传输”模式。当创建队列时，常常想要指定队列名称。消费者订阅队列时需要队列名称，并在创建绑定时也需要指定队列名称。如果不指定队列名称的话，Rabbit会分配一个随机名称并在queue.declare命令的响应中返回。以下是队列设置中另一些有用的参数：</p>
+<ul>
+<li>exclusive——如果设置为true的话，队列将变成私有的，此时只有你的应用程序才能够消费队列消息。当想要限制一个队列只有一个消费者的时候很有帮助。</li>
+<li>auto-delete——当最后一个消费者取消订阅的时候，队列就会自动移除。如果需要临时队列只为一个消费者服务的话，请结合使用auto-delete和exclusive。当消费者断开连接时，队列就被移除了。</li>
+</ul>
+<p>如果尝试声明一个已经存在的队列会发生什么呢？只要声明参数完全匹配现存的队列的话，Rabbit就什么都不做，并成功返回，就好像这个队列已经创建成功一样（如果参数不匹配的话，队列声明尝试会失败）。如果只是想检测队列是否存在，则可以设置queue.declare的passive选项为true。在该设置下，如果队列存在，那么queue.declare命令会成功返回；如果队列不存在的话，queue.declare命令不会创建队列而会返回一个错误。</p>
+<h2 id="联合起来：交换器和绑定"><a href="#联合起来：交换器和绑定" class="headerlink" title="联合起来：交换器和绑定"></a>联合起来：交换器和绑定</h2><p>服务器会根据路由键将消息从交换器路由到队列，但它是如何处理投递到多个队列的情况的呢？协议中定义的不同类型交换器发挥了作用。一共有四种类型：direct、fanout、topic、和headers。每一种类型实现了不同的路由算法。</p>
+<p>headers交换器允许匹配AMQP消息的header而非路由键。除此之外，headers交换器和direct交换器完全一致，但性能会差很多。因此它并不太实用，而且几乎再也用不到了。</p>
+<p>direct交换器非常简单：如果路由键匹配的话，消息就被投递到对应的队列。</p>
+<p><a href="https://imgchr.com/i/8DcaKe" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/18/8DcaKe.png" alt="8DcaKe.png"></a></p>
+<p>服务器必须实现direct类型交换器，包含一个空白字符串名称的默认交换器。当声明一个队列时，它会自动绑定到默认交换器，并以队列名称作为路由键。这意味着可以使用如下代码发送消息到之前声明的队列去。前提是已经获得了信道实例：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$channel-&gt;basic_publish($msg, <span class="string">''</span>, <span class="string">'queue_name'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>第一个参数是想要发送的消息内容；第二个参数是一个空的字符串，指定了默认交换器；而第三个参数就是路由键了。当默认的direct交换器无法满足应用程序的需求时，可以声明自己的交换器。只需发送exchange.declare命令并设置合适的参数就行了。</p>
+<p>fanout交换器会将收到的消息广播到绑定的队列上。消息通信模式很简单：当发送一条消息到fanout交换器时，它会把消息投递给所有附加在此交换器上的队列。这允许对单条消息做不同方式的反应。</p>
+<p><a href="https://imgchr.com/i/86pZ3n" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/19/86pZ3n.png" alt="86pZ3n.png"></a></p>
+<p>topic交换器允许实现有趣的消息通信场景，它使得来自不同源头的消息能够到达同一个队列。</p>
+<p><a href="https://imgchr.com/i/86CLAU" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/03/19/86CLAU.png" alt="86CLAU.png"></a></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$channel-&gt;basic_publish($msg, <span class="string">'logs-exchange'</span>, <span class="string">'error.msg-inbox'</span>);</span><br><span class="line"></span><br><span class="line">$channel-&gt;queue_bind(<span class="string">'msg-inbox-logs'</span>, <span class="string">'logs-exchange'</span>, <span class="string">'*.msg-inbox'</span>);</span><br><span class="line">$channel-&gt;queue_bind(<span class="string">'all-logs'</span>, <span class="string">'logs-exchange'</span>, <span class="string">'#'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>单个”.”把路由键分为了几部分，”*”匹配特定位置的任意文本，”#”匹配所有规则。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Message-Queue/" rel="tag"># Message Queue</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/02/23/【RabbitMQ实战】消息通信概念——消费者、生产者和代理/" rel="next" title="【RabbitMQ实战】消息通信概念——消费者、生产者和代理">
+                <i class="fa fa-chevron-left"></i> 【RabbitMQ实战】消息通信概念——消费者、生产者和代理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="mrlonelyjtr">
+          <p class="site-author-name" itemprop="name">mrlonelyjtr</p>
+           
+              <p class="site-description motion-element" itemprop="description">间歇性踌躇满志，持续性混吃等死</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">708</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/mrlonelyjtr" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#从底部开始构造：队列"><span class="nav-number">1.</span> <span class="nav-text">从底部开始构造：队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#联合起来：交换器和绑定"><span class="nav-number">2.</span> <span class="nav-text">联合起来：交换器和绑定</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">mrlonelyjtr</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
