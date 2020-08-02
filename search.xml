@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[Leetcode] Problem 963 - Minimum Area Rectangle II]]></title>
+    <url>%2F2020%2F08%2F03%2FLeetcode-Problem-963-Minimum-Area-Rectangle-II%2F</url>
+    <content type="text"><![CDATA[Given a set of points in the xy-plane, determine the minimum area of any rectangle formed from these points, with sides not necessarily parallel to the x and y axes. If there isn’t any rectangle, return 0. ExampleNo.1 Input: [[1,2],[2,1],[1,0],[0,1]] Output: 2.00000 Explanation: The minimum area rectangle occurs at [1,2],[2,1],[1,0],[0,1], with an area of 2. No.2 Input: [[0,1],[2,1],[1,1],[1,0],[2,0]] Output: 1.00000 Explanation: The minimum area rectangle occurs at [1,0],[1,1],[2,1],[2,0], with an area of 1. No.3 Input: [[0,3],[1,2],[3,1],[1,3],[2,1]] Output: 0 Explanation: There is no possible rectangle to form from these points. No.4 Input: [[3,1],[1,1],[0,1],[2,1],[3,3],[3,2],[0,2],[2,3]] Output: 2.00000 Explanation: The minimum area rectangle occurs at [2,1],[2,3],[3,3],[3,1], with an area of 2. Note 1 &lt;= points.length &lt;= 50 0 &lt;= points[i][0] &lt;= 40000 0 &lt;= points[i][1] &lt;= 40000 All points are distinct. Answers within 10^-5 of the actual value will be accepted as correct. Code123456789101112131415161718192021222324252627282930313233343536373839public double minAreaFreeRect(int[][] points) &#123; double result = Double.MAX_VALUE; Set&lt;Integer&gt; set = new HashSet&lt;&gt;(); for (int[] point : points) &#123; set.add(point[0] &lt;&lt; 16 | point[1]); &#125; int size = set.size(); for (int i = 0; i &lt; size; i++) &#123; for (int j = 0; j &lt; size; j++) &#123; if (i == j) continue; for (int k = 0; k &lt; size; k++) &#123; if (k == i || k == j) continue; int[] p0 = points[i]; int[] p1 = points[j]; int[] p2 = points[k]; int dot = (p1[0] - p0[0]) * (p2[0] - p0[0]) + (p1[1] - p0[1]) * (p2[1] - p0[1]); if (dot != 0) continue; int x3 = p1[0] + p2[0] - p0[0]; int y3 = p1[1] + p2[1] - p0[1]; if (!set.contains(x3 &lt;&lt; 16 | y3)) continue; double a = Math.pow(p1[0] - p0[0], 2) + Math.pow(p1[1] - p0[1], 2); double b = Math.pow(p2[0] - p0[0], 2) + Math.pow(p2[1] - p0[1], 2); result = Math.min(a * b, result); &#125; &#125; &#125; return result == Double.MAX_VALUE ? 0 : Math.sqrt(result);&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[Leetcode] Problem 939 - Minimum Area Rectangle]]></title>
+    <url>%2F2020%2F08%2F02%2FLeetcode-Problem-939-Minimum-Area-Rectangle%2F</url>
+    <content type="text"><![CDATA[Given a set of points in the xy-plane, determine the minimum area of a rectangle formed from these points, with sides parallel to the x and y axes. If there isn’t any rectangle, return 0. ExampleNo.1Input: [[1,1],[1,3],[3,1],[3,3],[2,2]] Output: 4 No.2Input: [[1,1],[1,3],[3,1],[3,3],[4,1],[4,3]] Output: 2 Note 1 &lt;= points.length &lt;= 500 0 &lt;= points[i][0] &lt;= 40000 0 &lt;= points[i][1] &lt;= 40000 All points are distinct. Code1234567891011121314151617181920212223242526272829public int minAreaRect(int[][] points) &#123; int result = Integer.MAX_VALUE; Set&lt;Integer&gt; set = new HashSet&lt;&gt;(); for (int[] point : points) &#123; set.add(point[0] &lt;&lt; 16 | point[1]); &#125; int size = set.size(); for (int i = 0; i &lt; size; i++) &#123; for (int j = i + 1; j &lt; size; j++) &#123; int x0 = points[i][0]; int y0 = points[i][1]; int x1 = points[j][0]; int y1 = points[j][1]; if (x0 == x1 || y0 == y1) continue; if (!set.contains(x0 &lt;&lt; 16 | y1) || !set.contains(x1 &lt;&lt; 16 | y0)) continue; int area = Math.abs(x0 - x1) * Math.abs(y0 - y1); result = Math.min(area, result); &#125; &#125; return result == Integer.MAX_VALUE ? 0 : result;&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[java.security包]]></title>
+    <url>%2F2020%2F04%2F29%2Fjava-security%E5%8C%85%2F</url>
+    <content type="text"><![CDATA[java.security包为安全框架提供类和接口。通过该包中的Java实现，仅能完成消息摘要算法的实现（消息摘要处理的MessageDigest、DigestInputStream和DigestOutputStream类），并且其源代码是可见的。 Provider类Provider类实现了Java安全性的一部分或全部，称之为提供者。可能实现的服务包括： 算法（如DSA、RSA、MD5或SHA-1） 密钥的生成、转换和管理设施（如用于特定于算法的密钥）。每个提供者都有一个名称和一个版本号，并且在它每次装入运行时中进行配置。 Security类]]></content>
+      <categories>
+        <category>Crypto</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Crypto</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[数字签名]]></title>
     <url>%2F2020%2F04%2F26%2F%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%2F</url>
     <content type="text"><![CDATA[通过散列函数可以确保数据内容的完整性，但这还远远不够。此外，还需要确保数据来源的可认证（鉴别）性和数据发送行为的不可否认性。数字签名针对以数字形式存储的消息进行处理，产生一种带有操作者身份信息的编码。执行数字签名的实体称为签名者，签名过程中所使用的算法称为签名算法（Signature Algorithm），签名操作中生成的编码称为签名者对该消息的数字签名。发送者通过网络将消息连同其数字签名一起发送给接收者。接收者在得到该消息及其数字签名后，可以通过一个算法来验证签名的真伪以及识别相应的签名者。这一过程称为验证过程，其过程中使用的算法称为验证算法（Verification Algorithm），执行验证的实体称为验证者。数字签名离不开非对称密码体制，签名算法受私钥控制，且由签名者保密；验证算法受公钥控制，且对外公开。]]></content>
@@ -5850,7 +5888,7 @@
   <entry>
     <title><![CDATA[[LeetCode] Problem 215 - Kth Largest Element in an Array]]></title>
     <url>%2F2019%2F03%2F24%2FLeetCode-Problem-215-Kth-Largest-Element-in-an-Array%2F</url>
-    <content type="text"><![CDATA[Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element. Example No.1Input: [3,2,1,5,6,4] and k = 2 Output: 5 No.2Input: [3,2,3,1,2,4,5,5,6] and k = 4 Output: 4 NoteYou may assume k is always valid, 1 ≤ k ≤ array’s length. Code1234567891011121314151617181920212223242526272829303132333435363738394041public int findKthLargest(int[] nums, int k) &#123; return sort(nums, k, 0, nums.length - 1);&#125;private int sort(int[] nums, int k, int left, int right) &#123; int pivot = partition(nums, left, right); if (pivot == nums.length - k) return nums[pivot]; else if (pivot &lt; nums.length - k) return sort(nums, k, pivot + 1, right); else return sort(nums, k, left, pivot - 1);&#125;private int partition(int[] nums, int left, int right) &#123; int pivot = left; while (true) &#123; while (left &lt;= right &amp;&amp; nums[left] &lt;= nums[pivot]) left++; while (left &lt;= right &amp;&amp; nums[right] &gt; nums[pivot]) right--; if (left &gt; right) break; swap(nums, left, right); &#125; swap(nums, pivot, right); return right;&#125;private void swap(int[] nums, int i, int j) &#123; int temp = nums[i]; nums[i] = nums[j]; nums[j] = temp;&#125;]]></content>
+    <content type="text"><![CDATA[Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element. ExampleNo.1Input: [3,2,1,5,6,4] and k = 2 Output: 5 No.2Input: [3,2,3,1,2,4,5,5,6] and k = 4 Output: 4 NoteYou may assume k is always valid, 1 ≤ k ≤ array’s length. Code1234567891011121314151617181920212223242526272829303132333435363738394041public int findKthLargest(int[] nums, int k) &#123; return sort(nums, k, 0, nums.length - 1);&#125;private int sort(int[] nums, int k, int left, int right) &#123; int pivot = partition(nums, left, right); if (pivot == nums.length - k) return nums[pivot]; else if (pivot &lt; nums.length - k) return sort(nums, k, pivot + 1, right); else return sort(nums, k, left, pivot - 1);&#125;private int partition(int[] nums, int left, int right) &#123; int pivot = left; while (true) &#123; while (left &lt;= right &amp;&amp; nums[left] &lt;= nums[pivot]) left++; while (left &lt;= right &amp;&amp; nums[right] &gt; nums[pivot]) right--; if (left &gt; right) break; swap(nums, left, right); &#125; swap(nums, pivot, right); return right;&#125;private void swap(int[] nums, int i, int j) &#123; int temp = nums[i]; nums[i] = nums[j]; nums[j] = temp;&#125;]]></content>
       <categories>
         <category>Algorithm</category>
         <category>LeetCode</category>
