@@ -87,22 +87,24 @@
 
 
 
-<meta name="description" content="Alice and Bob have an undirected graph of n nodes and 3 types of edges:  Type 1: Can be traversed by Alice only. Type 2: Can be traversed by Bob only. Type 3: Can by traversed by both Alice and Bob.">
+<meta name="description" content="In a N x N grid composed of 1 x 1 squares, each 1 x 1 square consists of a /, \, or blank space.  These characters divide the square into contiguous regions. (Note that backslash characters are escape">
 <meta name="keywords" content="Algorithm,OJ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[Leetcode] Problem 1579 - Remove Max Number of Edges to Keep Graph Fully Traversable">
-<meta property="og:url" content="http://yoursite.com/2020/10/06/Leetcode-Problem-1579-Remove-Max-Number-of-Edges-to-Keep-Graph-Fully-Traversable/index.html">
+<meta property="og:title" content="[Leetcode] Problem 959 - Regions Cut By Slashes">
+<meta property="og:url" content="http://yoursite.com/2020/10/06/Leetcode-Problem-959-Regions-Cut-By-Slashes/index.html">
 <meta property="og:site_name" content="mrlonelyjtr&#39;s blog">
-<meta property="og:description" content="Alice and Bob have an undirected graph of n nodes and 3 types of edges:  Type 1: Can be traversed by Alice only. Type 2: Can be traversed by Bob only. Type 3: Can by traversed by both Alice and Bob.">
+<meta property="og:description" content="In a N x N grid composed of 1 x 1 squares, each 1 x 1 square consists of a /, \, or blank space.  These characters divide the square into contiguous regions. (Note that backslash characters are escape">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://s1.ax1x.com/2020/10/05/0YLP2Q.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/10/05/0YLeaV.png">
-<meta property="og:image" content="https://s1.ax1x.com/2020/10/05/0YLaGD.png">
-<meta property="og:updated_time" content="2020-10-05T12:23:30.554Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/10/05/0tEV1A.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/10/05/0tE8pj.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/10/05/0tEycR.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/10/05/0tE7jI.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/10/05/0tVpgs.png">
+<meta property="og:updated_time" content="2020-10-05T13:47:22.554Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[Leetcode] Problem 1579 - Remove Max Number of Edges to Keep Graph Fully Traversable">
-<meta name="twitter:description" content="Alice and Bob have an undirected graph of n nodes and 3 types of edges:  Type 1: Can be traversed by Alice only. Type 2: Can be traversed by Bob only. Type 3: Can by traversed by both Alice and Bob.">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/10/05/0YLP2Q.png">
+<meta name="twitter:title" content="[Leetcode] Problem 959 - Regions Cut By Slashes">
+<meta name="twitter:description" content="In a N x N grid composed of 1 x 1 squares, each 1 x 1 square consists of a /, \, or blank space.  These characters divide the square into contiguous regions. (Note that backslash characters are escape">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/10/05/0tEV1A.png">
 
 
 
@@ -130,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/10/06/Leetcode-Problem-1579-Remove-Max-Number-of-Edges-to-Keep-Graph-Fully-Traversable/">
+  <link rel="canonical" href="http://yoursite.com/2020/10/06/Leetcode-Problem-959-Regions-Cut-By-Slashes/">
 
 
 
 
 
-  <title> [Leetcode] Problem 1579 - Remove Max Number of Edges to Keep Graph Fully Traversable | mrlonelyjtr's blog </title>
+  <title> [Leetcode] Problem 959 - Regions Cut By Slashes | mrlonelyjtr's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -297,7 +299,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/06/Leetcode-Problem-1579-Remove-Max-Number-of-Edges-to-Keep-Graph-Fully-Traversable/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/06/Leetcode-Problem-959-Regions-Cut-By-Slashes/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mrlonelyjtr">
@@ -318,7 +320,7 @@
             
             
               
-                [Leetcode] Problem 1579 - Remove Max Number of Edges to Keep Graph Fully Traversable
+                [Leetcode] Problem 959 - Regions Cut By Slashes
               
             
           </h1>
@@ -333,7 +335,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-10-06T02:17:25+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-10-05T20:29:06Z">
                 2020-10-05
               </time>
             
@@ -402,35 +404,44 @@
       
 
       
-        <p>Alice and Bob have an undirected graph of n nodes and 3 types of edges:</p>
-<ul>
-<li>Type 1: Can be traversed by Alice only.</li>
-<li>Type 2: Can be traversed by Bob only.</li>
-<li>Type 3: Can by traversed by both Alice and Bob.</li>
-</ul>
-<p>Given an array edges where edges[i] = [typei, ui, vi] represents a bidirectional edge of type typei between nodes ui and vi, find the maximum number of edges you can remove so that after removing the edges, the graph can still be fully traversed by both Alice and Bob. The graph is fully traversed by Alice and Bob if starting from any node, they can reach all other nodes.</p>
-<p>Return the maximum number of edges you can remove, or return -1 if it’s impossible for the graph to be fully traversed by Alice and Bob.</p>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p><a href="https://imgchr.com/i/0YLP2Q" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/10/05/0YLP2Q.png" alt="0YLP2Q.png"></a></p>
-<p>Input: n = 4, edges = [[3,1,2],[3,2,3],[1,1,3],[1,2,4],[1,1,2],[2,3,4]]</p>
+        <p>In a N x N grid composed of 1 x 1 squares, each 1 x 1 square consists of a /, \, or blank space.  These characters divide the square into contiguous regions.</p>
+<p>(Note that backslash characters are escaped, so a \ is represented as “\\“.)</p>
+<p>Return the number of regions.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="No-1"><a href="#No-1" class="headerlink" title="No.1"></a>No.1</h3><p>Input:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  <span class="string">" /"</span>,</span><br><span class="line">  <span class="string">"/ "</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
 <p>Output: 2</p>
-<p>Explanation: If we remove the 2 edges [1,1,2] and [1,1,3]. The graph will still be fully traversable by Alice and Bob. Removing any additional edge will not make it so. So the maximum number of edges we can remove is 2.</p>
-<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p><a href="https://imgchr.com/i/0YLeaV" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/10/05/0YLeaV.png" alt="0YLeaV.png"></a></p>
-<p>Input: n = 4, edges = [[3,1,2],[3,2,3],[1,1,4],[2,1,4]]</p>
-<p>Output: 0</p>
-<p>Explanation: Notice that removing any edge will not make the graph fully traversable by Alice and Bob.</p>
-<h3 id="No-3"><a href="#No-3" class="headerlink" title="No.3"></a>No.3</h3><p><a href="https://imgchr.com/i/0YLaGD" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/10/05/0YLaGD.png" alt="0YLaGD.png"></a></p>
-<p>Input: n = 4, edges = [[3,2,3],[1,1,2],[2,3,4]]</p>
-<p>Output: -1</p>
-<p>Explanation: In the current graph, Alice cannot reach node 4 from the other nodes. Likewise, Bob cannot reach 1. Therefore it’s impossible to make the graph fully traversable.</p>
-<h2 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h2><ul>
-<li>1 &lt;= n &lt;= 10^5</li>
-<li>1 &lt;= edges.length &lt;= min(10^5, 3 * n * (n-1) / 2)</li>
-<li>edges[i].length == 3</li>
-<li>1 &lt;= edges[i][0] &lt;= 3</li>
-<li>1 &lt;= edges[i][1] &lt; edges[i][2] &lt;= n</li>
-<li>All tuples (typei, ui, vi) are distinct.</li>
-</ul>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UnionFind</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] id;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] size;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> count;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UnionFind</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id = <span class="keyword">new</span> <span class="keyword">int</span>[n + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">this</span>.size = <span class="keyword">new</span> <span class="keyword">int</span>[n + <span class="number">1</span>];</span><br><span class="line">        count = n;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            id[i] = i;</span><br><span class="line">            size[i] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">count</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> pRoot = find(p);</span><br><span class="line">        <span class="keyword">int</span> qRoot = find(q);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (pRoot == qRoot)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (size[pRoot] &lt; size[qRoot]) &#123;</span><br><span class="line">            id[pRoot] = qRoot;</span><br><span class="line">            size[qRoot] += size[pRoot];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            id[qRoot] = pRoot;</span><br><span class="line">            size[pRoot] += size[qRoot];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        count--;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (p != id[p])</span><br><span class="line">            p = id[p];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxNumEdgesToRemove</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span>[][] edges)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">    UnionFind a = <span class="keyword">new</span> UnionFind(n);</span><br><span class="line">    UnionFind b = <span class="keyword">new</span> UnionFind(n);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span>[] edge : edges) &#123;</span><br><span class="line">        <span class="keyword">if</span> (edge[<span class="number">0</span>] != <span class="number">3</span>)</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (a.union(edge[<span class="number">1</span>], edge[<span class="number">2</span>]))</span><br><span class="line">            b.union(edge[<span class="number">1</span>], edge[<span class="number">2</span>]);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            result++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span>[] edge : edges) &#123;            </span><br><span class="line">        <span class="keyword">if</span> (edge[<span class="number">0</span>] == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!a.union(edge[<span class="number">1</span>], edge[<span class="number">2</span>]))</span><br><span class="line">                result++;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (edge[<span class="number">0</span>] == <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!b.union(edge[<span class="number">1</span>], edge[<span class="number">2</span>]))</span><br><span class="line">                result++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> a.count == <span class="number">1</span> &amp;&amp; b.count == <span class="number">1</span> ? result : -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Explanation: The 2x2 grid is as follows:</p>
+<p><a href="https://imgchr.com/i/0tEV1A" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/10/05/0tEV1A.png" alt="0tEV1A.png"></a></p>
+<h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><p>Input:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  <span class="string">" /"</span>,</span><br><span class="line">  <span class="string">"  "</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>Output: 1</p>
+<p>Explanation: The 2x2 grid is as follows:</p>
+<p><a href="https://imgchr.com/i/0tE8pj" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/10/05/0tE8pj.png" alt="0tE8pj.png"></a></p>
+<h3 id="No-3"><a href="#No-3" class="headerlink" title="No.3"></a>No.3</h3><p>Input:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  <span class="string">"\\/"</span>,</span><br><span class="line">  <span class="string">"/\\"</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>Output: 4</p>
+<p>Explanation: (Recall that because \ characters are escaped, “\\/“ refers to \/, and “/\\“ refers to /\.)<br>The 2x2 grid is as follows:</p>
+<p><a href="https://imgchr.com/i/0tEycR" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/10/05/0tEycR.png" alt="0tEycR.png"></a></p>
+<h3 id="No-4"><a href="#No-4" class="headerlink" title="No.4"></a>No.4</h3><p>Input:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  <span class="string">"/\\"</span>,</span><br><span class="line">  <span class="string">"\\/"</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>Output: 5</p>
+<p>Explanation: (Recall that because \ characters are escaped, “/\\“ refers to /\, and “\\/“ refers to \/.)<br>The 2x2 grid is as follows:</p>
+<p><a href="https://imgchr.com/i/0tE7jI" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/10/05/0tE7jI.png" alt="0tE7jI.png"></a></p>
+<h3 id="No-5"><a href="#No-5" class="headerlink" title="No.5"></a>No.5</h3><p>Input:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  <span class="string">"//"</span>,</span><br><span class="line">  <span class="string">"/ "</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>Output: 3</p>
+<p>Explanation: The 2x2 grid is as follows:</p>
+<p><a href="https://imgchr.com/i/0tVpgs" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/10/05/0tVpgs.png" alt="0tVpgs.png"></a></p>
+<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><ol>
+<li>1 &lt;= grid.length == grid[0].length &lt;= 30</li>
+<li>grid[i][j] is either ‘/‘, ‘\‘, or ‘ ‘.</li>
+</ol>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UnionFind</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] id;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] size;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> count;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UnionFind</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        <span class="keyword">this</span>.size = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        count = n;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            id[i] = i;</span><br><span class="line">            size[i] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">count</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> pRoot = find(p);</span><br><span class="line">        <span class="keyword">int</span> qRoot = find(q);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (pRoot == qRoot)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (size[pRoot] &lt; size[qRoot]) &#123;</span><br><span class="line">            id[pRoot] = qRoot;</span><br><span class="line">            size[qRoot] += size[pRoot];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            id[qRoot] = pRoot;</span><br><span class="line">            size[pRoot] += size[qRoot];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        count--;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (p != id[p])</span><br><span class="line">            p = id[p];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">regionsBySlashes</span><span class="params">(String[] grid)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = grid.length;</span><br><span class="line">    UnionFind uf = <span class="keyword">new</span> UnionFind(<span class="number">4</span> * n * n);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">            <span class="keyword">int</span> idx = <span class="number">4</span> * (i * n + j);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (grid[i].charAt(j) == <span class="string">'/'</span>) &#123;</span><br><span class="line">                uf.union(idx, idx + <span class="number">3</span>);</span><br><span class="line">                uf.union(idx + <span class="number">1</span>, idx + <span class="number">2</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (grid[i].charAt(j) == <span class="string">'\\'</span>) &#123;</span><br><span class="line">                uf.union(idx, idx + <span class="number">1</span>);</span><br><span class="line">                uf.union(idx + <span class="number">2</span>, idx + <span class="number">3</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                uf.union(idx, idx + <span class="number">1</span>);</span><br><span class="line">                uf.union(idx + <span class="number">1</span>, idx + <span class="number">2</span>);</span><br><span class="line">                uf.union(idx + <span class="number">2</span>, idx + <span class="number">3</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (i &lt; n - <span class="number">1</span>)</span><br><span class="line">                uf.union(idx + <span class="number">2</span>, idx + <span class="number">4</span> * n);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (j &lt; n - <span class="number">1</span>)</span><br><span class="line">                uf.union(idx + <span class="number">1</span>, idx + <span class="number">4</span> + <span class="number">3</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> uf.count();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -474,8 +485,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/10/05/Leetcode-Problem-1489-Find-Critical-and-Pseudo-Critical-Edges-in-Minimum-Spanning-Tree/" rel="next" title="[Leetcode] Problem 1489 - Find Critical and Pseudo-Critical Edges in Minimum Spanning Tree">
-                <i class="fa fa-chevron-left"></i> [Leetcode] Problem 1489 - Find Critical and Pseudo-Critical Edges in Minimum Spanning Tree
+              <a href="/2020/10/06/Leetcode-Problem-1579-Remove-Max-Number-of-Edges-to-Keep-Graph-Fully-Traversable/" rel="next" title="[Leetcode] Problem 1579 - Remove Max Number of Edges to Keep Graph Fully Traversable">
+                <i class="fa fa-chevron-left"></i> [Leetcode] Problem 1579 - Remove Max Number of Edges to Keep Graph Fully Traversable
               </a>
             
           </div>
@@ -483,10 +494,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/10/06/Leetcode-Problem-959-Regions-Cut-By-Slashes/" rel="prev" title="[Leetcode] Problem 959 - Regions Cut By Slashes">
-                [Leetcode] Problem 959 - Regions Cut By Slashes <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -624,7 +631,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1"><span class="nav-number">1.1.</span> <span class="nav-text">No.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2"><span class="nav-number">1.2.</span> <span class="nav-text">No.2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-3"><span class="nav-number">1.3.</span> <span class="nav-text">No.3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Constraints"><span class="nav-number">2.</span> <span class="nav-text">Constraints</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1"><span class="nav-number">1.1.</span> <span class="nav-text">No.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2"><span class="nav-number">1.2.</span> <span class="nav-text">No.2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-3"><span class="nav-number">1.3.</span> <span class="nav-text">No.3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-4"><span class="nav-number">1.4.</span> <span class="nav-text">No.4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-5"><span class="nav-number">1.5.</span> <span class="nav-text">No.5</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">2.</span> <span class="nav-text">Note</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">3.</span> <span class="nav-text">Code</span></a></li></ol></div>
             
 
           </div>
