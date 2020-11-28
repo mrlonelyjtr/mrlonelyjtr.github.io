@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[Leetcode] Problem 567 - Permutation in String]]></title>
+    <url>%2F2020%2F11%2F14%2FLeetcode-Problem-567-Permutation-in-String%2F</url>
+    <content type="text"><![CDATA[Given two strings s1 and s2, write a function to return true if s2 contains the permutation of s1. In other words, one of the first string’s permutations is the substring of the second string. ExampleNo.1Input: s1 = “ab” s2 = “eidbaooo” Output: True Explanation: s2 contains one permutation of s1 (“ba”). No.2Input:s1= “ab” s2 = “eidboaoo” Output: False Constraints The input strings only contain lower case letters. The length of both given strings is in range [1, 10,000]. Code1234567891011121314151617181920212223242526272829303132public boolean checkInclusion(String s1, String s2) &#123; int l1 = s1.length(); int l2 = s2.length(); int[] count = new int[26]; if (l1 &gt; l2) return false; for (char ch : s1.toCharArray()) count[ch - 'a'] += 1; for (int i = 0; i &lt; l2; i++) &#123; count[s2.charAt(i) - 'a'] -= 1; if (i &gt;= l1) count[s2.charAt(i - l1) - 'a'] += 1; if (match(count)) return true; &#125; return false;&#125;private boolean match(int[] count) &#123; for (int c : count) &#123; if (c != 0) return false; &#125; return true;&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[Leetcode] Problem 525 - Contiguous Array]]></title>
+    <url>%2F2020%2F11%2F13%2FLeetcode-Problem-525-Contiguous-Array%2F</url>
+    <content type="text"><![CDATA[Given a binary array, find the maximum length of a contiguous subarray with equal number of 0 and 1. ExampleNo.1Input: [0,1] Output: 2 Explanation: [0, 1] is the longest contiguous subarray with equal number of 0 and 1. No.2Input: [0,1,0] Output: 2 Explanation: [0, 1] (or [1, 0]) is a longest contiguous subarray with equal number of 0 and 1. NoteThe length of the given binary array will not exceed 50,000. Code123456789101112131415161718public int findMaxLength(int[] nums) &#123; int max = 0; int sum = 0; Map&lt;Integer, Integer&gt; index = new HashMap&lt;&gt;(); for (int i = 0; i &lt; nums.length; i++) &#123; sum += nums[i] == 1 ? 1 : -1; if (sum == 0) max = i + 1; else if (!index.containsKey(sum)) index.put(sum, i); else max = Math.max(max, i - index.get(sum)); &#125; return max;&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[Leetcode] Problem 451 - Sort Characters By Frequency]]></title>
+    <url>%2F2020%2F11%2F12%2FLeetcode-Problem-451-Sort-Characters-By-Frequency%2F</url>
+    <content type="text"><![CDATA[Given a string, sort it in decreasing order based on the frequency of characters. ExampleNo.1Input:“tree” Output:“eert” Explanation:‘e’ appears twice while ‘r’ and ‘t’ both appear once.So ‘e’ must appear before both ‘r’ and ‘t’. Therefore “eetr” is also a valid answer. No.2Input:“cccaaa” Output:“cccaaa” Explanation:Both ‘c’ and ‘a’ appear three times, so “aaaccc” is also a valid answer.Note that “cacaca” is incorrect, as the same characters must be together. No.3Input:“Aabb” Output:“bbAa” Explanation:“bbaA” is also a valid answer, but “Aabb” is incorrect.Note that ‘A’ and ‘a’ are treated as two different characters. Code12345678910111213141516171819202122public String frequencySort(String s) &#123; StringBuilder sb = new StringBuilder(); int[] count = new int[128]; List&lt;Object[]&gt; list = new ArrayList&lt;&gt;(); for (char ch : s.toCharArray()) count[ch] += 1; for (int i = 0; i &lt; count.length; i++) &#123; if (count[i] &gt; 0) list.add(new Object[] &#123;i, count[i]&#125;); &#125; list.sort((a, b) -&gt; (int) b[1] - (int) a[1]); for (Object[] o : list) &#123; for (int i = 0; i &lt; (int) o[1]; i++) sb.append(Character.toChars((int) o[0])); &#125; return sb.toString();&#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>OJ</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[Leetcode] Problem 1642 - Furthest Building You Can Reach]]></title>
     <url>%2F2020%2F11%2F11%2FLeetcode-Problem-1642-Furthest-Building-You-Can-Reach%2F</url>
     <content type="text"><![CDATA[You are given an integer array heights representing the heights of buildings, some bricks, and some ladders. You start your journey from building 0 and move to the next building by possibly using bricks or ladders. While moving from building i to building i+1 (0-indexed), If the current building’s height is greater than or equal to the next building’s height, you do not need a ladder or bricks. If the current building’s height is less than the next building’s height, you can either use one ladder or (h[i+1] - h[i]) bricks. Return the furthest building index (0-indexed) you can reach if you use the given ladders and bricks optimally. ExampleNo.1 Input: heights = [4,2,7,6,9,14,12], bricks = 5, ladders = 1 Output: 4 Explanation: Starting at building 0, you can follow these steps: Go to building 1 without using ladders nor bricks since 4 &gt;= 2. Go to building 2 using 5 bricks. You must use either bricks or ladders because 2 &lt; 7. Go to building 3 without using ladders nor bricks since 7 &gt;= 6. Go to building 4 using your only ladder. You must use either bricks or ladders because 6 &lt; 9.It is impossible to go beyond building 4 because you do not have any more bricks or ladders. No.2Input: heights = [4,12,2,7,3,18,20,3,19], bricks = 10, ladders = 2 Output: 7 No.3Input: heights = [14,3,19,3], bricks = 17, ladders = 0 Output: 3 Constraints 1 &lt;= heights.length &lt;= 10^5 1 &lt;= heights[i] &lt;= 10^6 0 &lt;= bricks &lt;= 10^9 0 &lt;= ladders &lt;= heights.length Code12345678910111213141516171819202122public int furthestBuilding(int[] heights, int bricks, int ladders) &#123; PriorityQueue&lt;Integer&gt; minHeap = new PriorityQueue&lt;&gt;(); for (int i = 1; i &lt; heights.length; i++) &#123; int diff = heights[i] - heights[i - 1]; if (diff &lt;= 0) continue; minHeap.offer(diff); if (minHeap.size() &lt;= ladders) continue; bricks -= minHeap.poll(); if (bricks &lt; 0) return i - 1; &#125; return heights.length - 1;&#125;]]></content>
@@ -7085,7 +7124,7 @@
   <entry>
     <title><![CDATA[[LeetCode] Problem 438 - Find All Anagrams in a String]]></title>
     <url>%2F2019%2F03%2F10%2FLeetCode-Problem-438-Find-All-Anagrams-in-a-String%2F</url>
-    <content type="text"><![CDATA[Given a string s and a non-empty string p, find all the start indices of p’s anagrams in s. Strings consists of lowercase English letters only and the length of both strings s and p will not be larger than 20,100. The order of output does not matter. ExampleNo.1Input:s: “cbaebabacd” p: “abc” Output:[0, 6] Explanation:The substring with start index = 0 is “cba”, which is an anagram of “abc”.The substring with start index = 6 is “bac”, which is an anagram of “abc”. No.2Input:s: “abab” p: “ab” Output:[0, 1, 2] Explanation:The substring with start index = 0 is “ab”, which is an anagram of “ab”.The substring with start index = 1 is “ba”, which is an anagram of “ab”.The substring with start index = 2 is “ab”, which is an anagram of “ab”. Code123456789101112131415161718192021222324252627282930313233343536373839404142434445public List&lt;Integer&gt; findAnagrams(String s, String p) &#123; List&lt;Integer&gt; result = new ArrayList&lt;&gt;(); if (s.length() &lt; p.length()) return result; int[] count = new int[26]; int num = 0; int start = 0; int end = 0; for (char ch : p.toCharArray()) &#123; int idx = ch - 'a'; if (count[idx] == 0) num++; count[idx]++; &#125; while (end &lt; s.length()) &#123; int idxEnd = s.charAt(end) - 'a'; count[idxEnd]--; if (count[idxEnd] == 0) num--; end++; while (num == 0) &#123; int idxStart = s.charAt(start) - 'a'; count[idxStart]++; if (count[idxStart] &gt; 0) num++; if (end - start == p.length()) result.add(start); start++; &#125; &#125; return result;&#125;]]></content>
+    <content type="text"><![CDATA[Given a string s and a non-empty string p, find all the start indices of p’s anagrams in s. Strings consists of lowercase English letters only and the length of both strings s and p will not be larger than 20,100. The order of output does not matter. ExampleNo.1Input:s: “cbaebabacd” p: “abc” Output:[0, 6] Explanation:The substring with start index = 0 is “cba”, which is an anagram of “abc”.The substring with start index = 6 is “bac”, which is an anagram of “abc”. No.2Input:s: “abab” p: “ab” Output:[0, 1, 2] Explanation:The substring with start index = 0 is “ab”, which is an anagram of “ab”.The substring with start index = 1 is “ba”, which is an anagram of “ab”.The substring with start index = 2 is “ab”, which is an anagram of “ab”. Code12345678910111213141516171819202122232425262728293031public List&lt;Integer&gt; findAnagrams(String s, String p) &#123; List&lt;Integer&gt; result = new ArrayList&lt;&gt;(); int[] count = new int[26]; if (s.length() &lt; p.length()) return result; for (char ch : p.toCharArray()) count[ch - 'a']++; for (int i = 0; i &lt; s.length(); i++) &#123; count[s.charAt(i) - 'a']--; if (i &gt;= p.length()) count[s.charAt(i - p.length()) - 'a']++; if (match(count)) result.add(i - p.length() + 1); &#125; return result;&#125;private boolean match(int[] count) &#123; for (int c : count) &#123; if (c != 0) return false; &#125; return true;&#125;]]></content>
       <categories>
         <category>Algorithm</category>
         <category>LeetCode</category>
